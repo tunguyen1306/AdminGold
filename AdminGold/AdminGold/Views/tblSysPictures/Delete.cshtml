@@ -1,0 +1,97 @@
+﻿@model AdminGold.Models.tblSysPicture
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>tblSysPicture</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.converted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.converted)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.convertedFilename)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.convertedFilename)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.convertedFilename90)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.convertedFilename90)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.convertedFilename180)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.convertedFilename180)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.convertedFilename270)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.convertedFilename270)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cms_sql_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cms_sql_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.shortdescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.shortdescription)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

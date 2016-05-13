@@ -1,0 +1,82 @@
+﻿@model IEnumerable<AdminGold.Models.tblSysPicture>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.converted)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.convertedFilename)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.convertedFilename90)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.convertedFilename180)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.convertedFilename270)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cms_sql_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.shortdescription)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.converted)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.convertedFilename)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.convertedFilename90)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.convertedFilename180)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.convertedFilename270)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cms_sql_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.shortdescription)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>
