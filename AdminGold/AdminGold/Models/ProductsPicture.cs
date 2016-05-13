@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -19,10 +20,10 @@ namespace AdminGold.Models
         public string GetFilePathPhysical(PictureSize size)
         {
             // check if we have converted files
-            if (IsConverted)
+            //if (IsConverted)
                 return DirectoryPhysical + FileName(size);
-            else
-                return classPicture.originalFilepath;
+            //else
+            //    return classPicture.originalFilepath;
         }
         public enum PictureSize : int
         {
@@ -34,14 +35,14 @@ namespace AdminGold.Models
         }
         public string DirectoryPhysical
         {
-            get { return "ttttt"; }
+            get { return "D:/"; }
         }
         public string FileName(PictureSize size)
         {
             // check if we have converted files
-            if (IsConverted)
-            {
-                switch (AngelType)
+            //if (IsConverted)
+            //{
+               switch (AngelType)
                 {
                     case RotationAngle.Rotated0:
                         return string.Format(classPicture.convertedFilename, (int)size);
@@ -64,36 +65,36 @@ namespace AdminGold.Models
                 }
 
                 return "";
-            }
-            else
-            {
-                if (classPicture.originalFilepath.StartsWith("http:", StringComparison.InvariantCultureIgnoreCase))
-                {
-                    return Path.GetFileName(classPicture.originalFilepath);
-                }
-                return classPicture.originalFilepath;
-            }
+            //}
+            //else
+            //{
+            //    if (classPicture.originalFilepath.StartsWith("http:", StringComparison.InvariantCultureIgnoreCase))
+            //    {
+            //        return Path.GetFileName(classPicture.originalFilepath);
+            //    }
+            //    return classPicture.originalFilepath;
+            //}
         }
-        public bool IsConverted
-        {
-            get
-            {
-                switch (AngelType)
-                {
-                    default:
-                        return !string.IsNullOrWhiteSpace(classPicture.convertedFilename);
+        //public bool IsConverted
+        //{
+        //    get
+        //    {
+        //        switch (AngelType)
+        //        {
+        //            default:
+        //                return !string.IsNullOrWhiteSpace(classPicture.convertedFilename);
 
-                    case RotationAngle.Rotated90:
-                        return !string.IsNullOrWhiteSpace(classPicture.convertedFilename90);
+        //            case RotationAngle.Rotated90:
+        //                return !string.IsNullOrWhiteSpace(classPicture.convertedFilename90);
 
-                    case RotationAngle.Rotated180:
-                        return !string.IsNullOrWhiteSpace(classPicture.convertedFilename180);
+        //            case RotationAngle.Rotated180:
+        //                return !string.IsNullOrWhiteSpace(classPicture.convertedFilename180);
 
-                    case RotationAngle.Rotated270:
-                        return !string.IsNullOrWhiteSpace(classPicture.convertedFilename270);
-                }
-            }
-        }
+        //            case RotationAngle.Rotated270:
+        //                return !string.IsNullOrWhiteSpace(classPicture.convertedFilename270);
+        //        }
+        //    }
+        //}
         public RotationAngle AngelType
         {
             get { return (RotationAngle)AngelTypeId; }
@@ -107,5 +108,82 @@ namespace AdminGold.Models
             Rotated270 = 3,
         }
         public int AngelTypeId { get; set; }
+        public string GetConvertedFileName()
+        {
+            // check if we have converted files
+            //if (IsConverted)
+            //{
+                switch (AngelType)
+                {
+                    case RotationAngle.Rotated0:
+                        return classPicture.convertedFilename;
+                        break;
+
+                    case RotationAngle.Rotated90:
+                        return classPicture.convertedFilename90;
+                        break;
+
+                    case RotationAngle.Rotated180:
+                        return classPicture.convertedFilename180;
+                        break;
+
+                    case RotationAngle.Rotated270:
+                        return classPicture.convertedFilename270;
+                        break;
+                }
+
+                return null;
+            //}
+            //else
+            //    return null;
+        }
+        public string SetFileName(string filenamePattern)
+        {
+            // check if we have converted files
+
+            switch (AngelType)
+            {
+                case RotationAngle.Rotated0:
+                    classPicture.convertedFilename = filenamePattern;
+                    break;
+
+                case RotationAngle.Rotated90:
+                    classPicture.convertedFilename90 = filenamePattern;
+                    break;
+
+                case RotationAngle.Rotated180:
+                    classPicture.convertedFilename180 = filenamePattern;
+                    break;
+
+                case RotationAngle.Rotated270:
+                    classPicture.convertedFilename270 = filenamePattern;
+                    break;
+            }
+
+            return "";
+        }
+        public string CreateFilename()
+        {
+            string encoded = Convert.ToBase64String(Guid.NewGuid().ToByteArray());
+            encoded = encoded.Replace("/", "_").Replace("+", "-");
+            return encoded.Substring(0, 22);
+        }
+        public string GetFilePath(PictureSize size)
+        {
+            // check if we have converted files
+           
+                return "D:/" + typeof (Directory) + FileName(size);
+          
+        }
+        public WatermarkType WaterMarkLarge { get; set; }
+        public enum WatermarkType
+        {
+            [Description("none")]
+            None = 0,
+            [Description("image")]
+            Image,
+            [Description("text")]
+            Text
+        }
     }
 }
