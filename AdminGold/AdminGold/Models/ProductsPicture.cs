@@ -172,7 +172,7 @@ namespace AdminGold.Models
         {
             // check if we have converted files
            
-                return "D:/" + typeof (Directory) + FileName(size);
+                return "D:/"  + FileName(size);
           
         }
         public WatermarkType WaterMarkLarge { get; set; }
