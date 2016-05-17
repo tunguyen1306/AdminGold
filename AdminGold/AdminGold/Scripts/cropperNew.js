@@ -9,6 +9,7 @@
  */
 
 (function (factory) {
+   
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as anonymous module.
     define(['jquery'], factory);
@@ -147,6 +148,7 @@
   }
 
   function getImageSize(image, callback) {
+  
     var newImage;
 
     // Modern browsers
@@ -207,6 +209,7 @@
   }
 
   function getSourceCanvas(image, data) {
+    
     var canvas = $('<canvas>')[0];
     var context = canvas.getContext('2d');
     var x = 0;
@@ -326,6 +329,7 @@
     },
 
     load: function (url) {
+     
       var options = this.options;
       var $this = this.$element;
       var crossOrigin = '';
@@ -374,6 +378,7 @@
     },
 
     start: function () {
+ 
       var $image = this.$element;
       var $clone = this.$clone;
 
@@ -543,6 +548,7 @@
       $this.removeClass(CLASS_HIDDEN);
 
       $cropper.css((this.container = {
+         
         width: max($container.width(), num(options.minContainerWidth) || 200),
         height: max($container.height(), num(options.minContainerHeight) || 100)
       }));
@@ -553,7 +559,7 @@
 
     // Canvas (image wrapper)
     initCanvas: function () {
-      
+    
       var viewMode = this.options.viewMode;
       var container = this.container;
       var containerWidth = container.width;
@@ -2606,7 +2612,7 @@
       minCropBoxWidth: 288,
       minCropBoxHeight: 233,
       minContainerWidth: 288,
-    minContainerHeight: 180,
+      minContainerHeight: 180,
 
     // Shortcuts of events
     build: null,

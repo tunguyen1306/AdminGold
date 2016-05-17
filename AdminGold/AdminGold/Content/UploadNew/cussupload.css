@@ -13,7 +13,7 @@
 .dz-image {
     border-radius: 0 !important;
     display: block !important;
-    height: 233px !important;
+    height: 180px !important;
     width: 288px !important;
     overflow: hidden !important;
     position: relative !important;
@@ -27,7 +27,7 @@
 }
 
 .cussimg {
-   height: 233px !important;
+   height: 180px !important;
     width: 288px !important;
 }
 
