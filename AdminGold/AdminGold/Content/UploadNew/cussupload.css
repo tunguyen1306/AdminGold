@@ -4,7 +4,7 @@
     color: #666666;
     font-style: italic;
     height: 30px;
-     width: 288px;
+     width: 300px;
       padding: 6px 12px;
     
    
@@ -13,8 +13,8 @@
 .dz-image {
     border-radius: 0 !important;
     display: block !important;
-    height: 180px !important;
-    width: 288px !important;
+    height: 300px !important;
+    width: 300px !important;
     overflow: hidden !important;
     position: relative !important;
 }
@@ -27,8 +27,8 @@
 }
 
 .cussimg {
-   height: 180px !important;
-    width: 288px !important;
+   height: 300px !important;
+    width: 300px !important;
 }
 
 .dropzone .tools {

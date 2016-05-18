@@ -309,7 +309,7 @@
             createImageThumbnails: true,
             maxThumbnailFilesize: 2,
             //thumbnailWidth: 615,
-            thumbnailHeight: 562,
+            thumbnailHeight: 800,
 
             filesizeBase: 1024,
             maxFiles: 20,

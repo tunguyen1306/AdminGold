@@ -10,8 +10,9 @@ namespace AdminGold.Models
     public class ProductsPicture
     {
         public tblSysPicture classPicture { get; set; }
+        public tbl_products_tra tblProducts { get; set; }
         public string nameProduct { get; set; }
-        public string idProducts { get; set; }
+        public int idProducts { get; set; }
         public string cfile { get; set; }
         public string nameImg { get; set; }
         public byte isactive { get; set; }
@@ -35,7 +36,7 @@ namespace AdminGold.Models
         }
         public string DirectoryPhysical
         {
-            get { return "D:/"; }
+            get { return "~/fileUpload"; }
         }
         public string FileName(PictureSize size)
         {
