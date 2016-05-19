@@ -103,6 +103,18 @@ namespace AdminGold.Controllers
           
            
         }
+       
+        [HttpPost]
+        public ActionResult Cancel(int id)
+        {
+            tbl_products_tra tblproduct = db.tbl_products_tra.Find(id);
+            db.tbl_products_tra.Remove(tblproduct);
+            db.SaveChanges();
+            return RedirectToAction("Index", "Products");
+
+
+
+        }
       
     }
 

@@ -93,6 +93,7 @@
                                 </button>
                            
                             <div onclick="UploadImg(this)" class="btn btn-primary btnAdd1">Thêm</div>
+                           
                         </div>
                     </div>
                 </div>
@@ -345,7 +346,7 @@
 </script>
 
 }
-
+<a href="@Url.Action("Cancel", "UploadImg", new { id = @Model.id_products_tra })" class="btn btn-primary">Hủy</a>
 <link href="/Content/UploadNew/main.css" rel="stylesheet" />
 <link href="/Content/UploadNew/dropzone.css" rel="stylesheet" />
 <link href="/Content/UploadNew/cropper.min.css" rel="stylesheet" />
