@@ -9,22 +9,28 @@ namespace AdminGold.Models
 {
     public class ProductsPicture
     {
-        public tblSysPicture classPicture { get; set; }
-        public tbl_products_tra tblProducts { get; set; }
-        public string nameProduct { get; set; }
+        public List<tblSysPicture> classPicture { get; set; }
+        public tblSysPicture clPicture { get; set; }
+        public tbl_products_tra  tblProducts { get; set; }
+        public List<tbl_products_tra> tblPro { get; set; }
+
+
+
+       
         public int idProducts { get; set; }
         public string cfile { get; set; }
         public string nameImg { get; set; }
         public byte isactive { get; set; }
         public int idpicture { get; set; }
         public int index { get; set; }
+       
         public string GetFilePathPhysical(PictureSize size)
         {
             // check if we have converted files
             //if (IsConverted)
-                return DirectoryPhysical + FileName(size);
+            return DirectoryPhysical + FileName(size);
             //else
-            //    return classPicture.originalFilepath;
+            //    return clPicture.originalFilepath;
         }
         public enum PictureSize : int
         {
@@ -43,37 +49,37 @@ namespace AdminGold.Models
             // check if we have converted files
             //if (IsConverted)
             //{
-               switch (AngelType)
-                {
-                    case RotationAngle.Rotated0:
-                        return string.Format(classPicture.convertedFilename, (int)size);
-                        break;
+            switch (AngelType)
+            {
+                case RotationAngle.Rotated0:
+                    return string.Format(clPicture.convertedFilename, (int)size);
+                    break;
 
-                    case RotationAngle.Rotated90:
-                        if (!string.IsNullOrWhiteSpace(classPicture.convertedFilename90))
-                            return string.Format(classPicture.convertedFilename90, (int)size);
-                        break;
+                case RotationAngle.Rotated90:
+                    if (!string.IsNullOrWhiteSpace(clPicture.convertedFilename90))
+                        return string.Format(clPicture.convertedFilename90, (int)size);
+                    break;
 
-                    case RotationAngle.Rotated180:
-                        if (!string.IsNullOrWhiteSpace(classPicture.convertedFilename180))
-                            return string.Format(classPicture.convertedFilename180, (int)size);
-                        break;
+                case RotationAngle.Rotated180:
+                    if (!string.IsNullOrWhiteSpace(clPicture.convertedFilename180))
+                        return string.Format(clPicture.convertedFilename180, (int)size);
+                    break;
 
-                    case RotationAngle.Rotated270:
-                        if (!string.IsNullOrWhiteSpace(classPicture.convertedFilename270))
-                            return string.Format(classPicture.convertedFilename270, (int)size);
-                        break;
-                }
+                case RotationAngle.Rotated270:
+                    if (!string.IsNullOrWhiteSpace(clPicture.convertedFilename270))
+                        return string.Format(clPicture.convertedFilename270, (int)size);
+                    break;
+            }
 
-                return "";
+            return "";
             //}
             //else
             //{
-            //    if (classPicture.originalFilepath.StartsWith("http:", StringComparison.InvariantCultureIgnoreCase))
+            //    if (clPicture.originalFilepath.StartsWith("http:", StringComparison.InvariantCultureIgnoreCase))
             //    {
-            //        return Path.GetFileName(classPicture.originalFilepath);
+            //        return Path.GetFileName(clPicture.originalFilepath);
             //    }
-            //    return classPicture.originalFilepath;
+            //    return clPicture.originalFilepath;
             //}
         }
         //public bool IsConverted
@@ -83,16 +89,16 @@ namespace AdminGold.Models
         //        switch (AngelType)
         //        {
         //            default:
-        //                return !string.IsNullOrWhiteSpace(classPicture.convertedFilename);
+        //                return !string.IsNullOrWhiteSpace(clPicture.convertedFilename);
 
         //            case RotationAngle.Rotated90:
-        //                return !string.IsNullOrWhiteSpace(classPicture.convertedFilename90);
+        //                return !string.IsNullOrWhiteSpace(clPicture.convertedFilename90);
 
         //            case RotationAngle.Rotated180:
-        //                return !string.IsNullOrWhiteSpace(classPicture.convertedFilename180);
+        //                return !string.IsNullOrWhiteSpace(clPicture.convertedFilename180);
 
         //            case RotationAngle.Rotated270:
-        //                return !string.IsNullOrWhiteSpace(classPicture.convertedFilename270);
+        //                return !string.IsNullOrWhiteSpace(clPicture.convertedFilename270);
         //        }
         //    }
         //}
@@ -114,26 +120,26 @@ namespace AdminGold.Models
             // check if we have converted files
             //if (IsConverted)
             //{
-                switch (AngelType)
-                {
-                    case RotationAngle.Rotated0:
-                        return classPicture.convertedFilename;
-                        break;
+            switch (AngelType)
+            {
+                case RotationAngle.Rotated0:
+                    return clPicture.convertedFilename;
+                    break;
 
-                    case RotationAngle.Rotated90:
-                        return classPicture.convertedFilename90;
-                        break;
+                case RotationAngle.Rotated90:
+                    return clPicture.convertedFilename90;
+                    break;
 
-                    case RotationAngle.Rotated180:
-                        return classPicture.convertedFilename180;
-                        break;
+                case RotationAngle.Rotated180:
+                    return clPicture.convertedFilename180;
+                    break;
 
-                    case RotationAngle.Rotated270:
-                        return classPicture.convertedFilename270;
-                        break;
-                }
+                case RotationAngle.Rotated270:
+                    return clPicture.convertedFilename270;
+                    break;
+            }
 
-                return null;
+            return null;
             //}
             //else
             //    return null;
@@ -145,19 +151,19 @@ namespace AdminGold.Models
             switch (AngelType)
             {
                 case RotationAngle.Rotated0:
-                    classPicture.convertedFilename = filenamePattern;
+                    clPicture.convertedFilename = filenamePattern;
                     break;
 
                 case RotationAngle.Rotated90:
-                    classPicture.convertedFilename90 = filenamePattern;
+                    clPicture.convertedFilename90 = filenamePattern;
                     break;
 
                 case RotationAngle.Rotated180:
-                    classPicture.convertedFilename180 = filenamePattern;
+                    clPicture.convertedFilename180 = filenamePattern;
                     break;
 
                 case RotationAngle.Rotated270:
-                    classPicture.convertedFilename270 = filenamePattern;
+                    clPicture.convertedFilename270 = filenamePattern;
                     break;
             }
 
@@ -172,9 +178,9 @@ namespace AdminGold.Models
         public string GetFilePath(PictureSize size)
         {
             // check if we have converted files
-           
-                return "D:/"  + FileName(size);
-          
+
+            return FileName(size);
+
         }
         public WatermarkType WaterMarkLarge { get; set; }
         public enum WatermarkType

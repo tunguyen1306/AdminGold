@@ -29,24 +29,7 @@ function DeleteUpload(del) {
     eventdelete(del);
     DeleteImg(del);
 }
-function DeleteImg(obj) {
-   
-    var idpic = $(obj).parents(".dz-preview").find('#cusimg').attr('rel');
-        $.ajax({
-            type: "POST",
-            url: "/Services/UploadImg.asmx/DeleteImg",
-            dataType: "json",
-            data: JSON.stringify({ idAdvert:  $('#hdAdvertID').val(), idpicture: idpic }),
-            contentType: 'application/json; charset=utf-8',
-            success: function (data) {
 
-            },
-            error: function (e) {
-
-            }
-        });
-    return false;
-}
 function eventdelete(del) {
     $(del).parents(".dz-preview").remove();
 }

@@ -17,7 +17,13 @@ namespace AdminGold.Controllers
         // GET: Products
         public ActionResult Index()
         {
-            return View(db.tbl_products_tra.ToList());
+            var qrData =( from dataPro in db.tbl_products_tra
+                         join dataImg in db.tblSysPictures on dataPro.id_products_tra equals dataImg.advert_id
+                         where dataImg.position==1
+                          select new ProductsPicture {tblProducts=dataPro,clPicture=dataImg });
+
+           
+            return View(qrData.ToList());
         }
 
         // GET: Products/Details/5
@@ -65,12 +71,13 @@ namespace AdminGold.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            tbl_products_tra tbl_products_tra = db.tbl_products_tra.Find(id);
-            if (tbl_products_tra == null)
-            {
-                return HttpNotFound();
-            }
-            return View(tbl_products_tra);
+            
+
+
+            ProductsPicture pic = new ProductsPicture { tblProducts = db.tbl_products_tra.Find(id),classPicture = db.tblSysPictures.Where(t=>t.advert_id== id).ToList() };
+
+
+            return View(pic);
         }
 
         // POST: Products/Edit/5
@@ -78,15 +85,16 @@ namespace AdminGold.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id_products_tra,img_products_tra,img1_products_tra,img2_products_tra,img3_products_tra,name_products_tra,code_products_tra,des_products_tra,status_products_tra,newprice_products_tra,oldprice_products_tra")] tbl_products_tra tbl_products_tra)
+        public ActionResult Edit( ProductsPicture item)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(tbl_products_tra).State = EntityState.Modified;
+               
+                db.Entry(item.tblProducts).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(tbl_products_tra);
+            return View(item);
         }
 
         // GET: Products/Delete/5

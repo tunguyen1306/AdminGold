@@ -58,7 +58,7 @@
 .dropzone {
     min-height: 50px !important;
     padding: 0 0 0 0 !important;
-    background:#f5f5f5;
+    /*background:#f5f5f5;*/
     border: 0 solid rgba(0, 0, 0, 0.3) !important;
    
 
@@ -77,7 +77,7 @@
     color: #919191;
     font-style: italic;
     height: 40px;
-     width: 288px;
+     /*width: 288px;*/
 }
 .cbtn-info-ok {
     box-shadow: #d0d0d0 0 2px 0 0;

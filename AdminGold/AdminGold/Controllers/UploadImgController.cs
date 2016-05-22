@@ -28,8 +28,8 @@ namespace AdminGold.Controllers
       
         public void SaveImg(ProductsPicture productPicture)
         {
-          
-            var file = productPicture.cfile.Replace("data:image/png;base64,", "");
+           var t =productPicture.cfile == null ? "" : productPicture.cfile;
+            var file = t.Replace("data:image/png;base64,", "");
             var photoBytes = Convert.FromBase64String(file);
             string format = "jpg";
             if (productPicture.isactive == 1)
@@ -42,60 +42,72 @@ namespace AdminGold.Controllers
             }
             var picture = new ProductsPicture
             {
-                classPicture = new tblSysPicture {advert_id= productPicture.idProducts, angleType=0, cms_sql_id=0,converted=DateTime.Now,tocheck=true,type_id=1,title=productPicture.nameImg,position=1 }
+                clPicture = new tblSysPicture {advert_id= productPicture.idProducts, angleType=0, cms_sql_id=0,converted=DateTime.Now,tocheck=true,type_id=1,title=productPicture.nameImg,position= productPicture.isactive }
             };
-            var settings = new ResizeSettings();
-            settings.Scale = ScaleMode.DownscaleOnly;
-            settings.Format = format;
-
-            //string uploadFolder = picture.DirectoryPhysical;
-
-            string path = Server.MapPath("~/fileUpload/")+DateTime.Now.Day+ DateTime.Now.Month + "/";
-            // check for directory
-            if (!Directory.Exists(path))
-                Directory.CreateDirectory(path);
-
-            // filename with placeholder for size
-            if (picture.GetConvertedFileName() == null || string.IsNullOrWhiteSpace(picture.GetConvertedFileName()))
-                picture.SetFileName(DateTime.Now.Day.ToString() + DateTime.Now.Month.ToString()+"_"+picture.CreateFilename() + "_{0}." + format);
-
-            if (picture.GetFilePathPhysical(ProductsPicture.PictureSize.Large)!=null)
+            if (productPicture.idpicture==0)
             {
-                string dest = path + picture.FileName(ProductsPicture.PictureSize.Large);
-                settings.MaxWidth = 800;
-                settings.MaxHeight = 800;
-                if (picture.WaterMarkLarge == ProductsPicture.WatermarkType.None)
-                    ImageBuilder.Current.Build(photoBytes, dest, settings, false, false);
-                // save biggest version as original
-                if (string.IsNullOrWhiteSpace(picture.classPicture.originalFilepath))
-                    picture.classPicture.originalFilepath = picture.GetFilePath(ProductsPicture.PictureSize.Large);
-            }
+                var settings = new ResizeSettings();
+                settings.Scale = ScaleMode.DownscaleOnly;
+                settings.Format = format;
 
-            if (picture.GetFilePathPhysical(ProductsPicture.PictureSize.Medium) != null)
+                //string uploadFolder = picture.DirectoryPhysical;
+
+                string path = Server.MapPath("~/fileUpload/") + DateTime.Now.Day + DateTime.Now.Month + "/";
+                // check for directory
+                if (!Directory.Exists(path))
+                    Directory.CreateDirectory(path);
+
+                // filename with placeholder for size
+                if (picture.GetConvertedFileName() == null || string.IsNullOrWhiteSpace(picture.GetConvertedFileName()))
+                    picture.SetFileName(DateTime.Now.Day.ToString() + DateTime.Now.Month.ToString() + "_" + picture.CreateFilename() + "_{0}." + format);
+
+                if (picture.GetFilePathPhysical(ProductsPicture.PictureSize.Large) != null)
+                {
+                    string dest = path + picture.FileName(ProductsPicture.PictureSize.Large);
+                    settings.MaxWidth = 800;
+                    settings.MaxHeight = 800;
+                    if (picture.WaterMarkLarge == ProductsPicture.WatermarkType.None)
+                        ImageBuilder.Current.Build(photoBytes, dest, settings, false, false);
+                    // save biggest version as original
+                    if (string.IsNullOrWhiteSpace(picture.clPicture.originalFilepath))
+                        picture.clPicture.originalFilepath = picture.GetFilePath(ProductsPicture.PictureSize.Large);
+                }
+
+                if (picture.GetFilePathPhysical(ProductsPicture.PictureSize.Medium) != null)
+                {
+                    string dest = path + picture.FileName(ProductsPicture.PictureSize.Medium);
+                    settings.MaxWidth = 100;
+                    settings.MaxHeight = 100;
+                    if (picture.WaterMarkLarge == ProductsPicture.WatermarkType.None)
+                        ImageBuilder.Current.Build(photoBytes, dest, settings, false, false);
+                    // save biggest version as original
+                    if (string.IsNullOrWhiteSpace(picture.clPicture.originalFilepath))
+                        picture.clPicture.originalFilepath = picture.GetFilePath(ProductsPicture.PictureSize.Medium);
+                }
+
+
+                db.tblSysPictures.Add(picture.clPicture);
+                db.SaveChanges();
+            }
+            if (productPicture.idpicture>0)
             {
-                string dest = path + picture.FileName(ProductsPicture.PictureSize.Medium);
-                settings.MaxWidth = 100;
-                settings.MaxHeight = 100;
-                if (picture.WaterMarkLarge == ProductsPicture.WatermarkType.None)
-                    ImageBuilder.Current.Build(photoBytes, dest, settings, false, false);
-                // save biggest version as original
-                if (string.IsNullOrWhiteSpace(picture.classPicture.originalFilepath))
-                    picture.classPicture.originalFilepath = picture.GetFilePath(ProductsPicture.PictureSize.Medium);
+               
+                tblSysPicture tblpict =db.tblSysPictures.Find(productPicture.idpicture);
+                tblpict.title = productPicture.nameImg;
+                tblpict.position = productPicture.isactive;
+                db.Entry(tblpict).State = EntityState.Modified;
+                db.SaveChanges();
+                RedirectToAction("Index", "Products");
             }
-
-
-            db.tblSysPictures.Add(picture.classPicture);
-            db.SaveChanges();
+           
 
         }
       
         [HttpPost]
         public ActionResult Create(ProductsPicture productPicture)
         {
-            tbl_products_tra tblproduct = db.tbl_products_tra.Find(productPicture.idProducts);
-            tblproduct.name_products_tra = productPicture.nameProduct;
-            
-         
+            tbl_products_tra tblproduct = productPicture.tblProducts;
+           
                 db.Entry(tblproduct).State = EntityState.Modified;
                 db.SaveChanges();
             return RedirectToAction("Index", "Products");
@@ -103,7 +115,13 @@ namespace AdminGold.Controllers
           
            
         }
-       
+        [HttpPost]
+        public ActionResult DeleteImg(int idAdvert, int idpicture)
+        {
+
+            var t = idpicture;
+            return View(t);
+        }
         [HttpPost]
         public ActionResult Cancel(int id)
         {
