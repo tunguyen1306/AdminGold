@@ -19,5 +19,6 @@ namespace AdminGold.Models
         public string title_slide_tra { get; set; }
         public string des_slide_tra { get; set; }
         public Nullable<int> status_slide_tra { get; set; }
+        public string title1_slide_tra { get; set; }
     }
 }

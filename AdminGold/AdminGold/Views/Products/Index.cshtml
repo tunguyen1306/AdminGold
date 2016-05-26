@@ -33,6 +33,7 @@
                                 <th>Giá</th>
                                 <th>Trạng thái</th>
                                 <th>Tiêu biểu</th>
+                                <th>Trạng thái hàng</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -44,12 +45,67 @@
                                     <td><img width="50" src="@ConfigurationManager.AppSettings["domain"]@item.clPicture.originalFilepath.ToString().Split('_')[0]/@item.clPicture.originalFilepath" alt="@item.tblProducts.name_products_tra" /> </td>
                                     <td>@item.tblProducts.code_products_tra</td>
                                     <td>@item.tblProducts.name_products_tra</td>
-                                    <td>@item.tblProducts.type_products_tra</td>
+                                    <td>
+                                        
+                                        @if (item.tblProducts.type_products_tra == 1)
+                                        {
+                                            @("Ví")
+                                        }
+                                        @if (item.tblProducts.type_products_tra == 2)
+                                        {
+                                            @("Balo")
+                                        }
+                                        @if (item.tblProducts.type_products_tra == 3)
+                                        {
+                                            @("Vali")
+                                        }
+                                        @if (item.tblProducts.type_products_tra == 4)
+                                        {
+                                            @("Phụ kiện")
+                                        }
+                                        @if (item.tblProducts.type_products_tra == 5)
+                                        {
+                                            @("Sale")
+                                        }
+                                        @if (item.tblProducts.type_products_tra == 6)
+                                        {
+                                            @("Túi xách")
+                                        }
+                                    </td>
                                     <td>@item.tblProducts.oldprice_products_tra</td>
-                                    <td>@item.tblProducts.status_products_tra</td>
-                                    <td>@item.tblProducts.featured_products_tra</td>
+                                    <td>
+                                        
+                                        @if (item.tblProducts.status_products_tra == 1)
+                                        {
+                                            @("Hoạt động")
+                                        }
+                                        @if (item.tblProducts.status_products_tra == 0)
+                                        {
+                                            @("Không hoạt động")
+                                        }
+                                </td>
+                                    <td>
+                                        @if (item.tblProducts.featured_products_tra == 1)
+                                        {
+                                            @("Tiêu biểu")
+                                        }
+                                        @if (item.tblProducts.featured_products_tra == 0)
+                                        {
+                                            @("Không tiêu biểu")
+                                        }
+                                    </td>
+                                    <td>
+                                        @if (item.tblProducts.yes_products_tra == 1)
+                                        {
+                                            @("Đã về")
+                                        }
+                                        @if (item.tblProducts.yes_products_tra == 0)
+                                        {
+                                            @("Chưa về")
+                                        }
+                                    </td>
                                     <td><a href="@Url.Action("Edit","Products",new { id=item.tblProducts.id_products_tra})" class="btn btn-default small">sửa</a></td>
-                                    </tr>
+                                </tr>
                             }
 
 

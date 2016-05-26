@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -28,7 +27,7 @@
 
                             <div class="form-group">
                                 <label>Tên sản phẩm</label>
-                              
+
                                 @Html.EditorFor(model => model.tblProducts.name_products_tra, new { htmlAttributes = new { @name = "tblProducts.name_products_tra", @class = "form-control" } })
 
 
@@ -41,7 +40,7 @@
 
 
                                         @Html.EditorFor(model => model.tblProducts.oldprice_products_tra, new { htmlAttributes = new { @name = "tblProducts.oldprice_products_tra", @class = "form-control" } })
-                                       
+
                                         <span class="input-group-addon">VNĐ</span>
                                     </div>
                                 </div>
@@ -50,7 +49,7 @@
                                     <label>Giảm giá</label>
                                     <div class="form-group input-group">
 
-                                        
+
                                         @Html.EditorFor(model => model.tblProducts.discount_products_tra, new { htmlAttributes = new { @name = "tblProducts.discount_products_tra", @class = "form-control" } })
                                         <span class="input-group-addon">%</span>
 
@@ -60,7 +59,7 @@
                                     <label>Giá đã giảm</label>
                                     <div class="form-group input-group">
 
-                                      
+
                                         @Html.EditorFor(model => model.tblProducts.newprice_products_tra, new { htmlAttributes = new { @name = "tblProducts.newprice_products_tra", @class = "form-control" } })
                                         <span class="input-group-addon">VNĐ</span>
                                     </div>
@@ -69,7 +68,7 @@
                             <div class="form-group">
                                 <label>Mô tả</label>
 
-                             
+
                                 @Html.TextAreaFor(model => model.tblProducts.des_products_tra, htmlAttributes: new { @name = "tblProducts.des_products_tra", @class = "form-control" })
 
                             </div>
@@ -77,7 +76,7 @@
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label>Mã sản phẩm</label>
-                              
+
                                 @Html.EditorFor(model => model.tblProducts.code_products_tra, new { htmlAttributes = new { @name = "tblProducts.code_products_tra", @class = "form-control" } })
 
                             </div>
@@ -111,11 +110,22 @@
                                 <label>Trạng thái</label>
 
                                 @Html.DropDownListFor(model => model.tblProducts.status_products_tra, new List<SelectListItem>
-    {
-        new SelectListItem {Text = "Không hoạt động", Value = "0"},
-        new SelectListItem {Text = "Hoạt động", Value = "1"},
+                                {
+                                    new SelectListItem {Text = "Không hoạt động", Value = "0"},
+                                    new SelectListItem {Text = "Hoạt động", Value = "1"},
 
-    }, new { @class = "form-control", @name = "tblProducts.status_products_tra" })
+                                }, new { @class = "form-control", @name = "tblProducts.status_products_tra" })
+
+                            </div>
+                            <div class="form-group">
+                                <label>Trạng thái hàng</label>
+
+                                @Html.DropDownListFor(model => model.tblProducts.yes_products_tra, new List<SelectListItem>
+    {
+        new SelectListItem {Text = "Chưa về", Value = "0"},
+        new SelectListItem {Text = "Đã về", Value = "1"},
+
+    }, new { @class = "form-control", @name = "tblProducts.yes_products_tra" })
 
                             </div>
                         </div>
@@ -430,9 +440,9 @@
             $.ajax({
                 type: "POST",
                 url: "@Url.Action("DeleteImg", "UploadImg")",
-               
+
                 data: { idAdvert: $('#hdAdvertID').val(), idpicture: idpic },
-               
+
                 success: function (data) {
 
                 },

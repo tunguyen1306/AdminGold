@@ -952,6 +952,7 @@
     <Content Include="Models\AdminGold.edmx.diagram">
       <DependentUpon>AdminGold.edmx</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\publish.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\cropperNew.js" />
     <Content Include="Scripts\cusjsNew.js" />
