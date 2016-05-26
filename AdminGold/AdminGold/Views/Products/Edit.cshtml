@@ -40,7 +40,7 @@
                                     <div class="form-group input-group">
 
 
-                                        @Html.EditorFor(model => model.tblProducts.oldprice_products_tra, new { htmlAttributes = new { @name = "tblProducts.oldprice_products_tra", @class = "form-control" } })
+                                        @Html.EditorFor(model => model.tblProducts.oldprice_products_tra, new { htmlAttributes = new { @name = "tblProducts.oldprice_products_tra", @class = "form-control txtoldprice_products_tra" } })
                                        
                                         <span class="input-group-addon">VNĐ</span>
                                     </div>
@@ -51,7 +51,7 @@
                                     <div class="form-group input-group">
 
                                         
-                                        @Html.EditorFor(model => model.tblProducts.discount_products_tra, new { htmlAttributes = new { @name = "tblProducts.discount_products_tra", @class = "form-control" } })
+                                        @Html.EditorFor(model => model.tblProducts.discount_products_tra, new { htmlAttributes = new { @name = "tblProducts.discount_products_tra", @class = "form-control txtdiscount_products_tra" } })
                                         <span class="input-group-addon">%</span>
 
                                     </div>
@@ -61,7 +61,7 @@
                                     <div class="form-group input-group">
 
                                       
-                                        @Html.EditorFor(model => model.tblProducts.newprice_products_tra, new { htmlAttributes = new { @name = "tblProducts.newprice_products_tra", @class = "form-control" } })
+                                        @Html.EditorFor(model => model.tblProducts.newprice_products_tra, new { htmlAttributes = new { @name = "tblProducts.newprice_products_tra", @class = "form-control txtnewprice_products_tra" } })
                                         <span class="input-group-addon">VNĐ</span>
                                     </div>
                                 </div>
@@ -431,7 +431,7 @@
                 type: "POST",
                 url: "@Url.Action("DeleteImg", "UploadImg")",
                
-                data: { idAdvert: $('#hdAdvertID').val(), idpicture: idpic },
+                data: { idpicture: idpic },
                
                 success: function (data) {
 

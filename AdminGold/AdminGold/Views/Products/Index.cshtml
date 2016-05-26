@@ -48,7 +48,10 @@
                                     <td>@item.tblProducts.oldprice_products_tra</td>
                                     <td>@item.tblProducts.status_products_tra</td>
                                     <td>@item.tblProducts.featured_products_tra</td>
-                                    <td><a href="@Url.Action("Edit","Products",new { id=item.tblProducts.id_products_tra})" class="btn btn-default small">sửa</a></td>
+                                    <td>
+                                    <a href="@Url.Action("Edit","Products",new { id=item.tblProducts.id_products_tra})" class="btn btn-default btn-xs">Sửa</a> 
+                                        <a href="@Url.Action("Delete","Products",new { id=item.tblProducts.id_products_tra})" onclick="return confirm('Bạn có muốn xóa sản phẩm không?');" class="btn btn-default btn-xs">Xóa</a>
+                                    </td>
                                     </tr>
                             }
 

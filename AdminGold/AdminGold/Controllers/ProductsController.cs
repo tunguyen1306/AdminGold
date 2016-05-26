@@ -100,16 +100,10 @@ namespace AdminGold.Controllers
         // GET: Products/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
             tbl_products_tra tbl_products_tra = db.tbl_products_tra.Find(id);
-            if (tbl_products_tra == null)
-            {
-                return HttpNotFound();
-            }
-            return View(tbl_products_tra);
+            db.tbl_products_tra.Remove(tbl_products_tra);
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
 
         // POST: Products/Delete/5

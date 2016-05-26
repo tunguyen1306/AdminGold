@@ -76,8 +76,8 @@ namespace AdminGold.Controllers
                 if (picture.GetFilePathPhysical(ProductsPicture.PictureSize.Medium) != null)
                 {
                     string dest = path + picture.FileName(ProductsPicture.PictureSize.Medium);
-                    settings.MaxWidth = 100;
-                    settings.MaxHeight = 100;
+                    settings.MaxWidth = 300;
+                    settings.MaxHeight = 300;
                     if (picture.WaterMarkLarge == ProductsPicture.WatermarkType.None)
                         ImageBuilder.Current.Build(photoBytes, dest, settings, false, false);
                     // save biggest version as original
@@ -116,11 +116,12 @@ namespace AdminGold.Controllers
            
         }
         [HttpPost]
-        public ActionResult DeleteImg(int idAdvert, int idpicture)
+        public ActionResult DeleteImg(int idpicture)
         {
-
-            var t = idpicture;
-            return View(t);
+            tblSysPicture tblPic = db.tblSysPictures.Find(idpicture);
+            db.tblSysPictures.Remove(tblPic);
+            db.SaveChanges();
+            return View(tblPic);
         }
         [HttpPost]
         public ActionResult Cancel(int id)
