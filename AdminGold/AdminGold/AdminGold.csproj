@@ -143,6 +143,7 @@
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\tblSysPicturesController.cs" />
     <Compile Include="Controllers\UploadImgController.cs" />
+    <Compile Include="Controllers\VanGiaController.cs" />
     <Compile Include="Domain\Data.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -165,13 +166,32 @@
     <Compile Include="Models\Navbar.cs" />
     <Compile Include="Models\ProductsPicture.cs" />
     <Compile Include="Models\tblSysPicture.cs">
-      <DependentUpon>AdminGold.tt</DependentUpon>
+      <DependentUpon>VanGiaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tbl_products_tra.cs">
       <DependentUpon>AdminGold.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tbl_slide_tra.cs">
       <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\VanGiaModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VanGiaModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\VanGiaModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VanGiaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\VanGiaModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VanGiaModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\VanGiaPicture.cs" />
+    <Compile Include="Models\web_vangia_project.cs">
+      <DependentUpon>VanGiaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -640,6 +660,16 @@
       <DependentUpon>AdminGold.edmx</DependentUpon>
       <LastGenOutput>AdminGold.cs</LastGenOutput>
     </Content>
+    <Content Include="Models\VanGiaModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>VanGiaModel.edmx</DependentUpon>
+      <LastGenOutput>VanGiaModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\VanGiaModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>VanGiaModel.edmx</DependentUpon>
+      <LastGenOutput>VanGiaModel.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="bower_components\bootstrap-social\.bower.json" />
@@ -952,6 +982,13 @@
     <Content Include="Models\AdminGold.edmx.diagram">
       <DependentUpon>AdminGold.edmx</DependentUpon>
     </Content>
+    <EntityDeploy Include="Models\VanGiaModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>VanGiaModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\VanGiaModel.edmx.diagram">
+      <DependentUpon>VanGiaModel.edmx</DependentUpon>
+    </Content>
     <None Include="Properties\PublishProfiles\publish.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\cropperNew.js" />
@@ -1008,6 +1045,12 @@
     <Content Include="Views\Products\Details.cshtml" />
     <Content Include="Views\Products\Edit.cshtml" />
     <Content Include="Views\Products\Index.cshtml" />
+    <Content Include="Views\Vangia\Create.cshtml" />
+    <Content Include="Views\Vangia\Delete.cshtml" />
+    <Content Include="Views\Vangia\Details.cshtml" />
+    <Content Include="Views\Vangia\Edit.cshtml" />
+    <Content Include="Views\Vangia\Index.cshtml" />
+    <Content Include="Views\Vangia\CreateFirst.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

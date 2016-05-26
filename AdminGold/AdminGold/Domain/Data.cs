@@ -29,7 +29,8 @@ namespace AdminGold.Domain
             //menu.Add(new Navbar { Id = 16, nameOption = "Sample Pages", imageClass = "fa fa-files-o fa-fw", status = true, isParent = true, parentId = 0 });
             //menu.Add(new Navbar { Id = 17, nameOption = "Blank Page", controller = "Home", action = "Blank", status = true, isParent = false, parentId = 16 });
             //menu.Add(new Navbar { Id = 18, nameOption = "Login Page", controller = "Home", action = "Login", status = true, isParent = false, parentId = 16 });
-            menu.Add(new Navbar { Id = 1, nameOption = "Danh sách sản phẩm", controller = "Products", action = "Index", imageClass = "fa fa-dashboard fa-fw", status = true, isParent = false, parentId = 0 });
+            menu.Add(new Navbar { Id = 1, nameOption = "Danh sách sản phẩm Trafashion", controller = "Products", action = "Index", imageClass = "fa fa-dashboard fa-fw", status = true, isParent = false, parentId = 0 });
+            menu.Add(new Navbar { Id = 1, nameOption = "Danh sách dự án Vạn Gia", controller = "VanGia", action = "Index", imageClass = "fa fa-dashboard fa-fw", status = true, isParent = false, parentId = 0 });
             return menu.ToList();
         }
     }
