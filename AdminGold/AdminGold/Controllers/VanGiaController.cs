@@ -67,16 +67,10 @@ namespace AdminGold.Controllers
         // GET: VanGia/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            web_vangia_project web_vangia_project = db.web_vangia_project.Find(id);
-            if (web_vangia_project == null)
-            {
-                return HttpNotFound();
-            }
-            return View(web_vangia_project);
+            VanGiaPicture pic = new VanGiaPicture { tblProject = db.web_vangia_project.Find(id), tblListPicture = db.tblSysPictures.Where(t => t.advert_id == id).ToList() };
+
+
+            return View(pic);
         }
 
         // POST: VanGia/Edit/5
@@ -84,11 +78,11 @@ namespace AdminGold.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "vangia_id_project,vangia_img1_project,vangia_img2_project,vangia_img3_project,vangia_img_project,vangia_content_project,vangia_name_project,vangia_time_project,vangia_status_project,vangia_order_project,vangia_language_project,vangia_tomtat_project,vangia_typeid_project,vangia_img4_project,vangia_img5_project,vangia_img6_project,vangia_img7_project,vangia_img8_project,vangia_img9_project,vangia_vanban_project")] web_vangia_project web_vangia_project)
+        public ActionResult Edit(VanGiaPicture web_vangia_project)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(web_vangia_project).State = EntityState.Modified;
+                db.Entry(web_vangia_project.tblProject).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
