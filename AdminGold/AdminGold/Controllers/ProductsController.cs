@@ -101,6 +101,12 @@ namespace AdminGold.Controllers
         public ActionResult Delete(int? id)
         {
             tbl_products_tra tbl_products_tra = db.tbl_products_tra.Find(id);
+            List<tblSysPicture> list = (from t in db.tblSysPictures where t.advert_id == id select t).ToList();
+            foreach (tblSysPicture item in list)
+            {
+                db.tblSysPictures.Remove(item);
+            }
+            db.SaveChanges();
             db.tbl_products_tra.Remove(tbl_products_tra);
             db.SaveChanges();
             return RedirectToAction("Index");

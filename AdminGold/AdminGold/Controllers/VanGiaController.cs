@@ -4,11 +4,11 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using AdminGold.Models;
 using ImageResizer;
 using System.IO;
+using static AdminGold.Models.VanGiaPicture;
 
 namespace AdminGold.Controllers
 {
@@ -82,6 +82,22 @@ namespace AdminGold.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (Request.Files.Count > 0)
+                {
+                    var file1 = Request.Files[0];
+
+                    if (file1 != null && file1.ContentLength > 0)
+                    {
+                        var fileName = Path.GetFileName(web_vangia_project.CreateFilename() + "_" + file1.FileName);
+                        var path = Path.Combine(Server.MapPath("~/fileUpload/" + DateTime.Now.Day + DateTime.Now.Month + "/"), fileName);
+
+
+                        file1.SaveAs(path);
+                        web_vangia_project.tblProject.vangia_vanban_project = fileName;
+                    }
+
+                }
+
                 db.Entry(web_vangia_project.tblProject).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -97,9 +113,16 @@ namespace AdminGold.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             web_vangia_project web_vangia_project = db.web_vangia_project.Find(id);
+            VanGiaPicture vgpic = new VanGiaPicture();
+            List<tblSysPicture> list = (from t in db.tblSysPictures where t.advert_id==id select t).ToList();
+            foreach (tblSysPicture item in list)
+            {
+                db.tblSysPictures.Remove(item);
+            }
+            db.SaveChanges();
             db.web_vangia_project.Remove(web_vangia_project);
             db.SaveChanges();
-            return RedirectToAction("Index","VanGia");
+            return RedirectToAction("Index", "VanGia");
         }
 
         // POST: VanGia/Delete/5
@@ -174,8 +197,8 @@ namespace AdminGold.Controllers
                 if (picture.GetFilePathPhysical(VanGiaPicture.PictureSize.Large) != null)
                 {
                     string dest = path + picture.FileName(VanGiaPicture.PictureSize.Large);
-                    settings.MaxWidth = 800;
-                    settings.MaxHeight = 800;
+                    settings.MaxWidth = 720;
+                    settings.MaxHeight = 480;
                     if (picture.WaterMarkLarge == VanGiaPicture.WatermarkType.None)
                         ImageBuilder.Current.Build(photoBytes, dest, settings, false, false);
                     // save biggest version as original
@@ -186,8 +209,8 @@ namespace AdminGold.Controllers
                 if (picture.GetFilePathPhysical(VanGiaPicture.PictureSize.Medium) != null)
                 {
                     string dest = path + picture.FileName(VanGiaPicture.PictureSize.Medium);
-                    settings.MaxWidth = 300;
-                    settings.MaxHeight = 300;
+                    settings.MaxWidth = 288;
+                    settings.MaxHeight = 192;
                     if (picture.WaterMarkLarge == VanGiaPicture.WatermarkType.None)
                         ImageBuilder.Current.Build(photoBytes, dest, settings, false, false);
                     // save biggest version as original
@@ -211,12 +234,30 @@ namespace AdminGold.Controllers
             }
 
 
+
+
         }
 
         [HttpPost]
         public ActionResult CreateFirst(VanGiaPicture projectPicture)
         {
             web_vangia_project tblproduct = projectPicture.tblProject;
+            if (Request.Files.Count > 0)
+            {
+                var file1 = Request.Files[0];
+
+                if (file1 != null && file1.ContentLength > 0)
+                {
+                    var fileName = Path.GetFileName(projectPicture.CreateFilename() + "_" + file1.FileName);
+                    var path = Path.Combine(Server.MapPath("~/fileUpload/" + DateTime.Now.Day + DateTime.Now.Month + "/"), fileName);
+
+
+                    file1.SaveAs(path);
+                    tblproduct.vangia_vanban_project = fileName;
+                }
+
+            }
+
 
             db.Entry(tblproduct).State = EntityState.Modified;
             db.SaveChanges();
@@ -229,9 +270,25 @@ namespace AdminGold.Controllers
         public ActionResult DeleteImg(int idpicture)
         {
             tblSysPicture tblPic = db.tblSysPictures.Find(idpicture);
+            VanGiaPicture vgPic = new VanGiaPicture();
+            vgPic.tblPicture = tblPic;
             db.tblSysPictures.Remove(tblPic);
+            DeleteIMG(vgPic.tblPicture.originalFilepath);
             db.SaveChanges();
             return View(tblPic);
+        }
+        public void DeleteIMG(string picture)
+        {
+            VanGiaPicture vgp = new VanGiaPicture();
+            if (picture == null)
+                return;
+            var fo = picture.Substring(0,3);
+            string dir = Server.MapPath("~/fileUpload/"+fo+"/"+ picture);
+           
+            System.IO.File.Delete(dir);
+           
+
+
         }
         [HttpPost]
         public ActionResult Cancel(int id)
@@ -244,5 +301,17 @@ namespace AdminGold.Controllers
 
 
         }
+        //[HttpPost]
+        //public ActionResult Upload(HttpPostedFileBase file)
+        //{
+        //    if (file != null && file.ContentLength > 0)
+        //    {
+        //        var fileName = Path.GetFileName(file.FileName);
+        //        var path = Path.Combine(Server.MapPath("~/fileUpload/"), fileName);
+        //        file.SaveAs(path);
+        //    }
+
+        //    return RedirectToAction("UploadDocument");
+        //}
     }
 }

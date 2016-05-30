@@ -131,7 +131,7 @@
                                 @Html.DropDownListFor(model => model.tblProducts.yes_products_tra, new List<SelectListItem>
     {
         new SelectListItem {Text = "Chưa về", Value = "0"},
-        new SelectListItem {Text = "Đã về", Value = "1"},
+        new SelectListItem {Text = "Đã về", Value = "1"},new SelectListItem {Text = "Hết hàng", Value = "3"},
 
     }, new { @class = "form-control", @name = "tblProducts.yes_products_tra" })
 
@@ -211,7 +211,11 @@
     <!-- /.row -->
 
     <script>
-
+        $(function () {
+            $.each($('.dz-preview'), function (i, o) {
+                $(o).find("input:radio[name=groupimg][disabled=false]:first").attr('checked', true);
+            });
+        })
 
         function dropNew(ed) {
 
@@ -443,7 +447,9 @@
             return true;
         }
         function DeleteImg(obj) {
-
+            $.each($('.dz-preview'), function (i, o) {
+                $(o).find("input:radio[name=groupimg][disabled=false]:first").attr('checked', true);
+            });
             var idpic = $(obj).parents(".dz-preview").find('#cusimg').attr('rel');
             $.ajax({
                 type: "POST",
@@ -470,3 +476,6 @@
 <link href="/Content/UploadNew/dropzone.css" rel="stylesheet" />
 <link href="/Content/UploadNew/cropper.min.css" rel="stylesheet" />
 <link href="/Content/UploadNew/cussupload.css" rel="stylesheet" />
+<script src="~/Scripts/cusjsNew.js"></script>
+<script src="~/Scripts/dropzoneNew.js"></script>
+<script src="~/Scripts/cropperNew.js"></script>

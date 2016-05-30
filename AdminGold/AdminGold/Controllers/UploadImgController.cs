@@ -119,9 +119,24 @@ namespace AdminGold.Controllers
         public ActionResult DeleteImg(int idpicture)
         {
             tblSysPicture tblPic = db.tblSysPictures.Find(idpicture);
+            ProductsPicture proPic = new ProductsPicture();
             db.tblSysPictures.Remove(tblPic);
             db.SaveChanges();
+            DeleteIMG(proPic.clPicture.originalFilepath);
             return View(tblPic);
+        }
+        public void DeleteIMG(string picture)
+        {
+            VanGiaPicture vgp = new VanGiaPicture();
+            if (picture == null)
+                return;
+            var fo = picture.Substring(0, 3);
+            string dir = Server.MapPath("~/fileUpload/" + fo + "/" + picture);
+
+            System.IO.File.Delete(dir);
+
+
+
         }
         [HttpPost]
         public ActionResult Cancel(int id)

@@ -10,7 +10,7 @@
     <!-- /.col-lg-12 -->
 </div>
 
-@using (Html.BeginForm("CreateFirst", "VanGia"))
+@using (Html.BeginForm("CreateFirst", "VanGia", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     <!-- /.row -->
@@ -47,6 +47,13 @@
                                     <option value="2">Việt Nam</option>
 
                                 </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Upload File</label>
+                               
+                                    <input type="file" name="tblProject.vangia_vanban_project" value="" />
+                                
+
                             </div>
                         </div>
                         <div class="col-lg-6">
@@ -137,7 +144,7 @@
 
 
         var options = {
-            aspectRatio: 1 / 1,
+            aspectRatio:9 / 6,
             preview: '.img-preview',
             crop: function (e) {
                 $dataX.val(Math.round(e.x));
@@ -341,7 +348,9 @@
 
                 },
                 error: function (e) {
-                    toastr.error('Vui lòng chọn lại hình ảnh');
+                    $('.btnAdd1').text('Thêm');
+                    $('.btnAdd1').removeClass('disabled');
+                    $('.btnAdd').click();
                 }
             });
         });
@@ -353,7 +362,10 @@
 
 </script>
 
-<link href="/Content/UploadNew/main.css" rel="stylesheet" />
-<link href="/Content/UploadNew/dropzone.css" rel="stylesheet" />
-<link href="/Content/UploadNew/cropper.min.css" rel="stylesheet" />
-<link href="/Content/UploadNew/cussupload.css" rel="stylesheet" />
+<link href="/Content/UploadVanGia/main.css" rel="stylesheet" />
+<link href="/Content/UploadVanGia/dropzone.css" rel="stylesheet" />
+<link href="/Content/UploadVanGia/cropper.min.css" rel="stylesheet" />
+<link href="/Content/UploadVanGia/cussupload.css" rel="stylesheet" />
+<script src="~/Scripts/cusjsVG.js"></script>
+<script src="~/Scripts/dropzoneVG.js"></script>
+<script src="~/Scripts/cropperVG.js"></script>

@@ -631,6 +631,22 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\sb-admin-2.css" />
     <Content Include="Content\timeline.css" />
+    <Content Include="Content\UploadVanGia\cropper.css" />
+    <Content Include="Content\UploadVanGia\cropper.min.css" />
+    <Content Include="Content\UploadVanGia\cropper.min.js" />
+    <Content Include="Content\UploadVanGia\cussupload.css" />
+    <Content Include="Content\UploadVanGia\dropzone.css" />
+    <Content Include="Content\UploadVanGia\icon\ic-check.svg" />
+    <Content Include="Content\UploadVanGia\icon\ic-delete.svg" />
+    <Content Include="Content\UploadVanGia\icon\ic-move.svg" />
+    <Content Include="Content\UploadVanGia\icon\ic-radio-checked.svg" />
+    <Content Include="Content\UploadVanGia\icon\ic-radio.svg" />
+    <Content Include="Content\UploadVanGia\icon\ic-rotate.svg" />
+    <Content Include="Content\UploadVanGia\icon\ic-zoomin.svg" />
+    <Content Include="Content\UploadVanGia\icon\ic-zoomout.svg" />
+    <Content Include="Content\UploadVanGia\jquery-1.10.2.js" />
+    <Content Include="Content\UploadVanGia\main.css" />
+    <Content Include="Content\UploadVanGia\pg.png" />
     <Content Include="Content\UploadNew\cropper.css" />
     <Content Include="Content\UploadNew\cropper.min.css" />
     <Content Include="Content\UploadNew\cropper.min.js" />
@@ -991,8 +1007,11 @@
     </Content>
     <None Include="Properties\PublishProfiles\publish.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\cropperVG.js" />
     <Content Include="Scripts\cropperNew.js" />
+    <Content Include="Scripts\cusjsVG.js" />
     <Content Include="Scripts\cusjsNew.js" />
+    <Content Include="Scripts\dropzoneVG.js" />
     <Content Include="Scripts\dropzoneNew.js" />
     <Content Include="Scripts\flot-data.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -1007,6 +1026,7 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\sb-admin-2.js" />
+    <Content Include="Scripts\toastr.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
