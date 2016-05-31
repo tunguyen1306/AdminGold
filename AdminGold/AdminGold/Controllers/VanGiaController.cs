@@ -88,7 +88,7 @@ namespace AdminGold.Controllers
 
                     if (file1 != null && file1.ContentLength > 0)
                     {
-                        var fileName = Path.GetFileName(web_vangia_project.CreateFilename() + "_" + file1.FileName);
+                        var fileName = Path.GetFileName(DateTime.Now.Day.ToString() + DateTime.Now.Month.ToString() + "_" + web_vangia_project.CreateFilename() + "_" + file1.FileName);
                         var path = Path.Combine(Server.MapPath("~/fileUpload/" + DateTime.Now.Day + DateTime.Now.Month + "/"), fileName);
 
 
@@ -248,7 +248,7 @@ namespace AdminGold.Controllers
 
                 if (file1 != null && file1.ContentLength > 0)
                 {
-                    var fileName = Path.GetFileName(projectPicture.CreateFilename() + "_" + file1.FileName);
+                    var fileName = Path.GetFileName(DateTime.Now.Day.ToString() + DateTime.Now.Month.ToString() + "_" + projectPicture.CreateFilename() + "_" + file1.FileName);
                     var path = Path.Combine(Server.MapPath("~/fileUpload/" + DateTime.Now.Day + DateTime.Now.Month + "/"), fileName);
 
 
