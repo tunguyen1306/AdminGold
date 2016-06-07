@@ -8,7 +8,7 @@ using System.Web.Mvc;
 using AdminGold.Models;
 using ImageResizer;
 using System.IO;
-using static AdminGold.Models.VanGiaPicture;
+
 
 namespace AdminGold.Controllers
 {
