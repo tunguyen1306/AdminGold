@@ -17,6 +17,10 @@ namespace AdminGold.Controllers
         // GET: Products
         public ActionResult Index()
         {
+            if (Session["user"] == null)
+            {
+                return RedirectToAction("Login", "Home");
+            }
             var qrData =( from dataPro in db.tbl_products_tra
                          join dataImg in db.tblSysPictures on dataPro.id_products_tra equals dataImg.advert_id
                          where dataImg.position==1

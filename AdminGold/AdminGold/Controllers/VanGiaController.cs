@@ -19,6 +19,10 @@ namespace AdminGold.Controllers
         // GET: VanGia
         public ActionResult Index()
         {
+            if (Session["user"] == null)
+            {
+                return RedirectToAction("Login", "Home");
+            }
             var qrData = (from dataPro in db.web_vangia_project
                           join dataImg in db.tblSysPictures on dataPro.vangia_id_project equals dataImg.advert_id
                           where dataImg.position == 1

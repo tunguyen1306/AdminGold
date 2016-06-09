@@ -72,6 +72,16 @@ namespace AdminGold.Controllers
         {
             return View("Login");
         }
+        [HttpPost]
+        public ActionResult Login(string email, string password)
+        {
+            if (email=="trafashion@gmail.com" && password=="admin1234")
+            {   Session["user"] = "trafashion@gmail.com";
+               
+
+            }
+            return RedirectToAction("Index", "Products"); ;
+        }
 
     }
 }
