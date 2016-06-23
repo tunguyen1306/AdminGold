@@ -1,15 +1,15 @@
-﻿$(function () {
-    if ($('.txtdiscount_products_tra').val()>0) {
-        $('.txtdiscount_products_tra').keyup(function () {
-            var old = $('.txtoldprice_products_tra').val();
-            var dis = $('.txtdiscount_products_tra').val();
-            var total = (old * dis / 100)
+﻿//$(function () {
+//    if ($('.txtdiscount_products_tra').val()>0) {
+//        $('.txtdiscount_products_tra').keyup(function () {
+//            var old = $('.txtoldprice_products_tra').val();
+//            var dis = $('.txtdiscount_products_tra').val();
+//            var total = (old * dis / 100)
 
-            $('.txtnewprice_products_tra').val(old-total);
-        });
-    }
+//            $('.txtnewprice_products_tra').val(old-total);
+//        });
+//    }
     
-});
+//});
 
 //Edit Upload
 function Edit(ed) {

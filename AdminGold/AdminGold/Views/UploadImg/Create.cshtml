@@ -21,26 +21,32 @@
 
                 <div class="panel-body">
                     <div class="row">
-                        <div class="col-lg-6">
+                        <div class="col-lg-8">
 
                             <div class="form-group">
                                 <label>Tên sản phẩm</label>
                                 <input class="form-control" name="tblProducts.name_products_tra" id="txtNameProduct">
-                               
+
 
                             </div>
                             <div class="row">
 
                                 <div class="col-lg-4">
-                                    <label>Giá</label>
+                                    <label>Giá 1</label>
                                     <div class="form-group input-group">
 
                                         <input class="form-control txtoldprice_products_tra" name="tblProducts.oldprice_products_tra">
                                         <span class="input-group-addon">VNĐ</span>
                                     </div>
                                 </div>
+                                <div class="col-lg-1">
+                                    <label></label>
+                                    <div class="form-group input-group">
+                                       -
 
-                                <div class="col-lg-4">
+                                    </div>
+                                </div>
+                                <div class="col-lg-2">
                                     <label>Giảm giá</label>
                                     <div class="form-group input-group">
 
@@ -49,8 +55,16 @@
 
                                     </div>
                                 </div>
+                                <div class="col-lg-1">
+                                    <label></label>
+                                    <div class="form-group input-group">
+                                        =
+                                       
+                                    </div>
+                                   
+                                </div>
                                 <div class="col-lg-4">
-                                    <label>Giá đã giảm</label>
+                                    <label>Giá 2</label>
                                     <div class="form-group input-group">
 
                                         <input class="form-control txtnewprice_products_tra" name="tblProducts.newprice_products_tra">
@@ -65,7 +79,7 @@
 
                             </div>
                         </div>
-                        <div class="col-lg-6">
+                        <div class="col-lg-4">
                             <div class="form-group">
                                 <label>Mã sản phẩm</label>
                                 <input class="form-control" name="tblProducts.code_products_tra" id="txtCodeProduct">
@@ -166,7 +180,31 @@
     <!-- /.row -->
 
     <script>
+        $(function () {
 
+
+            $('.txtdiscount_products_tra').keyup(function () {
+
+                if ($('.txtdiscount_products_tra').val() > 0) {
+                    var old = $('.txtoldprice_products_tra').val();
+                    console.log(old);
+                    var dis = $('.txtdiscount_products_tra').val();
+                    var total = (old * dis / 100)
+
+                    $('.txtnewprice_products_tra').val(old - total);
+                }
+            });
+            if ($('.txtdiscount_products_tra').val() > 0) {
+                $('.txtdiscount_products_tra').keydown(function () {
+                    var old = $('.txtoldprice_products_tra').val();
+                    var dis = $('.txtdiscount_products_tra').val();
+                    var total = (old * dis / 100)
+
+                    $('.txtnewprice_products_tra').val(old - total);
+                });
+            }
+
+        });
 
         function dropNew(ed) {
 
@@ -401,7 +439,6 @@
     </script>
 
 }
-
 <link href="/Content/UploadNew/main.css" rel="stylesheet" />
 <link href="/Content/UploadNew/dropzone.css" rel="stylesheet" />
 <link href="/Content/UploadNew/cropper.min.css" rel="stylesheet" />
