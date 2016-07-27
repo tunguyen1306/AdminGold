@@ -95,6 +95,17 @@
                                 @Html.TextAreaFor(model => model.tblProducts.des_products_tra, htmlAttributes: new { @name = "tblProducts.des_products_tra", @class = "form-control" })
 
                             </div>
+                            <div class="form-group">
+                                <label>Sản phẩm mới</label>
+
+                                @Html.DropDownListFor(model => model.tblProducts.new_products_tra, new List<SelectListItem>
+                                    {
+                                        new SelectListItem {Text = "Hàng mới", Value = "1"},
+                                        new SelectListItem {Text = "Hàng cũ", Value = "0"},
+                                       
+                                    }, new { @class = "form-control", @name = "tblProducts.new_products_tra" })
+
+                            </div>
                         </div>
                         <div class="col-lg-4">
                             <div class="form-group">

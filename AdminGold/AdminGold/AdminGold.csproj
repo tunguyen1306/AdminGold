@@ -166,7 +166,7 @@
     <Compile Include="Models\Navbar.cs" />
     <Compile Include="Models\ProductsPicture.cs" />
     <Compile Include="Models\tblSysPicture.cs">
-      <DependentUpon>VanGiaModel.tt</DependentUpon>
+      <DependentUpon>AdminGold.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tbl_products_tra.cs">
       <DependentUpon>AdminGold.tt</DependentUpon>

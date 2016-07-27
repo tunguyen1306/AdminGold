@@ -24,6 +24,7 @@
           <Property Name="featured_products_tra" Type="int" />
           <Property Name="discount_products_tra" Type="nvarchar" MaxLength="200" />
           <Property Name="yes_products_tra" Type="int" />
+          <Property Name="new_products_tra" Type="int" />
         </EntityType>
         <EntityType Name="tbl_slide_tra">
           <Key>
@@ -86,6 +87,7 @@
           <Property Name="featured_products_tra" Type="Int32" />
           <Property Name="discount_products_tra" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="yes_products_tra" Type="Int32" />
+          <Property Name="new_products_tra" Type="Int32" />
         </EntityType>
         <EntityType Name="tbl_slide_tra">
           <Key>
@@ -134,6 +136,7 @@
           <EntitySetMapping Name="tbl_products_tra">
             <EntityTypeMapping TypeName="AdminGoldModel.tbl_products_tra">
               <MappingFragment StoreEntitySet="tbl_products_tra">
+                <ScalarProperty Name="new_products_tra" ColumnName="new_products_tra" />
                 <ScalarProperty Name="yes_products_tra" ColumnName="yes_products_tra" />
                 <ScalarProperty Name="discount_products_tra" ColumnName="discount_products_tra" />
                 <ScalarProperty Name="featured_products_tra" ColumnName="featured_products_tra" />
