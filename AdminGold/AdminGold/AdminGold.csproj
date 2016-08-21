@@ -139,8 +139,10 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\mypromotionController.cs" />
     <Compile Include="Controllers\NavbarController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Controllers\promotionController.cs" />
     <Compile Include="Controllers\tblSysPicturesController.cs" />
     <Compile Include="Controllers\UploadImgController.cs" />
     <Compile Include="Controllers\VanGiaController.cs" />
@@ -163,6 +165,21 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AdminGold.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\MyPromotion.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MyPromotion.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MyPromotion.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MyPromotion.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MyPromotion.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MyPromotion.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\Navbar.cs" />
     <Compile Include="Models\ProductsPicture.cs" />
     <Compile Include="Models\tblSysPicture.cs">
@@ -173,6 +190,9 @@
     </Compile>
     <Compile Include="Models\tbl_slide_tra.cs">
       <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_user_promotion.cs">
+      <DependentUpon>MyPromotion.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\VanGiaModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -676,6 +696,16 @@
       <DependentUpon>AdminGold.edmx</DependentUpon>
       <LastGenOutput>AdminGold.cs</LastGenOutput>
     </Content>
+    <Content Include="Models\MyPromotion.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MyPromotion.edmx</DependentUpon>
+      <LastGenOutput>MyPromotion.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\MyPromotion.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MyPromotion.edmx</DependentUpon>
+      <LastGenOutput>MyPromotion.cs</LastGenOutput>
+    </Content>
     <Content Include="Models\VanGiaModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>VanGiaModel.edmx</DependentUpon>
@@ -1005,6 +1035,13 @@
     <Content Include="Models\VanGiaModel.edmx.diagram">
       <DependentUpon>VanGiaModel.edmx</DependentUpon>
     </Content>
+    <EntityDeploy Include="Models\MyPromotion.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>MyPromotion.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\MyPromotion.edmx.diagram">
+      <DependentUpon>MyPromotion.edmx</DependentUpon>
+    </Content>
     <None Include="Properties\PublishProfiles\publish.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\cropperVG.js" />
@@ -1071,6 +1108,11 @@
     <Content Include="Views\Vangia\Edit.cshtml" />
     <Content Include="Views\Vangia\Index.cshtml" />
     <Content Include="Views\Vangia\CreateFirst.cshtml" />
+    <Content Include="Views\promotion\Create.cshtml" />
+    <Content Include="Views\promotion\Delete.cshtml" />
+    <Content Include="Views\promotion\Details.cshtml" />
+    <Content Include="Views\promotion\Edit.cshtml" />
+    <Content Include="Views\promotion\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
