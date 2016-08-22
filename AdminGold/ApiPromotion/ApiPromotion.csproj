@@ -241,6 +241,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Interface\IData.cs" />
+    <Compile Include="Interface\IDbContext.cs" />
+    <Compile Include="Interface\IGetLogin.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\clTblUser.cs" />
@@ -260,11 +263,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>myPromotion.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\sqlMap.cs" />
     <Compile Include="Models\tbl_user_promotion.cs">
       <DependentUpon>myPromotion.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
+    <Compile Include="Repository\DataRepository.cs" />
+    <Compile Include="Repository\GetLoginRepository.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -318,6 +324,7 @@
     <Content Include="Models\myPromotion.edmx.diagram">
       <DependentUpon>myPromotion.edmx</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\Publish.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
