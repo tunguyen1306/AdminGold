@@ -9,6 +9,6 @@ namespace ApiPromotion.Interface
 {
    public interface IData:IDisposable
     {
-        SqlConnection GetSqlconnect(string database="myprotion");
+        SqlConnection GetSqlconnect(string database="mypromotion");
     }
 }
