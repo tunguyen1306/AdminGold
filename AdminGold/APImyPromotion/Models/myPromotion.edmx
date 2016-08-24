@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="MyPromotionModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="MyPromotionModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="tbl_user_promotion">
           <Key>
             <PropertyRef Name="id_user_promotion" />
@@ -22,7 +22,8 @@
         <EntityContainer Name="MyPromotionModelStoreContainer">
           <EntitySet Name="tbl_user_promotion" EntityType="Self.tbl_user_promotion" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MyPromotionModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -52,7 +53,6 @@
           <EntitySetMapping Name="tbl_user_promotion">
             <EntityTypeMapping TypeName="MyPromotionModel.tbl_user_promotion">
               <MappingFragment StoreEntitySet="tbl_user_promotion">
-                <ScalarProperty Name="pass_user_promotion" ColumnName="pass_user_promotion" />
                 <ScalarProperty Name="id_user_promotion" ColumnName="id_user_promotion" />
                 <ScalarProperty Name="name_user_promotion" ColumnName="name_user_promotion" />
                 <ScalarProperty Name="email_user_promotion" ColumnName="email_user_promotion" />
@@ -61,6 +61,7 @@
                 <ScalarProperty Name="last_name_user_promotion" ColumnName="last_name_user_promotion" />
                 <ScalarProperty Name="type_role_user_promotion" ColumnName="type_role_user_promotion" />
                 <ScalarProperty Name="status_user_promotion" ColumnName="status_user_promotion" />
+                <ScalarProperty Name="pass_user_promotion" ColumnName="pass_user_promotion" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

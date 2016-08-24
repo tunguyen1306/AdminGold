@@ -18,7 +18,7 @@ namespace ApiPromotion.Repository
             DataFactory = databaseFactory;
             Dbcontext = dbContext as DbContext;
         }
-        protected SqlConnection GetSqlConnect( string database= "mypromotion")
+        protected SqlConnection GetSqlConnect( string database= "myprotion")
         {
             var sql = DataFactory.GetSqlconnect(database);
             if (sql.State != ConnectionState.Open) sql.Open();
