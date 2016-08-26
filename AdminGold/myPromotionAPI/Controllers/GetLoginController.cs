@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -13,9 +14,11 @@ namespace myPromotionAPI.Controllers
     {
         MyPromotionEntities db = new MyPromotionEntities();
         // GET: api/GetLogin
-        public IEnumerable<string> Get()
+        public List<tbl_user_promotion> Get()
         {
-            return new string[] { "value1", "value2" };
+            var query = from data in db.tbl_user_promotion
+                        select data;
+            return query.ToList();
         }
 
         // GET: api/GetLogin/5
