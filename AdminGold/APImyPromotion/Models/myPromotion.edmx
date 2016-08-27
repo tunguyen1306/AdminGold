@@ -4,13 +4,13 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="MyPromotionModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="MyPromotionModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="tbl_user_promotion">
           <Key>
             <PropertyRef Name="id_user_promotion" />
           </Key>
           <Property Name="id_user_promotion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="name_user_promotion" Type="varchar" MaxLength="250" />
+          <Property Name="full_name_user_promotion" Type="nvarchar" MaxLength="250" />
           <Property Name="email_user_promotion" Type="varchar" MaxLength="250" />
           <Property Name="phone_user_promotion" Type="varchar" MaxLength="20" />
           <Property Name="first_name_user_promotion" Type="nvarchar" MaxLength="50" />
@@ -18,12 +18,12 @@
           <Property Name="type_role_user_promotion" Type="int" />
           <Property Name="status_user_promotion" Type="int" />
           <Property Name="pass_user_promotion" Type="varchar" MaxLength="250" />
+          <Property Name="img_user_promotion" Type="varchar" MaxLength="500" />
         </EntityType>
         <EntityContainer Name="MyPromotionModelStoreContainer">
-          <EntitySet Name="tbl_user_promotion" EntityType="Self.tbl_user_promotion" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="tbl_user_promotion" EntityType="Self.tbl_user_promotion" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MyPromotionModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
@@ -32,7 +32,6 @@
             <PropertyRef Name="id_user_promotion" />
           </Key>
           <Property Name="id_user_promotion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-          <Property Name="name_user_promotion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="email_user_promotion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="phone_user_promotion" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="first_name_user_promotion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -40,6 +39,8 @@
           <Property Name="type_role_user_promotion" Type="Int32" />
           <Property Name="status_user_promotion" Type="Int32" />
           <Property Name="pass_user_promotion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="img_user_promotion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="full_name_user_promotion" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityContainer Name="MyPromotionEntities" annotation:LazyLoadingEnabled="true" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
           <EntitySet Name="tbl_user_promotion" EntityType="Self.tbl_user_promotion" />
@@ -53,8 +54,9 @@
           <EntitySetMapping Name="tbl_user_promotion">
             <EntityTypeMapping TypeName="MyPromotionModel.tbl_user_promotion">
               <MappingFragment StoreEntitySet="tbl_user_promotion">
+                <ScalarProperty Name="full_name_user_promotion" ColumnName="full_name_user_promotion" />
+                <ScalarProperty Name="img_user_promotion" ColumnName="img_user_promotion" />
                 <ScalarProperty Name="id_user_promotion" ColumnName="id_user_promotion" />
-                <ScalarProperty Name="name_user_promotion" ColumnName="name_user_promotion" />
                 <ScalarProperty Name="email_user_promotion" ColumnName="email_user_promotion" />
                 <ScalarProperty Name="phone_user_promotion" ColumnName="phone_user_promotion" />
                 <ScalarProperty Name="first_name_user_promotion" ColumnName="first_name_user_promotion" />

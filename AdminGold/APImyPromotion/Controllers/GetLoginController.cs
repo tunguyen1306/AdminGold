@@ -38,15 +38,18 @@ namespace APImyPromotion.Controllers
         public void Delete(int id)
         {
         }
-        public IList<UserDto>GetLogin([FromUri]string username,[FromUri]string password)
+        public IList<UserDto> GetLogin([FromUri]string email, [FromUri]string password)
         {
             object[] para =
             {
-               new SqlParameter("@userName",username),
+               new SqlParameter("@email",email),
                new SqlParameter("@passWord",password)
             };
-           var datalogin = db.Database.SqlQuery<UserDto>("exec  sp_login_promotion @userName,@passWord", para);
+            var datalogin = db.Database.SqlQuery<UserDto>("exec  sp_login_promotion @email,@passWord", para);
             return datalogin.ToList();
         }
+       
+       
+
     }
 }
