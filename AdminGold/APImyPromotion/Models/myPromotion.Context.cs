@@ -26,5 +26,18 @@ namespace APImyPromotion.Models
         }
     
         public virtual DbSet<tbl_user_promotion> tbl_user_promotion { get; set; }
+        public virtual DbSet<Country> Countries { get; set; }
+        public virtual DbSet<CountryText> CountryTexts { get; set; }
+        public virtual DbSet<District> Districts { get; set; }
+        public virtual DbSet<DistrictText> DistrictTexts { get; set; }
+        public virtual DbSet<Location> Locations { get; set; }
+        public virtual DbSet<LocationText> LocationTexts { get; set; }
+        public virtual DbSet<Quarter> Quarters { get; set; }
+        public virtual DbSet<QuarterText> QuarterTexts { get; set; }
+        public virtual DbSet<State> States { get; set; }
+        public virtual DbSet<StateText> StateTexts { get; set; }
+        public virtual DbSet<tbl_advert_promotion> tbl_advert_promotion { get; set; }
+        public virtual DbSet<tbl_category_promotion> tbl_category_promotion { get; set; }
+        public virtual DbSet<tbl_advert_picture_promotion> tbl_advert_picture_promotion { get; set; }
     }
 }

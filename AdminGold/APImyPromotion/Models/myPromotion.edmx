@@ -5,6 +5,165 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="MyPromotionModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="countryCode" />
+          </Key>
+          <Property Name="countryCode" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="name_id" Type="int" Nullable="false" />
+          <Property Name="languages" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="CountryText">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="language_id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="language_id" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="text" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="District">
+          <Key>
+            <PropertyRef Name="district_id" />
+          </Key>
+          <Property Name="district_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="state_id" Type="int" Nullable="false" />
+          <Property Name="name_id" Type="int" Nullable="false" />
+          <Property Name="latitude" Type="decimal" Precision="9" Scale="5" />
+          <Property Name="longitude" Type="decimal" Precision="9" Scale="5" />
+          <Property Name="polygon" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="DistrictText">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="language_id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="language_id" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="text" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Location">
+          <Key>
+            <PropertyRef Name="location_id" />
+          </Key>
+          <Property Name="location_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="countryCode" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="state_id" Type="int" Nullable="false" />
+          <Property Name="district_id" Type="int" />
+          <Property Name="name_id" Type="int" Nullable="false" />
+          <Property Name="zipCode" Type="varchar" MaxLength="12" />
+          <Property Name="latitude" Type="decimal" Precision="9" Scale="5" />
+          <Property Name="longitude" Type="decimal" Precision="9" Scale="5" />
+          <Property Name="preferred" Type="bit" Nullable="false" />
+          <Property Name="polygon" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="LocationText">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="language_id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="language_id" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="text" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Quarter">
+          <Key>
+            <PropertyRef Name="quarter_id" />
+          </Key>
+          <Property Name="quarter_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="location_id" Type="int" Nullable="false" />
+          <Property Name="name_id" Type="int" Nullable="false" />
+          <Property Name="zipCode" Type="varchar" MaxLength="12" />
+          <Property Name="latitude" Type="decimal" Precision="9" Scale="5" />
+          <Property Name="longitude" Type="decimal" Precision="9" Scale="5" />
+        </EntityType>
+        <EntityType Name="QuarterText">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="language_id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="language_id" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="text" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="State">
+          <Key>
+            <PropertyRef Name="state_id" />
+          </Key>
+          <Property Name="state_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="countryCode" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="name_id" Type="int" Nullable="false" />
+          <Property Name="stateCode" Type="nvarchar" MaxLength="4" />
+          <Property Name="latitude" Type="decimal" Precision="9" Scale="5" />
+          <Property Name="longitude" Type="decimal" Precision="9" Scale="5" />
+          <Property Name="polygon" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="StateText">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="language_id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="language_id" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="text" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'MyPromotion.dbo.tbl_advert_picture_promotion' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="tbl_advert_picture_promotion">
+          <Key>
+            <PropertyRef Name="picture_id" />
+            <PropertyRef Name="advert_id" />
+            <PropertyRef Name="originalFilepath" />
+            <PropertyRef Name="position" />
+            <PropertyRef Name="tocheck" />
+            <PropertyRef Name="isvalidated" />
+            <PropertyRef Name="angleType" />
+            <PropertyRef Name="type_id" />
+          </Key>
+          <Property Name="picture_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="advert_id" Type="int" Nullable="false" />
+          <Property Name="originalFilepath" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="position" Type="tinyint" Nullable="false" />
+          <Property Name="converted" Type="datetime" />
+          <Property Name="convertedFilename" Type="varchar" MaxLength="50" />
+          <Property Name="tocheck" Type="bit" Nullable="false" />
+          <Property Name="isvalidated" Type="bit" Nullable="false" />
+          <Property Name="convertedFilename90" Type="varchar" MaxLength="50" />
+          <Property Name="convertedFilename180" Type="varchar" MaxLength="50" />
+          <Property Name="convertedFilename270" Type="varchar" MaxLength="50" />
+          <Property Name="angleType" Type="tinyint" Nullable="false" />
+          <Property Name="type_id" Type="tinyint" Nullable="false" />
+          <Property Name="title" Type="nvarchar(max)" />
+          <Property Name="description" Type="nvarchar(max)" />
+          <Property Name="cms_sql_id" Type="int" />
+          <Property Name="shortdescription" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="tbl_advert_promotion">
+          <Key>
+            <PropertyRef Name="advert_id" />
+          </Key>
+          <Property Name="advert_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="advert_name" Type="nvarchar" MaxLength="500" />
+          <Property Name="advert_status" Type="int" />
+          <Property Name="advert_description" Type="nvarchar(max)" />
+          <Property Name="advert_posted_date" Type="datetime" />
+          <Property Name="advert_modifi_date" Type="datetime" />
+          <Property Name="advert_created_date" Type="datetime" />
+          <Property Name="advert_expires_date" Type="datetime" />
+          <Property Name="advert_street" Type="nvarchar" MaxLength="500" />
+          <Property Name="advert_state_id" Type="int" />
+          <Property Name="advert_district_id" Type="int" />
+          <Property Name="advert_ward_id" Type="int" />
+          <Property Name="advert_category_id" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_category_promotion">
+          <Key>
+            <PropertyRef Name="category_id" />
+          </Key>
+          <Property Name="category_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="category_name" Type="nvarchar" MaxLength="500" />
+          <Property Name="category_status" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="tbl_user_promotion">
           <Key>
             <PropertyRef Name="id_user_promotion" />
@@ -20,8 +179,137 @@
           <Property Name="pass_user_promotion" Type="varchar" MaxLength="250" />
           <Property Name="img_user_promotion" Type="varchar" MaxLength="500" />
         </EntityType>
+        <Association Name="FK_District_State">
+          <End Role="State" Type="Self.State" Multiplicity="1" />
+          <End Role="District" Type="Self.District" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State">
+              <PropertyRef Name="state_id" />
+            </Principal>
+            <Dependent Role="District">
+              <PropertyRef Name="state_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Location_Country">
+          <End Role="Country" Type="Self.Country" Multiplicity="1" />
+          <End Role="Location" Type="Self.Location" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="countryCode" />
+            </Principal>
+            <Dependent Role="Location">
+              <PropertyRef Name="countryCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Location_District">
+          <End Role="District" Type="Self.District" Multiplicity="0..1" />
+          <End Role="Location" Type="Self.Location" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="District">
+              <PropertyRef Name="district_id" />
+            </Principal>
+            <Dependent Role="Location">
+              <PropertyRef Name="district_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Location_State">
+          <End Role="State" Type="Self.State" Multiplicity="1" />
+          <End Role="Location" Type="Self.Location" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State">
+              <PropertyRef Name="state_id" />
+            </Principal>
+            <Dependent Role="Location">
+              <PropertyRef Name="state_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Quarter_Location">
+          <End Role="Location" Type="Self.Location" Multiplicity="1" />
+          <End Role="Quarter" Type="Self.Quarter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="location_id" />
+            </Principal>
+            <Dependent Role="Quarter">
+              <PropertyRef Name="location_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_State_Country">
+          <End Role="Country" Type="Self.Country" Multiplicity="1" />
+          <End Role="State" Type="Self.State" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="countryCode" />
+            </Principal>
+            <Dependent Role="State">
+              <PropertyRef Name="countryCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="MyPromotionModelStoreContainer">
+          <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CountryText" EntityType="Self.CountryText" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="District" EntityType="Self.District" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DistrictText" EntityType="Self.DistrictText" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Location" EntityType="Self.Location" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LocationText" EntityType="Self.LocationText" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Quarter" EntityType="Self.Quarter" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="QuarterText" EntityType="Self.QuarterText" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="State" EntityType="Self.State" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StateText" EntityType="Self.StateText" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_advert_promotion" EntityType="Self.tbl_advert_promotion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_category_promotion" EntityType="Self.tbl_category_promotion" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_user_promotion" EntityType="Self.tbl_user_promotion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_advert_picture_promotion" EntityType="Self.tbl_advert_picture_promotion" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [tbl_advert_picture_promotion].[picture_id] AS [picture_id], 
+    [tbl_advert_picture_promotion].[advert_id] AS [advert_id], 
+    [tbl_advert_picture_promotion].[originalFilepath] AS [originalFilepath], 
+    [tbl_advert_picture_promotion].[position] AS [position], 
+    [tbl_advert_picture_promotion].[converted] AS [converted], 
+    [tbl_advert_picture_promotion].[convertedFilename] AS [convertedFilename], 
+    [tbl_advert_picture_promotion].[tocheck] AS [tocheck], 
+    [tbl_advert_picture_promotion].[isvalidated] AS [isvalidated], 
+    [tbl_advert_picture_promotion].[convertedFilename90] AS [convertedFilename90], 
+    [tbl_advert_picture_promotion].[convertedFilename180] AS [convertedFilename180], 
+    [tbl_advert_picture_promotion].[convertedFilename270] AS [convertedFilename270], 
+    [tbl_advert_picture_promotion].[angleType] AS [angleType], 
+    [tbl_advert_picture_promotion].[type_id] AS [type_id], 
+    [tbl_advert_picture_promotion].[title] AS [title], 
+    [tbl_advert_picture_promotion].[description] AS [description], 
+    [tbl_advert_picture_promotion].[cms_sql_id] AS [cms_sql_id], 
+    [tbl_advert_picture_promotion].[shortdescription] AS [shortdescription]
+    FROM [dbo].[tbl_advert_picture_promotion] AS [tbl_advert_picture_promotion]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_District_State" Association="Self.FK_District_State">
+            <End Role="State" EntitySet="State" />
+            <End Role="District" EntitySet="District" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Location_Country" Association="Self.FK_Location_Country">
+            <End Role="Country" EntitySet="Country" />
+            <End Role="Location" EntitySet="Location" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Location_District" Association="Self.FK_Location_District">
+            <End Role="District" EntitySet="District" />
+            <End Role="Location" EntitySet="Location" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Location_State" Association="Self.FK_Location_State">
+            <End Role="State" EntitySet="State" />
+            <End Role="Location" EntitySet="Location" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Quarter_Location" Association="Self.FK_Quarter_Location">
+            <End Role="Location" EntitySet="Location" />
+            <End Role="Quarter" EntitySet="Quarter" />
+          </AssociationSet>
+          <AssociationSet Name="FK_State_Country" Association="Self.FK_State_Country">
+            <End Role="Country" EntitySet="Country" />
+            <End Role="State" EntitySet="State" />
+          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -44,7 +332,285 @@
         </EntityType>
         <EntityContainer Name="MyPromotionEntities" annotation:LazyLoadingEnabled="true" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
           <EntitySet Name="tbl_user_promotion" EntityType="Self.tbl_user_promotion" />
+          <EntitySet Name="Countries" EntityType="MyPromotionModel.Country" />
+          <EntitySet Name="CountryTexts" EntityType="MyPromotionModel.CountryText" />
+          <EntitySet Name="Districts" EntityType="MyPromotionModel.District" />
+          <EntitySet Name="DistrictTexts" EntityType="MyPromotionModel.DistrictText" />
+          <EntitySet Name="Locations" EntityType="MyPromotionModel.Location" />
+          <EntitySet Name="LocationTexts" EntityType="MyPromotionModel.LocationText" />
+          <EntitySet Name="Quarters" EntityType="MyPromotionModel.Quarter" />
+          <EntitySet Name="QuarterTexts" EntityType="MyPromotionModel.QuarterText" />
+          <EntitySet Name="States" EntityType="MyPromotionModel.State" />
+          <EntitySet Name="StateTexts" EntityType="MyPromotionModel.StateText" />
+          <EntitySet Name="tbl_advert_promotion" EntityType="MyPromotionModel.tbl_advert_promotion" />
+          <EntitySet Name="tbl_category_promotion" EntityType="MyPromotionModel.tbl_category_promotion" />
+          <EntitySet Name="tbl_advert_picture_promotion" EntityType="MyPromotionModel.tbl_advert_picture_promotion" />
+          <AssociationSet Name="FK_Location_Country" Association="MyPromotionModel.FK_Location_Country">
+            <End Role="Country" EntitySet="Countries" />
+            <End Role="Location" EntitySet="Locations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_State_Country" Association="MyPromotionModel.FK_State_Country">
+            <End Role="Country" EntitySet="Countries" />
+            <End Role="State" EntitySet="States" />
+          </AssociationSet>
+          <AssociationSet Name="FK_District_State" Association="MyPromotionModel.FK_District_State">
+            <End Role="State" EntitySet="States" />
+            <End Role="District" EntitySet="Districts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Location_District" Association="MyPromotionModel.FK_Location_District">
+            <End Role="District" EntitySet="Districts" />
+            <End Role="Location" EntitySet="Locations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Location_State" Association="MyPromotionModel.FK_Location_State">
+            <End Role="State" EntitySet="States" />
+            <End Role="Location" EntitySet="Locations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Quarter_Location" Association="MyPromotionModel.FK_Quarter_Location">
+            <End Role="Location" EntitySet="Locations" />
+            <End Role="Quarter" EntitySet="Quarters" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="countryCode" />
+          </Key>
+          <Property Name="countryCode" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="name_id" Type="Int32" Nullable="false" />
+          <Property Name="languages" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Locations" Relationship="MyPromotionModel.FK_Location_Country" FromRole="Country" ToRole="Location" />
+          <NavigationProperty Name="States" Relationship="MyPromotionModel.FK_State_Country" FromRole="Country" ToRole="State" />
+        </EntityType>
+        <EntityType Name="CountryText">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="language_id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="language_id" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="text" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="District">
+          <Key>
+            <PropertyRef Name="district_id" />
+          </Key>
+          <Property Name="district_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="state_id" Type="Int32" Nullable="false" />
+          <Property Name="name_id" Type="Int32" Nullable="false" />
+          <Property Name="latitude" Type="Decimal" Precision="9" Scale="5" />
+          <Property Name="longitude" Type="Decimal" Precision="9" Scale="5" />
+          <Property Name="polygon" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="State" Relationship="MyPromotionModel.FK_District_State" FromRole="District" ToRole="State" />
+          <NavigationProperty Name="Locations" Relationship="MyPromotionModel.FK_Location_District" FromRole="District" ToRole="Location" />
+        </EntityType>
+        <EntityType Name="DistrictText">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="language_id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="language_id" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="text" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Location">
+          <Key>
+            <PropertyRef Name="location_id" />
+          </Key>
+          <Property Name="location_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="countryCode" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="state_id" Type="Int32" Nullable="false" />
+          <Property Name="district_id" Type="Int32" />
+          <Property Name="name_id" Type="Int32" Nullable="false" />
+          <Property Name="zipCode" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="latitude" Type="Decimal" Precision="9" Scale="5" />
+          <Property Name="longitude" Type="Decimal" Precision="9" Scale="5" />
+          <Property Name="preferred" Type="Boolean" Nullable="false" />
+          <Property Name="polygon" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Country" Relationship="MyPromotionModel.FK_Location_Country" FromRole="Location" ToRole="Country" />
+          <NavigationProperty Name="District" Relationship="MyPromotionModel.FK_Location_District" FromRole="Location" ToRole="District" />
+          <NavigationProperty Name="State" Relationship="MyPromotionModel.FK_Location_State" FromRole="Location" ToRole="State" />
+          <NavigationProperty Name="Quarters" Relationship="MyPromotionModel.FK_Quarter_Location" FromRole="Location" ToRole="Quarter" />
+        </EntityType>
+        <EntityType Name="LocationText">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="language_id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="language_id" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="text" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Quarter">
+          <Key>
+            <PropertyRef Name="quarter_id" />
+          </Key>
+          <Property Name="quarter_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="location_id" Type="Int32" Nullable="false" />
+          <Property Name="name_id" Type="Int32" Nullable="false" />
+          <Property Name="zipCode" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="latitude" Type="Decimal" Precision="9" Scale="5" />
+          <Property Name="longitude" Type="Decimal" Precision="9" Scale="5" />
+          <NavigationProperty Name="Location" Relationship="MyPromotionModel.FK_Quarter_Location" FromRole="Quarter" ToRole="Location" />
+        </EntityType>
+        <EntityType Name="QuarterText">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="language_id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="language_id" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="text" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="State">
+          <Key>
+            <PropertyRef Name="state_id" />
+          </Key>
+          <Property Name="state_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="countryCode" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="name_id" Type="Int32" Nullable="false" />
+          <Property Name="stateCode" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="latitude" Type="Decimal" Precision="9" Scale="5" />
+          <Property Name="longitude" Type="Decimal" Precision="9" Scale="5" />
+          <Property Name="polygon" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Country" Relationship="MyPromotionModel.FK_State_Country" FromRole="State" ToRole="Country" />
+          <NavigationProperty Name="Districts" Relationship="MyPromotionModel.FK_District_State" FromRole="State" ToRole="District" />
+          <NavigationProperty Name="Locations" Relationship="MyPromotionModel.FK_Location_State" FromRole="State" ToRole="Location" />
+        </EntityType>
+        <EntityType Name="StateText">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="language_id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="language_id" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="text" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbl_advert_promotion">
+          <Key>
+            <PropertyRef Name="advert_id" />
+          </Key>
+          <Property Name="advert_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="advert_name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="advert_status" Type="Int32" />
+          <Property Name="advert_description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="advert_posted_date" Type="DateTime" Precision="3" />
+          <Property Name="advert_modifi_date" Type="DateTime" Precision="3" />
+          <Property Name="advert_created_date" Type="DateTime" Precision="3" />
+          <Property Name="advert_expires_date" Type="DateTime" Precision="3" />
+          <Property Name="advert_street" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="advert_state_id" Type="Int32" />
+          <Property Name="advert_district_id" Type="Int32" />
+          <Property Name="advert_ward_id" Type="Int32" />
+          <Property Name="advert_category_id" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbl_category_promotion">
+          <Key>
+            <PropertyRef Name="category_id" />
+          </Key>
+          <Property Name="category_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="category_name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="category_status" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_advert_picture_promotion">
+          <Key>
+            <PropertyRef Name="picture_id" />
+            <PropertyRef Name="advert_id" />
+            <PropertyRef Name="originalFilepath" />
+            <PropertyRef Name="position" />
+            <PropertyRef Name="tocheck" />
+            <PropertyRef Name="isvalidated" />
+            <PropertyRef Name="angleType" />
+            <PropertyRef Name="type_id" />
+          </Key>
+          <Property Name="picture_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="advert_id" Type="Int32" Nullable="false" />
+          <Property Name="originalFilepath" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="position" Type="Byte" Nullable="false" />
+          <Property Name="converted" Type="DateTime" Precision="3" />
+          <Property Name="convertedFilename" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="tocheck" Type="Boolean" Nullable="false" />
+          <Property Name="isvalidated" Type="Boolean" Nullable="false" />
+          <Property Name="convertedFilename90" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="convertedFilename180" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="convertedFilename270" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="angleType" Type="Byte" Nullable="false" />
+          <Property Name="type_id" Type="Byte" Nullable="false" />
+          <Property Name="title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="cms_sql_id" Type="Int32" />
+          <Property Name="shortdescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_Location_Country">
+          <End Type="MyPromotionModel.Country" Role="Country" Multiplicity="1" />
+          <End Type="MyPromotionModel.Location" Role="Location" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="countryCode" />
+            </Principal>
+            <Dependent Role="Location">
+              <PropertyRef Name="countryCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_State_Country">
+          <End Type="MyPromotionModel.Country" Role="Country" Multiplicity="1" />
+          <End Type="MyPromotionModel.State" Role="State" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="countryCode" />
+            </Principal>
+            <Dependent Role="State">
+              <PropertyRef Name="countryCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_District_State">
+          <End Type="MyPromotionModel.State" Role="State" Multiplicity="1" />
+          <End Type="MyPromotionModel.District" Role="District" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State">
+              <PropertyRef Name="state_id" />
+            </Principal>
+            <Dependent Role="District">
+              <PropertyRef Name="state_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Location_District">
+          <End Type="MyPromotionModel.District" Role="District" Multiplicity="0..1" />
+          <End Type="MyPromotionModel.Location" Role="Location" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="District">
+              <PropertyRef Name="district_id" />
+            </Principal>
+            <Dependent Role="Location">
+              <PropertyRef Name="district_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Location_State">
+          <End Type="MyPromotionModel.State" Role="State" Multiplicity="1" />
+          <End Type="MyPromotionModel.Location" Role="Location" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State">
+              <PropertyRef Name="state_id" />
+            </Principal>
+            <Dependent Role="Location">
+              <PropertyRef Name="state_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Quarter_Location">
+          <End Type="MyPromotionModel.Location" Role="Location" Multiplicity="1" />
+          <End Type="MyPromotionModel.Quarter" Role="Quarter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="location_id" />
+            </Principal>
+            <Dependent Role="Quarter">
+              <PropertyRef Name="location_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -64,6 +630,164 @@
                 <ScalarProperty Name="type_role_user_promotion" ColumnName="type_role_user_promotion" />
                 <ScalarProperty Name="status_user_promotion" ColumnName="status_user_promotion" />
                 <ScalarProperty Name="pass_user_promotion" ColumnName="pass_user_promotion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Countries">
+            <EntityTypeMapping TypeName="MyPromotionModel.Country">
+              <MappingFragment StoreEntitySet="Country">
+                <ScalarProperty Name="languages" ColumnName="languages" />
+                <ScalarProperty Name="name_id" ColumnName="name_id" />
+                <ScalarProperty Name="countryCode" ColumnName="countryCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CountryTexts">
+            <EntityTypeMapping TypeName="MyPromotionModel.CountryText">
+              <MappingFragment StoreEntitySet="CountryText">
+                <ScalarProperty Name="text" ColumnName="text" />
+                <ScalarProperty Name="language_id" ColumnName="language_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Districts">
+            <EntityTypeMapping TypeName="MyPromotionModel.District">
+              <MappingFragment StoreEntitySet="District">
+                <ScalarProperty Name="polygon" ColumnName="polygon" />
+                <ScalarProperty Name="longitude" ColumnName="longitude" />
+                <ScalarProperty Name="latitude" ColumnName="latitude" />
+                <ScalarProperty Name="name_id" ColumnName="name_id" />
+                <ScalarProperty Name="state_id" ColumnName="state_id" />
+                <ScalarProperty Name="district_id" ColumnName="district_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DistrictTexts">
+            <EntityTypeMapping TypeName="MyPromotionModel.DistrictText">
+              <MappingFragment StoreEntitySet="DistrictText">
+                <ScalarProperty Name="text" ColumnName="text" />
+                <ScalarProperty Name="language_id" ColumnName="language_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Locations">
+            <EntityTypeMapping TypeName="MyPromotionModel.Location">
+              <MappingFragment StoreEntitySet="Location">
+                <ScalarProperty Name="polygon" ColumnName="polygon" />
+                <ScalarProperty Name="preferred" ColumnName="preferred" />
+                <ScalarProperty Name="longitude" ColumnName="longitude" />
+                <ScalarProperty Name="latitude" ColumnName="latitude" />
+                <ScalarProperty Name="zipCode" ColumnName="zipCode" />
+                <ScalarProperty Name="name_id" ColumnName="name_id" />
+                <ScalarProperty Name="district_id" ColumnName="district_id" />
+                <ScalarProperty Name="state_id" ColumnName="state_id" />
+                <ScalarProperty Name="countryCode" ColumnName="countryCode" />
+                <ScalarProperty Name="location_id" ColumnName="location_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LocationTexts">
+            <EntityTypeMapping TypeName="MyPromotionModel.LocationText">
+              <MappingFragment StoreEntitySet="LocationText">
+                <ScalarProperty Name="text" ColumnName="text" />
+                <ScalarProperty Name="language_id" ColumnName="language_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Quarters">
+            <EntityTypeMapping TypeName="MyPromotionModel.Quarter">
+              <MappingFragment StoreEntitySet="Quarter">
+                <ScalarProperty Name="longitude" ColumnName="longitude" />
+                <ScalarProperty Name="latitude" ColumnName="latitude" />
+                <ScalarProperty Name="zipCode" ColumnName="zipCode" />
+                <ScalarProperty Name="name_id" ColumnName="name_id" />
+                <ScalarProperty Name="location_id" ColumnName="location_id" />
+                <ScalarProperty Name="quarter_id" ColumnName="quarter_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QuarterTexts">
+            <EntityTypeMapping TypeName="MyPromotionModel.QuarterText">
+              <MappingFragment StoreEntitySet="QuarterText">
+                <ScalarProperty Name="text" ColumnName="text" />
+                <ScalarProperty Name="language_id" ColumnName="language_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="States">
+            <EntityTypeMapping TypeName="MyPromotionModel.State">
+              <MappingFragment StoreEntitySet="State">
+                <ScalarProperty Name="polygon" ColumnName="polygon" />
+                <ScalarProperty Name="longitude" ColumnName="longitude" />
+                <ScalarProperty Name="latitude" ColumnName="latitude" />
+                <ScalarProperty Name="stateCode" ColumnName="stateCode" />
+                <ScalarProperty Name="name_id" ColumnName="name_id" />
+                <ScalarProperty Name="countryCode" ColumnName="countryCode" />
+                <ScalarProperty Name="state_id" ColumnName="state_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StateTexts">
+            <EntityTypeMapping TypeName="MyPromotionModel.StateText">
+              <MappingFragment StoreEntitySet="StateText">
+                <ScalarProperty Name="text" ColumnName="text" />
+                <ScalarProperty Name="language_id" ColumnName="language_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_advert_promotion">
+            <EntityTypeMapping TypeName="MyPromotionModel.tbl_advert_promotion">
+              <MappingFragment StoreEntitySet="tbl_advert_promotion">
+                <ScalarProperty Name="advert_category_id" ColumnName="advert_category_id" />
+                <ScalarProperty Name="advert_ward_id" ColumnName="advert_ward_id" />
+                <ScalarProperty Name="advert_district_id" ColumnName="advert_district_id" />
+                <ScalarProperty Name="advert_state_id" ColumnName="advert_state_id" />
+                <ScalarProperty Name="advert_street" ColumnName="advert_street" />
+                <ScalarProperty Name="advert_expires_date" ColumnName="advert_expires_date" />
+                <ScalarProperty Name="advert_created_date" ColumnName="advert_created_date" />
+                <ScalarProperty Name="advert_modifi_date" ColumnName="advert_modifi_date" />
+                <ScalarProperty Name="advert_posted_date" ColumnName="advert_posted_date" />
+                <ScalarProperty Name="advert_description" ColumnName="advert_description" />
+                <ScalarProperty Name="advert_status" ColumnName="advert_status" />
+                <ScalarProperty Name="advert_name" ColumnName="advert_name" />
+                <ScalarProperty Name="advert_id" ColumnName="advert_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_category_promotion">
+            <EntityTypeMapping TypeName="MyPromotionModel.tbl_category_promotion">
+              <MappingFragment StoreEntitySet="tbl_category_promotion">
+                <ScalarProperty Name="category_status" ColumnName="category_status" />
+                <ScalarProperty Name="category_name" ColumnName="category_name" />
+                <ScalarProperty Name="category_id" ColumnName="category_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_advert_picture_promotion">
+            <EntityTypeMapping TypeName="MyPromotionModel.tbl_advert_picture_promotion">
+              <MappingFragment StoreEntitySet="tbl_advert_picture_promotion">
+                <ScalarProperty Name="shortdescription" ColumnName="shortdescription" />
+                <ScalarProperty Name="cms_sql_id" ColumnName="cms_sql_id" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="type_id" ColumnName="type_id" />
+                <ScalarProperty Name="angleType" ColumnName="angleType" />
+                <ScalarProperty Name="convertedFilename270" ColumnName="convertedFilename270" />
+                <ScalarProperty Name="convertedFilename180" ColumnName="convertedFilename180" />
+                <ScalarProperty Name="convertedFilename90" ColumnName="convertedFilename90" />
+                <ScalarProperty Name="isvalidated" ColumnName="isvalidated" />
+                <ScalarProperty Name="tocheck" ColumnName="tocheck" />
+                <ScalarProperty Name="convertedFilename" ColumnName="convertedFilename" />
+                <ScalarProperty Name="converted" ColumnName="converted" />
+                <ScalarProperty Name="position" ColumnName="position" />
+                <ScalarProperty Name="originalFilepath" ColumnName="originalFilepath" />
+                <ScalarProperty Name="advert_id" ColumnName="advert_id" />
+                <ScalarProperty Name="picture_id" ColumnName="picture_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
