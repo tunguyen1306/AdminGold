@@ -155,6 +155,22 @@ warning 6002: The table/view 'MyPromotion.dbo.tbl_advert_picture_promotion' does
           <Property Name="advert_district_id" Type="int" />
           <Property Name="advert_ward_id" Type="int" />
           <Property Name="advert_category_id" Type="int" />
+          <Property Name="advert_price" Type="float" />
+        </EntityType>
+        <EntityType Name="tbl_brand_promotion">
+          <Key>
+            <PropertyRef Name="id_brand_promotiom" />
+          </Key>
+          <Property Name="id_brand_promotiom" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name_brand_promotiom" Type="nvarchar" MaxLength="500" />
+          <Property Name="address_brand_promotiom" Type="nvarchar" MaxLength="500" />
+          <Property Name="percent_brand_promotiom" Type="int" />
+          <Property Name="status_brand_promotiom" Type="int" />
+          <Property Name="type_brand_promotiom" Type="int" />
+          <Property Name="phone_brand_promotiom" Type="varchar" MaxLength="20" />
+          <Property Name="working_brand_promotiom" Type="varchar" MaxLength="50" />
+          <Property Name="advert_id_brand_promotiom" Type="int" />
+          <Property Name="img_brand_promotiom" Type="varchar" MaxLength="500" />
         </EntityType>
         <EntityType Name="tbl_category_promotion">
           <Key>
@@ -263,6 +279,7 @@ warning 6002: The table/view 'MyPromotion.dbo.tbl_advert_picture_promotion' does
           <EntitySet Name="State" EntityType="Self.State" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="StateText" EntityType="Self.StateText" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_advert_promotion" EntityType="Self.tbl_advert_promotion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_brand_promotion" EntityType="Self.tbl_brand_promotion" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_category_promotion" EntityType="Self.tbl_category_promotion" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_user_promotion" EntityType="Self.tbl_user_promotion" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_advert_picture_promotion" EntityType="Self.tbl_advert_picture_promotion" store:Type="Tables" store:Schema="dbo">
@@ -369,6 +386,7 @@ warning 6002: The table/view 'MyPromotion.dbo.tbl_advert_picture_promotion' does
             <End Role="Location" EntitySet="Locations" />
             <End Role="Quarter" EntitySet="Quarters" />
           </AssociationSet>
+          <EntitySet Name="tbl_brand_promotion" EntityType="MyPromotionModel.tbl_brand_promotion" />
         </EntityContainer>
         <EntityType Name="Country">
           <Key>
@@ -501,6 +519,7 @@ warning 6002: The table/view 'MyPromotion.dbo.tbl_advert_picture_promotion' does
           <Property Name="advert_district_id" Type="Int32" />
           <Property Name="advert_ward_id" Type="Int32" />
           <Property Name="advert_category_id" Type="Int32" />
+          <Property Name="advert_price" Type="Double" />
         </EntityType>
         <EntityType Name="tbl_category_promotion">
           <Key>
@@ -611,6 +630,21 @@ warning 6002: The table/view 'MyPromotion.dbo.tbl_advert_picture_promotion' does
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="tbl_brand_promotion">
+          <Key>
+            <PropertyRef Name="id_brand_promotiom" />
+          </Key>
+          <Property Name="id_brand_promotiom" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name_brand_promotiom" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="address_brand_promotiom" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="percent_brand_promotiom" Type="Int32" />
+          <Property Name="status_brand_promotiom" Type="Int32" />
+          <Property Name="type_brand_promotiom" Type="Int32" />
+          <Property Name="phone_brand_promotiom" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="working_brand_promotiom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="advert_id_brand_promotiom" Type="Int32" />
+          <Property Name="img_brand_promotiom" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -743,6 +777,7 @@ warning 6002: The table/view 'MyPromotion.dbo.tbl_advert_picture_promotion' does
           <EntitySetMapping Name="tbl_advert_promotion">
             <EntityTypeMapping TypeName="MyPromotionModel.tbl_advert_promotion">
               <MappingFragment StoreEntitySet="tbl_advert_promotion">
+                <ScalarProperty Name="advert_price" ColumnName="advert_price" />
                 <ScalarProperty Name="advert_category_id" ColumnName="advert_category_id" />
                 <ScalarProperty Name="advert_ward_id" ColumnName="advert_ward_id" />
                 <ScalarProperty Name="advert_district_id" ColumnName="advert_district_id" />
@@ -788,6 +823,22 @@ warning 6002: The table/view 'MyPromotion.dbo.tbl_advert_picture_promotion' does
                 <ScalarProperty Name="originalFilepath" ColumnName="originalFilepath" />
                 <ScalarProperty Name="advert_id" ColumnName="advert_id" />
                 <ScalarProperty Name="picture_id" ColumnName="picture_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_brand_promotion">
+            <EntityTypeMapping TypeName="MyPromotionModel.tbl_brand_promotion">
+              <MappingFragment StoreEntitySet="tbl_brand_promotion">
+                <ScalarProperty Name="img_brand_promotiom" ColumnName="img_brand_promotiom" />
+                <ScalarProperty Name="advert_id_brand_promotiom" ColumnName="advert_id_brand_promotiom" />
+                <ScalarProperty Name="working_brand_promotiom" ColumnName="working_brand_promotiom" />
+                <ScalarProperty Name="phone_brand_promotiom" ColumnName="phone_brand_promotiom" />
+                <ScalarProperty Name="type_brand_promotiom" ColumnName="type_brand_promotiom" />
+                <ScalarProperty Name="status_brand_promotiom" ColumnName="status_brand_promotiom" />
+                <ScalarProperty Name="percent_brand_promotiom" ColumnName="percent_brand_promotiom" />
+                <ScalarProperty Name="address_brand_promotiom" ColumnName="address_brand_promotiom" />
+                <ScalarProperty Name="name_brand_promotiom" ColumnName="name_brand_promotiom" />
+                <ScalarProperty Name="id_brand_promotiom" ColumnName="id_brand_promotiom" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

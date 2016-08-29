@@ -305,6 +305,9 @@
     <Compile Include="Models\tbl_advert_promotion.cs">
       <DependentUpon>myPromotion.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\tbl_brand_promotion.cs">
+      <DependentUpon>myPromotion.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\tbl_category_promotion.cs">
       <DependentUpon>myPromotion.tt</DependentUpon>
     </Compile>

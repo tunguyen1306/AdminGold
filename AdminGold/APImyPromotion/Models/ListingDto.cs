@@ -20,6 +20,7 @@ namespace APImyPromotion.Models
         public string AdvertWard { get; set; }
         public string CategoryName { get; set; }
         public string AdvertImg { get; set; }
+        public double AdvertPrice { get; set; }
 
     }
 }
