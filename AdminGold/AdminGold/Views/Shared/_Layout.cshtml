@@ -51,7 +51,8 @@
     <script>
         $(document).ready(function () {
             $('#dataTables-example').DataTable({
-                responsive: true
+                responsive: true,
+                "lengthMenu": [[-1,10, 25, 50, 100], [ "All",10, 25, 50, , 100]]
             });
         });
     </script>

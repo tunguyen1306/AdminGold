@@ -23,7 +23,7 @@
                 <div class="panel-body">
                     <div class="row">
 
-                        <div class="col-lg-6">
+                        <div class="col-lg-8">
 
                             <div class="form-group">
                                 <label>Tên sản phẩm</label>
@@ -35,7 +35,7 @@
                             <div class="row">
 
                                 <div class="col-lg-4">
-                                    <label>Giá</label>
+                                    <label>Giá 1</label>
                                     <div class="form-group input-group">
 
 
@@ -46,8 +46,15 @@
                                         <span class="input-group-addon">VNĐ</span>
                                     </div>
                                 </div>
+                                <div class="col-lg-1">
+                                    <label></label>
+                                    <div class="form-group input-group">
+                                        -
 
-                                <div class="col-lg-4">
+                                    </div>
+
+                                </div>
+                                <div class="col-lg-2">
                                     <label>Giảm giá</label>
                                     <div class="form-group input-group">
 
@@ -61,8 +68,16 @@
 
                                     </div>
                                 </div>
+                                <div class="col-lg-1">
+                                    <label></label>
+                                    <div class="form-group input-group">
+                                        =
+
+                                    </div>
+
+                                </div>
                                 <div class="col-lg-4">
-                                    <label>Giá đã giảm</label>
+                                    <label>Giá 2</label>
                                     <div class="form-group input-group">
 
 
@@ -80,8 +95,19 @@
                                 @Html.TextAreaFor(model => model.tblProducts.des_products_tra, htmlAttributes: new { @name = "tblProducts.des_products_tra", @class = "form-control" })
 
                             </div>
+                            <div class="form-group">
+                                <label>Sản phẩm mới</label>
+
+                                @Html.DropDownListFor(model => model.tblProducts.new_products_tra, new List<SelectListItem>
+                                    {
+                                        new SelectListItem {Text = "Hàng mới", Value = "1"},
+                                        new SelectListItem {Text = "Hàng cũ", Value = "0"},
+                                       
+                                    }, new { @class = "form-control", @name = "tblProducts.new_products_tra" })
+
+                            </div>
                         </div>
-                        <div class="col-lg-6">
+                        <div class="col-lg-4">
                             <div class="form-group">
                                 <label>Mã sản phẩm</label>
 

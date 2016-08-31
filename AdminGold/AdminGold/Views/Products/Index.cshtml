@@ -30,11 +30,12 @@
                                 <th>Mã</th>
                                 <th>Tên sản phẩm</th>
                                 <th>Loại</th>
-                                <th>Giá</th>
-                                <th>Giá mới</th>
+                                <th>Giá 1</th>
+                                <th>Giá 2</th>
                                 <th>Trạng thái</th>
                                 <th>Tiêu biểu</th>
                                 <th>Trạng thái hàng</th>
+                                <th>Sản phẩm mới</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -108,6 +109,16 @@
                                         {
                                             @("Hết hàng")
                                         }
+                                    </td>
+                                    <td>
+                                        @if (item.tblProducts.new_products_tra == 1)
+                                        {
+                                            @("Hàng mới")
+                                        }
+                                        @if (item.tblProducts.new_products_tra == 0)
+                                        {
+                                            @("Hàng cũ")
+                                        } 
                                     </td>
                                     <td>
                                     <a href="@Url.Action("Edit", "Products", new { id = item.tblProducts.id_products_tra })" class="btn btn-default btn-xs">Sửa</a> 
