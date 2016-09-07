@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
@@ -54,10 +55,13 @@ namespace APImyPromotion.Controllers
         {
         }
       
-        public void GetRegister()
+        public void Upload(int idUser, [FromUri]string urlImg)
         {
-           
-          
+            tbl_user_promotion tblSysPicture = db.tbl_user_promotion.Find(idUser);
+            tblSysPicture.img_user_promotion = urlImg;
+            db.Entry(tblSysPicture).State = EntityState.Modified;
+            db.SaveChanges();
+
         }
     }
 }
