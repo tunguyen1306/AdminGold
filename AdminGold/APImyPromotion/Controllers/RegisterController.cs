@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
+using System.Web;
 using System.Web.Http;
+using System.Web.Mvc;
 using APImyPromotion.Models;
+using ImageResizer;
+
 
 namespace APImyPromotion.Controllers
 {
@@ -54,14 +57,9 @@ namespace APImyPromotion.Controllers
         public void Delete(int id)
         {
         }
-      
-        public void Upload(int idUser, [FromUri]string urlImg)
+        public void UploadImg(int id)
         {
-            tbl_user_promotion tblSysPicture = db.tbl_user_promotion.Find(idUser);
-            tblSysPicture.img_user_promotion = urlImg;
-            db.Entry(tblSysPicture).State = EntityState.Modified;
-            db.SaveChanges();
-
         }
+
     }
 }
