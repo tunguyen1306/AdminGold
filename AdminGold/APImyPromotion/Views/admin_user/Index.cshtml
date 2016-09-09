@@ -13,31 +13,31 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.email_user_promotion)
+           Email
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.phone_user_promotion)
+           Điện thoại
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.first_name_user_promotion)
+           Tên
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.last_name_user_promotion)
+           Họ
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.type_role_user_promotion)
+           Loại User
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.status_user_promotion)
+         Trạng thái
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.pass_user_promotion)
+           Mật khẩu
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.img_user_promotion)
+           Hình
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.full_name_user_promotion)
+           Họ và tên
         </th>
         <th></th>
     </tr>
@@ -75,6 +75,7 @@
             @Html.ActionLink("Edit", "Edit", new { id=item.id_user_promotion }) |
             @Html.ActionLink("Details", "Details", new { id=item.id_user_promotion }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.id_user_promotion })
+            <a href="@Url.Action("Delete",new { id=item.id_user_promotion })" onclick="return confirm('Bạn có muốn xóa không ?')"></a>
         </td>
     </tr>
 }

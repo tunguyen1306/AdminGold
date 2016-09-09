@@ -97,11 +97,9 @@ namespace APImyPromotion.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             tbl_user_promotion tbl_user_promotion = db.tbl_user_promotion.Find(id);
-            if (tbl_user_promotion == null)
-            {
-                return HttpNotFound();
-            }
-            return View(tbl_user_promotion);
+            db.tbl_user_promotion.Remove(tbl_user_promotion);
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
 
         // POST: admin_user/Delete/5
