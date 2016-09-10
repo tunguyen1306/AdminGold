@@ -48,5 +48,15 @@ namespace APImyPromotion.Controllers
             var datalogin = db.Database.SqlQuery<ListingDto>("exec  sp_GetListing @PageNum", para);
             return datalogin.ToList();
         }
+        public IList<ListingDto> GetDetailListing(int idAvert)
+        {
+            object[] para =
+            {
+               new SqlParameter("@idAvert",idAvert)
+
+            };
+            var datalogin = db.Database.SqlQuery<ListingDto>("exec  sp_GetDetailListing @idAvert", para);
+            return datalogin.ToList();
+        }
     }
 }
