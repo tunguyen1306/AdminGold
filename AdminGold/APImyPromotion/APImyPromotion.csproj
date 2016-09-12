@@ -250,6 +250,8 @@
     <Compile Include="Controllers\GetLoginController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
+    <Compile Include="Controllers\SlideController.cs" />
+    <Compile Include="Controllers\SlidePromotionController.cs" />
     <Compile Include="Controllers\UploadController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -299,6 +301,7 @@
     <Compile Include="Models\QuarterText.cs">
       <DependentUpon>myPromotion.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\SlideDto.cs" />
     <Compile Include="Models\State.cs">
       <DependentUpon>myPromotion.tt</DependentUpon>
     </Compile>
@@ -315,6 +318,9 @@
       <DependentUpon>myPromotion.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tbl_category_promotion.cs">
+      <DependentUpon>myPromotion.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_slide_promotion.cs">
       <DependentUpon>myPromotion.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tbl_user_promotion.cs">
@@ -408,6 +414,11 @@
     <Content Include="Views\admin_user\Details.cshtml" />
     <Content Include="Views\admin_user\Edit.cshtml" />
     <Content Include="Views\admin_user\Index.cshtml" />
+    <Content Include="Views\SlidePromotion\Create.cshtml" />
+    <Content Include="Views\SlidePromotion\Delete.cshtml" />
+    <Content Include="Views\SlidePromotion\Details.cshtml" />
+    <Content Include="Views\SlidePromotion\Edit.cshtml" />
+    <Content Include="Views\SlidePromotion\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

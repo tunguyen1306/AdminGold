@@ -38,14 +38,14 @@ namespace APImyPromotion.Controllers
         public void Delete(int id)
         {
         }
-        public IList<ListingDto> GetListing(int pageNum)
+        public IList<ListingDto> GetAdvertSave(int pageNum)
         {
             object[] para =
             {
                new SqlParameter("@PageNum",pageNum)
                
             };
-            var datalogin = db.Database.SqlQuery<ListingDto>("exec  sp_GetListing @PageNum", para);
+            var datalogin = db.Database.SqlQuery<ListingDto>("exec  sp_GetAdvertSave @PageNum", para);
             return datalogin.ToList();
         }
         public IList<ListingDto> GetDetailListing(int idAvert)

@@ -1,0 +1,51 @@
+﻿@model APImyPromotion.Models.tbl_slide_promotion
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tbl_slide_promotion</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.img_slide)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.img_slide)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.title_slide)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.title_slide)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.des_slide)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.des_slide)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.status_slide)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.status_slide)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_slide }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
