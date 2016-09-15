@@ -4,29 +4,29 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="d06afa5440ca4a7abe173dcc15696f0c" Name="Diagram1">
-        <EntityTypeShape EntityType="MyPromotionModel.tbl_user_promotion" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MyPromotionModel.Country" Width="1.5" PointX="3.75" PointY="3.875" />
-        <EntityTypeShape EntityType="MyPromotionModel.CountryText" Width="1.5" PointX="3.75" PointY="0.75" />
-        <EntityTypeShape EntityType="MyPromotionModel.District" Width="1.5" PointX="8.25" PointY="3.625" />
-        <EntityTypeShape EntityType="MyPromotionModel.DistrictText" Width="1.5" PointX="0.75" PointY="4.75" />
-        <EntityTypeShape EntityType="MyPromotionModel.Location" Width="1.5" PointX="10.5" PointY="3" />
-        <EntityTypeShape EntityType="MyPromotionModel.LocationText" Width="1.5" PointX="5.75" PointY="0.75" />
-        <EntityTypeShape EntityType="MyPromotionModel.Quarter" Width="1.5" PointX="12.75" PointY="3.75" />
-        <EntityTypeShape EntityType="MyPromotionModel.QuarterText" Width="1.5" PointX="2.75" PointY="6.75" />
-        <EntityTypeShape EntityType="MyPromotionModel.State" Width="1.5" PointX="6" PointY="3.375" />
-        <EntityTypeShape EntityType="MyPromotionModel.StateText" Width="1.5" PointX="7.75" PointY="0.75" />
-        <EntityTypeShape EntityType="MyPromotionModel.tbl_advert_promotion" Width="1.5" PointX="4.75" PointY="7.75" />
-        <EntityTypeShape EntityType="MyPromotionModel.tbl_category_promotion" Width="1.5" PointX="6.75" PointY="7.75" />
-        <EntityTypeShape EntityType="MyPromotionModel.tbl_advert_picture_promotion" Width="1.5" PointX="8.75" PointY="7.75" />
-        <AssociationConnector Association="MyPromotionModel.FK_Location_Country" />
-        <AssociationConnector Association="MyPromotionModel.FK_State_Country" />
-        <AssociationConnector Association="MyPromotionModel.FK_District_State" />
-        <AssociationConnector Association="MyPromotionModel.FK_Location_District" />
-        <AssociationConnector Association="MyPromotionModel.FK_Location_State" />
-        <AssociationConnector Association="MyPromotionModel.FK_Quarter_Location" />
-        <EntityTypeShape EntityType="MyPromotionModel.tbl_brand_promotion" Width="1.5" PointX="0.75" PointY="9.75" />
-        <EntityTypeShape EntityType="MyPromotionModel.tbl_slide_promotion" Width="1.5" PointX="11.375" PointY="7.75" />
+      <Diagram DiagramId="69c49379dfc341439445d117f199fad4" Name="Diagram1">
+        <EntityTypeShape EntityType="nhvanxol_apiModel.Country" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="nhvanxol_apiModel.CountryText" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="nhvanxol_apiModel.District" Width="1.5" PointX="5.25" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="nhvanxol_apiModel.DistrictText" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="nhvanxol_apiModel.Location" Width="1.5" PointX="7.5" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="nhvanxol_apiModel.LocationText" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="nhvanxol_apiModel.Quarter" Width="1.5" PointX="9.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="nhvanxol_apiModel.QuarterText" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="nhvanxol_apiModel.State" Width="1.5" PointX="3" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="nhvanxol_apiModel.StateText" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="nhvanxol_apiModel.tbl_advert_promotion" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="nhvanxol_apiModel.tbl_brand_promotion" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="nhvanxol_apiModel.tbl_category_promotion" Width="1.5" PointX="9.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="nhvanxol_apiModel.tbl_slide_promotion" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="nhvanxol_apiModel.tbl_user_promotion" Width="1.5" PointX="0.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="nhvanxol_apiModel.tbl_advert_picture_promotion" Width="3.125" PointX="2.75" PointY="11.75" IsExpanded="true" />
+        <AssociationConnector Association="nhvanxol_apiModel.FK_Location_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="nhvanxol_apiModel.FK_State_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="nhvanxol_apiModel.FK_District_State" ManuallyRouted="false" />
+        <AssociationConnector Association="nhvanxol_apiModel.FK_Location_District" ManuallyRouted="false" />
+        <AssociationConnector Association="nhvanxol_apiModel.FK_Location_State" ManuallyRouted="false" />
+        <AssociationConnector Association="nhvanxol_apiModel.FK_Quarter_Location" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

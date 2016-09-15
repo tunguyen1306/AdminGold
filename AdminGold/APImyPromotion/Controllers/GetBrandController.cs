@@ -8,35 +8,38 @@ using APImyPromotion.Models;
 
 namespace APImyPromotion.Controllers
 {
-    public class SlideController : ApiController
+    public class GetBrandController : ApiController
     {
         private MyPromotionEntities db = new MyPromotionEntities();
-    
-
-        // GET: api/Slide/5
+        // GET: api/GetBrand
+       
+        // GET: api/GetBrand/5
         public string Get(int id)
         {
             return "value";
         }
 
-        // POST: api/Slide
+        // POST: api/GetBrand
         public void Post([FromBody]string value)
         {
         }
 
-        // PUT: api/Slide/5
+        // PUT: api/GetBrand/5
         public void Put(int id, [FromBody]string value)
         {
         }
 
-        // DELETE: api/Slide/5
+        // DELETE: api/GetBrand/5
         public void Delete(int id)
         {
         }
-        public IList<SlideDto> GetSlide()
+        public IList<BrandDto> GetBrand()
         {
-            var datalogin = db.Database.SqlQuery<SlideDto>(@"select * from tbl_slide_promotion Order By tbl_slide_promotion.id_slide");
-            return datalogin.ToList();
+            var dataBrand = db.Database.SqlQuery<BrandDto>(@"SELECT        tbl_brand_promotion.*
+FROM            tbl_brand_promotion
+WHERE tbl_brand_promotion.status_brand_promotiom = 1
+ORDER BY tbl_brand_promotion.id_brand_promotiom");
+            return dataBrand.ToList();
         }
     }
 }

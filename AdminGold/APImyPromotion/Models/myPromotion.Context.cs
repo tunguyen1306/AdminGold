@@ -25,7 +25,6 @@ namespace APImyPromotion.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<tbl_user_promotion> tbl_user_promotion { get; set; }
         public virtual DbSet<Country> Countries { get; set; }
         public virtual DbSet<CountryText> CountryTexts { get; set; }
         public virtual DbSet<District> Districts { get; set; }
@@ -37,9 +36,10 @@ namespace APImyPromotion.Models
         public virtual DbSet<State> States { get; set; }
         public virtual DbSet<StateText> StateTexts { get; set; }
         public virtual DbSet<tbl_advert_promotion> tbl_advert_promotion { get; set; }
-        public virtual DbSet<tbl_category_promotion> tbl_category_promotion { get; set; }
-        public virtual DbSet<tbl_advert_picture_promotion> tbl_advert_picture_promotion { get; set; }
         public virtual DbSet<tbl_brand_promotion> tbl_brand_promotion { get; set; }
+        public virtual DbSet<tbl_category_promotion> tbl_category_promotion { get; set; }
         public virtual DbSet<tbl_slide_promotion> tbl_slide_promotion { get; set; }
+        public virtual DbSet<tbl_user_promotion> tbl_user_promotion { get; set; }
+        public virtual DbSet<tbl_advert_picture_promotion> tbl_advert_picture_promotion { get; set; }
     }
 }

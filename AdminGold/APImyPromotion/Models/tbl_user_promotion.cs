@@ -15,6 +15,7 @@ namespace APImyPromotion.Models
     public partial class tbl_user_promotion
     {
         public int id_user_promotion { get; set; }
+        public string full_name_user_promotion { get; set; }
         public string email_user_promotion { get; set; }
         public string phone_user_promotion { get; set; }
         public string first_name_user_promotion { get; set; }
@@ -23,6 +24,5 @@ namespace APImyPromotion.Models
         public Nullable<int> status_user_promotion { get; set; }
         public string pass_user_promotion { get; set; }
         public string img_user_promotion { get; set; }
-        public string full_name_user_promotion { get; set; }
     }
 }

@@ -247,6 +247,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\admin_userController.cs" />
     <Compile Include="Controllers\GetAdvertController.cs" />
+    <Compile Include="Controllers\GetBrandController.cs" />
     <Compile Include="Controllers\GetLoginController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
@@ -259,72 +260,73 @@
     </Compile>
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\BrandDto.cs" />
     <Compile Include="Models\clsPicture.cs" />
     <Compile Include="Models\Country.cs">
-      <DependentUpon>myPromotion.tt</DependentUpon>
+      <DependentUpon>MyPromotion.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CountryText.cs">
-      <DependentUpon>myPromotion.tt</DependentUpon>
+      <DependentUpon>MyPromotion.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\District.cs">
-      <DependentUpon>myPromotion.tt</DependentUpon>
+      <DependentUpon>MyPromotion.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DistrictText.cs">
-      <DependentUpon>myPromotion.tt</DependentUpon>
+      <DependentUpon>MyPromotion.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ListingDto.cs" />
     <Compile Include="Models\Location.cs">
-      <DependentUpon>myPromotion.tt</DependentUpon>
+      <DependentUpon>MyPromotion.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LocationText.cs">
-      <DependentUpon>myPromotion.tt</DependentUpon>
+      <DependentUpon>MyPromotion.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\myPromotion.Context.cs">
+    <Compile Include="Models\MyPromotion.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>myPromotion.Context.tt</DependentUpon>
+      <DependentUpon>MyPromotion.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\myPromotion.cs">
+    <Compile Include="Models\MyPromotion.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>myPromotion.tt</DependentUpon>
+      <DependentUpon>MyPromotion.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\myPromotion.Designer.cs">
+    <Compile Include="Models\MyPromotion.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>myPromotion.edmx</DependentUpon>
+      <DependentUpon>MyPromotion.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Quarter.cs">
-      <DependentUpon>myPromotion.tt</DependentUpon>
+      <DependentUpon>MyPromotion.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\QuarterText.cs">
-      <DependentUpon>myPromotion.tt</DependentUpon>
+      <DependentUpon>MyPromotion.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SlideDto.cs" />
     <Compile Include="Models\State.cs">
-      <DependentUpon>myPromotion.tt</DependentUpon>
+      <DependentUpon>MyPromotion.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\StateText.cs">
-      <DependentUpon>myPromotion.tt</DependentUpon>
+      <DependentUpon>MyPromotion.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tbl_advert_picture_promotion.cs">
-      <DependentUpon>myPromotion.tt</DependentUpon>
+      <DependentUpon>MyPromotion.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tbl_advert_promotion.cs">
-      <DependentUpon>myPromotion.tt</DependentUpon>
+      <DependentUpon>MyPromotion.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tbl_brand_promotion.cs">
-      <DependentUpon>myPromotion.tt</DependentUpon>
+      <DependentUpon>MyPromotion.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tbl_category_promotion.cs">
-      <DependentUpon>myPromotion.tt</DependentUpon>
+      <DependentUpon>MyPromotion.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tbl_slide_promotion.cs">
-      <DependentUpon>myPromotion.tt</DependentUpon>
+      <DependentUpon>MyPromotion.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tbl_user_promotion.cs">
-      <DependentUpon>myPromotion.tt</DependentUpon>
+      <DependentUpon>MyPromotion.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UserDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -339,15 +341,15 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Models\myPromotion.Context.tt">
+    <Content Include="Models\MyPromotion.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>myPromotion.edmx</DependentUpon>
-      <LastGenOutput>myPromotion.Context.cs</LastGenOutput>
+      <DependentUpon>MyPromotion.edmx</DependentUpon>
+      <LastGenOutput>MyPromotion.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\myPromotion.tt">
+    <Content Include="Models\MyPromotion.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>myPromotion.edmx</DependentUpon>
-      <LastGenOutput>myPromotion.cs</LastGenOutput>
+      <DependentUpon>MyPromotion.edmx</DependentUpon>
+      <LastGenOutput>MyPromotion.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\ai.0.22.19-build00125.js" />
     <Content Include="Scripts\ai.0.22.19-build00125.min.js" />
@@ -375,12 +377,12 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <EntityDeploy Include="Models\myPromotion.edmx">
+    <EntityDeploy Include="Models\MyPromotion.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>myPromotion.Designer.cs</LastGenOutput>
+      <LastGenOutput>MyPromotion.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\myPromotion.edmx.diagram">
-      <DependentUpon>myPromotion.edmx</DependentUpon>
+    <Content Include="Models\MyPromotion.edmx.diagram">
+      <DependentUpon>MyPromotion.edmx</DependentUpon>
     </Content>
     <None Include="Properties\PublishProfiles\publish.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />

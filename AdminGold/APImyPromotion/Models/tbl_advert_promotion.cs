@@ -28,5 +28,6 @@ namespace APImyPromotion.Models
         public Nullable<int> advert_ward_id { get; set; }
         public Nullable<int> advert_category_id { get; set; }
         public Nullable<double> advert_price { get; set; }
+        public Nullable<int> advert_id_brand { get; set; }
     }
 }
