@@ -10,107 +10,107 @@ using AdminGold.Models;
 
 namespace AdminGold.Controllers
 {
-    public class promotionController : Controller
+    public class tbl_blog_traController : Controller
     {
-        private MyPromotionEntities db = new MyPromotionEntities();
+        private AdminGoldEntities db = new AdminGoldEntities();
 
-        // GET: promotion
+        // GET: tbl_blog_tra
         public ActionResult Index()
         {
-            return View(db.tbl_user_promotion.ToList());
+            return View(db.tbl_blog_tra.ToList());
         }
 
-        // GET: promotion/Details/5
+        // GET: tbl_blog_tra/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            tbl_user_promotion tbl_user_promotion = db.tbl_user_promotion.Find(id);
-            if (tbl_user_promotion == null)
+            tbl_blog_tra tbl_blog_tra = db.tbl_blog_tra.Find(id);
+            if (tbl_blog_tra == null)
             {
                 return HttpNotFound();
             }
-            return View(tbl_user_promotion);
+            return View(tbl_blog_tra);
         }
 
-        // GET: promotion/Create
+        // GET: tbl_blog_tra/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: promotion/Create
+        // POST: tbl_blog_tra/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id_user_promotion,name_user_promotion,email_user_promotion,phone_user_promotion,first_name_user_promotion,last_name_user_promotion,type_role_user_promotion,status_user_promotion")] tbl_user_promotion tbl_user_promotion)
+        public ActionResult Create([Bind(Include = "id_blog_tra,titile_blog_tra,short_des_blog_tra,des_blog_tra,status_blog_tra,type_blog_tra,create_date_blog_tra")] tbl_blog_tra tbl_blog_tra)
         {
             if (ModelState.IsValid)
             {
-                db.tbl_user_promotion.Add(tbl_user_promotion);
+                db.tbl_blog_tra.Add(tbl_blog_tra);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(tbl_user_promotion);
+            return View(tbl_blog_tra);
         }
 
-        // GET: promotion/Edit/5
+        // GET: tbl_blog_tra/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            tbl_user_promotion tbl_user_promotion = db.tbl_user_promotion.Find(id);
-            if (tbl_user_promotion == null)
+            tbl_blog_tra tbl_blog_tra = db.tbl_blog_tra.Find(id);
+            if (tbl_blog_tra == null)
             {
                 return HttpNotFound();
             }
-            return View(tbl_user_promotion);
+            return View(tbl_blog_tra);
         }
 
-        // POST: promotion/Edit/5
+        // POST: tbl_blog_tra/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id_user_promotion,name_user_promotion,email_user_promotion,phone_user_promotion,first_name_user_promotion,last_name_user_promotion,type_role_user_promotion,status_user_promotion")] tbl_user_promotion tbl_user_promotion)
+        public ActionResult Edit([Bind(Include = "id_blog_tra,titile_blog_tra,short_des_blog_tra,des_blog_tra,status_blog_tra,type_blog_tra,create_date_blog_tra")] tbl_blog_tra tbl_blog_tra)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(tbl_user_promotion).State = EntityState.Modified;
+                db.Entry(tbl_blog_tra).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(tbl_user_promotion);
+            return View(tbl_blog_tra);
         }
 
-        // GET: promotion/Delete/5
+        // GET: tbl_blog_tra/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            tbl_user_promotion tbl_user_promotion = db.tbl_user_promotion.Find(id);
-            if (tbl_user_promotion == null)
+            tbl_blog_tra tbl_blog_tra = db.tbl_blog_tra.Find(id);
+            if (tbl_blog_tra == null)
             {
                 return HttpNotFound();
             }
-            return View(tbl_user_promotion);
+            return View(tbl_blog_tra);
         }
 
-        // POST: promotion/Delete/5
+        // POST: tbl_blog_tra/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            tbl_user_promotion tbl_user_promotion = db.tbl_user_promotion.Find(id);
-            db.tbl_user_promotion.Remove(tbl_user_promotion);
+            tbl_blog_tra tbl_blog_tra = db.tbl_blog_tra.Find(id);
+            db.tbl_blog_tra.Remove(tbl_blog_tra);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -122,11 +122,6 @@ namespace AdminGold.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
-        }
-        [HttpPost]
-        public void Register(string UserName)
-        {
-            var t = UserName;
         }
     }
 }

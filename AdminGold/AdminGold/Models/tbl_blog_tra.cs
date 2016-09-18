@@ -12,15 +12,14 @@ namespace AdminGold.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class tbl_user_promotion
+    public partial class tbl_blog_tra
     {
-        public int id_user_promotion { get; set; }
-        public string name_user_promotion { get; set; }
-        public string email_user_promotion { get; set; }
-        public string phone_user_promotion { get; set; }
-        public string first_name_user_promotion { get; set; }
-        public string last_name_user_promotion { get; set; }
-        public Nullable<int> type_role_user_promotion { get; set; }
-        public Nullable<int> status_user_promotion { get; set; }
+        public int id_blog_tra { get; set; }
+        public string titile_blog_tra { get; set; }
+        public string short_des_blog_tra { get; set; }
+        public string des_blog_tra { get; set; }
+        public Nullable<int> status_blog_tra { get; set; }
+        public Nullable<int> type_blog_tra { get; set; }
+        public Nullable<System.DateTime> create_date_blog_tra { get; set; }
     }
 }

@@ -43,7 +43,7 @@ namespace APImyPromotion.Controllers
             object[] para =
             {
                new SqlParameter("@PageNum",pageNum)
-               
+
             };
             var datalogin = db.Database.SqlQuery<ListingDto>("exec  sp_GetAdvertSave @PageNum", para);
             return datalogin.ToList();
@@ -56,6 +56,19 @@ namespace APImyPromotion.Controllers
 
             };
             var datalogin = db.Database.SqlQuery<ListingDto>("exec  sp_GetDetailListing @idAvert", para);
+            return datalogin.ToList();
+        }
+        public IList<ListingDto> GetAdvertRelate(int pageNum, int idCategory, int idBrand, int idAdvert)
+        {
+            object[] para =
+            {
+                new SqlParameter("@idAdvert",idAdvert),
+               new SqlParameter("@idCategory",idCategory),
+                new SqlParameter("@PageNum",pageNum),
+               new SqlParameter("@idBrand",idBrand),
+
+            };
+            var datalogin = db.Database.SqlQuery<ListingDto>("exec  sp_GetAdvertRelate @idAdvert,@idCategory,@PageNum,@idBrand", para);
             return datalogin.ToList();
         }
     }

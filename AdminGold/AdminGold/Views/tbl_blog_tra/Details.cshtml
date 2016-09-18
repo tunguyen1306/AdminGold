@@ -1,0 +1,67 @@
+﻿@model AdminGold.Models.tbl_blog_tra
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tbl_blog_tra</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.titile_blog_tra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.titile_blog_tra)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.short_des_blog_tra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.short_des_blog_tra)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.des_blog_tra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.des_blog_tra)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.status_blog_tra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.status_blog_tra)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.type_blog_tra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.type_blog_tra)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.create_date_blog_tra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.create_date_blog_tra)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_blog_tra }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

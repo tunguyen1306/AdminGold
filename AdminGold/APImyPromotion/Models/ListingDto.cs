@@ -19,8 +19,11 @@ namespace APImyPromotion.Models
         public string AdvertDistrict { get; set; }
         public string AdvertWard { get; set; }
         public string CategoryName { get; set; }
-        public string AdvertImg { get; set; }
+        public string AdvertImg { get; set; }  public string AdvertBrandName { get; set; }
         public double AdvertPrice { get; set; }
+        public int AdvertBrandId { get; set; }
+        public int AdvertCategoryId { get; set; }
+   
 
     }
 }
