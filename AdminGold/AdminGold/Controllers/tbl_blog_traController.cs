@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -45,11 +47,12 @@ namespace AdminGold.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id_blog_tra,titile_blog_tra,short_des_blog_tra,des_blog_tra,status_blog_tra,type_blog_tra,create_date_blog_tra")] tbl_blog_tra tbl_blog_tra)
+        [ValidateInput(false)]
+        public ActionResult Create(tbl_blog_tra tbl_blog_tra)
         {
             if (ModelState.IsValid)
             {
+                ViewBag.des_blog_tra = tbl_blog_tra.des_blog_tra;
                 db.tbl_blog_tra.Add(tbl_blog_tra);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -77,8 +80,8 @@ namespace AdminGold.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id_blog_tra,titile_blog_tra,short_des_blog_tra,des_blog_tra,status_blog_tra,type_blog_tra,create_date_blog_tra")] tbl_blog_tra tbl_blog_tra)
+        [ValidateInput(false)]
+        public ActionResult Edit(tbl_blog_tra tbl_blog_tra)
         {
             if (ModelState.IsValid)
             {
@@ -114,7 +117,34 @@ namespace AdminGold.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+   
+        [HttpPost, ActionName("GetLink")]
+        public JsonResult GetLink()
+        {
+            var path = string.Empty; var path1 = string.Empty;
+            
+            if (System.Web.HttpContext.Current.Request.Files.AllKeys.Any())
+            {
+                var file = System.Web.HttpContext.Current.Request.Files["HelpSectionImages"];
+                if (file != null && file.ContentLength > 0)
+                {
 
+                    var fileName = Path.GetFileName(file.FileName);
+                    string newFileNmae = Path.GetFileNameWithoutExtension(fileName);
+                    string fortmatName = Path.GetExtension(fileName);
+
+                    string NewPath = newFileNmae.Replace(newFileNmae, (DateTime.Now.Day.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString()).ToString());
+                    path = Server.MapPath("~/fileUpload/") + DateTime.Now.Day + DateTime.Now.Month + "/";
+                    if (!Directory.Exists(path))
+                        Directory.CreateDirectory(path);
+                    path1 = Path.Combine(path, NewPath + fortmatName);
+
+                    file.SaveAs(path1);
+                }
+            }
+            return Json(path1);
+        }
+ 
         protected override void Dispose(bool disposing)
         {
             if (disposing)
