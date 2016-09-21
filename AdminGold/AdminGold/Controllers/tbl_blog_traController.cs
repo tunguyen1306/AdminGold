@@ -117,12 +117,14 @@ namespace AdminGold.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-   
+
         [HttpPost, ActionName("GetLink")]
         public JsonResult GetLink()
         {
             var path = string.Empty; var path1 = string.Empty;
-            
+            var NewPath = string.Empty;
+            var fortmatName = string.Empty;
+
             if (System.Web.HttpContext.Current.Request.Files.AllKeys.Any())
             {
                 var file = System.Web.HttpContext.Current.Request.Files["HelpSectionImages"];
@@ -131,9 +133,9 @@ namespace AdminGold.Controllers
 
                     var fileName = Path.GetFileName(file.FileName);
                     string newFileNmae = Path.GetFileNameWithoutExtension(fileName);
-                    string fortmatName = Path.GetExtension(fileName);
+                    fortmatName = Path.GetExtension(fileName);
 
-                    string NewPath = newFileNmae.Replace(newFileNmae, (DateTime.Now.Day.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString()).ToString());
+                    NewPath = newFileNmae.Replace(newFileNmae, (DateTime.Now.Day.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString()).ToString());
                     path = Server.MapPath("~/fileUpload/") + DateTime.Now.Day + DateTime.Now.Month + "/";
                     if (!Directory.Exists(path))
                         Directory.CreateDirectory(path);
@@ -142,9 +144,19 @@ namespace AdminGold.Controllers
                     file.SaveAs(path1);
                 }
             }
-            return Json(path1);
+
+            if (HttpContext.Request.Url != null && HttpContext.Request.Url.Host.Contains("localhost"))
+            {
+                path = HttpContext.Request.Url.Host + ":" + HttpContext.Request.Url.Port + "/fileUpload/" + DateTime.Now.Day + DateTime.Now.Month + "/";
+            }
+            else
+            {
+                path = "http://admin1.trafashion.com/fileUpload/" + DateTime.Now.Day + DateTime.Now.Month + "/";
+            }
+
+            return Json(path + NewPath + fortmatName);
         }
- 
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
