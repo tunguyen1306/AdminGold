@@ -15,8 +15,8 @@
 
 
 @using (Html.BeginForm("Create", "tbl_blog_tra"))
-{ 
-
+{
+    <input type="hidden" id="hdImgName" name="img_blog_tra"/>
     <!-- /.row -->
     <div class="row">
         <div class="col-lg-12">
@@ -28,20 +28,53 @@
                             <div class="form-group">
                                 <label>Tiêu đề </label>
                                 <input class="form-control" name="titile_blog_tra" id="txtTitleBlog">
+                                @Html.ValidationMessageFor(model => model.titile_blog_tra,"",htmlAttributes:new {@style="color: blue;"})
                             </div>
                             <div class="form-group">
                                 <label>Hình đại diện </label>
                                 <div class="row">
-                                    <div class="col-lg-10">
-                                        <input class="form-control" type="file">
+                                    <form id="dataimg" method="post" enctype="multipart/form-data">
+                                        <div class="col-lg-10">
+                                            <input class="form-control" id="getImg"  type="file">
+                                        </div>
+                                    </form>
+                               
+                                <div class="col-lg-2">
+                                    <input type="button" onclick="getLink()" value="Up ảnh" />
+                                </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <img src="~/Content/no-image-available.jpg" id="idImg" width="200" />
                                     </div>
-                                    <div class="col-lg-2">
-                                        <input type="button" value="Up ảnh"/>
-                                    </div>
+
                                 </div>
                             </div>
+
+                        </div>
+                        <div class="col-lg-6">
+
                             <div class="form-group">
-                              
+                                <label>Loại</label>
+                                <select class="form-control" name="type_blog_tra">
+                                    <option value="1">Hoạt động</option>
+                                    <option value="0">Không hoạt động</option>
+
+                                </select>
+
+                            </div>
+                            <div class="form-group">
+                                <label>Trạng thái</label>
+
+                                <select class="form-control" name="status_blog_tra">
+                                    <option value="1">Hoạt động</option>
+                                    <option value="0">Không hoạt động</option>
+
+                                </select>
+
+                            </div>
+                            <div class="form-group">
+
                                 <label>Lấy link hình </label>
                                 <div class="row">
                                     <form id="data" method="post" enctype="multipart/form-data">
@@ -49,35 +82,13 @@
                                             <input class="form-control" id="getLinkFile" type="file">
                                             <label class="link"></label>
                                         </div>
-                                       
-                                        
+
+
                                     </form>
                                 </div>
                             </div>
-                                </div>
-                                <div class="col-lg-6">
-
-                                    <div class="form-group">
-                                        <label>Loại</label>
-                                        <select class="form-control" name="type_blog_tra">
-                                            <option value="1">Hoạt động</option>
-                                            <option value="0">Không hoạt động</option>
-
-                                        </select>
-
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Trạng thái</label>
-
-                                        <select class="form-control" name="status_blog_tra">
-                                            <option value="1">Hoạt động</option>
-                                            <option value="0">Không hoạt động</option>
-
-                                        </select>
-
-                                    </div>
-                                </div>
-                            </div>
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="form-group">
@@ -87,14 +98,14 @@
 
                             </div>
                         </div>
-                     
+
                     </div>
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <label>Mô tả </label>
                                 @*<textarea class="form-control" name="des_blog_tra" id="txtDesBlog"></textarea>*@
-                                @Html.TextAreaFor(x => x.des_blog_tra,htmlAttributes:new {@id= "txtDesBlog" ,@name= "des_blog_tra",@class="form-control" })
+                                @Html.TextAreaFor(x => x.des_blog_tra, htmlAttributes: new { @id = "txtDesBlog", @name = "des_blog_tra", @class = "form-control" })
 
                             </div>
                         </div>
@@ -102,14 +113,14 @@
                     </div>
                     <div class="row">
                         <div class="col-lg-6">
-                            
+
                         </div>
                         <div class="col-lg-6">
 
                             <div class="form-group">
                                 <div class="col-md-offset-2 col-md-10">
                                     <button type="submit" class="btn btn-default">Thêm</button>
-                                    <a href="#" class="btn btn-primary">Hủy</a>
+                                    <a href="@Url.Action("Index","tbl_blog_tra")" class="btn btn-primary">Hủy</a>
                                 </div>
                             </div>
                         </div>
@@ -136,22 +147,29 @@
 
     });
 
-    function getLink(e) {
-        var t = $('#getLinkFile').val();
+    function getLink() {
+        var dataimg = new FormData();
+        var files = $("#getImg").get(0).files;
+        if (files.length > 0) {
+            dataimg.append("HelpSectionImages", files[0]);
+        }
         $.ajax({
             url: '@Url.Action("GetLink", "tbl_blog_tra")',
-            type: 'POST',
-            data: { file: t },
-            async: false,
-            success: function (data) {
-
-                console.log(data);
-                $('.link').text(data);
-            },
-            enctype: 'multipart/form-data',
-            cache: false,
+            type: "POST",
+            processData: false,
             contentType: false,
-            processData: false
+            data: dataimg,
+            success: function (response) {
+
+                console.log(response);
+                $('#idImg').attr("src", response.shorurl);
+                $('#hdImgName').val(response.imgName);
+
+            },
+            error: function (er) {
+                alert(er);
+            }
+
         });
     }
     $("#getLinkFile").change(function () {
@@ -169,13 +187,13 @@
             success: function (response) {
                 //code after success
                 console.log(response);
-                $('.link').text(response);
+                $('.link').text(response.fullurl);
             },
             error: function (er) {
-                alert(er);
+
             }
 
         });
     });
-     
+
 </script>

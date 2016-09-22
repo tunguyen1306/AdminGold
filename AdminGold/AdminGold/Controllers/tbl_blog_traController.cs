@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.Entity;
 using System.Drawing;
@@ -104,7 +105,9 @@ namespace AdminGold.Controllers
             {
                 return HttpNotFound();
             }
-            return View(tbl_blog_tra);
+            db.tbl_blog_tra.Remove(tbl_blog_tra);
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
 
         // POST: tbl_blog_tra/Delete/5
@@ -124,7 +127,7 @@ namespace AdminGold.Controllers
             var path = string.Empty; var path1 = string.Empty;
             var NewPath = string.Empty;
             var fortmatName = string.Empty;
-
+     var fileNameFull = string.Empty;
             if (System.Web.HttpContext.Current.Request.Files.AllKeys.Any())
             {
                 var file = System.Web.HttpContext.Current.Request.Files["HelpSectionImages"];
@@ -136,10 +139,11 @@ namespace AdminGold.Controllers
                     fortmatName = Path.GetExtension(fileName);
 
                     NewPath = newFileNmae.Replace(newFileNmae, (DateTime.Now.Day.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString()).ToString());
+                    fileNameFull = DateTime.Now.Day+"" + DateTime.Now.Month + "_" + NewPath + fortmatName;
                     path = Server.MapPath("~/fileUpload/") + DateTime.Now.Day + DateTime.Now.Month + "/";
                     if (!Directory.Exists(path))
                         Directory.CreateDirectory(path);
-                    path1 = Path.Combine(path, NewPath + fortmatName);
+                    path1 = Path.Combine(path, fileNameFull);
 
                     file.SaveAs(path1);
                 }
@@ -151,10 +155,15 @@ namespace AdminGold.Controllers
             }
             else
             {
-                path = "http://admin1.trafashion.com/fileUpload/" + DateTime.Now.Day + DateTime.Now.Month + "/";
+                path = ConfigurationManager.AppSettings["domain"] + DateTime.Now.Day + DateTime.Now.Month + "/";
             }
-
-            return Json(path + NewPath + fortmatName);
+            var _fullUrl = path + fileNameFull;
+            return Json(new
+            {
+               fullurl= _fullUrl,
+               shorurl = "/fileUpload/" + DateTime.Now.Day + DateTime.Now.Month + "/"+ fileNameFull,
+               imgName= fileNameFull
+            });
         }
 
         protected override void Dispose(bool disposing)
