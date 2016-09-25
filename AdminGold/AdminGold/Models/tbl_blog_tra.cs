@@ -25,5 +25,6 @@ namespace AdminGold.Models
         public Nullable<int> type_blog_tra { get; set; }
         public Nullable<System.DateTime> create_date_blog_tra { get; set; }
         public string img_blog_tra { get; set; }
+        public string video_blog_tra { get; set; }
     }
 }

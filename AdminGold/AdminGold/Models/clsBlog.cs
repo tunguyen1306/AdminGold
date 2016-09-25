@@ -17,5 +17,6 @@ namespace AdminGold.Models
         public string img_blog_tra { get; set; }
 
         public string link_img_blog_tra { get; set; }
+        public string video_blog_tra { get; set; }
     }
 }
