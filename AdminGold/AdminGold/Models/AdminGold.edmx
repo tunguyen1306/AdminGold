@@ -18,6 +18,7 @@
           <Property Name="create_date_blog_tra" Type="datetime" />
           <Property Name="img_blog_tra" Type="varchar" MaxLength="2000" />
           <Property Name="video_blog_tra" Type="varchar" MaxLength="2000" />
+          <Property Name="id_company" Type="int" />
         </EntityType>
         <EntityType Name="tbl_products_tra">
           <Key>
@@ -156,6 +157,7 @@
           <Property Name="create_date_blog_tra" Type="DateTime" Precision="3" />
           <Property Name="img_blog_tra" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
           <Property Name="video_blog_tra" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="id_company" Type="Int32" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -223,6 +225,7 @@
           <EntitySetMapping Name="tbl_blog_tra">
             <EntityTypeMapping TypeName="AdminGoldModel.tbl_blog_tra">
               <MappingFragment StoreEntitySet="tbl_blog_tra">
+                <ScalarProperty Name="id_company" ColumnName="id_company" />
                 <ScalarProperty Name="video_blog_tra" ColumnName="video_blog_tra" />
                 <ScalarProperty Name="img_blog_tra" ColumnName="img_blog_tra" />
                 <ScalarProperty Name="create_date_blog_tra" ColumnName="create_date_blog_tra" />

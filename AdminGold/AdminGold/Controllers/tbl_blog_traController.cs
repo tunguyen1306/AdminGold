@@ -20,9 +20,18 @@ namespace AdminGold.Controllers
         // GET: tbl_blog_tra
         public ActionResult Index()
         {
-            return View(db.tbl_blog_tra.ToList());
+            var query = from data in db.tbl_blog_tra
+                        where data.id_company==1 && data.status_blog_tra==1
+                        select data;
+            return View(query.ToList());
         }
-
+        public ActionResult IndexVG()
+        {
+            var query = from data in db.tbl_blog_tra
+                        where data.id_company ==2 && data.status_blog_tra == 1
+                        select data;
+            return View(query.ToList());
+        }
         // GET: tbl_blog_tra/Details/5
         public ActionResult Details(int? id)
         {
@@ -54,6 +63,7 @@ namespace AdminGold.Controllers
             if (ModelState.IsValid)
             {
                 ViewBag.des_blog_tra = tbl_blog_tra.des_blog_tra;
+                tbl_blog_tra.id_company = 1;
                 db.tbl_blog_tra.Add(tbl_blog_tra);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -61,6 +71,32 @@ namespace AdminGold.Controllers
 
             return View(tbl_blog_tra);
         }
+
+        // GET: tbl_blog_tra/Create
+        public ActionResult CreateVG()
+        {
+            return View();
+        }
+
+        // POST: tbl_blog_tra/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult CreateVG(tbl_blog_tra tbl_blog_tra)
+        {
+            if (ModelState.IsValid)
+            {
+                ViewBag.des_blog_tra = tbl_blog_tra.des_blog_tra;
+                tbl_blog_tra.id_company = 2;
+                db.tbl_blog_tra.Add(tbl_blog_tra);
+                db.SaveChanges();
+                return RedirectToAction("IndexVG");
+            }
+
+            return View(tbl_blog_tra);
+        }
+
 
         // GET: tbl_blog_tra/Edit/5
         public ActionResult Edit(int? id)
@@ -87,8 +123,42 @@ namespace AdminGold.Controllers
             if (ModelState.IsValid)
             {
                 db.Entry(tbl_blog_tra).State = EntityState.Modified;
+                tbl_blog_tra.id_company = 1;
                 db.SaveChanges();
                 return RedirectToAction("Index");
+            }
+            return View(tbl_blog_tra);
+        }
+
+        // GET: tbl_blog_tra/Edit/5
+        public ActionResult EditVG(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            tbl_blog_tra tbl_blog_tra = db.tbl_blog_tra.Find(id);
+          
+            if (tbl_blog_tra == null)
+            {
+                return HttpNotFound();
+            }
+            return View(tbl_blog_tra);
+        }
+
+        // POST: tbl_blog_tra/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult EditVG(tbl_blog_tra tbl_blog_tra)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(tbl_blog_tra).State = EntityState.Modified;
+                tbl_blog_tra.id_company = 2;
+                db.SaveChanges();
+                return RedirectToAction("IndexVG");
             }
             return View(tbl_blog_tra);
         }

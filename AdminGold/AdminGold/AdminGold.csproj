@@ -1400,6 +1400,9 @@
     <Content Include="Views\tbl_blog_tra\Details.cshtml" />
     <Content Include="Views\tbl_blog_tra\Edit.cshtml" />
     <Content Include="Views\tbl_blog_tra\Index.cshtml" />
+    <Content Include="Views\tbl_blog_tra\IndexVG.cshtml" />
+    <Content Include="Views\tbl_blog_tra\CreateVG.cshtml" />
+    <Content Include="Views\tbl_blog_tra\EditVG.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
