@@ -138,6 +138,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminGoldController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NavbarController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
@@ -164,11 +165,41 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AdminGold.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\AdminGoldMain.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AdminGoldMain.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AdminGoldMain.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AdminGoldMain.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AdminGoldMain.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AdminGoldMain.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\clsBlog.cs" />
     <Compile Include="Models\Navbar.cs" />
     <Compile Include="Models\ProductsPicture.cs" />
+    <Compile Include="Models\tblCategory.cs">
+      <DependentUpon>AdminGoldMain.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblMenu.cs">
+      <DependentUpon>AdminGoldMain.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblProduct.cs">
+      <DependentUpon>AdminGoldMain.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\tblSysPicture.cs">
       <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblType.cs">
+      <DependentUpon>AdminGoldMain.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblUser.cs">
+      <DependentUpon>AdminGoldMain.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tbl_blog_tra.cs">
       <DependentUpon>AdminGold.tt</DependentUpon>
@@ -978,6 +1009,16 @@
       <DependentUpon>AdminGold.edmx</DependentUpon>
       <LastGenOutput>AdminGold.cs</LastGenOutput>
     </Content>
+    <Content Include="Models\AdminGoldMain.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AdminGoldMain.edmx</DependentUpon>
+      <LastGenOutput>AdminGoldMain.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\AdminGoldMain.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AdminGoldMain.edmx</DependentUpon>
+      <LastGenOutput>AdminGoldMain.cs</LastGenOutput>
+    </Content>
     <Content Include="Models\VanGiaModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>VanGiaModel.edmx</DependentUpon>
@@ -1324,6 +1365,13 @@
     <Content Include="ckeditor\samples\toolbarconfigurator\font\fontello.woff" />
     <Content Include="ckeditor\samples\toolbarconfigurator\lib\codemirror\LICENSE" />
     <Content Include="ckeditor\skins\moono\readme.md" />
+    <EntityDeploy Include="Models\AdminGoldMain.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>AdminGoldMain.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\AdminGoldMain.edmx.diagram">
+      <DependentUpon>AdminGoldMain.edmx</DependentUpon>
+    </Content>
     <None Include="Properties\PublishProfiles\publish.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\cropperVG.js" />
@@ -1347,7 +1395,9 @@
     <Content Include="Scripts\sb-admin-2.js" />
     <Content Include="Scripts\toastr.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -1407,6 +1457,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="fileUpload\" />
+    <Folder Include="Views\AdminGold\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

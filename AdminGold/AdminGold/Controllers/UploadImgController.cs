@@ -25,7 +25,6 @@ namespace AdminGold.Controllers
         }
       
         [HttpPost]
-      
         public void SaveImg(ProductsPicture productPicture)
         {
            var t =productPicture.cfile == null ? "" : productPicture.cfile;
