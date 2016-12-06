@@ -1,0 +1,61 @@
+﻿@model AdminGold.Models.tblMath_vangia
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>tblMath_vangia</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.idMath)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NameMath, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NameMath, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NameMath, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ValueMath, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ValueMath, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ValueMath, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+
+            @Html.LabelFor(model => model.TypeMath, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.DropDownListFor(model => model.TypeMath, new List<SelectListItem>
+                                {
+                                    new SelectListItem {Text = "Loại công trình", Value = "1"},
+                                    new SelectListItem {Text = "Mặt tiền", Value = "2"},
+                                     new SelectListItem {Text = "Mức đầu tư", Value = "3"},
+                                    new SelectListItem {Text = "Loại móng", Value = "4"},
+                                     new SelectListItem {Text = "Kiểu mái", Value = "5"},
+                                    new SelectListItem {Text = "Lộ giớ", Value = "6"},
+                                    new SelectListItem {Text = "Tầng hầm", Value = "7"},
+                                      new SelectListItem {Text = "Số tiền", Value = "8"},
+                                }, new { @class = "form-control" })
+
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

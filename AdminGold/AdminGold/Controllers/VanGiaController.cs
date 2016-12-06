@@ -317,5 +317,9 @@ namespace AdminGold.Controllers
 
         //    return RedirectToAction("UploadDocument");
         //}
+        public ActionResult IndexBuld()
+        {
+            return View();
+        }
     }
 }

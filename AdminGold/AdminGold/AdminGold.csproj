@@ -139,6 +139,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MathVGController.cs" />
     <Compile Include="Controllers\NavbarController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\tblSysPicturesController.cs" />
@@ -167,8 +168,11 @@
     <Compile Include="Models\clsBlog.cs" />
     <Compile Include="Models\Navbar.cs" />
     <Compile Include="Models\ProductsPicture.cs" />
+    <Compile Include="Models\tblMath_vangia.cs">
+      <DependentUpon>VanGiaModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\tblSysPicture.cs">
-      <DependentUpon>AdminGold.tt</DependentUpon>
+      <DependentUpon>VanGiaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tbl_blog_tra.cs">
       <DependentUpon>AdminGold.tt</DependentUpon>
@@ -1403,6 +1407,11 @@
     <Content Include="Views\tbl_blog_tra\IndexVG.cshtml" />
     <Content Include="Views\tbl_blog_tra\CreateVG.cshtml" />
     <Content Include="Views\tbl_blog_tra\EditVG.cshtml" />
+    <Content Include="Views\MathVG\Create.cshtml" />
+    <Content Include="Views\MathVG\Delete.cshtml" />
+    <Content Include="Views\MathVG\Details.cshtml" />
+    <Content Include="Views\MathVG\Edit.cshtml" />
+    <Content Include="Views\MathVG\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
