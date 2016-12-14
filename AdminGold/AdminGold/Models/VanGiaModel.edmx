@@ -5,6 +5,15 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="VanGiaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblMath_vangia">
+          <Key>
+            <PropertyRef Name="idMath" />
+          </Key>
+          <Property Name="idMath" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameMath" Type="nvarchar" MaxLength="50" />
+          <Property Name="ValueMath" Type="varchar" MaxLength="50" />
+          <Property Name="TypeMath" Type="int" />
+        </EntityType>
         <EntityType Name="tblSysPicture">
           <Key>
             <PropertyRef Name="picture_id" />
@@ -53,6 +62,7 @@
           <Property Name="vangia_vanban_project" Type="nvarchar" MaxLength="200" />
         </EntityType>
         <EntityContainer Name="VanGiaModelStoreContainer">
+          <EntitySet Name="tblMath_vangia" EntityType="Self.tblMath_vangia" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblSysPicture" EntityType="Self.tblSysPicture" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="web_vangia_project" EntityType="Self.web_vangia_project" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
@@ -88,6 +98,7 @@
         <EntityContainer Name="VanGiaEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="web_vangia_project" EntityType="Self.web_vangia_project" />
           <EntitySet Name="tblSysPictures" EntityType="VanGiaModel.tblSysPicture" />
+          <EntitySet Name="tblMath_vangia" EntityType="VanGiaModel.tblMath_vangia" />
         </EntityContainer>
         <EntityType Name="tblSysPicture">
           <Key>
@@ -110,6 +121,15 @@
           <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="cms_sql_id" Type="Int32" />
           <Property Name="shortdescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblMath_vangia">
+          <Key>
+            <PropertyRef Name="idMath" />
+          </Key>
+          <Property Name="idMath" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameMath" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ValueMath" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TypeMath" Type="Int32" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -163,6 +183,16 @@
                 <ScalarProperty Name="originalFilepath" ColumnName="originalFilepath" />
                 <ScalarProperty Name="advert_id" ColumnName="advert_id" />
                 <ScalarProperty Name="picture_id" ColumnName="picture_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblMath_vangia">
+            <EntityTypeMapping TypeName="VanGiaModel.tblMath_vangia">
+              <MappingFragment StoreEntitySet="tblMath_vangia">
+                <ScalarProperty Name="TypeMath" ColumnName="TypeMath" />
+                <ScalarProperty Name="ValueMath" ColumnName="ValueMath" />
+                <ScalarProperty Name="NameMath" ColumnName="NameMath" />
+                <ScalarProperty Name="idMath" ColumnName="idMath" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
