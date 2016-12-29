@@ -1,0 +1,205 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ApiSendGiftModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2006/04/edm/ssdl">
+        <EntityType Name="tblAdvertGift">
+          <Key>
+            <PropertyRef Name="IdAdvertGift" />
+          </Key>
+          <Property Name="IdAdvertGift" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameAdvertGift" Type="nvarchar" MaxLength="200" />
+          <Property Name="DescriptionAdvertGift" Type="nvarchar(max)" />
+          <Property Name="IdTypeAdvertGift" Type="int" />
+          <Property Name="IdCategoryAdvertGift" Type="int" />
+          <Property Name="IdCityAdvertGift" Type="int" />
+          <Property Name="StatusAdvertGift" Type="int" />
+          <Property Name="CreatedDateAdvertGift" Type="datetime" />
+          <Property Name="KeySearchAdvertGift" Type="nvarchar" MaxLength="200" />
+          <Property Name="ShortDesAdvertGift" Type="nvarchar" MaxLength="200" />
+          <Property Name="ImgAdvertGift" Type="varchar" MaxLength="500" />
+          <Property Name="MusicAdvertGift" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="tblCategoryGift">
+          <Key>
+            <PropertyRef Name="IdCategoryGift" />
+          </Key>
+          <Property Name="IdCategoryGift" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameCategoryGift" Type="nvarchar" MaxLength="50" />
+          <Property Name="StatusCategoryGift" Type="int" />
+          <Property Name="IdCategoryCityGift" Type="int" />
+        </EntityType>
+        <EntityType Name="tblCityGift">
+          <Key>
+            <PropertyRef Name="IdCityGift" />
+          </Key>
+          <Property Name="IdCityGift" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameCityGift" Type="nvarchar" MaxLength="50" />
+          <Property Name="StatusCityGift" Type="int" />
+          <Property Name="CodeCityGift" Type="varchar" MaxLength="50" />
+          <Property Name="LatitudeGift" Type="decimal" Precision="18" Scale="5" />
+          <Property Name="LongitudeGift" Type="decimal" Precision="18" Scale="5" />
+        </EntityType>
+        <EntityType Name="tblTypeGift">
+          <Key>
+            <PropertyRef Name="IdTypeGift" />
+          </Key>
+          <Property Name="IdTypeGift" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameTypeGift" Type="nvarchar(max)" />
+          <Property Name="DescriptionTypeGift" Type="nvarchar(max)" />
+          <Property Name="StatusTypeGift" Type="int" />
+          <Property Name="OrderTypeGift" Type="int" />
+          <Property Name="IdTypeCity" Type="int" />
+          <Property Name="CodeTypeGift" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="ApiSendGiftModelStoreContainer">
+          <EntitySet Name="tblAdvertGift" EntityType="Self.tblAdvertGift" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="tblCategoryGift" EntityType="Self.tblCategoryGift" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="tblCityGift" EntityType="Self.tblCityGift" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="tblTypeGift" EntityType="Self.tblTypeGift" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ApiSendGiftModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2006/04/edm" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntityType Name="tblAdvertGift">
+          <Key>
+            <PropertyRef Name="IdAdvertGift" />
+          </Key>
+          <Property Name="IdAdvertGift" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameAdvertGift" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="DescriptionAdvertGift" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IdTypeAdvertGift" Type="Int32" />
+          <Property Name="IdCategoryAdvertGift" Type="Int32" />
+          <Property Name="IdCityAdvertGift" Type="Int32" />
+          <Property Name="StatusAdvertGift" Type="Int32" />
+          <Property Name="CreatedDateAdvertGift" Type="DateTime" Precision="3" />
+          <Property Name="KeySearchAdvertGift" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ShortDesAdvertGift" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ImgAdvertGift" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="MusicAdvertGift" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tblCategoryGift">
+          <Key>
+            <PropertyRef Name="IdCategoryGift" />
+          </Key>
+          <Property Name="IdCategoryGift" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameCategoryGift" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StatusCategoryGift" Type="Int32" />
+          <Property Name="IdCategoryCityGift" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tblCityGift">
+          <Key>
+            <PropertyRef Name="IdCityGift" />
+          </Key>
+          <Property Name="IdCityGift" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameCityGift" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StatusCityGift" Type="Int32" />
+          <Property Name="CodeCityGift" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LatitudeGift" Type="Decimal" Precision="18" Scale="5" />
+          <Property Name="LongitudeGift" Type="Decimal" Precision="18" Scale="5" />
+        </EntityType>
+        <EntityType Name="tblTypeGift">
+          <Key>
+            <PropertyRef Name="IdTypeGift" />
+          </Key>
+          <Property Name="IdTypeGift" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameTypeGift" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DescriptionTypeGift" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="StatusTypeGift" Type="Int32" />
+          <Property Name="OrderTypeGift" Type="Int32" />
+          <Property Name="IdTypeCity" Type="Int32" />
+          <Property Name="CodeTypeGift" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="ApiSendGiftEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblAdvertGifts" EntityType="Self.tblAdvertGift" />
+          <EntitySet Name="tblCategoryGifts" EntityType="Self.tblCategoryGift" />
+          <EntitySet Name="tblCityGifts" EntityType="Self.tblCityGift" />
+          <EntitySet Name="tblTypeGifts" EntityType="Self.tblTypeGift" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="urn:schemas-microsoft-com:windows:storage:mapping:CS">
+        <EntityContainerMapping StorageEntityContainer="ApiSendGiftModelStoreContainer" CdmEntityContainer="ApiSendGiftEntities">
+          <EntitySetMapping Name="tblAdvertGifts">
+            <EntityTypeMapping TypeName="ApiSendGiftModel.tblAdvertGift">
+              <MappingFragment StoreEntitySet="tblAdvertGift">
+                <ScalarProperty Name="IdAdvertGift" ColumnName="IdAdvertGift" />
+                <ScalarProperty Name="NameAdvertGift" ColumnName="NameAdvertGift" />
+                <ScalarProperty Name="DescriptionAdvertGift" ColumnName="DescriptionAdvertGift" />
+                <ScalarProperty Name="IdTypeAdvertGift" ColumnName="IdTypeAdvertGift" />
+                <ScalarProperty Name="IdCategoryAdvertGift" ColumnName="IdCategoryAdvertGift" />
+                <ScalarProperty Name="IdCityAdvertGift" ColumnName="IdCityAdvertGift" />
+                <ScalarProperty Name="StatusAdvertGift" ColumnName="StatusAdvertGift" />
+                <ScalarProperty Name="CreatedDateAdvertGift" ColumnName="CreatedDateAdvertGift" />
+                <ScalarProperty Name="KeySearchAdvertGift" ColumnName="KeySearchAdvertGift" />
+                <ScalarProperty Name="ShortDesAdvertGift" ColumnName="ShortDesAdvertGift" />
+                <ScalarProperty Name="ImgAdvertGift" ColumnName="ImgAdvertGift" />
+                <ScalarProperty Name="MusicAdvertGift" ColumnName="MusicAdvertGift" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCategoryGifts">
+            <EntityTypeMapping TypeName="ApiSendGiftModel.tblCategoryGift">
+              <MappingFragment StoreEntitySet="tblCategoryGift">
+                <ScalarProperty Name="IdCategoryGift" ColumnName="IdCategoryGift" />
+                <ScalarProperty Name="NameCategoryGift" ColumnName="NameCategoryGift" />
+                <ScalarProperty Name="StatusCategoryGift" ColumnName="StatusCategoryGift" />
+                <ScalarProperty Name="IdCategoryCityGift" ColumnName="IdCategoryCityGift" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCityGifts">
+            <EntityTypeMapping TypeName="ApiSendGiftModel.tblCityGift">
+              <MappingFragment StoreEntitySet="tblCityGift">
+                <ScalarProperty Name="IdCityGift" ColumnName="IdCityGift" />
+                <ScalarProperty Name="NameCityGift" ColumnName="NameCityGift" />
+                <ScalarProperty Name="StatusCityGift" ColumnName="StatusCityGift" />
+                <ScalarProperty Name="CodeCityGift" ColumnName="CodeCityGift" />
+                <ScalarProperty Name="LatitudeGift" ColumnName="LatitudeGift" />
+                <ScalarProperty Name="LongitudeGift" ColumnName="LongitudeGift" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblTypeGifts">
+            <EntityTypeMapping TypeName="ApiSendGiftModel.tblTypeGift">
+              <MappingFragment StoreEntitySet="tblTypeGift">
+                <ScalarProperty Name="IdTypeGift" ColumnName="IdTypeGift" />
+                <ScalarProperty Name="NameTypeGift" ColumnName="NameTypeGift" />
+                <ScalarProperty Name="DescriptionTypeGift" ColumnName="DescriptionTypeGift" />
+                <ScalarProperty Name="StatusTypeGift" ColumnName="StatusTypeGift" />
+                <ScalarProperty Name="OrderTypeGift" ColumnName="OrderTypeGift" />
+                <ScalarProperty Name="IdTypeCity" ColumnName="IdTypeCity" />
+                <ScalarProperty Name="CodeTypeGift" ColumnName="CodeTypeGift" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2007/06/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams />
+  </Designer>
+</edmx:Edmx>
