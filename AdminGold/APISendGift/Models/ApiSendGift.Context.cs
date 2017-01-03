@@ -13,10 +13,10 @@ namespace APISendGift.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class ApiSendGiftEntities : DbContext
+    public partial class ApiGiftEntities : DbContext
     {
-        public ApiSendGiftEntities()
-            : base("name=ApiSendGiftEntities")
+        public ApiGiftEntities()
+            : base("name=ApiGiftEntities")
         {
         }
     

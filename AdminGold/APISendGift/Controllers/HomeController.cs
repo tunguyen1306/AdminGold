@@ -14,5 +14,11 @@ namespace APISendGift.Controllers
 
             return View();
         }
+        [HttpPost]
+        public string  Inde1x(string t)
+        {
+
+            return t;
+        }
     }
 }

@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
   <!-- EF Runtime content -->
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ApiSendGiftModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2006/04/edm/ssdl">
+      <Schema Namespace="ApiGiftModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="tblAdvertGift">
           <Key>
             <PropertyRef Name="IdAdvertGift" />
@@ -54,17 +54,17 @@
           <Property Name="IdTypeCity" Type="int" />
           <Property Name="CodeTypeGift" Type="varchar" MaxLength="50" />
         </EntityType>
-        <EntityContainer Name="ApiSendGiftModelStoreContainer">
-          <EntitySet Name="tblAdvertGift" EntityType="Self.tblAdvertGift" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="tblCategoryGift" EntityType="Self.tblCategoryGift" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="tblCityGift" EntityType="Self.tblCityGift" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="tblTypeGift" EntityType="Self.tblTypeGift" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+        <EntityContainer Name="ApiGiftModelStoreContainer">
+          <EntitySet Name="tblAdvertGift" EntityType="Self.tblAdvertGift" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblCategoryGift" EntityType="Self.tblCategoryGift" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblCityGift" EntityType="Self.tblCityGift" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblTypeGift" EntityType="Self.tblTypeGift" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="ApiSendGiftModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2006/04/edm" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+      <Schema Namespace="ApiGiftModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="tblAdvertGift">
           <Key>
             <PropertyRef Name="IdAdvertGift" />
@@ -114,7 +114,7 @@
           <Property Name="IdTypeCity" Type="Int32" />
           <Property Name="CodeTypeGift" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityContainer Name="ApiSendGiftEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="ApiGiftEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="tblAdvertGifts" EntityType="Self.tblAdvertGift" />
           <EntitySet Name="tblCategoryGifts" EntityType="Self.tblCategoryGift" />
           <EntitySet Name="tblCityGifts" EntityType="Self.tblCityGift" />
@@ -124,10 +124,10 @@
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-      <Mapping Space="C-S" xmlns="urn:schemas-microsoft-com:windows:storage:mapping:CS">
-        <EntityContainerMapping StorageEntityContainer="ApiSendGiftModelStoreContainer" CdmEntityContainer="ApiSendGiftEntities">
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ApiGiftModelStoreContainer" CdmEntityContainer="ApiGiftEntities">
           <EntitySetMapping Name="tblAdvertGifts">
-            <EntityTypeMapping TypeName="ApiSendGiftModel.tblAdvertGift">
+            <EntityTypeMapping TypeName="ApiGiftModel.tblAdvertGift">
               <MappingFragment StoreEntitySet="tblAdvertGift">
                 <ScalarProperty Name="IdAdvertGift" ColumnName="IdAdvertGift" />
                 <ScalarProperty Name="NameAdvertGift" ColumnName="NameAdvertGift" />
@@ -145,7 +145,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tblCategoryGifts">
-            <EntityTypeMapping TypeName="ApiSendGiftModel.tblCategoryGift">
+            <EntityTypeMapping TypeName="ApiGiftModel.tblCategoryGift">
               <MappingFragment StoreEntitySet="tblCategoryGift">
                 <ScalarProperty Name="IdCategoryGift" ColumnName="IdCategoryGift" />
                 <ScalarProperty Name="NameCategoryGift" ColumnName="NameCategoryGift" />
@@ -155,7 +155,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tblCityGifts">
-            <EntityTypeMapping TypeName="ApiSendGiftModel.tblCityGift">
+            <EntityTypeMapping TypeName="ApiGiftModel.tblCityGift">
               <MappingFragment StoreEntitySet="tblCityGift">
                 <ScalarProperty Name="IdCityGift" ColumnName="IdCityGift" />
                 <ScalarProperty Name="NameCityGift" ColumnName="NameCityGift" />
@@ -167,7 +167,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tblTypeGifts">
-            <EntityTypeMapping TypeName="ApiSendGiftModel.tblTypeGift">
+            <EntityTypeMapping TypeName="ApiGiftModel.tblTypeGift">
               <MappingFragment StoreEntitySet="tblTypeGift">
                 <ScalarProperty Name="IdTypeGift" ColumnName="IdTypeGift" />
                 <ScalarProperty Name="NameTypeGift" ColumnName="NameTypeGift" />
@@ -184,7 +184,7 @@
     </edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
-  <Designer xmlns="http://schemas.microsoft.com/ado/2007/06/edmx">
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <Connection>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
@@ -200,6 +200,6 @@
       </DesignerInfoPropertySet>
     </Options>
     <!-- Diagram content (shape and connector positions) -->
-    <Diagrams />
+    <Diagrams></Diagrams>
   </Designer>
 </edmx:Edmx>
