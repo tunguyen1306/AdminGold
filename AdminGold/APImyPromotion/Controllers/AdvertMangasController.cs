@@ -1,7 +1,6 @@
-﻿using ApiManga.Contex;
-using ApiManga.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
@@ -9,18 +8,18 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
-using System.Web.Mvc;
+using APImyPromotion.Models;
 
-namespace ApiManga.Controllers
+namespace APImyPromotion.Controllers
 {
-    public class AdvertController : ApiController
+    public class AdvertMangasController : ApiController
     {
-        //private ConnectContext db = new ConnectContext();
-        private MangaEntities db = new MangaEntities();
+        private MyPromotionEntities db = new MyPromotionEntities();
+
+
         public List<tblAdvertManga> GetListAdvert()
         {
             return db.tblAdvertMangas.ToList();
         }
-
     }
 }

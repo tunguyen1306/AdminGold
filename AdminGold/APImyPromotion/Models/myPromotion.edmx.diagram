@@ -27,6 +27,7 @@
         <AssociationConnector Association="nhvanxol_apiModel.FK_Location_District" ManuallyRouted="false" />
         <AssociationConnector Association="nhvanxol_apiModel.FK_Location_State" ManuallyRouted="false" />
         <AssociationConnector Association="nhvanxol_apiModel.FK_Quarter_Location" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="nhvanxol_apiModel.tblAdvertManga" Width="1.5" PointX="6.375" PointY="11.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ApiManga.Models
+namespace APImyPromotion.Models
 {
     using System;
     using System.Collections.Generic;
@@ -17,10 +17,10 @@ namespace ApiManga.Models
         public int IdAdvertManga { get; set; }
         public string NameAdvertManga { get; set; }
         public string DesAdvertManga { get; set; }
-        public string NameAuthorAdvertManga { get; set; }
         public Nullable<int> StatusAdvertManga { get; set; }
         public Nullable<int> StatusChapAdvertManga { get; set; }
         public Nullable<int> CountChapAdvertManga { get; set; }
+        public string NameAuthorAdvertManga { get; set; }
         public Nullable<int> TypeAdvertManga { get; set; }
         public string ImgAdvertManga { get; set; }
     }

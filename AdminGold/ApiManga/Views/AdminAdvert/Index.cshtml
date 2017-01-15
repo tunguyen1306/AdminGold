@@ -1,0 +1,83 @@
+﻿@model IEnumerable<ApiManga.Models.tblAdvertManga>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NameAdvertManga)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DesAdvertManga)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NameAuthorAdvertManga)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StatusAdvertManga)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StatusChapAdvertManga)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CountChapAdvertManga)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TypeAdvertManga)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ImgAdvertManga)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NameAdvertManga)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DesAdvertManga)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NameAuthorAdvertManga)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StatusAdvertManga)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StatusChapAdvertManga)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CountChapAdvertManga)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TypeAdvertManga)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImgAdvertManga)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.IdAdvertManga }) |
+                @Html.ActionLink("Details", "Details", new { id=item.IdAdvertManga }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.IdAdvertManga })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

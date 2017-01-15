@@ -246,6 +246,7 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\admin_userController.cs" />
+    <Compile Include="Controllers\AdvertMangasController.cs" />
     <Compile Include="Controllers\GetAdvertController.cs" />
     <Compile Include="Controllers\GetBrandController.cs" />
     <Compile Include="Controllers\GetLoginController.cs" />
@@ -308,6 +309,9 @@
       <DependentUpon>MyPromotion.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\StateText.cs">
+      <DependentUpon>MyPromotion.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblAdvertManga.cs">
       <DependentUpon>MyPromotion.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tbl_advert_picture_promotion.cs">

@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="MangaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblAdvertMangas">
+          <Key>
+            <PropertyRef Name="IdAdvertManga" />
+          </Key>
+          <Property Name="IdAdvertManga" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameAdvertManga" Type="nvarchar" MaxLength="500" />
+          <Property Name="DesAdvertManga" Type="nvarchar" MaxLength="4000" />
+          <Property Name="NameAuthorAdvertManga" Type="nvarchar" MaxLength="500" />
+          <Property Name="StatusAdvertManga" Type="int" />
+          <Property Name="StatusChapAdvertManga" Type="int" />
+          <Property Name="CountChapAdvertManga" Type="int" />
+          <Property Name="TypeAdvertManga" Type="int" />
+          <Property Name="ImgAdvertManga" Type="nvarchar" MaxLength="4000" />
+        </EntityType>
+        <EntityType Name="tblTypeMangas">
+          <Key>
+            <PropertyRef Name="IdTypeManga" />
+          </Key>
+          <Property Name="IdTypeManga" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameTypeManga" Type="nvarchar" MaxLength="500" />
+          <Property Name="StatusTypeManga" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="MangaModelStoreContainer">
+          <EntitySet Name="tblAdvertMangas" EntityType="Self.tblAdvertMangas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblTypeMangas" EntityType="Self.tblTypeMangas" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MangaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tblAdvertManga">
+          <Key>
+            <PropertyRef Name="IdAdvertManga" />
+          </Key>
+          <Property Name="IdAdvertManga" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameAdvertManga" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="DesAdvertManga" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="NameAuthorAdvertManga" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="StatusAdvertManga" Type="Int32" />
+          <Property Name="StatusChapAdvertManga" Type="Int32" />
+          <Property Name="CountChapAdvertManga" Type="Int32" />
+          <Property Name="TypeAdvertManga" Type="Int32" />
+          <Property Name="ImgAdvertManga" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblTypeManga">
+          <Key>
+            <PropertyRef Name="IdTypeManga" />
+          </Key>
+          <Property Name="IdTypeManga" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameTypeManga" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="StatusTypeManga" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="MangaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblAdvertMangas" EntityType="Self.tblAdvertManga" />
+          <EntitySet Name="tblTypeMangas" EntityType="Self.tblTypeManga" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MangaModelStoreContainer" CdmEntityContainer="MangaEntities">
+          <EntitySetMapping Name="tblAdvertMangas">
+            <EntityTypeMapping TypeName="MangaModel.tblAdvertManga">
+              <MappingFragment StoreEntitySet="tblAdvertMangas">
+                <ScalarProperty Name="IdAdvertManga" ColumnName="IdAdvertManga" />
+                <ScalarProperty Name="NameAdvertManga" ColumnName="NameAdvertManga" />
+                <ScalarProperty Name="DesAdvertManga" ColumnName="DesAdvertManga" />
+                <ScalarProperty Name="NameAuthorAdvertManga" ColumnName="NameAuthorAdvertManga" />
+                <ScalarProperty Name="StatusAdvertManga" ColumnName="StatusAdvertManga" />
+                <ScalarProperty Name="StatusChapAdvertManga" ColumnName="StatusChapAdvertManga" />
+                <ScalarProperty Name="CountChapAdvertManga" ColumnName="CountChapAdvertManga" />
+                <ScalarProperty Name="TypeAdvertManga" ColumnName="TypeAdvertManga" />
+                <ScalarProperty Name="ImgAdvertManga" ColumnName="ImgAdvertManga" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblTypeMangas">
+            <EntityTypeMapping TypeName="MangaModel.tblTypeManga">
+              <MappingFragment StoreEntitySet="tblTypeMangas">
+                <ScalarProperty Name="IdTypeManga" ColumnName="IdTypeManga" />
+                <ScalarProperty Name="NameTypeManga" ColumnName="NameTypeManga" />
+                <ScalarProperty Name="StatusTypeManga" ColumnName="StatusTypeManga" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

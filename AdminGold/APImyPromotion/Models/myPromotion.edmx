@@ -214,6 +214,20 @@ warning 6002: The table/view 'nhvanxol_api.dbo.tbl_advert_picture_promotion' doe
           <Property Name="pass_user_promotion" Type="varchar" MaxLength="250" />
           <Property Name="img_user_promotion" Type="varchar" MaxLength="500" />
         </EntityType>
+        <EntityType Name="tblAdvertMangas">
+          <Key>
+            <PropertyRef Name="IdAdvertManga" />
+          </Key>
+          <Property Name="IdAdvertManga" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameAdvertManga" Type="nvarchar" MaxLength="200" />
+          <Property Name="DesAdvertManga" Type="nvarchar" MaxLength="500" />
+          <Property Name="StatusAdvertManga" Type="int" />
+          <Property Name="StatusChapAdvertManga" Type="int" />
+          <Property Name="CountChapAdvertManga" Type="int" />
+          <Property Name="NameAuthorAdvertManga" Type="nvarchar" MaxLength="50" />
+          <Property Name="TypeAdvertManga" Type="int" />
+          <Property Name="ImgAdvertManga" Type="varchar" MaxLength="500" />
+        </EntityType>
         <Association Name="FK_District_State">
           <End Role="State" Type="Self.State" Multiplicity="1" />
           <End Role="District" Type="Self.District" Multiplicity="*" />
@@ -302,6 +316,7 @@ warning 6002: The table/view 'nhvanxol_api.dbo.tbl_advert_picture_promotion' doe
           <EntitySet Name="tbl_category_promotion" EntityType="Self.tbl_category_promotion" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_slide_promotion" EntityType="Self.tbl_slide_promotion" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_user_promotion" EntityType="Self.tbl_user_promotion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblAdvertMangas" EntityType="Self.tblAdvertMangas" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_advert_picture_promotion" EntityType="Self.tbl_advert_picture_promotion" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [tbl_advert_picture_promotion].[picture_id] AS [picture_id], 
@@ -684,7 +699,22 @@ warning 6002: The table/view 'nhvanxol_api.dbo.tbl_advert_picture_promotion' doe
             <End Role="Location" EntitySet="Locations" />
             <End Role="Quarter" EntitySet="Quarters" />
           </AssociationSet>
+          <EntitySet Name="tblAdvertMangas" EntityType="nhvanxol_apiModel.tblAdvertManga" />
         </EntityContainer>
+        <EntityType Name="tblAdvertManga">
+          <Key>
+            <PropertyRef Name="IdAdvertManga" />
+          </Key>
+          <Property Name="IdAdvertManga" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameAdvertManga" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="DesAdvertManga" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="StatusAdvertManga" Type="Int32" />
+          <Property Name="StatusChapAdvertManga" Type="Int32" />
+          <Property Name="CountChapAdvertManga" Type="Int32" />
+          <Property Name="NameAuthorAdvertManga" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TypeAdvertManga" Type="Int32" />
+          <Property Name="ImgAdvertManga" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -899,6 +929,21 @@ warning 6002: The table/view 'nhvanxol_api.dbo.tbl_advert_picture_promotion' doe
                 <ScalarProperty Name="description" ColumnName="description" />
                 <ScalarProperty Name="cms_sql_id" ColumnName="cms_sql_id" />
                 <ScalarProperty Name="shortdescription" ColumnName="shortdescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblAdvertMangas">
+            <EntityTypeMapping TypeName="nhvanxol_apiModel.tblAdvertManga">
+              <MappingFragment StoreEntitySet="tblAdvertMangas">
+                <ScalarProperty Name="ImgAdvertManga" ColumnName="ImgAdvertManga" />
+                <ScalarProperty Name="TypeAdvertManga" ColumnName="TypeAdvertManga" />
+                <ScalarProperty Name="NameAuthorAdvertManga" ColumnName="NameAuthorAdvertManga" />
+                <ScalarProperty Name="CountChapAdvertManga" ColumnName="CountChapAdvertManga" />
+                <ScalarProperty Name="StatusChapAdvertManga" ColumnName="StatusChapAdvertManga" />
+                <ScalarProperty Name="StatusAdvertManga" ColumnName="StatusAdvertManga" />
+                <ScalarProperty Name="DesAdvertManga" ColumnName="DesAdvertManga" />
+                <ScalarProperty Name="NameAdvertManga" ColumnName="NameAdvertManga" />
+                <ScalarProperty Name="IdAdvertManga" ColumnName="IdAdvertManga" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

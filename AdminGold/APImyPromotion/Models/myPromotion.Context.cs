@@ -41,5 +41,6 @@ namespace APImyPromotion.Models
         public virtual DbSet<tbl_slide_promotion> tbl_slide_promotion { get; set; }
         public virtual DbSet<tbl_user_promotion> tbl_user_promotion { get; set; }
         public virtual DbSet<tbl_advert_picture_promotion> tbl_advert_picture_promotion { get; set; }
+        public virtual DbSet<tblAdvertManga> tblAdvertMangas { get; set; }
     }
 }
