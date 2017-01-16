@@ -19,7 +19,7 @@ namespace ApiManga.Controllers
         private MangaEntities db = new MangaEntities();
         public List<tblAdvertManga> GetListAdvert()
         {
-            return db.tblAdvertMangas.ToList();
+            return db.tblAdvertMangas.Where(x=>x.StatusAdvertManga==1).ToList();
         }
 
     }

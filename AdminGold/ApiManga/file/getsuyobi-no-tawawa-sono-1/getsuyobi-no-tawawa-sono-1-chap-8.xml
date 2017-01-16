@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ChapterItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Chap_name>chap 8</Chap_name>
+  <Chap_create>03-01-17 03:26</Chap_create>
+  <Chap_link>http://iztruyentranh.com/chap/getsuyobi_no_tawawa_sono/chapter_8</Chap_link>
+  <ListImg>
+    <ImgChapter>
+      <Link>http://1.bp.blogspot.com/-3wkeGNXp1C8/WGDlOGpOEdI/AAAAAAAHYkU/A4uvz8krrtE/000a.jpg?imgmax=0</Link>
+    </ImgChapter>
+    <ImgChapter>
+      <Link>http://1.bp.blogspot.com/-ZsOoZQXX5zg/WGDlOGoN81I/AAAAAAAHYkQ/hG31IH7CcXE/020.png?imgmax=0</Link>
+    </ImgChapter>
+    <ImgChapter>
+      <Link>http://1.bp.blogspot.com/-Kx2Pn7VgJy8/WGDlN2T52TI/AAAAAAAHYkM/zr8K_EVwlBg/021.png?imgmax=0</Link>
+    </ImgChapter>
+  </ListImg>
+</ChapterItem>

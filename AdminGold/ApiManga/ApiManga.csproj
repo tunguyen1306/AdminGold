@@ -271,6 +271,12 @@
     <Compile Include="Models\tblAdvertManga.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\tblChapterManga.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblImgManga.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\tblTypeManga.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -369,6 +375,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="file\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

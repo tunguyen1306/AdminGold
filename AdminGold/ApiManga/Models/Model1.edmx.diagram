@@ -5,8 +5,10 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="a526478685714aa3af39ea5ecb9d7fbf" Name="Diagram1">
-        <EntityTypeShape EntityType="MangaModel.tblAdvertManga" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="MangaModel.tblTypeManga" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MangaModel.tblChapterManga" Width="1.5" PointX="3.75" PointY="3.75" />
+        <EntityTypeShape EntityType="MangaModel.tblImgManga" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="MangaModel.tblAdvertManga" Width="1.5" PointX="0.75" PointY="1.25" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ChapterItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Chap_name>chap 3</Chap_name>
+  <Chap_create>03-01-17 03:26</Chap_create>
+  <Chap_link>http://iztruyentranh.com/chap/getsuyobi_no_tawawa_sono/chapter_3</Chap_link>
+  <ListImg>
+    <ImgChapter>
+      <Link>http://4.bp.blogspot.com/-lJQkEZ0LWqs/WE2GgRXusDI/AAAAAAAGn5A/t0B7N2hrTHs/000a.jpg?imgmax=0</Link>
+    </ImgChapter>
+    <ImgChapter>
+      <Link>http://4.bp.blogspot.com/-KGJDMQUAMSU/WE2GKORissI/AAAAAAAGn4w/feaPVDjCTR4/001.png?imgmax=0</Link>
+    </ImgChapter>
+    <ImgChapter>
+      <Link>http://4.bp.blogspot.com/-GBhWueMpUIE/WE2GK-RAOqI/AAAAAAAGn40/JVG1uN8cTS0/002.png?imgmax=0</Link>
+    </ImgChapter>
+    <ImgChapter>
+      <Link>http://4.bp.blogspot.com/-Pq5ba2kDmLw/WE2GLAzAVCI/AAAAAAAGn44/5AWQJIBIbQI/003.png?imgmax=0</Link>
+    </ImgChapter>
+    <ImgChapter>
+      <Link>http://4.bp.blogspot.com/-tSAlWj-j-cE/WE2GLb1x0oI/AAAAAAAGn48/RuJFPPpRl6I/004.png?imgmax=0</Link>
+    </ImgChapter>
+  </ListImg>
+</ChapterItem>

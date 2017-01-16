@@ -16,6 +16,7 @@ namespace ApiManga.Models
     {
         public int IdAdvertManga { get; set; }
         public string NameAdvertManga { get; set; }
+        public string CodeAdvertManga { get; set; }
         public string DesAdvertManga { get; set; }
         public string NameAuthorAdvertManga { get; set; }
         public Nullable<int> StatusAdvertManga { get; set; }
