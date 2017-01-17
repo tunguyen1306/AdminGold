@@ -21,6 +21,26 @@ namespace ApiManga.Controllers
         {
             return db.tblAdvertMangas.Where(x=>x.StatusAdvertManga==1).ToList();
         }
+        public List<clsAllAdvert> GetAdvertById(int id)
+        {
+
+            var date = from dataAdvert in db.tblAdvertMangas
+                       where dataAdvert.IdAdvertManga==id && dataAdvert.StatusAdvertManga==1
+                       select new clsAllAdvert { tblAdvertManga= dataAdvert,ListChapterManga= db.tblChapterMangas.Where(x=>x.IdAdvertManga==id).ToList() };
+            return date.ToList();
+         }
+        //public List<tblAdvertManga> GetAdvertById(int id)
+        //{
+        //    var allAdvert = new clsAllAdvert
+        //    {
+        //        ListAdvertManga = db.tblAdvertMangas.Where(x => x.IdAdvertManga == id).ToList(),
+        //        ListChapterManga = db.tblChapterMangas.Where(x => x.IdAdvertManga == id).ToList()
+        //    };
+
+        //    return db.tblAdvertMangas.Where(x => x.StatusAdvertManga == 1 && x.IdAdvertManga == id).ToList();
+        //    // return allAdvert;
+        //}
+
 
     }
 }
