@@ -239,6 +239,7 @@
     <Compile Include="Controllers\AdminAdvertController.cs" />
     <Compile Include="Controllers\AdminAdvertMangasController.cs" />
     <Compile Include="Controllers\AdvertController.cs" />
+    <Compile Include="Controllers\ChapterController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TypeMangasController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />

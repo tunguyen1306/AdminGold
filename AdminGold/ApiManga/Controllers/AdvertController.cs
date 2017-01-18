@@ -24,11 +24,12 @@ namespace ApiManga.Controllers
         public List<clsAllAdvert> GetAdvertById(int id)
         {
 
-            var date = from dataAdvert in db.tblAdvertMangas
+            var data = from dataAdvert in db.tblAdvertMangas
                        where dataAdvert.IdAdvertManga==id && dataAdvert.StatusAdvertManga==1
                        select new clsAllAdvert { tblAdvertManga= dataAdvert,ListChapterManga= db.tblChapterMangas.Where(x=>x.IdAdvertManga==id).ToList() };
-            return date.ToList();
+            return data.ToList();
          }
+
         //public List<tblAdvertManga> GetAdvertById(int id)
         //{
         //    var allAdvert = new clsAllAdvert
