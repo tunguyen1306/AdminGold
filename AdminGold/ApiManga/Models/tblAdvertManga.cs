@@ -24,5 +24,6 @@ namespace ApiManga.Models
         public Nullable<int> CountChapAdvertManga { get; set; }
         public string TypeAdvertManga { get; set; }
         public string ImgAdvertManga { get; set; }
+        public Nullable<int> TypeStatusAdvertManga { get; set; }
     }
 }

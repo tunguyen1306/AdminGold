@@ -19,6 +19,7 @@
           <Property Name="CountChapAdvertManga" Type="int" />
           <Property Name="TypeAdvertManga" Type="nvarchar" MaxLength="500" />
           <Property Name="ImgAdvertManga" Type="nvarchar" MaxLength="4000" />
+          <Property Name="TypeStatusAdvertManga" Type="int" />
         </EntityType>
         <EntityType Name="tblChapterMangas">
           <Key>
@@ -102,6 +103,7 @@
           <Property Name="CountChapAdvertManga" Type="Int32" />
           <Property Name="TypeAdvertManga" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="ImgAdvertManga" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="TypeStatusAdvertManga" Type="Int32" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -141,6 +143,7 @@
           <EntitySetMapping Name="tblAdvertMangas">
             <EntityTypeMapping TypeName="MangaModel.tblAdvertManga">
               <MappingFragment StoreEntitySet="tblAdvertMangas">
+                <ScalarProperty Name="TypeStatusAdvertManga" ColumnName="TypeStatusAdvertManga" />
                 <ScalarProperty Name="ImgAdvertManga" ColumnName="ImgAdvertManga" />
                 <ScalarProperty Name="TypeAdvertManga" ColumnName="TypeAdvertManga" />
                 <ScalarProperty Name="CountChapAdvertManga" ColumnName="CountChapAdvertManga" />
