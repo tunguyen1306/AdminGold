@@ -17,7 +17,7 @@
           <Property Name="StatusAdvertManga" Type="int" />
           <Property Name="StatusChapAdvertManga" Type="int" />
           <Property Name="CountChapAdvertManga" Type="int" />
-          <Property Name="TypeAdvertManga" Type="int" />
+          <Property Name="TypeAdvertManga" Type="nvarchar" MaxLength="500" />
           <Property Name="ImgAdvertManga" Type="nvarchar" MaxLength="4000" />
         </EntityType>
         <EntityType Name="tblChapterMangas">
@@ -100,7 +100,7 @@
           <Property Name="StatusAdvertManga" Type="Int32" />
           <Property Name="StatusChapAdvertManga" Type="Int32" />
           <Property Name="CountChapAdvertManga" Type="Int32" />
-          <Property Name="TypeAdvertManga" Type="Int32" />
+          <Property Name="TypeAdvertManga" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="ImgAdvertManga" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
