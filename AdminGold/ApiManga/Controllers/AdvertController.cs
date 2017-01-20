@@ -51,5 +51,16 @@ namespace ApiManga.Controllers
             return db.tblAdvertMangas.Where(x => x.StatusAdvertManga == 1 && x.TypeStatusAdvertManga==id).OrderByDescending(x => x.IdAdvertManga).ToList();
         }
 
+        [System.Web.Http.Route("api/Advert/GetAdvertWithChap")]
+        [System.Web.Http.HttpGet]
+        public List<clsAllAdvert> GetAdvertWithChap()
+        {
+
+            var data = from dataAdvert in db.tblAdvertMangas
+                       where  dataAdvert.StatusAdvertManga == 1
+                       select new clsAllAdvert { tblAdvertManga = dataAdvert, ListChapterManga = db.tblChapterMangas.Where(x => x.IdAdvertManga == dataAdvert.IdAdvertManga).ToList() };
+            return data.ToList();
+        }
+
     }
 }
