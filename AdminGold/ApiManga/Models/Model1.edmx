@@ -20,6 +20,8 @@
           <Property Name="TypeAdvertManga" Type="nvarchar" MaxLength="500" />
           <Property Name="ImgAdvertManga" Type="nvarchar" MaxLength="4000" />
           <Property Name="TypeStatusAdvertManga" Type="int" />
+          <Property Name="AlltypeAdvertManga" Type="varchar" MaxLength="20" />
+          <Property Name="CountView" Type="int" />
         </EntityType>
         <EntityType Name="tblChapterMangas">
           <Key>
@@ -29,6 +31,19 @@
           <Property Name="NameChapterManga" Type="nvarchar" MaxLength="500" />
           <Property Name="StatusChapterManga" Type="int" />
           <Property Name="IdAdvertManga" Type="int" />
+        </EntityType>
+        <EntityType Name="tblDeviceMangas">
+          <Key>
+            <PropertyRef Name="IdDevice" />
+          </Key>
+          <Property Name="IdDevice" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SerialDevice" Type="varchar" MaxLength="50" />
+          <Property Name="ModelDevice" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProductDevice" Type="nvarchar" MaxLength="50" />
+          <Property Name="ImeiDevice" Type="nvarchar" MaxLength="50" />
+          <Property Name="OsVersionDevice" Type="nvarchar" MaxLength="50" />
+          <Property Name="OSApiLevelDevice" Type="int" />
+          <Property Name="OsDevice" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="tblImgMangas">
           <Key>
@@ -50,6 +65,7 @@
         <EntityContainer Name="MangaModelStoreContainer">
           <EntitySet Name="tblAdvertMangas" EntityType="Self.tblAdvertMangas" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblChapterMangas" EntityType="Self.tblChapterMangas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblDeviceMangas" EntityType="Self.tblDeviceMangas" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblImgMangas" EntityType="Self.tblImgMangas" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblTypeMangas" EntityType="Self.tblTypeMangas" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
@@ -70,6 +86,7 @@
           <EntitySet Name="tblChapterMangas" EntityType="MangaModel.tblChapterManga" />
           <EntitySet Name="tblImgMangas" EntityType="MangaModel.tblImgManga" />
           <EntitySet Name="tblAdvertMangas" EntityType="MangaModel.tblAdvertManga" />
+          <EntitySet Name="tblDeviceMangas" EntityType="MangaModel.tblDeviceManga" />
         </EntityContainer>
         <EntityType Name="tblChapterManga">
           <Key>
@@ -104,6 +121,21 @@
           <Property Name="TypeAdvertManga" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="ImgAdvertManga" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
           <Property Name="TypeStatusAdvertManga" Type="Int32" />
+          <Property Name="AlltypeAdvertManga" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CountView" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tblDeviceManga">
+          <Key>
+            <PropertyRef Name="IdDevice" />
+          </Key>
+          <Property Name="IdDevice" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SerialDevice" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModelDevice" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProductDevice" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ImeiDevice" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OsVersionDevice" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OSApiLevelDevice" Type="Int32" />
+          <Property Name="OsDevice" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -143,6 +175,8 @@
           <EntitySetMapping Name="tblAdvertMangas">
             <EntityTypeMapping TypeName="MangaModel.tblAdvertManga">
               <MappingFragment StoreEntitySet="tblAdvertMangas">
+                <ScalarProperty Name="CountView" ColumnName="CountView" />
+                <ScalarProperty Name="AlltypeAdvertManga" ColumnName="AlltypeAdvertManga" />
                 <ScalarProperty Name="TypeStatusAdvertManga" ColumnName="TypeStatusAdvertManga" />
                 <ScalarProperty Name="ImgAdvertManga" ColumnName="ImgAdvertManga" />
                 <ScalarProperty Name="TypeAdvertManga" ColumnName="TypeAdvertManga" />
@@ -154,6 +188,20 @@
                 <ScalarProperty Name="CodeAdvertManga" ColumnName="CodeAdvertManga" />
                 <ScalarProperty Name="NameAdvertManga" ColumnName="NameAdvertManga" />
                 <ScalarProperty Name="IdAdvertManga" ColumnName="IdAdvertManga" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblDeviceMangas">
+            <EntityTypeMapping TypeName="MangaModel.tblDeviceManga">
+              <MappingFragment StoreEntitySet="tblDeviceMangas">
+                <ScalarProperty Name="OsDevice" ColumnName="OsDevice" />
+                <ScalarProperty Name="OSApiLevelDevice" ColumnName="OSApiLevelDevice" />
+                <ScalarProperty Name="OsVersionDevice" ColumnName="OsVersionDevice" />
+                <ScalarProperty Name="ImeiDevice" ColumnName="ImeiDevice" />
+                <ScalarProperty Name="ProductDevice" ColumnName="ProductDevice" />
+                <ScalarProperty Name="ModelDevice" ColumnName="ModelDevice" />
+                <ScalarProperty Name="SerialDevice" ColumnName="SerialDevice" />
+                <ScalarProperty Name="IdDevice" ColumnName="IdDevice" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

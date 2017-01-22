@@ -29,5 +29,6 @@ namespace ApiManga.Models
         public virtual DbSet<tblChapterManga> tblChapterMangas { get; set; }
         public virtual DbSet<tblImgManga> tblImgMangas { get; set; }
         public virtual DbSet<tblAdvertManga> tblAdvertMangas { get; set; }
+        public virtual DbSet<tblDeviceManga> tblDeviceMangas { get; set; }
     }
 }
