@@ -62,7 +62,7 @@ namespace ApiManga.Controllers
                                 where dataChap.StatusChapterManga == 1 && dataChap.DateChapterManga > date
                                 select dataChap).ToList().Count();
             var sqlData = (from dataAdvert in db.tblAdvertMangas
-                           where dataAdvert.StatusAdvertManga == 1
+                           where dataAdvert.StatusAdvertManga == 1 
                            select dataAdvert).ToList();
 
 
@@ -98,7 +98,7 @@ namespace ApiManga.Controllers
 
 
 
-            return cl;
+            return cl.Where(x=>x.num_update>0).ToList();
         }
 
     }

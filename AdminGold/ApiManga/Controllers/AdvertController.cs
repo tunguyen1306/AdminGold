@@ -114,12 +114,11 @@ namespace ApiManga.Controllers
             List<string> typei=new List<string>();
             if (type.EndsWith(","))
             {
-                type = type.Remove(type.Length-1).Replace(", ","");
+                type = type.Remove(type.Length-1).Replace(", ",",");
                
             }
             typei = type.Split(',').ToList();
-            // && typei.Contains(x.TypeAdvertManga)
-            return db.tblAdvertMangas.Where(x => x.StatusAdvertManga == 1 && type.Contains(x.TypeAdvertManga)).OrderByDescending(x => x.CountView).ToList();
+            return db.tblAdvertMangas.Where(x => x.StatusAdvertManga == 1 && typei.Any(folder => x.TypeAdvertManga.Contains(folder))).OrderByDescending(x => x.CountView).ToList();
         }
         [System.Web.Http.Route("api/Advert/test")]
         [System.Web.Http.HttpGet]
