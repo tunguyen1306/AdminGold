@@ -8,6 +8,7 @@ namespace ApiManga.Models
     public class clsAllAdvert
     {
         public int row_num { get; set; }
+        public int num_update { get; set; }
         public List<tblAdvertManga> ListAdvertManga { get; set; }
         public List<tblChapterManga> ListChapterManga { get; set; }
         public List<tblImgManga> ListImgManga { get; set; }

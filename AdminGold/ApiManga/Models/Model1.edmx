@@ -31,6 +31,7 @@
           <Property Name="NameChapterManga" Type="nvarchar" MaxLength="500" />
           <Property Name="StatusChapterManga" Type="int" />
           <Property Name="IdAdvertManga" Type="int" />
+          <Property Name="DateChapterManga" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="tblDeviceMangas">
           <Key>
@@ -83,20 +84,11 @@
         </EntityType>
         <EntityContainer Name="MangaEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="tblTypeMangas" EntityType="Self.tblTypeManga" />
-          <EntitySet Name="tblChapterMangas" EntityType="MangaModel.tblChapterManga" />
           <EntitySet Name="tblImgMangas" EntityType="MangaModel.tblImgManga" />
           <EntitySet Name="tblAdvertMangas" EntityType="MangaModel.tblAdvertManga" />
           <EntitySet Name="tblDeviceMangas" EntityType="MangaModel.tblDeviceManga" />
+          <EntitySet Name="tblChapterMangas" EntityType="MangaModel.tblChapterManga" />
         </EntityContainer>
-        <EntityType Name="tblChapterManga">
-          <Key>
-            <PropertyRef Name="IdChapterManga" />
-          </Key>
-          <Property Name="IdChapterManga" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NameChapterManga" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="StatusChapterManga" Type="Int32" />
-          <Property Name="IdAdvertManga" Type="Int32" />
-        </EntityType>
         <EntityType Name="tblImgManga">
           <Key>
             <PropertyRef Name="IdImgManga" />
@@ -137,6 +129,16 @@
           <Property Name="OSApiLevelDevice" Type="Int32" />
           <Property Name="OsDevice" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="tblChapterManga">
+          <Key>
+            <PropertyRef Name="IdChapterManga" />
+          </Key>
+          <Property Name="IdChapterManga" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameChapterManga" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="StatusChapterManga" Type="Int32" />
+          <Property Name="IdAdvertManga" Type="Int32" />
+          <Property Name="DateChapterManga" Type="DateTime" Precision="3" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -149,16 +151,6 @@
                 <ScalarProperty Name="IdTypeManga" ColumnName="IdTypeManga" />
                 <ScalarProperty Name="NameTypeManga" ColumnName="NameTypeManga" />
                 <ScalarProperty Name="StatusTypeManga" ColumnName="StatusTypeManga" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="tblChapterMangas">
-            <EntityTypeMapping TypeName="MangaModel.tblChapterManga">
-              <MappingFragment StoreEntitySet="tblChapterMangas">
-                <ScalarProperty Name="IdAdvertManga" ColumnName="IdAdvertManga" />
-                <ScalarProperty Name="StatusChapterManga" ColumnName="StatusChapterManga" />
-                <ScalarProperty Name="NameChapterManga" ColumnName="NameChapterManga" />
-                <ScalarProperty Name="IdChapterManga" ColumnName="IdChapterManga" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -202,6 +194,17 @@
                 <ScalarProperty Name="ModelDevice" ColumnName="ModelDevice" />
                 <ScalarProperty Name="SerialDevice" ColumnName="SerialDevice" />
                 <ScalarProperty Name="IdDevice" ColumnName="IdDevice" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblChapterMangas">
+            <EntityTypeMapping TypeName="MangaModel.tblChapterManga">
+              <MappingFragment StoreEntitySet="tblChapterMangas">
+                <ScalarProperty Name="DateChapterManga" ColumnName="DateChapterManga" />
+                <ScalarProperty Name="IdAdvertManga" ColumnName="IdAdvertManga" />
+                <ScalarProperty Name="StatusChapterManga" ColumnName="StatusChapterManga" />
+                <ScalarProperty Name="NameChapterManga" ColumnName="NameChapterManga" />
+                <ScalarProperty Name="IdChapterManga" ColumnName="IdChapterManga" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

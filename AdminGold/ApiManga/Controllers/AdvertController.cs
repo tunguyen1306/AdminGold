@@ -31,9 +31,9 @@ namespace ApiManga.Controllers
         {
             return db.tblAdvertMangas.Where(x=>x.StatusAdvertManga==1).OrderByDescending(x => x.CountView).ToList();
         }
-      
-        //[System.Web.Http.Route("api/Advert/GetAdvertById")]
-        //[System.Web.Http.HttpGet]
+
+        [System.Web.Http.Route("api/Advert/GetAdvertById")]
+        [System.Web.Http.HttpGet]
         public List<clsAllAdvert> GetAdvertById(int id)
         {
           

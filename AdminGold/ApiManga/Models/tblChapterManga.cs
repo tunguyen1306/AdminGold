@@ -18,5 +18,6 @@ namespace ApiManga.Models
         public string NameChapterManga { get; set; }
         public Nullable<int> StatusChapterManga { get; set; }
         public Nullable<int> IdAdvertManga { get; set; }
+        public System.DateTime DateChapterManga { get; set; }
     }
 }
