@@ -24,7 +24,7 @@ namespace ApiManga.Contex
             modelBuilder.Entity<tblAdvertManga>().Property(p => p.NameAuthorAdvertManga).HasColumnType("NVARCHAR").HasMaxLength(500);
             modelBuilder.Entity<tblAdvertManga>().Property(p => p.StatusAdvertManga).HasColumnType("INT");
             modelBuilder.Entity<tblAdvertManga>().Property(p => p.StatusChapAdvertManga).HasColumnType("INT");
-            modelBuilder.Entity<tblAdvertManga>().Property(p => p.TypeAdvertManga).HasColumnType("INT");
+            modelBuilder.Entity<tblAdvertManga>().Property(p => p.TypeAdvertManga).HasColumnType("NVARCHAR").HasMaxLength(500);
             modelBuilder.Entity<tblAdvertManga>().Property(p => p.ImgAdvertManga).HasColumnType("NVARCHAR");
             modelBuilder.Entity<tblAdvertManga>().Property(p => p.CountChapAdvertManga).HasColumnType("INT");
         }

@@ -18,6 +18,9 @@
     <table class="table">
         <tr>
             <th>
+                @Html.DisplayNameFor(model => model.ImgAdvertManga)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.NameAdvertManga)
             </th>
             <th>
@@ -38,14 +41,16 @@
             <th>
                 @Html.DisplayNameFor(model => model.TypeAdvertManga)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ImgAdvertManga)
-            </th>
+          
             <th></th>
         </tr>
     
     @foreach (var item in Model) {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NameAdvertManga)
+                <img width="50" src="@item.ImgAdvertManga" />
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.NameAdvertManga)
             </td>
@@ -67,9 +72,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.TypeAdvertManga)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ImgAdvertManga)
-            </td>
+           
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id=item.IdAdvertManga }) |
                 @Html.ActionLink("Details", "Details", new { id=item.IdAdvertManga }) |

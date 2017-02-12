@@ -25,10 +25,10 @@ namespace ApiManga.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<tblTypeManga> tblTypeMangas { get; set; }
-        public virtual DbSet<tblImgManga> tblImgMangas { get; set; }
         public virtual DbSet<tblAdvertManga> tblAdvertMangas { get; set; }
-        public virtual DbSet<tblDeviceManga> tblDeviceMangas { get; set; }
         public virtual DbSet<tblChapterManga> tblChapterMangas { get; set; }
+        public virtual DbSet<tblDeviceManga> tblDeviceMangas { get; set; }
+        public virtual DbSet<tblImgManga> tblImgMangas { get; set; }
+        public virtual DbSet<tblTypeManga> tblTypeMangas { get; set; }
     }
 }
