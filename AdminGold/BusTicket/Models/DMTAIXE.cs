@@ -21,6 +21,6 @@ namespace BusTicket.Models
         public string BANGLAI { get; set; }
         public string SDT { get; set; }
         public string DIACHINOIO { get; set; }
-        public byte[] EMAIL { get; set; }
+        public string EMAIL { get; set; }
     }
 }

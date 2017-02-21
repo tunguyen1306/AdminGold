@@ -25,6 +25,7 @@ namespace BusTicket.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Counter> Counters { get; set; }
         public virtual DbSet<Description_service> Description_services { get; set; }
         public virtual DbSet<DICHVU> DICHVUs { get; set; }
         public virtual DbSet<DMHOADON> DMHOADONs { get; set; }
