@@ -129,5 +129,16 @@ namespace BusTicket.Controllers
         {
             return db.DMHOADONs.Count(e => e.IDHOADON == id) > 0;
         }
+        [System.Web.Http.Route("api/DMHOADONs/CountView")]
+        [System.Web.Http.HttpGet]
+        public List<DMHOADON> CountView(string id)
+        {
+            var view = db.DMHOADONs.Where(x => x.IDHOADON == id).FirstOrDefault().SOVEHIENTAI;
+                DMHOADON tblDMHOADONs = db.DMHOADONs.Find(id);
+                tblDMHOADONs.SOVEHIENTAI = view + 1;
+                db.Entry(tblDMHOADONs).State = EntityState.Modified;
+                db.SaveChanges();
+            return db.DMHOADONs.Where(x => x.IDHOADON == id).ToList();
+        }
     }
 }
