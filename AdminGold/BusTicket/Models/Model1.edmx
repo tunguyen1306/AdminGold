@@ -157,7 +157,7 @@
           <Property Name="IDVE5IDHOADON" Type="nvarchar" MaxLength="50" />
           <Property Name="GIAVE6" Type="int" />
           <Property Name="DIENGIAIVE6" Type="nvarchar" MaxLength="50" />
-          <Property Name="CAMVE6" Type="int" />
+          <Property Name="CAMVE6" Type="bit" />
           <Property Name="IDVE6IDHOADON" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="DMTUYENCHITIETTRAM">
@@ -307,7 +307,6 @@
           <EntitySet Name="DMHOADONs" EntityType="BusTicketModel.DMHOADON" />
           <EntitySet Name="DMTAIXEs" EntityType="BusTicketModel.DMTAIXE" />
           <EntitySet Name="DMTRAMs" EntityType="BusTicketModel.DMTRAM" />
-          <EntitySet Name="DMTUYENs" EntityType="BusTicketModel.DMTUYEN" />
           <EntitySet Name="DMTUYENCHITIETTRAMs" EntityType="BusTicketModel.DMTUYENCHITIETTRAM" />
           <EntitySet Name="DMXEs" EntityType="BusTicketModel.DMXE" />
           <EntitySet Name="Docsoes" EntityType="BusTicketModel.Docso" />
@@ -317,6 +316,7 @@
           <EntitySet Name="LOTRINHCHOXEs" EntityType="BusTicketModel.LOTRINHCHOXE" />
           <EntitySet Name="PGDs" EntityType="BusTicketModel.PGD" />
           <EntitySet Name="PHAN_LOAI_PGDs" EntityType="BusTicketModel.PHAN_LOAI_PGD" />
+          <EntitySet Name="DMTUYENs" EntityType="BusTicketModel.DMTUYEN" />
         </EntityContainer>
         <EntityType Name="Counter">
           <Key>
@@ -433,45 +433,6 @@
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="MATRAM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="TENTRAM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="DMTUYEN">
-          <Key>
-            <PropertyRef Name="IDTUYEN" />
-          </Key>
-          <Property Name="IDTUYEN" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="MATUYEN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="TENTUYENENG" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="TENTUYENVN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="MATRAMDAU" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="MATRAMGIUA" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="MATRAMCUOI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="TONGTRAM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="MUCDO" Type="Int32" />
-          <Property Name="THOIGIANTOANTRAM" Type="DateTime" Precision="3" />
-          <Property Name="GIAVE1" Type="Int32" />
-          <Property Name="DIENGIAIVE1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CAMVE1" Type="Boolean" />
-          <Property Name="IDVE1IDHOADON" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="GIAVE2" Type="Int32" />
-          <Property Name="DIENGIAIVE2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CAMVE2" Type="Boolean" />
-          <Property Name="IDVE2IDHOADON" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="GIAVE3" Type="Int32" />
-          <Property Name="DIENGIAIVE3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CAMVE3" Type="Boolean" />
-          <Property Name="IDVE3IDHOADON" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="GIAVE4" Type="Int32" />
-          <Property Name="DIENGIAIVE4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CAMVE4" Type="Boolean" />
-          <Property Name="IDVE4IDHOADON" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="GIAVE5" Type="Int32" />
-          <Property Name="DIENGIAIVE5" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CAMVE5" Type="Boolean" />
-          <Property Name="IDVE5IDHOADON" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="GIAVE6" Type="Int32" />
-          <Property Name="DIENGIAIVE6" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CAMVE6" Type="Int32" />
-          <Property Name="IDVE6IDHOADON" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="DMTUYENCHITIETTRAM">
           <Key>
@@ -590,6 +551,45 @@
           <Property Name="MAKHUVUC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="TENKHUVUC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Ghichu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="DMTUYEN">
+          <Key>
+            <PropertyRef Name="IDTUYEN" />
+          </Key>
+          <Property Name="IDTUYEN" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MATUYEN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TENTUYENENG" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TENTUYENVN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MATRAMDAU" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MATRAMGIUA" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MATRAMCUOI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TONGTRAM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MUCDO" Type="Int32" />
+          <Property Name="THOIGIANTOANTRAM" Type="DateTime" Precision="3" />
+          <Property Name="GIAVE1" Type="Int32" />
+          <Property Name="DIENGIAIVE1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CAMVE1" Type="Boolean" />
+          <Property Name="IDVE1IDHOADON" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GIAVE2" Type="Int32" />
+          <Property Name="DIENGIAIVE2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CAMVE2" Type="Boolean" />
+          <Property Name="IDVE2IDHOADON" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GIAVE3" Type="Int32" />
+          <Property Name="DIENGIAIVE3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CAMVE3" Type="Boolean" />
+          <Property Name="IDVE3IDHOADON" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GIAVE4" Type="Int32" />
+          <Property Name="DIENGIAIVE4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CAMVE4" Type="Boolean" />
+          <Property Name="IDVE4IDHOADON" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GIAVE5" Type="Int32" />
+          <Property Name="DIENGIAIVE5" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CAMVE5" Type="Boolean" />
+          <Property Name="IDVE5IDHOADON" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GIAVE6" Type="Int32" />
+          <Property Name="DIENGIAIVE6" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CAMVE6" Type="Boolean" />
+          <Property Name="IDVE6IDHOADON" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -719,46 +719,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="DMTUYENs">
-            <EntityTypeMapping TypeName="BusTicketModel.DMTUYEN">
-              <MappingFragment StoreEntitySet="DMTUYEN">
-                <ScalarProperty Name="IDVE6IDHOADON" ColumnName="IDVE6IDHOADON" />
-                <ScalarProperty Name="CAMVE6" ColumnName="CAMVE6" />
-                <ScalarProperty Name="DIENGIAIVE6" ColumnName="DIENGIAIVE6" />
-                <ScalarProperty Name="GIAVE6" ColumnName="GIAVE6" />
-                <ScalarProperty Name="IDVE5IDHOADON" ColumnName="IDVE5IDHOADON" />
-                <ScalarProperty Name="CAMVE5" ColumnName="CAMVE5" />
-                <ScalarProperty Name="DIENGIAIVE5" ColumnName="DIENGIAIVE5" />
-                <ScalarProperty Name="GIAVE5" ColumnName="GIAVE5" />
-                <ScalarProperty Name="IDVE4IDHOADON" ColumnName="IDVE4IDHOADON" />
-                <ScalarProperty Name="CAMVE4" ColumnName="CAMVE4" />
-                <ScalarProperty Name="DIENGIAIVE4" ColumnName="DIENGIAIVE4" />
-                <ScalarProperty Name="GIAVE4" ColumnName="GIAVE4" />
-                <ScalarProperty Name="IDVE3IDHOADON" ColumnName="IDVE3IDHOADON" />
-                <ScalarProperty Name="CAMVE3" ColumnName="CAMVE3" />
-                <ScalarProperty Name="DIENGIAIVE3" ColumnName="DIENGIAIVE3" />
-                <ScalarProperty Name="GIAVE3" ColumnName="GIAVE3" />
-                <ScalarProperty Name="IDVE2IDHOADON" ColumnName="IDVE2IDHOADON" />
-                <ScalarProperty Name="CAMVE2" ColumnName="CAMVE2" />
-                <ScalarProperty Name="DIENGIAIVE2" ColumnName="DIENGIAIVE2" />
-                <ScalarProperty Name="GIAVE2" ColumnName="GIAVE2" />
-                <ScalarProperty Name="IDVE1IDHOADON" ColumnName="IDVE1IDHOADON" />
-                <ScalarProperty Name="CAMVE1" ColumnName="CAMVE1" />
-                <ScalarProperty Name="DIENGIAIVE1" ColumnName="DIENGIAIVE1" />
-                <ScalarProperty Name="GIAVE1" ColumnName="GIAVE1" />
-                <ScalarProperty Name="THOIGIANTOANTRAM" ColumnName="THOIGIANTOANTRAM" />
-                <ScalarProperty Name="MUCDO" ColumnName="MUCDO" />
-                <ScalarProperty Name="TONGTRAM" ColumnName="TONGTRAM" />
-                <ScalarProperty Name="MATRAMCUOI" ColumnName="MATRAMCUOI" />
-                <ScalarProperty Name="MATRAMGIUA" ColumnName="MATRAMGIUA" />
-                <ScalarProperty Name="MATRAMDAU" ColumnName="MATRAMDAU" />
-                <ScalarProperty Name="TENTUYENVN" ColumnName="TENTUYENVN" />
-                <ScalarProperty Name="TENTUYENENG" ColumnName="TENTUYENENG" />
-                <ScalarProperty Name="MATUYEN" ColumnName="MATUYEN" />
-                <ScalarProperty Name="IDTUYEN" ColumnName="IDTUYEN" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="DMTUYENCHITIETTRAMs">
             <EntityTypeMapping TypeName="BusTicketModel.DMTUYENCHITIETTRAM">
               <MappingFragment StoreEntitySet="DMTUYENCHITIETTRAM">
@@ -883,6 +843,46 @@
                 <ScalarProperty Name="TENKHUVUC" ColumnName="TENKHUVUC" />
                 <ScalarProperty Name="MAKHUVUC" ColumnName="MAKHUVUC" />
                 <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DMTUYENs">
+            <EntityTypeMapping TypeName="BusTicketModel.DMTUYEN">
+              <MappingFragment StoreEntitySet="DMTUYEN">
+                <ScalarProperty Name="IDVE6IDHOADON" ColumnName="IDVE6IDHOADON" />
+                <ScalarProperty Name="CAMVE6" ColumnName="CAMVE6" />
+                <ScalarProperty Name="DIENGIAIVE6" ColumnName="DIENGIAIVE6" />
+                <ScalarProperty Name="GIAVE6" ColumnName="GIAVE6" />
+                <ScalarProperty Name="IDVE5IDHOADON" ColumnName="IDVE5IDHOADON" />
+                <ScalarProperty Name="CAMVE5" ColumnName="CAMVE5" />
+                <ScalarProperty Name="DIENGIAIVE5" ColumnName="DIENGIAIVE5" />
+                <ScalarProperty Name="GIAVE5" ColumnName="GIAVE5" />
+                <ScalarProperty Name="IDVE4IDHOADON" ColumnName="IDVE4IDHOADON" />
+                <ScalarProperty Name="CAMVE4" ColumnName="CAMVE4" />
+                <ScalarProperty Name="DIENGIAIVE4" ColumnName="DIENGIAIVE4" />
+                <ScalarProperty Name="GIAVE4" ColumnName="GIAVE4" />
+                <ScalarProperty Name="IDVE3IDHOADON" ColumnName="IDVE3IDHOADON" />
+                <ScalarProperty Name="CAMVE3" ColumnName="CAMVE3" />
+                <ScalarProperty Name="DIENGIAIVE3" ColumnName="DIENGIAIVE3" />
+                <ScalarProperty Name="GIAVE3" ColumnName="GIAVE3" />
+                <ScalarProperty Name="IDVE2IDHOADON" ColumnName="IDVE2IDHOADON" />
+                <ScalarProperty Name="CAMVE2" ColumnName="CAMVE2" />
+                <ScalarProperty Name="DIENGIAIVE2" ColumnName="DIENGIAIVE2" />
+                <ScalarProperty Name="GIAVE2" ColumnName="GIAVE2" />
+                <ScalarProperty Name="IDVE1IDHOADON" ColumnName="IDVE1IDHOADON" />
+                <ScalarProperty Name="CAMVE1" ColumnName="CAMVE1" />
+                <ScalarProperty Name="DIENGIAIVE1" ColumnName="DIENGIAIVE1" />
+                <ScalarProperty Name="GIAVE1" ColumnName="GIAVE1" />
+                <ScalarProperty Name="THOIGIANTOANTRAM" ColumnName="THOIGIANTOANTRAM" />
+                <ScalarProperty Name="MUCDO" ColumnName="MUCDO" />
+                <ScalarProperty Name="TONGTRAM" ColumnName="TONGTRAM" />
+                <ScalarProperty Name="MATRAMCUOI" ColumnName="MATRAMCUOI" />
+                <ScalarProperty Name="MATRAMGIUA" ColumnName="MATRAMGIUA" />
+                <ScalarProperty Name="MATRAMDAU" ColumnName="MATRAMDAU" />
+                <ScalarProperty Name="TENTUYENVN" ColumnName="TENTUYENVN" />
+                <ScalarProperty Name="TENTUYENENG" ColumnName="TENTUYENENG" />
+                <ScalarProperty Name="MATUYEN" ColumnName="MATUYEN" />
+                <ScalarProperty Name="IDTUYEN" ColumnName="IDTUYEN" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

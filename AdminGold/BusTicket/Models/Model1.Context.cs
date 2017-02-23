@@ -31,7 +31,6 @@ namespace BusTicket.Models
         public virtual DbSet<DMHOADON> DMHOADONs { get; set; }
         public virtual DbSet<DMTAIXE> DMTAIXEs { get; set; }
         public virtual DbSet<DMTRAM> DMTRAMs { get; set; }
-        public virtual DbSet<DMTUYEN> DMTUYENs { get; set; }
         public virtual DbSet<DMTUYENCHITIETTRAM> DMTUYENCHITIETTRAMs { get; set; }
         public virtual DbSet<DMXE> DMXEs { get; set; }
         public virtual DbSet<Docso> Docsoes { get; set; }
@@ -41,5 +40,6 @@ namespace BusTicket.Models
         public virtual DbSet<LOTRINHCHOXE> LOTRINHCHOXEs { get; set; }
         public virtual DbSet<PGD> PGDs { get; set; }
         public virtual DbSet<PHAN_LOAI_PGD> PHAN_LOAI_PGDs { get; set; }
+        public virtual DbSet<DMTUYEN> DMTUYENs { get; set; }
     }
 }

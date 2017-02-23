@@ -46,7 +46,7 @@ namespace BusTicket.Models
         public string IDVE5IDHOADON { get; set; }
         public Nullable<int> GIAVE6 { get; set; }
         public string DIENGIAIVE6 { get; set; }
-        public Nullable<int> CAMVE6 { get; set; }
+        public Nullable<bool> CAMVE6 { get; set; }
         public string IDVE6IDHOADON { get; set; }
     }
 }
