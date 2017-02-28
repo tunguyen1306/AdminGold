@@ -56,7 +56,7 @@ namespace AdminGold.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "vangia_id_project,vangia_img1_project,vangia_img2_project,vangia_img3_project,vangia_img_project,vangia_content_project,vangia_name_project,vangia_time_project,vangia_status_project,vangia_order_project,vangia_language_project,vangia_tomtat_project,vangia_typeid_project,vangia_img4_project,vangia_img5_project,vangia_img6_project,vangia_img7_project,vangia_img8_project,vangia_img9_project,vangia_vanban_project")] web_vangia_project web_vangia_project)
+        public ActionResult Create( web_vangia_project web_vangia_project)
         {
             if (ModelState.IsValid)
             {
