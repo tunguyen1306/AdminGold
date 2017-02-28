@@ -1,0 +1,913 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BusTicketModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Counters">
+          <Key>
+            <PropertyRef Name="MAXE" />
+          </Key>
+          <Property Name="CopyRight" Type="nvarchar" MaxLength="50" />
+          <Property Name="LogoCopyRight" Type="nvarchar" MaxLength="50" />
+          <Property Name="CopyRightKey" Type="nvarchar" MaxLength="50" />
+          <Property Name="ChedoInCSDL" Type="bit" />
+          <Property Name="ChedoInDefault" Type="bit" />
+          <Property Name="SetDefaultIn" Type="bit" />
+          <Property Name="MutiServices" Type="bit" />
+          <Property Name="TransferAuto" Type="bit" />
+          <Property Name="TransferTime" Type="nvarchar" MaxLength="50" />
+          <Property Name="PGDCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="AutoNext" Type="bit" />
+          <Property Name="BackupSQLserver" Type="bit" />
+          <Property Name="TieudeVN" Type="nvarchar" MaxLength="500" />
+          <Property Name="TieudeENG" Type="nvarchar" MaxLength="500" />
+          <Property Name="MST" Type="nvarchar" MaxLength="50" />
+          <Property Name="DT" Type="nvarchar" MaxLength="50" />
+          <Property Name="DCPRINT" Type="nvarchar" MaxLength="50" />
+          <Property Name="MAXE" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Luot" Type="nvarchar" MaxLength="50" />
+          <Property Name="Lastday" Type="nvarchar" MaxLength="50" />
+          <Property Name="TenCongTy" Type="nvarchar" MaxLength="500" />
+          <Property Name="DiaChi" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="Description services">
+          <Key>
+            <PropertyRef Name="MaDV" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MaDV" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TenDV" Type="nvarchar" MaxLength="50" />
+          <Property Name="SOKHOITAO" Type="nvarchar" MaxLength="50" />
+          <Property Name="SOTHUTU" Type="nvarchar" MaxLength="50" />
+          <Property Name="SOPHUCVU" Type="nvarchar" MaxLength="50" />
+          <Property Name="Cam" Type="bit" />
+          <Property Name="TOMTAT" Type="nvarchar" MaxLength="50" />
+          <Property Name="Service" Type="nvarchar" MaxLength="50" />
+          <Property Name="Giave" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="DICHVU">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NGAY" Type="datetime" />
+          <Property Name="SQMS" Type="nvarchar" MaxLength="50" />
+          <Property Name="GIOLAYSO" Type="datetime" />
+          <Property Name="dichvu" Type="nvarchar" MaxLength="50" />
+          <Property Name="GIAVE" Type="nvarchar" MaxLength="50" />
+          <Property Name="MATUYEN" Type="nvarchar" MaxLength="50" />
+          <Property Name="TENTUYEN" Type="nvarchar" MaxLength="50" />
+          <Property Name="MATRAMDAU" Type="nvarchar" MaxLength="50" />
+          <Property Name="MATRAMCUOI" Type="nvarchar" MaxLength="50" />
+          <Property Name="LOTRINH" Type="nvarchar" MaxLength="50" />
+          <Property Name="BienSoXe" Type="nvarchar" MaxLength="50" />
+          <Property Name="TRANGTHAI" Type="nvarchar" MaxLength="50" />
+          <Property Name="PHUCVU" Type="bit" />
+          <Property Name="GHICHU" Type="nvarchar" MaxLength="50" />
+          <Property Name="Contro" Type="bit" />
+          <Property Name="Doc" Type="bit" />
+          <Property Name="DATCHO" Type="bit" />
+          <Property Name="GIO_GOC" Type="datetime" />
+          <Property Name="BINH_CHON" Type="nvarchar" MaxLength="50" />
+          <Property Name="GIO_BINHCHON" Type="datetime" />
+          <Property Name="NGONNGU" Type="nvarchar" MaxLength="50" />
+          <Property Name="DIEMGIAODICH" Type="nvarchar" MaxLength="50" />
+          <Property Name="MANV" Type="nvarchar" MaxLength="50" />
+          <Property Name="QUAYCHUYEN" Type="nvarchar" MaxLength="50" />
+          <Property Name="QUAYTHAMCHIEU" Type="nvarchar" MaxLength="50" />
+          <Property Name="SODIENTHOAI" Type="nvarchar" MaxLength="50" />
+          <Property Name="QUAY" Type="nvarchar" MaxLength="50" />
+          <Property Name="GIOPHUCVU" Type="datetime" />
+          <Property Name="MAXE" Type="nvarchar" MaxLength="50" />
+          <Property Name="MATAIXE" Type="nvarchar" MaxLength="50" />
+          <Property Name="MATRAM" Type="nvarchar" MaxLength="50" />
+          <Property Name="IDTUYEN" Type="nvarchar" MaxLength="50" />
+          <Property Name="KYHIEUVE" Type="nvarchar" MaxLength="50" />
+          <Property Name="MAUSO" Type="nvarchar" MaxLength="50" />
+          <Property Name="MATRAMGIUA" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="DMHOADON">
+          <Key>
+            <PropertyRef Name="IDHOADON" />
+          </Key>
+          <Property Name="IDHOADON" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MAXE" Type="varchar" MaxLength="50" />
+          <Property Name="KYHIEUVE" Type="varchar" MaxLength="50" />
+          <Property Name="MAUSO" Type="varchar" MaxLength="50" />
+          <Property Name="TONGSOVEPHATHANH" Type="int" />
+          <Property Name="SOVEHIENTAI" Type="int" />
+          <Property Name="IDVE" Type="int" />
+        </EntityType>
+        <EntityType Name="DMTAIXE">
+          <Key>
+            <PropertyRef Name="MATAIXE" />
+          </Key>
+          <Property Name="MATAIXE" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TENTAIXE" Type="nvarchar" MaxLength="50" />
+          <Property Name="TUOI" Type="int" />
+          <Property Name="GIOITINH" Type="nvarchar" MaxLength="50" />
+          <Property Name="BANGLAI" Type="nvarchar" MaxLength="50" />
+          <Property Name="SDT" Type="nvarchar" MaxLength="50" />
+          <Property Name="DIACHINOIO" Type="nvarchar" MaxLength="50" />
+          <Property Name="EMAIL" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="DMTRAM">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MATRAM" Type="nvarchar" MaxLength="50" />
+          <Property Name="TENTRAM" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="DMTUYEN">
+          <Key>
+            <PropertyRef Name="IDTUYEN" />
+          </Key>
+          <Property Name="IDTUYEN" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MATUYEN" Type="nvarchar" MaxLength="50" />
+          <Property Name="TENTUYENENG" Type="nvarchar" MaxLength="50" />
+          <Property Name="TENTUYENVN" Type="nvarchar" MaxLength="50" />
+          <Property Name="MATRAMDAU" Type="nvarchar" MaxLength="50" />
+          <Property Name="MATRAMGIUA" Type="nvarchar" MaxLength="50" />
+          <Property Name="MATRAMCUOI" Type="nvarchar" MaxLength="50" />
+          <Property Name="TONGTRAM" Type="nvarchar" MaxLength="50" />
+          <Property Name="MUCDO" Type="int" />
+          <Property Name="THOIGIANTOANTRAM" Type="datetime" />
+          <Property Name="GIAVE1" Type="int" />
+          <Property Name="DIENGIAIVE1" Type="nvarchar" MaxLength="50" />
+          <Property Name="CAMVE1" Type="bit" />
+          <Property Name="IDVE1IDHOADON" Type="nvarchar" MaxLength="50" />
+          <Property Name="GIAVE2" Type="int" />
+          <Property Name="DIENGIAIVE2" Type="nvarchar" MaxLength="50" />
+          <Property Name="CAMVE2" Type="bit" />
+          <Property Name="IDVE2IDHOADON" Type="nvarchar" MaxLength="50" />
+          <Property Name="GIAVE3" Type="int" />
+          <Property Name="DIENGIAIVE3" Type="nvarchar" MaxLength="50" />
+          <Property Name="CAMVE3" Type="bit" />
+          <Property Name="IDVE3IDHOADON" Type="nvarchar" MaxLength="50" />
+          <Property Name="GIAVE4" Type="int" />
+          <Property Name="DIENGIAIVE4" Type="nvarchar" MaxLength="50" />
+          <Property Name="CAMVE4" Type="bit" />
+          <Property Name="IDVE4IDHOADON" Type="nvarchar" MaxLength="50" />
+          <Property Name="GIAVE5" Type="int" />
+          <Property Name="DIENGIAIVE5" Type="nvarchar" MaxLength="50" />
+          <Property Name="CAMVE5" Type="bit" />
+          <Property Name="IDVE5IDHOADON" Type="nvarchar" MaxLength="50" />
+          <Property Name="GIAVE6" Type="int" />
+          <Property Name="DIENGIAIVE6" Type="nvarchar" MaxLength="50" />
+          <Property Name="CAMVE6" Type="bit" />
+          <Property Name="IDVE6IDHOADON" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="DMTUYENCHITIETTRAM">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDTUYEN" Type="nchar" MaxLength="10" />
+          <Property Name="MATRAM" Type="nchar" MaxLength="10" />
+          <Property Name="TRAMDAU" Type="bit" />
+          <Property Name="TRAMCUOI" Type="bit" />
+        </EntityType>
+        <EntityType Name="DMXE">
+          <Key>
+            <PropertyRef Name="MAXE" />
+          </Key>
+          <Property Name="MAXE" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SOXE" Type="nvarchar" MaxLength="50" />
+          <Property Name="LOAIXE" Type="nvarchar" MaxLength="50" />
+          <Property Name="MATAIXE" Type="nvarchar" MaxLength="50" />
+          <Property Name="SOGHE" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Docso">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="NGAY" Type="datetime" />
+          <Property Name="SQMS" Type="nchar" MaxLength="10" />
+          <Property Name="GIOLAYSO" Type="datetime" />
+          <Property Name="QUAY" Type="nvarchar" MaxLength="50" />
+          <Property Name="Doc" Type="bit" />
+          <Property Name="NGONNGU" Type="nvarchar" MaxLength="50" />
+          <Property Name="BIENKIEMSOAT" Type="nvarchar" MaxLength="50" />
+          <Property Name="TRONGTAI" Type="nvarchar" MaxLength="50" />
+          <Property Name="TENTAIXE" Type="nvarchar" MaxLength="50" />
+          <Property Name="MATHE" Type="nvarchar" MaxLength="50" />
+          <Property Name="SODIENTHOAI" Type="nvarchar" MaxLength="50" />
+          <Property Name="Giovao" Type="nvarchar" MaxLength="50" />
+          <Property Name="Giolayhang" Type="nvarchar" MaxLength="50" />
+          <Property Name="Giora" Type="nvarchar" MaxLength="50" />
+          <Property Name="PLANT" Type="nvarchar" MaxLength="50" />
+          <Property Name="CHECKOUT" Type="bit" />
+          <Property Name="PO" Type="nvarchar" MaxLength="50" />
+          <Property Name="GIAYPHEP" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="HIENTHI">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NGANHANG" Type="nvarchar" MaxLength="50" />
+          <Property Name="SQMS" Type="nvarchar" MaxLength="50" />
+          <Property Name="STT" Type="nvarchar" MaxLength="50" />
+          <Property Name="Dichvu" Type="nvarchar" MaxLength="50" />
+          <Property Name="Check" Type="bit" />
+        </EntityType>
+        <EntityType Name="LCD">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PHONG" Type="nvarchar" MaxLength="50" />
+          <Property Name="SQMS" Type="nvarchar" MaxLength="50" />
+          <Property Name="NEXT" Type="nvarchar" MaxLength="50" />
+          <Property Name="CAM" Type="bit" />
+          <Property Name="STT" Type="nvarchar" MaxLength="50" />
+          <Property Name="COUNTER" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="LCDKios">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PHONG" Type="nvarchar" MaxLength="50" />
+          <Property Name="CounterName" Type="nvarchar" MaxLength="50" />
+          <Property Name="SQMS" Type="nvarchar" MaxLength="50" />
+          <Property Name="NEXT" Type="nvarchar" MaxLength="50" />
+          <Property Name="CAM" Type="bit" />
+          <Property Name="STT" Type="nvarchar" MaxLength="50" />
+          <Property Name="COUNTER" Type="nvarchar" MaxLength="50" />
+          <Property Name="TRANGTHAI" Type="nvarchar" MaxLength="50" />
+          <Property Name="STATUS" Type="nvarchar" MaxLength="50" />
+          <Property Name="MAU" Type="nvarchar" MaxLength="50" />
+          <Property Name="Loai" Type="nvarchar" MaxLength="50" />
+          <Property Name="DienGiai" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="LOTRINHCHOXE">
+          <Key>
+            <PropertyRef Name="IDLOTRINH" />
+          </Key>
+          <Property Name="IDLOTRINH" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MAXE" Type="nvarchar" MaxLength="50" />
+          <Property Name="IDTUYEN" Type="nvarchar" MaxLength="50" />
+          <Property Name="MATAIXE" Type="nvarchar" MaxLength="50" />
+          <Property Name="CAM" Type="bit" />
+          <Property Name="KICHHOAT" Type="bit" />
+        </EntityType>
+        <EntityType Name="PGD">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MAPGD" Type="nvarchar" MaxLength="50" />
+          <Property Name="TENPGD" Type="nvarchar" MaxLength="50" />
+          <Property Name="DIACHI" Type="nvarchar" MaxLength="50" />
+          <Property Name="Tel" Type="nvarchar" MaxLength="50" />
+          <Property Name="KHUVUC" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Ghichu" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PHAN LOAI PGD">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MAKHUVUC" Type="nvarchar" MaxLength="50" />
+          <Property Name="TENKHUVUC" Type="nvarchar" MaxLength="50" />
+          <Property Name="Ghichu" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="BusTicketModelStoreContainer">
+          <EntitySet Name="Counters" EntityType="Self.Counters" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Description services" EntityType="Self.Description services" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DICHVU" EntityType="Self.DICHVU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DMHOADON" EntityType="Self.DMHOADON" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DMTAIXE" EntityType="Self.DMTAIXE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DMTRAM" EntityType="Self.DMTRAM" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DMTUYEN" EntityType="Self.DMTUYEN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DMTUYENCHITIETTRAM" EntityType="Self.DMTUYENCHITIETTRAM" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DMXE" EntityType="Self.DMXE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Docso" EntityType="Self.Docso" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HIENTHI" EntityType="Self.HIENTHI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LCD" EntityType="Self.LCD" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LCDKios" EntityType="Self.LCDKios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LOTRINHCHOXE" EntityType="Self.LOTRINHCHOXE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PGD" EntityType="Self.PGD" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PHAN LOAI PGD" EntityType="Self.PHAN LOAI PGD" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BusTicketModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Counter">
+          <Key>
+            <PropertyRef Name="MAXE" />
+          </Key>
+          <Property Name="CopyRight" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LogoCopyRight" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CopyRightKey" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ChedoInCSDL" Type="Boolean" />
+          <Property Name="ChedoInDefault" Type="Boolean" />
+          <Property Name="SetDefaultIn" Type="Boolean" />
+          <Property Name="MutiServices" Type="Boolean" />
+          <Property Name="TransferAuto" Type="Boolean" />
+          <Property Name="TransferTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PGDCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AutoNext" Type="Boolean" />
+          <Property Name="BackupSQLserver" Type="Boolean" />
+          <Property Name="TieudeVN" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="TieudeENG" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="MST" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DCPRINT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MAXE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Luot" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Lastday" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TenCongTy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="DiaChi" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Description_service">
+          <Key>
+            <PropertyRef Name="MaDV" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaDV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TenDV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SOKHOITAO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SOTHUTU" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SOPHUCVU" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Cam" Type="Boolean" />
+          <Property Name="TOMTAT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Service" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Giave" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="DICHVU">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NGAY" Type="DateTime" Precision="3" />
+          <Property Name="SQMS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GIOLAYSO" Type="DateTime" Precision="3" />
+          <Property Name="dichvu1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GIAVE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MATUYEN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TENTUYEN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MATRAMDAU" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MATRAMCUOI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LOTRINH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BienSoXe" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TRANGTHAI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PHUCVU" Type="Boolean" />
+          <Property Name="GHICHU" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Contro" Type="Boolean" />
+          <Property Name="Doc" Type="Boolean" />
+          <Property Name="DATCHO" Type="Boolean" />
+          <Property Name="GIO_GOC" Type="DateTime" Precision="3" />
+          <Property Name="BINH_CHON" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GIO_BINHCHON" Type="DateTime" Precision="3" />
+          <Property Name="NGONNGU" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DIEMGIAODICH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MANV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="QUAYCHUYEN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="QUAYTHAMCHIEU" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SODIENTHOAI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="QUAY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GIOPHUCVU" Type="DateTime" Precision="3" />
+          <Property Name="MAXE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MATAIXE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MATRAM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IDTUYEN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="KYHIEUVE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MAUSO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MATRAMGIUA" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="DMHOADON">
+          <Key>
+            <PropertyRef Name="IDHOADON" />
+          </Key>
+          <Property Name="IDHOADON" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MAXE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="KYHIEUVE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MAUSO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TONGSOVEPHATHANH" Type="Int32" />
+          <Property Name="SOVEHIENTAI" Type="Int32" />
+          <Property Name="IDVE" Type="Int32" />
+        </EntityType>
+        <EntityType Name="DMTAIXE">
+          <Key>
+            <PropertyRef Name="MATAIXE" />
+          </Key>
+          <Property Name="MATAIXE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TENTAIXE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TUOI" Type="Int32" />
+          <Property Name="GIOITINH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BANGLAI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SDT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DIACHINOIO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="DMTRAM">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MATRAM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TENTRAM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="DMTUYEN">
+          <Key>
+            <PropertyRef Name="IDTUYEN" />
+          </Key>
+          <Property Name="IDTUYEN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MATUYEN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TENTUYENENG" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TENTUYENVN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MATRAMDAU" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MATRAMGIUA" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MATRAMCUOI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TONGTRAM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MUCDO" Type="Int32" />
+          <Property Name="THOIGIANTOANTRAM" Type="DateTime" Precision="3" />
+          <Property Name="GIAVE1" Type="Int32" />
+          <Property Name="DIENGIAIVE1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CAMVE1" Type="Boolean" />
+          <Property Name="IDVE1IDHOADON" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GIAVE2" Type="Int32" />
+          <Property Name="DIENGIAIVE2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CAMVE2" Type="Boolean" />
+          <Property Name="IDVE2IDHOADON" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GIAVE3" Type="Int32" />
+          <Property Name="DIENGIAIVE3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CAMVE3" Type="Boolean" />
+          <Property Name="IDVE3IDHOADON" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GIAVE4" Type="Int32" />
+          <Property Name="DIENGIAIVE4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CAMVE4" Type="Boolean" />
+          <Property Name="IDVE4IDHOADON" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GIAVE5" Type="Int32" />
+          <Property Name="DIENGIAIVE5" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CAMVE5" Type="Boolean" />
+          <Property Name="IDVE5IDHOADON" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GIAVE6" Type="Int32" />
+          <Property Name="DIENGIAIVE6" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CAMVE6" Type="Boolean" />
+          <Property Name="IDVE6IDHOADON" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="DMTUYENCHITIETTRAM">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDTUYEN" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="MATRAM" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="TRAMDAU" Type="Boolean" />
+          <Property Name="TRAMCUOI" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="DMXE">
+          <Key>
+            <PropertyRef Name="MAXE" />
+          </Key>
+          <Property Name="MAXE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SOXE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LOAIXE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MATAIXE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SOGHE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Docso">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="NGAY" Type="DateTime" Precision="3" />
+          <Property Name="SQMS" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="GIOLAYSO" Type="DateTime" Precision="3" />
+          <Property Name="QUAY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Doc" Type="Boolean" />
+          <Property Name="NGONNGU" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BIENKIEMSOAT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TRONGTAI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TENTAIXE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MATHE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SODIENTHOAI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Giovao" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Giolayhang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Giora" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PLANT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CHECKOUT" Type="Boolean" />
+          <Property Name="PO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GIAYPHEP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="HIENTHI">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NGANHANG" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SQMS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="STT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Dichvu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Check" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="LCD">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PHONG" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SQMS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NEXT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CAM" Type="Boolean" />
+          <Property Name="STT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="COUNTER" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="LCDKio">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PHONG" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CounterName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SQMS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NEXT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CAM" Type="Boolean" />
+          <Property Name="STT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="COUNTER" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TRANGTHAI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="STATUS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MAU" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Loai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DienGiai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="LOTRINHCHOXE">
+          <Key>
+            <PropertyRef Name="IDLOTRINH" />
+          </Key>
+          <Property Name="IDLOTRINH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MAXE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IDTUYEN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MATAIXE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CAM" Type="Boolean" />
+          <Property Name="KICHHOAT" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="PGD">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MAPGD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TENPGD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DIACHI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Tel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="KHUVUC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Ghichu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="PHAN_LOAI_PGD">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MAKHUVUC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TENKHUVUC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Ghichu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="BusTicketEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Counters" EntityType="Self.Counter" />
+          <EntitySet Name="Description_services" EntityType="Self.Description_service" />
+          <EntitySet Name="DICHVUs" EntityType="Self.DICHVU" />
+          <EntitySet Name="DMHOADONs" EntityType="Self.DMHOADON" />
+          <EntitySet Name="DMTAIXEs" EntityType="Self.DMTAIXE" />
+          <EntitySet Name="DMTRAMs" EntityType="Self.DMTRAM" />
+          <EntitySet Name="DMTUYENs" EntityType="Self.DMTUYEN" />
+          <EntitySet Name="DMTUYENCHITIETTRAMs" EntityType="Self.DMTUYENCHITIETTRAM" />
+          <EntitySet Name="DMXEs" EntityType="Self.DMXE" />
+          <EntitySet Name="Docsoes" EntityType="Self.Docso" />
+          <EntitySet Name="HIENTHIs" EntityType="Self.HIENTHI" />
+          <EntitySet Name="LCDs" EntityType="Self.LCD" />
+          <EntitySet Name="LCDKios" EntityType="Self.LCDKio" />
+          <EntitySet Name="LOTRINHCHOXEs" EntityType="Self.LOTRINHCHOXE" />
+          <EntitySet Name="PGDs" EntityType="Self.PGD" />
+          <EntitySet Name="PHAN_LOAI_PGDs" EntityType="Self.PHAN_LOAI_PGD" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BusTicketModelStoreContainer" CdmEntityContainer="BusTicketEntities">
+          <EntitySetMapping Name="Counters">
+            <EntityTypeMapping TypeName="BusTicketModel.Counter">
+              <MappingFragment StoreEntitySet="Counters">
+                <ScalarProperty Name="CopyRight" ColumnName="CopyRight" />
+                <ScalarProperty Name="LogoCopyRight" ColumnName="LogoCopyRight" />
+                <ScalarProperty Name="CopyRightKey" ColumnName="CopyRightKey" />
+                <ScalarProperty Name="ChedoInCSDL" ColumnName="ChedoInCSDL" />
+                <ScalarProperty Name="ChedoInDefault" ColumnName="ChedoInDefault" />
+                <ScalarProperty Name="SetDefaultIn" ColumnName="SetDefaultIn" />
+                <ScalarProperty Name="MutiServices" ColumnName="MutiServices" />
+                <ScalarProperty Name="TransferAuto" ColumnName="TransferAuto" />
+                <ScalarProperty Name="TransferTime" ColumnName="TransferTime" />
+                <ScalarProperty Name="PGDCode" ColumnName="PGDCode" />
+                <ScalarProperty Name="AutoNext" ColumnName="AutoNext" />
+                <ScalarProperty Name="BackupSQLserver" ColumnName="BackupSQLserver" />
+                <ScalarProperty Name="TieudeVN" ColumnName="TieudeVN" />
+                <ScalarProperty Name="TieudeENG" ColumnName="TieudeENG" />
+                <ScalarProperty Name="MST" ColumnName="MST" />
+                <ScalarProperty Name="DT" ColumnName="DT" />
+                <ScalarProperty Name="DCPRINT" ColumnName="DCPRINT" />
+                <ScalarProperty Name="MAXE" ColumnName="MAXE" />
+                <ScalarProperty Name="Luot" ColumnName="Luot" />
+                <ScalarProperty Name="Lastday" ColumnName="Lastday" />
+                <ScalarProperty Name="TenCongTy" ColumnName="TenCongTy" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Description_services">
+            <EntityTypeMapping TypeName="BusTicketModel.Description_service">
+              <MappingFragment StoreEntitySet="Description services">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="MaDV" ColumnName="MaDV" />
+                <ScalarProperty Name="TenDV" ColumnName="TenDV" />
+                <ScalarProperty Name="SOKHOITAO" ColumnName="SOKHOITAO" />
+                <ScalarProperty Name="SOTHUTU" ColumnName="SOTHUTU" />
+                <ScalarProperty Name="SOPHUCVU" ColumnName="SOPHUCVU" />
+                <ScalarProperty Name="Cam" ColumnName="Cam" />
+                <ScalarProperty Name="TOMTAT" ColumnName="TOMTAT" />
+                <ScalarProperty Name="Service" ColumnName="Service" />
+                <ScalarProperty Name="Giave" ColumnName="Giave" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DICHVUs">
+            <EntityTypeMapping TypeName="BusTicketModel.DICHVU">
+              <MappingFragment StoreEntitySet="DICHVU">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NGAY" ColumnName="NGAY" />
+                <ScalarProperty Name="SQMS" ColumnName="SQMS" />
+                <ScalarProperty Name="GIOLAYSO" ColumnName="GIOLAYSO" />
+                <ScalarProperty Name="dichvu1" ColumnName="dichvu" />
+                <ScalarProperty Name="GIAVE" ColumnName="GIAVE" />
+                <ScalarProperty Name="MATUYEN" ColumnName="MATUYEN" />
+                <ScalarProperty Name="TENTUYEN" ColumnName="TENTUYEN" />
+                <ScalarProperty Name="MATRAMDAU" ColumnName="MATRAMDAU" />
+                <ScalarProperty Name="MATRAMCUOI" ColumnName="MATRAMCUOI" />
+                <ScalarProperty Name="LOTRINH" ColumnName="LOTRINH" />
+                <ScalarProperty Name="BienSoXe" ColumnName="BienSoXe" />
+                <ScalarProperty Name="TRANGTHAI" ColumnName="TRANGTHAI" />
+                <ScalarProperty Name="PHUCVU" ColumnName="PHUCVU" />
+                <ScalarProperty Name="GHICHU" ColumnName="GHICHU" />
+                <ScalarProperty Name="Contro" ColumnName="Contro" />
+                <ScalarProperty Name="Doc" ColumnName="Doc" />
+                <ScalarProperty Name="DATCHO" ColumnName="DATCHO" />
+                <ScalarProperty Name="GIO_GOC" ColumnName="GIO_GOC" />
+                <ScalarProperty Name="BINH_CHON" ColumnName="BINH_CHON" />
+                <ScalarProperty Name="GIO_BINHCHON" ColumnName="GIO_BINHCHON" />
+                <ScalarProperty Name="NGONNGU" ColumnName="NGONNGU" />
+                <ScalarProperty Name="DIEMGIAODICH" ColumnName="DIEMGIAODICH" />
+                <ScalarProperty Name="MANV" ColumnName="MANV" />
+                <ScalarProperty Name="QUAYCHUYEN" ColumnName="QUAYCHUYEN" />
+                <ScalarProperty Name="QUAYTHAMCHIEU" ColumnName="QUAYTHAMCHIEU" />
+                <ScalarProperty Name="SODIENTHOAI" ColumnName="SODIENTHOAI" />
+                <ScalarProperty Name="QUAY" ColumnName="QUAY" />
+                <ScalarProperty Name="GIOPHUCVU" ColumnName="GIOPHUCVU" />
+                <ScalarProperty Name="MAXE" ColumnName="MAXE" />
+                <ScalarProperty Name="MATAIXE" ColumnName="MATAIXE" />
+                <ScalarProperty Name="MATRAM" ColumnName="MATRAM" />
+                <ScalarProperty Name="IDTUYEN" ColumnName="IDTUYEN" />
+                <ScalarProperty Name="KYHIEUVE" ColumnName="KYHIEUVE" />
+                <ScalarProperty Name="MAUSO" ColumnName="MAUSO" />
+                <ScalarProperty Name="MATRAMGIUA" ColumnName="MATRAMGIUA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DMHOADONs">
+            <EntityTypeMapping TypeName="BusTicketModel.DMHOADON">
+              <MappingFragment StoreEntitySet="DMHOADON">
+                <ScalarProperty Name="IDHOADON" ColumnName="IDHOADON" />
+                <ScalarProperty Name="MAXE" ColumnName="MAXE" />
+                <ScalarProperty Name="KYHIEUVE" ColumnName="KYHIEUVE" />
+                <ScalarProperty Name="MAUSO" ColumnName="MAUSO" />
+                <ScalarProperty Name="TONGSOVEPHATHANH" ColumnName="TONGSOVEPHATHANH" />
+                <ScalarProperty Name="SOVEHIENTAI" ColumnName="SOVEHIENTAI" />
+                <ScalarProperty Name="IDVE" ColumnName="IDVE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DMTAIXEs">
+            <EntityTypeMapping TypeName="BusTicketModel.DMTAIXE">
+              <MappingFragment StoreEntitySet="DMTAIXE">
+                <ScalarProperty Name="MATAIXE" ColumnName="MATAIXE" />
+                <ScalarProperty Name="TENTAIXE" ColumnName="TENTAIXE" />
+                <ScalarProperty Name="TUOI" ColumnName="TUOI" />
+                <ScalarProperty Name="GIOITINH" ColumnName="GIOITINH" />
+                <ScalarProperty Name="BANGLAI" ColumnName="BANGLAI" />
+                <ScalarProperty Name="SDT" ColumnName="SDT" />
+                <ScalarProperty Name="DIACHINOIO" ColumnName="DIACHINOIO" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DMTRAMs">
+            <EntityTypeMapping TypeName="BusTicketModel.DMTRAM">
+              <MappingFragment StoreEntitySet="DMTRAM">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="MATRAM" ColumnName="MATRAM" />
+                <ScalarProperty Name="TENTRAM" ColumnName="TENTRAM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DMTUYENs">
+            <EntityTypeMapping TypeName="BusTicketModel.DMTUYEN">
+              <MappingFragment StoreEntitySet="DMTUYEN">
+                <ScalarProperty Name="IDTUYEN" ColumnName="IDTUYEN" />
+                <ScalarProperty Name="MATUYEN" ColumnName="MATUYEN" />
+                <ScalarProperty Name="TENTUYENENG" ColumnName="TENTUYENENG" />
+                <ScalarProperty Name="TENTUYENVN" ColumnName="TENTUYENVN" />
+                <ScalarProperty Name="MATRAMDAU" ColumnName="MATRAMDAU" />
+                <ScalarProperty Name="MATRAMGIUA" ColumnName="MATRAMGIUA" />
+                <ScalarProperty Name="MATRAMCUOI" ColumnName="MATRAMCUOI" />
+                <ScalarProperty Name="TONGTRAM" ColumnName="TONGTRAM" />
+                <ScalarProperty Name="MUCDO" ColumnName="MUCDO" />
+                <ScalarProperty Name="THOIGIANTOANTRAM" ColumnName="THOIGIANTOANTRAM" />
+                <ScalarProperty Name="GIAVE1" ColumnName="GIAVE1" />
+                <ScalarProperty Name="DIENGIAIVE1" ColumnName="DIENGIAIVE1" />
+                <ScalarProperty Name="CAMVE1" ColumnName="CAMVE1" />
+                <ScalarProperty Name="IDVE1IDHOADON" ColumnName="IDVE1IDHOADON" />
+                <ScalarProperty Name="GIAVE2" ColumnName="GIAVE2" />
+                <ScalarProperty Name="DIENGIAIVE2" ColumnName="DIENGIAIVE2" />
+                <ScalarProperty Name="CAMVE2" ColumnName="CAMVE2" />
+                <ScalarProperty Name="IDVE2IDHOADON" ColumnName="IDVE2IDHOADON" />
+                <ScalarProperty Name="GIAVE3" ColumnName="GIAVE3" />
+                <ScalarProperty Name="DIENGIAIVE3" ColumnName="DIENGIAIVE3" />
+                <ScalarProperty Name="CAMVE3" ColumnName="CAMVE3" />
+                <ScalarProperty Name="IDVE3IDHOADON" ColumnName="IDVE3IDHOADON" />
+                <ScalarProperty Name="GIAVE4" ColumnName="GIAVE4" />
+                <ScalarProperty Name="DIENGIAIVE4" ColumnName="DIENGIAIVE4" />
+                <ScalarProperty Name="CAMVE4" ColumnName="CAMVE4" />
+                <ScalarProperty Name="IDVE4IDHOADON" ColumnName="IDVE4IDHOADON" />
+                <ScalarProperty Name="GIAVE5" ColumnName="GIAVE5" />
+                <ScalarProperty Name="DIENGIAIVE5" ColumnName="DIENGIAIVE5" />
+                <ScalarProperty Name="CAMVE5" ColumnName="CAMVE5" />
+                <ScalarProperty Name="IDVE5IDHOADON" ColumnName="IDVE5IDHOADON" />
+                <ScalarProperty Name="GIAVE6" ColumnName="GIAVE6" />
+                <ScalarProperty Name="DIENGIAIVE6" ColumnName="DIENGIAIVE6" />
+                <ScalarProperty Name="CAMVE6" ColumnName="CAMVE6" />
+                <ScalarProperty Name="IDVE6IDHOADON" ColumnName="IDVE6IDHOADON" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DMTUYENCHITIETTRAMs">
+            <EntityTypeMapping TypeName="BusTicketModel.DMTUYENCHITIETTRAM">
+              <MappingFragment StoreEntitySet="DMTUYENCHITIETTRAM">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IDTUYEN" ColumnName="IDTUYEN" />
+                <ScalarProperty Name="MATRAM" ColumnName="MATRAM" />
+                <ScalarProperty Name="TRAMDAU" ColumnName="TRAMDAU" />
+                <ScalarProperty Name="TRAMCUOI" ColumnName="TRAMCUOI" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DMXEs">
+            <EntityTypeMapping TypeName="BusTicketModel.DMXE">
+              <MappingFragment StoreEntitySet="DMXE">
+                <ScalarProperty Name="MAXE" ColumnName="MAXE" />
+                <ScalarProperty Name="SOXE" ColumnName="SOXE" />
+                <ScalarProperty Name="LOAIXE" ColumnName="LOAIXE" />
+                <ScalarProperty Name="MATAIXE" ColumnName="MATAIXE" />
+                <ScalarProperty Name="SOGHE" ColumnName="SOGHE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Docsoes">
+            <EntityTypeMapping TypeName="BusTicketModel.Docso">
+              <MappingFragment StoreEntitySet="Docso">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="NGAY" ColumnName="NGAY" />
+                <ScalarProperty Name="SQMS" ColumnName="SQMS" />
+                <ScalarProperty Name="GIOLAYSO" ColumnName="GIOLAYSO" />
+                <ScalarProperty Name="QUAY" ColumnName="QUAY" />
+                <ScalarProperty Name="Doc" ColumnName="Doc" />
+                <ScalarProperty Name="NGONNGU" ColumnName="NGONNGU" />
+                <ScalarProperty Name="BIENKIEMSOAT" ColumnName="BIENKIEMSOAT" />
+                <ScalarProperty Name="TRONGTAI" ColumnName="TRONGTAI" />
+                <ScalarProperty Name="TENTAIXE" ColumnName="TENTAIXE" />
+                <ScalarProperty Name="MATHE" ColumnName="MATHE" />
+                <ScalarProperty Name="SODIENTHOAI" ColumnName="SODIENTHOAI" />
+                <ScalarProperty Name="Giovao" ColumnName="Giovao" />
+                <ScalarProperty Name="Giolayhang" ColumnName="Giolayhang" />
+                <ScalarProperty Name="Giora" ColumnName="Giora" />
+                <ScalarProperty Name="PLANT" ColumnName="PLANT" />
+                <ScalarProperty Name="CHECKOUT" ColumnName="CHECKOUT" />
+                <ScalarProperty Name="PO" ColumnName="PO" />
+                <ScalarProperty Name="GIAYPHEP" ColumnName="GIAYPHEP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HIENTHIs">
+            <EntityTypeMapping TypeName="BusTicketModel.HIENTHI">
+              <MappingFragment StoreEntitySet="HIENTHI">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NGANHANG" ColumnName="NGANHANG" />
+                <ScalarProperty Name="SQMS" ColumnName="SQMS" />
+                <ScalarProperty Name="STT" ColumnName="STT" />
+                <ScalarProperty Name="Dichvu" ColumnName="Dichvu" />
+                <ScalarProperty Name="Check" ColumnName="Check" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LCDs">
+            <EntityTypeMapping TypeName="BusTicketModel.LCD">
+              <MappingFragment StoreEntitySet="LCD">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PHONG" ColumnName="PHONG" />
+                <ScalarProperty Name="SQMS" ColumnName="SQMS" />
+                <ScalarProperty Name="NEXT" ColumnName="NEXT" />
+                <ScalarProperty Name="CAM" ColumnName="CAM" />
+                <ScalarProperty Name="STT" ColumnName="STT" />
+                <ScalarProperty Name="COUNTER" ColumnName="COUNTER" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LCDKios">
+            <EntityTypeMapping TypeName="BusTicketModel.LCDKio">
+              <MappingFragment StoreEntitySet="LCDKios">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PHONG" ColumnName="PHONG" />
+                <ScalarProperty Name="CounterName" ColumnName="CounterName" />
+                <ScalarProperty Name="SQMS" ColumnName="SQMS" />
+                <ScalarProperty Name="NEXT" ColumnName="NEXT" />
+                <ScalarProperty Name="CAM" ColumnName="CAM" />
+                <ScalarProperty Name="STT" ColumnName="STT" />
+                <ScalarProperty Name="COUNTER" ColumnName="COUNTER" />
+                <ScalarProperty Name="TRANGTHAI" ColumnName="TRANGTHAI" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="MAU" ColumnName="MAU" />
+                <ScalarProperty Name="Loai" ColumnName="Loai" />
+                <ScalarProperty Name="DienGiai" ColumnName="DienGiai" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LOTRINHCHOXEs">
+            <EntityTypeMapping TypeName="BusTicketModel.LOTRINHCHOXE">
+              <MappingFragment StoreEntitySet="LOTRINHCHOXE">
+                <ScalarProperty Name="IDLOTRINH" ColumnName="IDLOTRINH" />
+                <ScalarProperty Name="MAXE" ColumnName="MAXE" />
+                <ScalarProperty Name="IDTUYEN" ColumnName="IDTUYEN" />
+                <ScalarProperty Name="MATAIXE" ColumnName="MATAIXE" />
+                <ScalarProperty Name="CAM" ColumnName="CAM" />
+                <ScalarProperty Name="KICHHOAT" ColumnName="KICHHOAT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PGDs">
+            <EntityTypeMapping TypeName="BusTicketModel.PGD">
+              <MappingFragment StoreEntitySet="PGD">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="MAPGD" ColumnName="MAPGD" />
+                <ScalarProperty Name="TENPGD" ColumnName="TENPGD" />
+                <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="KHUVUC" ColumnName="KHUVUC" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Ghichu" ColumnName="Ghichu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PHAN_LOAI_PGDs">
+            <EntityTypeMapping TypeName="BusTicketModel.PHAN_LOAI_PGD">
+              <MappingFragment StoreEntitySet="PHAN LOAI PGD">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="MAKHUVUC" ColumnName="MAKHUVUC" />
+                <ScalarProperty Name="TENKHUVUC" ColumnName="TENKHUVUC" />
+                <ScalarProperty Name="Ghichu" ColumnName="Ghichu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

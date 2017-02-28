@@ -136,6 +136,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\DmHoaDonController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NavbarController.cs" />
     <Compile Include="Domain\Data.cs" />
@@ -188,7 +189,70 @@
       <DependentUpon>APISendGift.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\clsBlog.cs" />
+    <Compile Include="Models\Counter.cs">
+      <DependentUpon>DataBus.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBus.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataBus.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBus.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataBus.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBus.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataBus.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Description_service.cs">
+      <DependentUpon>DataBus.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DICHVU.cs">
+      <DependentUpon>DataBus.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DMHOADON.cs">
+      <DependentUpon>DataBus.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DMTAIXE.cs">
+      <DependentUpon>DataBus.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DMTRAM.cs">
+      <DependentUpon>DataBus.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DMTUYEN.cs">
+      <DependentUpon>DataBus.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DMTUYENCHITIETTRAM.cs">
+      <DependentUpon>DataBus.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DMXE.cs">
+      <DependentUpon>DataBus.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Docso.cs">
+      <DependentUpon>DataBus.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\HIENTHI.cs">
+      <DependentUpon>DataBus.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LCD.cs">
+      <DependentUpon>DataBus.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LCDKio.cs">
+      <DependentUpon>DataBus.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LOTRINHCHOXE.cs">
+      <DependentUpon>DataBus.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Navbar.cs" />
+    <Compile Include="Models\PGD.cs">
+      <DependentUpon>DataBus.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PHAN_LOAI_PGD.cs">
+      <DependentUpon>DataBus.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ProductsPicture.cs" />
     <Compile Include="Models\tblAdvertGift.cs">
       <DependentUpon>APISendGift.tt</DependentUpon>
@@ -1059,6 +1123,16 @@
       <DependentUpon>APISendGift.edmx</DependentUpon>
       <LastGenOutput>APISendGift.cs</LastGenOutput>
     </Content>
+    <Content Include="Models\DataBus.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DataBus.edmx</DependentUpon>
+      <LastGenOutput>DataBus.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\DataBus.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DataBus.edmx</DependentUpon>
+      <LastGenOutput>DataBus.cs</LastGenOutput>
+    </Content>
     <Content Include="Models\VanGiaModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>VanGiaModel.edmx</DependentUpon>
@@ -1428,6 +1502,13 @@
     <Content Include="Models\APISendGift.edmx.diagram">
       <DependentUpon>APISendGift.edmx</DependentUpon>
     </Content>
+    <EntityDeploy Include="Models\DataBus.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DataBus.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\DataBus.edmx.diagram">
+      <DependentUpon>DataBus.edmx</DependentUpon>
+    </Content>
     <None Include="Properties\PublishProfiles\publish.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\cropperVG.js" />
@@ -1479,6 +1560,11 @@
     <Content Include="Views\Home\Grid.cshtml" />
     <Content Include="Views\Home\Blank.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\DmHoaDon\Create.cshtml" />
+    <Content Include="Views\DmHoaDon\Delete.cshtml" />
+    <Content Include="Views\DmHoaDon\Details.cshtml" />
+    <Content Include="Views\DmHoaDon\Edit.cshtml" />
+    <Content Include="Views\DmHoaDon\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

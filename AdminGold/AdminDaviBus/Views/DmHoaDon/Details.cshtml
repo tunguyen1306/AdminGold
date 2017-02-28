@@ -1,0 +1,67 @@
+﻿@model AdminGold.Models.DMHOADON
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>DMHOADON</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MAXE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MAXE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KYHIEUVE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KYHIEUVE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MAUSO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MAUSO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TONGSOVEPHATHANH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TONGSOVEPHATHANH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SOVEHIENTAI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SOVEHIENTAI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDVE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDVE)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IDHOADON }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
