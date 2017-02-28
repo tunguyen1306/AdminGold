@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdminGold", "AdminGold\AdminGold.csproj", "{CEE973D5-3804-40BF-89DC-F3E48DA3FFFC}"
 EndProject
@@ -20,6 +20,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiManga", "ApiManga\ApiManga.csproj", "{BF6CB7F0-96BD-4A89-B8BA-C7E7D169CE1B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusTicket", "BusTicket\BusTicket.csproj", "{F97F6CC2-7D1F-4A40-97C2-F309CA8DE034}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdminDaviBus", "AdminDaviBus\AdminDaviBus.csproj", "{ABF70A25-0C90-4F41-88C9-35A04F75635B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{F97F6CC2-7D1F-4A40-97C2-F309CA8DE034}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F97F6CC2-7D1F-4A40-97C2-F309CA8DE034}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F97F6CC2-7D1F-4A40-97C2-F309CA8DE034}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABF70A25-0C90-4F41-88C9-35A04F75635B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABF70A25-0C90-4F41-88C9-35A04F75635B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABF70A25-0C90-4F41-88C9-35A04F75635B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABF70A25-0C90-4F41-88C9-35A04F75635B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
