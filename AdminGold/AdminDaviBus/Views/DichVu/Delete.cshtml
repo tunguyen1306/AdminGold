@@ -1,0 +1,305 @@
+﻿@model AdminGold.Models.DICHVU
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>DICHVU</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NGAY)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NGAY)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SQMS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SQMS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GIOLAYSO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GIOLAYSO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dichvu1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dichvu1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GIAVE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GIAVE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MATUYEN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MATUYEN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TENTUYEN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TENTUYEN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MATRAMDAU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MATRAMDAU)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MATRAMCUOI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MATRAMCUOI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LOTRINH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LOTRINH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BienSoXe)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BienSoXe)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TRANGTHAI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TRANGTHAI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PHUCVU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PHUCVU)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GHICHU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GHICHU)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Contro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Contro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Doc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Doc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DATCHO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DATCHO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GIO_GOC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GIO_GOC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BINH_CHON)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BINH_CHON)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GIO_BINHCHON)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GIO_BINHCHON)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NGONNGU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NGONNGU)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DIEMGIAODICH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DIEMGIAODICH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MANV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MANV)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QUAYCHUYEN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QUAYCHUYEN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QUAYTHAMCHIEU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QUAYTHAMCHIEU)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SODIENTHOAI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SODIENTHOAI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QUAY)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QUAY)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GIOPHUCVU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GIOPHUCVU)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MAXE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MAXE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MATAIXE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MATAIXE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MATRAM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MATRAM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDTUYEN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDTUYEN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KYHIEUVE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KYHIEUVE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MAUSO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MAUSO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MATRAMGIUA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MATRAMGIUA)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

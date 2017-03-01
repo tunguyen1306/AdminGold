@@ -1,0 +1,51 @@
+﻿@model AdminGold.Models.DMTUYENCHITIETTRAM
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>DMTUYENCHITIETTRAM</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IDTUYEN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDTUYEN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MATRAM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MATRAM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TRAMDAU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TRAMDAU)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TRAMCUOI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TRAMCUOI)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

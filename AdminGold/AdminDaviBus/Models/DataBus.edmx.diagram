@@ -21,6 +21,22 @@
         <EntityTypeShape EntityType="BusTicketModel.LOTRINHCHOXE" Width="1.5" PointX="10.75" PointY="9.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BusTicketModel.PGD" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BusTicketModel.PHAN_LOAI_PGD" Width="1.5" PointX="0.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BusTicketModel.Country" Width="1.5" PointX="3.75" PointY="12.75" />
+        <EntityTypeShape EntityType="BusTicketModel.CountryText" Width="1.5" PointX="9.75" PointY="12.75" />
+        <EntityTypeShape EntityType="BusTicketModel.District" Width="1.5" PointX="11.75" PointY="12.75" />
+        <EntityTypeShape EntityType="BusTicketModel.DistrictText" Width="1.5" PointX="13.75" PointY="4.75" />
+        <EntityTypeShape EntityType="BusTicketModel.GeoTableView" Width="1.5" PointX="13.75" PointY="7.75" />
+        <EntityTypeShape EntityType="BusTicketModel.Location" Width="1.5" PointX="13.75" PointY="11.75" />
+        <EntityTypeShape EntityType="BusTicketModel.LocationText" Width="1.5" PointX="15.75" PointY="0.75" />
+        <EntityTypeShape EntityType="BusTicketModel.Quarter" Width="1.5" PointX="0.75" PointY="15.75" />
+        <EntityTypeShape EntityType="BusTicketModel.QuarterText" Width="1.5" PointX="2.75" PointY="15.75" />
+        <EntityTypeShape EntityType="BusTicketModel.State" Width="1.5" PointX="15.75" PointY="3.75" />
+        <EntityTypeShape EntityType="BusTicketModel.StateText" Width="1.5" PointX="15.75" PointY="7.75" />
+        <EntityTypeShape EntityType="BusTicketModel.GeoIP2CityText" Width="1.5" PointX="15.75" PointY="10.75" />
+        <EntityTypeShape EntityType="BusTicketModel.Ip2City" Width="1.5" PointX="13.75" PointY="15.75" />
+        <EntityTypeShape EntityType="BusTicketModel.Ip2City2" Width="1.5" PointX="15.75" PointY="15.75" />
+        <EntityTypeShape EntityType="BusTicketModel.phuong" Width="1.5" PointX="4.75" PointY="16.75" />
+        <EntityTypeShape EntityType="BusTicketModel.VNELocation" Width="1.5" PointX="6.75" PointY="16.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

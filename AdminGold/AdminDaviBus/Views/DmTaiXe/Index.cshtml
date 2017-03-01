@@ -1,0 +1,70 @@
+﻿@model IEnumerable<AdminGold.Models.DMTAIXE>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TENTAIXE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TUOI)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GIOITINH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BANGLAI)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SDT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DIACHINOIO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EMAIL)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TENTAIXE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TUOI)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GIOITINH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BANGLAI)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SDT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DIACHINOIO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EMAIL)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MATAIXE }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MATAIXE }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MATAIXE })
+        </td>
+    </tr>
+}
+
+</table>

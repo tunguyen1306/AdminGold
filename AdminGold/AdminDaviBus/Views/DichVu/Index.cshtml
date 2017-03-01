@@ -1,0 +1,238 @@
+﻿@model IEnumerable<AdminGold.Models.DICHVU>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NGAY)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SQMS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GIOLAYSO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dichvu1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GIAVE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MATUYEN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TENTUYEN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MATRAMDAU)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MATRAMCUOI)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LOTRINH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BienSoXe)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TRANGTHAI)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PHUCVU)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GHICHU)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Contro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Doc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DATCHO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GIO_GOC)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BINH_CHON)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GIO_BINHCHON)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NGONNGU)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DIEMGIAODICH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MANV)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QUAYCHUYEN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QUAYTHAMCHIEU)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SODIENTHOAI)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QUAY)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GIOPHUCVU)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MAXE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MATAIXE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MATRAM)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IDTUYEN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KYHIEUVE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MAUSO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MATRAMGIUA)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NGAY)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SQMS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GIOLAYSO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dichvu1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GIAVE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MATUYEN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TENTUYEN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MATRAMDAU)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MATRAMCUOI)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LOTRINH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BienSoXe)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TRANGTHAI)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PHUCVU)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GHICHU)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Contro)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Doc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DATCHO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GIO_GOC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BINH_CHON)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GIO_BINHCHON)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NGONNGU)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DIEMGIAODICH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MANV)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QUAYCHUYEN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QUAYTHAMCHIEU)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SODIENTHOAI)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QUAY)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GIOPHUCVU)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MAXE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MATAIXE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MATRAM)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IDTUYEN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KYHIEUVE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MAUSO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MATRAMGIUA)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

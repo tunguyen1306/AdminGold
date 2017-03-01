@@ -1,0 +1,226 @@
+﻿@model IEnumerable<AdminGold.Models.DMTUYEN>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MATUYEN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TENTUYENENG)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TENTUYENVN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MATRAMDAU)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MATRAMGIUA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MATRAMCUOI)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TONGTRAM)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MUCDO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.THOIGIANTOANTRAM)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GIAVE1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DIENGIAIVE1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CAMVE1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IDVE1IDHOADON)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GIAVE2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DIENGIAIVE2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CAMVE2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IDVE2IDHOADON)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GIAVE3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DIENGIAIVE3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CAMVE3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IDVE3IDHOADON)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GIAVE4)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DIENGIAIVE4)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CAMVE4)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IDVE4IDHOADON)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GIAVE5)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DIENGIAIVE5)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CAMVE5)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IDVE5IDHOADON)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GIAVE6)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DIENGIAIVE6)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CAMVE6)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IDVE6IDHOADON)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MATUYEN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TENTUYENENG)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TENTUYENVN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MATRAMDAU)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MATRAMGIUA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MATRAMCUOI)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TONGTRAM)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MUCDO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.THOIGIANTOANTRAM)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GIAVE1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DIENGIAIVE1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CAMVE1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IDVE1IDHOADON)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GIAVE2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DIENGIAIVE2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CAMVE2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IDVE2IDHOADON)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GIAVE3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DIENGIAIVE3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CAMVE3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IDVE3IDHOADON)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GIAVE4)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DIENGIAIVE4)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CAMVE4)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IDVE4IDHOADON)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GIAVE5)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DIENGIAIVE5)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CAMVE5)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IDVE5IDHOADON)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GIAVE6)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DIENGIAIVE6)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CAMVE6)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IDVE6IDHOADON)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IDTUYEN }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IDTUYEN }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IDTUYEN })
+        </td>
+    </tr>
+}
+
+</table>

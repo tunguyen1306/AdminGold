@@ -136,7 +136,14 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ChiTietTramController.cs" />
+    <Compile Include="Controllers\DichVuController.cs" />
     <Compile Include="Controllers\DmHoaDonController.cs" />
+    <Compile Include="Controllers\DmTaiXeController.cs" />
+    <Compile Include="Controllers\DmTramController.cs" />
+    <Compile Include="Controllers\DmTuyenController.cs" />
+    <Compile Include="Controllers\DmXeController.cs" />
+    <Compile Include="Controllers\GeoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NavbarController.cs" />
     <Compile Include="Domain\Data.cs" />
@@ -192,6 +199,12 @@
     <Compile Include="Models\Counter.cs">
       <DependentUpon>DataBus.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Country.cs">
+      <DependentUpon>DataBus.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CountryText.cs">
+      <DependentUpon>DataBus.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\DataBus.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -211,6 +224,12 @@
       <DependentUpon>DataBus.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DICHVU.cs">
+      <DependentUpon>DataBus.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\District.cs">
+      <DependentUpon>DataBus.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DistrictText.cs">
       <DependentUpon>DataBus.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DMHOADON.cs">
@@ -234,13 +253,32 @@
     <Compile Include="Models\Docso.cs">
       <DependentUpon>DataBus.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\GeoIP2CityText.cs">
+      <DependentUpon>DataBus.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GeoModel.cs" />
+    <Compile Include="Models\GeoTableView.cs">
+      <DependentUpon>DataBus.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\HIENTHI.cs">
+      <DependentUpon>DataBus.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Ip2City.cs">
+      <DependentUpon>DataBus.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Ip2City2.cs">
       <DependentUpon>DataBus.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LCD.cs">
       <DependentUpon>DataBus.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LCDKio.cs">
+      <DependentUpon>DataBus.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Location.cs">
+      <DependentUpon>DataBus.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LocationText.cs">
       <DependentUpon>DataBus.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LOTRINHCHOXE.cs">
@@ -253,7 +291,22 @@
     <Compile Include="Models\PHAN_LOAI_PGD.cs">
       <DependentUpon>DataBus.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\phuong.cs">
+      <DependentUpon>DataBus.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ProductsPicture.cs" />
+    <Compile Include="Models\Quarter.cs">
+      <DependentUpon>DataBus.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QuarterText.cs">
+      <DependentUpon>DataBus.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\State.cs">
+      <DependentUpon>DataBus.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StateText.cs">
+      <DependentUpon>DataBus.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\tblAdvertGift.cs">
       <DependentUpon>APISendGift.tt</DependentUpon>
     </Compile>
@@ -312,6 +365,9 @@
       <DependentUpon>VanGiaModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\VanGiaPicture.cs" />
+    <Compile Include="Models\VNELocation.cs">
+      <DependentUpon>DataBus.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\web_vangia_project.cs">
       <DependentUpon>VanGiaModel.tt</DependentUpon>
     </Compile>
@@ -1051,6 +1107,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\img\3d_logoDavisoft.gif" />
     <Content Include="Content\no-image-available.jpg" />
     <Content Include="Content\sb-admin-2.css" />
     <Content Include="Content\timeline.css" />
@@ -1450,6 +1507,7 @@
     <Content Include="Content\less\sb-admin-2.less" />
     <Content Include="Content\less\variables.less" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\Custom.js" />
     <Content Include="Scripts\jquery-1.10.2-vsdoc.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -1565,10 +1623,41 @@
     <Content Include="Views\DmHoaDon\Details.cshtml" />
     <Content Include="Views\DmHoaDon\Edit.cshtml" />
     <Content Include="Views\DmHoaDon\Index.cshtml" />
+    <Content Include="Views\DmTaiXe\Create.cshtml" />
+    <Content Include="Views\DmTaiXe\Delete.cshtml" />
+    <Content Include="Views\DmTaiXe\Details.cshtml" />
+    <Content Include="Views\DmTaiXe\Edit.cshtml" />
+    <Content Include="Views\DmTaiXe\Index.cshtml" />
+    <Content Include="Views\DmTram\Create.cshtml" />
+    <Content Include="Views\DmTram\Delete.cshtml" />
+    <Content Include="Views\DmTram\Details.cshtml" />
+    <Content Include="Views\DmTram\Edit.cshtml" />
+    <Content Include="Views\DmTram\Index.cshtml" />
+    <Content Include="Views\DichVu\Create.cshtml" />
+    <Content Include="Views\DichVu\Delete.cshtml" />
+    <Content Include="Views\DichVu\Details.cshtml" />
+    <Content Include="Views\DichVu\Edit.cshtml" />
+    <Content Include="Views\DichVu\Index.cshtml" />
+    <Content Include="Views\DmTuyen\Create.cshtml" />
+    <Content Include="Views\DmTuyen\Delete.cshtml" />
+    <Content Include="Views\DmTuyen\Details.cshtml" />
+    <Content Include="Views\DmTuyen\Edit.cshtml" />
+    <Content Include="Views\DmTuyen\Index.cshtml" />
+    <Content Include="Views\ChiTietTram\Create.cshtml" />
+    <Content Include="Views\ChiTietTram\Delete.cshtml" />
+    <Content Include="Views\ChiTietTram\Details.cshtml" />
+    <Content Include="Views\ChiTietTram\Edit.cshtml" />
+    <Content Include="Views\ChiTietTram\Index.cshtml" />
+    <Content Include="Views\DmXe\Create.cshtml" />
+    <Content Include="Views\DmXe\Delete.cshtml" />
+    <Content Include="Views\DmXe\Details.cshtml" />
+    <Content Include="Views\DmXe\Edit.cshtml" />
+    <Content Include="Views\DmXe\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="fileUpload\" />
+    <Folder Include="Views\Geo\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -1598,7 +1687,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>29128</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:29128/</IISUrl>
+          <IISUrl>http://localhost:29130/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

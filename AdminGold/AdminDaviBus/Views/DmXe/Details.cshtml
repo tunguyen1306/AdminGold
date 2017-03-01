@@ -1,0 +1,51 @@
+﻿@model AdminGold.Models.DMXE
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>DMXE</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SOXE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SOXE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LOAIXE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LOAIXE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MATAIXE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MATAIXE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SOGHE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SOGHE)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MAXE }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
