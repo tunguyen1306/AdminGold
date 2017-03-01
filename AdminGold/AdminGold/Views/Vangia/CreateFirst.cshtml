@@ -28,17 +28,21 @@
                             </div>
                             <div class="form-group">
                                 <label>Loại dự án</label>
-                                <select class="form-control" name="tblProject.vangia_typeid_project">
+                                <select class="form-control dropType"  name="tblProject.vangia_typeid_project">
                                     <option value="1">1.Xây dựng</option>
                                     <option value="11">a.Xây dựng-kế hoạch</option>
                                     <option value="12">b.Xây dựng-thông tin</option>
                                     <option value="2">2.Thương mại</option>
                                     <option value="21">a.Thương mại-phân phối</option>
                                     <option value="22">b.Thương mại-thông tin</option>
-                                    <option value="3">3.Dịch vụ</option>
-                                    <option value="31">a.Dịch vụ-hành trình</option>
+                                    <option value="3">3.Dịch vụ-Video</option>
+                                    <option value="31">a.Tour Du Lịch</option>
                                     <option value="32">b.Dịch vụ-thông tin</option>
                                 </select>
+                            </div>
+                            <div class="form-group groupLink hidden">
+                                <label>Link video</label>
+                                <input class="form-control" name="tblProject.vangia_link_video_project">
                             </div>
                             <div class="form-group">
                                 <label>Ngôn ngữ</label>
@@ -126,8 +130,16 @@
 
 }
 <script>
+  
+    $('.dropType').on('change', function () {
+        if (this.value == 3) {
+            $('.groupLink').removeClass('hidden');
 
-
+        }
+        else {
+            $('.groupLink').addClass('hidden');
+        }
+    })
     function dropNew(ed) {
 
         var console = window.console || { log: function () { } };

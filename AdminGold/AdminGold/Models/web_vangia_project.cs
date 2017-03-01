@@ -34,5 +34,6 @@ namespace AdminGold.Models
         public string vangia_img8_project { get; set; }
         public string vangia_img9_project { get; set; }
         public string vangia_vanban_project { get; set; }
+        public string vangia_link_video_project { get; set; }
     }
 }

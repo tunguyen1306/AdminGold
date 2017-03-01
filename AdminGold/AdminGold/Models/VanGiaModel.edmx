@@ -60,6 +60,7 @@
           <Property Name="vangia_img8_project" Type="ntext" />
           <Property Name="vangia_img9_project" Type="ntext" />
           <Property Name="vangia_vanban_project" Type="nvarchar" MaxLength="200" />
+          <Property Name="vangia_link_video_project" Type="ntext" />
         </EntityType>
         <EntityContainer Name="VanGiaModelStoreContainer">
           <EntitySet Name="tblMath_vangia" EntityType="Self.tblMath_vangia" Schema="dbo" store:Type="Tables" />
@@ -94,6 +95,7 @@
           <Property Name="vangia_img8_project" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="vangia_img9_project" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="vangia_vanban_project" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_link_video_project" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityContainer Name="VanGiaEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="web_vangia_project" EntityType="Self.web_vangia_project" />
@@ -140,6 +142,7 @@
           <EntitySetMapping Name="web_vangia_project">
             <EntityTypeMapping TypeName="VanGiaModel.web_vangia_project">
               <MappingFragment StoreEntitySet="web_vangia_project">
+                <ScalarProperty Name="vangia_link_video_project" ColumnName="vangia_link_video_project" />
                 <ScalarProperty Name="vangia_id_project" ColumnName="vangia_id_project" />
                 <ScalarProperty Name="vangia_img1_project" ColumnName="vangia_img1_project" />
                 <ScalarProperty Name="vangia_img2_project" ColumnName="vangia_img2_project" />
