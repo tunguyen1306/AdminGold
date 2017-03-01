@@ -9,7 +9,7 @@
     <!-- /.col-lg-12 -->
 </div>
 <!-- /.row -->
-<div class="row">
+@*<div class="row">
     <div class="col-lg-3 col-md-6">
         <div class="panel panel-primary">
             <div class="panel-heading">
@@ -98,7 +98,7 @@
             </a>
         </div>
     </div>
-</div>
+</div>*@
 <!-- /.row -->
 <div class="row">
     <div class="col-lg-12">
@@ -107,19 +107,19 @@
                
             
                 <div class="form-group row" style="margin-bottom:0!important;">
-                    <div class="col-lg-3 divCity">
+                    <div class="col-lg-4 divCity">
                         <label>Tỉnh/Thành:</label>
                         <select class="btn btn-default btn-xs dropdown-toggle dropCity" style="height:35px; background-color:#fff">
                             <option>Chọn tỉnh/thành</option>
                         </select>
                     </div>
-                    <div class="col-lg-3 divDistrict hidden">
+                    <div class="col-lg-4 divDistrict hidden">
                         <label>Quận/huyện:</label>
                         <select class="btn btn-default btn-xs dropdown-toggle dropDistrict" style="height:35px;background-color:#fff">
                             <option>Chọn quận/huyện</option>
                         </select>
                     </div>
-                    <div class="col-lg-3 divWard hidden">
+                    <div class="col-lg-4 divWard hidden">
                         <label>Phường/Xã:</label>
                         <select class="btn btn-default btn-xs dropdown-toggle dropWard" style="height:35px;background-color:#fff">
                             <option>Chọn phường/xã</option>
@@ -132,26 +132,6 @@
             <div class="panel-body">
                 <div id="map" style="height:800px"></div>
               
-                @*<script>
-
-                    function initMap() {
-                        var myLatLng = { lat: -25.363, lng: 131.044 };
-
-                        var map = new google.maps.Map(document.getElementById('map'), {
-                            zoom: 4,
-                            center: myLatLng
-                        });
-
-                        var marker = new google.maps.Marker({
-                            position: myLatLng,
-                            map: map,
-                            title: 'Hello World!'
-                        });
-                    }
-                </script>
-                <script async defer
-                        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbIWQ_WqsJHtBKUy687lw8l1NIgQrBa7M&callback=initMap">
-                </script>*@
                 <script async defer
                         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbIWQ_WqsJHtBKUy687lw8l1NIgQrBa7M&callback=initMap">
                 </script>

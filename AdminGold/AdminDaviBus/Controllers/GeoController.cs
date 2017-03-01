@@ -19,7 +19,7 @@ namespace AdminGold.Controllers
             var dataCity = from data in db.States
                            join datatext in db.StateTexts on data.name_id equals datatext.id
                            where datatext.language_id == "vi"
-                           select new GeoModel { IdCity = data.state_id, NameCity = datatext.text,LatitudeCity= data.latitude,LongtitudeCity=data.longitude, PolygonCity=data.polygon };
+                           select new GeoModel { IdCity = data.state_id, NameCity = datatext.text, LatitudeCity = data.latitude, LongtitudeCity = data.longitude, PolygonCity = data.polygon };
             return Json(dataCity.ToList());
         }
         [HttpPost]
@@ -37,44 +37,112 @@ namespace AdminGold.Controllers
             var dataWard = from data in db.Locations
                            join datatext in db.LocationTexts on data.name_id equals datatext.id
                            where datatext.language_id == "vi" && data.district_id == id
-                           select new GeoModel { IdWard = data.location_id, NameWard = datatext.text, LatitudeWard= data.latitude, LongtitudeWard = data.longitude };
+                           select new GeoModel { IdWard = data.location_id, NameWard = datatext.text, LatitudeWard = data.latitude, LongtitudeWard = data.longitude };
             return Json(dataWard.ToList());
         }
-       [HttpPost]
-        public ActionResult GetPolygon(int id)
+        [HttpPost]
+        public ActionResult GetPolygon(int id, int key)
         {
-          
-            var datact = db.States.Where(x=>x.state_id==id).Select(x=>x.polygon).FirstOrDefault();
-            var tstateId = datact.Replace("*#", ",");
-            string[] lits = tstateId.Split(',');
-            var load = new List<Demo>();
-            for (int i = 0; i < lits.Length; i += 2)
+            if (key == 1)
             {
-                try
+                var datact = db.States.Where(x => x.state_id == id).Select(x => x.polygon).FirstOrDefault();
+                if (datact != null)
                 {
-                    var temp = new Demo();
-                    temp.lat = float.Parse(lits[i].Replace(".", ","), CultureInfo.GetCultureInfo("vi-VN"));
-                    if (i < lits.Length - 1)
+                    var tstateId = datact.Replace("*#", ",");
+                    string[] lits = tstateId.Split(',');
+                    var load = new List<Demo>();
+                    for (int i = 0; i < lits.Length; i += 2)
                     {
-                        temp.lng = float.Parse(lits[i + 1].Replace(".", ","));
+                        try
+                        {
+                            var temp = new Demo();
+                            temp.lat = float.Parse(lits[i].Replace(".", ","), CultureInfo.GetCultureInfo("vi-VN"));
+                            if (i < lits.Length - 1)
+                            {
+                                temp.lng = float.Parse(lits[i + 1].Replace(".", ","), CultureInfo.GetCultureInfo("vi-VN"));
+                            }
+                            load.Add(temp);
+                        }
+                        catch (Exception exception)
+                        {
+                            throw;
+                        }
+
                     }
-                    load.Add(temp);
+
+                return   Json(load);
                 }
-                catch (Exception exception)
+            }
+            if (key == 2)
+            {
+                var datact = db.Districts.Where(x => x.district_id == id).Select(x => x.polygon).FirstOrDefault();
+                if (datact != null)
                 {
-                    throw;
+                    var tstateId = datact.Replace("*#", ",");
+                    string[] lits = tstateId.Split(',');
+                    var load = new List<Demo>();
+                    for (int i = 0; i < lits.Length; i += 2)
+                    {
+                        try
+                        {
+                            var temp = new Demo();
+                            temp.lat = float.Parse(lits[i].Replace(".", ","), CultureInfo.GetCultureInfo("vi-VN"));
+                            if (i < lits.Length - 1)
+                            {
+                                temp.lng = float.Parse(lits[i + 1].Replace(".", ","), CultureInfo.GetCultureInfo("vi-VN"));
+                            }
+                            load.Add(temp);
+                        }
+                        catch (Exception exception)
+                        {
+                            throw;
+                        }
+
+                    }
+
+                    return Json(load);
+                }
+            }
+            if (key == 3)
+            {
+                var datact = db.Locations.Where(x => x.location_id == id).Select(x => x.polygon).FirstOrDefault();
+                if (datact != null)
+                {
+                    var tstateId = datact.Replace("*#", ",");
+                    string[] lits = tstateId.Split(',');
+                    var load = new List<Demo>();
+                    for (int i = 0; i < lits.Length; i += 2)
+                    {
+                        try
+                        {
+                            var temp = new Demo();
+                            temp.lat = float.Parse(lits[i].Replace(".", ","), CultureInfo.GetCultureInfo("vi-VN"));
+                            if (i < lits.Length - 1)
+                            {
+                                temp.lng = float.Parse(lits[i + 1].Replace(".", ","), CultureInfo.GetCultureInfo("vi-VN"));
+                            }
+                            load.Add(temp);
+                        }
+                        catch (Exception exception)
+                        {
+                            throw;
+                        }
+
+                    }
+
+                    return Json(load);
                 }
 
             }
-          
-            return Json(load);
+            return null;
+
         }
         public class Demo
         {
             public float lat { get; set; }
             public float lng { get; set; }
         }
-      
+
 
     }
 }
