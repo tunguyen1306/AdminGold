@@ -58,5 +58,6 @@ namespace BusTicket.Models
         public virtual DbSet<phuong> phuongs { get; set; }
         public virtual DbSet<VNELocation> VNELocations { get; set; }
         public virtual DbSet<TrackingGP> TrackingGPS { get; set; }
+        public virtual DbSet<TrackingGPSDetail> TrackingGPSDetails { get; set; }
     }
 }

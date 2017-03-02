@@ -75,8 +75,8 @@ namespace AdminDaviBus.Controllers
         [HttpPost]
         public ActionResult Login(string email, string password)
         {
-            if (email=="trafashion@gmail.com" && password=="admin1234")
-            {   Session["user"] = "trafashion@gmail.com";
+            if (email=="davibus@gmail.com" && password=="admin1234")
+            {   Session["user"] = "davibus@gmail.com";
                
 
             }

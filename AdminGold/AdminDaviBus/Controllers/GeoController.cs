@@ -147,10 +147,10 @@ namespace AdminGold.Controllers
         public ActionResult GetPositionBus()
         {
            
-            var dataTracking= from data in db.TrackingGPS
-                           select data;
-                     
-            return Json(dataTracking.ToList());
+            var dataTracking= (from data in db.TrackingGPS
+                           select data);
+           
+            return Json(dataTracking);
         }
     }
 }

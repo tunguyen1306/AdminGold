@@ -364,6 +364,9 @@
     <Compile Include="Models\TrackingGP.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\TrackingGPSDetail.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\VNELocation.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

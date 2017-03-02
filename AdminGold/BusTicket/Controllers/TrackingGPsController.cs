@@ -74,13 +74,41 @@ namespace BusTicket.Controllers
         [ResponseType(typeof(TrackingGP))]
         public IHttpActionResult PostTrackingGP([FromBody]TrackingGP trackingGP)
         {
-            if (!ModelState.IsValid)
+            var selectDta = db.TrackingGPS.Where(x=>x.MaXe== trackingGP.MaXe && x.MaTuyen== trackingGP.MaTuyen);
+            if (selectDta.Count()>0)
             {
-                return BadRequest(ModelState);
+                var select = db.TrackingGPS.Where(x => x.MaXe == trackingGP.MaXe && x.MaTuyen == trackingGP.MaTuyen).Select(x=>x.IdTracking).FirstOrDefault();
+                TrackingGP tblTracking = db.TrackingGPS.Find(select);
+               
+                tblTracking.Lat = trackingGP.Lat;
+                tblTracking.lng = trackingGP.lng;
+                tblTracking.Time = trackingGP.Time;
+                tblTracking.DeviceId = trackingGP.DeviceId;
+                db.Entry(tblTracking).State = EntityState.Modified;
+                db.SaveChanges();
+                TrackingGPSDetail trackingDetail = new TrackingGPSDetail();
+                trackingDetail.IdTracking = select;
+                trackingDetail.Lat = trackingGP.Lat;
+                trackingDetail.Lng = trackingGP.lng;
+                trackingDetail.Time = trackingGP.Time;
+                db.TrackingGPSDetails.Add(trackingDetail);
+                db.SaveChanges();
             }
+            else
+            {
+               
+                db.TrackingGPS.Add(trackingGP);
 
-            db.TrackingGPS.Add(trackingGP);
-            db.SaveChanges();
+                db.SaveChanges();
+                TrackingGPSDetail trackingDetail = new TrackingGPSDetail();
+                trackingDetail.IdTracking = trackingGP.IdTracking;
+                trackingDetail.Lat = trackingGP.Lat;
+                trackingDetail.Lng = trackingGP.lng;
+                trackingDetail.Time = trackingGP.Time;
+                db.TrackingGPSDetails.Add(trackingDetail);
+                db.SaveChanges();
+            }
+            
 
             return CreatedAtRoute("DefaultApi", new { id = trackingGP.IdTracking }, trackingGP);
         }
