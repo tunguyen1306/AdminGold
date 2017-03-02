@@ -7,16 +7,20 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AdminGold.Models
+namespace BusTicket.Models
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class DMTRAM
+    public partial class GeoTableView
     {
-        public int ID { get; set; }
-        public string MATRAM { get; set; }
-        public string TENTRAM { get; set; }
-        public string LatLng { get; set; }
+        public int Id { get; set; }
+        public int WardId { get; set; }
+        public string Ward { get; set; }
+        public int DistrictId { get; set; }
+        public string District { get; set; }
+        public int CityId { get; set; }
+        public string City { get; set; }
+        public System.Guid rowguid { get; set; }
     }
 }

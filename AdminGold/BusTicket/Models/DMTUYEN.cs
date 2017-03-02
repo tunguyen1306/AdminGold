@@ -48,5 +48,6 @@ namespace BusTicket.Models
         public string DIENGIAIVE6 { get; set; }
         public Nullable<bool> CAMVE6 { get; set; }
         public string IDVE6IDHOADON { get; set; }
+        public string LatLng { get; set; }
     }
 }

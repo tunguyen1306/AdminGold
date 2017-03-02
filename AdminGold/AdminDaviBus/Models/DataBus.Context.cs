@@ -30,8 +30,6 @@ namespace AdminGold.Models
         public virtual DbSet<DICHVU> DICHVUs { get; set; }
         public virtual DbSet<DMHOADON> DMHOADONs { get; set; }
         public virtual DbSet<DMTAIXE> DMTAIXEs { get; set; }
-        public virtual DbSet<DMTRAM> DMTRAMs { get; set; }
-        public virtual DbSet<DMTUYEN> DMTUYENs { get; set; }
         public virtual DbSet<DMTUYENCHITIETTRAM> DMTUYENCHITIETTRAMs { get; set; }
         public virtual DbSet<DMXE> DMXEs { get; set; }
         public virtual DbSet<Docso> Docsoes { get; set; }
@@ -57,5 +55,8 @@ namespace AdminGold.Models
         public virtual DbSet<Ip2City2> Ip2City2 { get; set; }
         public virtual DbSet<phuong> phuongs { get; set; }
         public virtual DbSet<VNELocation> VNELocations { get; set; }
+        public virtual DbSet<DMTRAM> DMTRAMs { get; set; }
+        public virtual DbSet<DMTUYEN> DMTUYENs { get; set; }
+        public virtual DbSet<TrackingGP> TrackingGPS { get; set; }
     }
 }

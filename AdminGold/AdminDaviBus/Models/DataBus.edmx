@@ -161,6 +161,7 @@
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="MATRAM" Type="nvarchar" MaxLength="50" />
           <Property Name="TENTRAM" Type="nvarchar" MaxLength="50" />
+          <Property Name="LatLng" Type="ntext" />
         </EntityType>
         <EntityType Name="DMTUYEN">
           <Key>
@@ -200,6 +201,7 @@
           <Property Name="DIENGIAIVE6" Type="nvarchar" MaxLength="50" />
           <Property Name="CAMVE6" Type="bit" />
           <Property Name="IDVE6IDHOADON" Type="nvarchar" MaxLength="50" />
+          <Property Name="LatLng" Type="ntext" />
         </EntityType>
         <EntityType Name="DMTUYENCHITIETTRAM">
           <Key>
@@ -484,6 +486,18 @@ warning 6002: The table/view 'BusTicket.dbo.phuong' does not have a primary key 
           <Property Name="text" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="rowguid" Type="uniqueidentifier" Nullable="false" />
         </EntityType>
+        <EntityType Name="TrackingGPS">
+          <Key>
+            <PropertyRef Name="IdTracking" />
+          </Key>
+          <Property Name="IdTracking" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MaXe" Type="varchar" MaxLength="50" />
+          <Property Name="MaTuyen" Type="varchar" MaxLength="50" />
+          <Property Name="Time" Type="datetime" />
+          <Property Name="DeviceId" Type="varchar" MaxLength="100" />
+          <Property Name="lng" Type="decimal" Precision="9" Scale="5" />
+          <Property Name="Lat" Type="decimal" Precision="9" Scale="5" />
+        </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'BusTicket.dbo.VNELocation' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VNELocation">
@@ -527,6 +541,7 @@ warning 6002: The table/view 'BusTicket.dbo.VNELocation' does not have a primary
           <EntitySet Name="QuarterText" EntityType="Self.QuarterText" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="State" EntityType="Self.State" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="StateText" EntityType="Self.StateText" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TrackingGPS" EntityType="Self.TrackingGPS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GeoIP2CityText" EntityType="Self.GeoIP2CityText" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [GeoIP2CityText].[geoname_id] AS [geoname_id], 
@@ -721,53 +736,6 @@ warning 6002: The table/view 'BusTicket.dbo.VNELocation' does not have a primary
           <Property Name="DIACHINOIO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="DMTRAM">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="MATRAM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="TENTRAM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="DMTUYEN">
-          <Key>
-            <PropertyRef Name="IDTUYEN" />
-          </Key>
-          <Property Name="IDTUYEN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="MATUYEN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="TENTUYENENG" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="TENTUYENVN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="MATRAMDAU" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="MATRAMGIUA" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="MATRAMCUOI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="TONGTRAM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="MUCDO" Type="Int32" />
-          <Property Name="THOIGIANTOANTRAM" Type="DateTime" Precision="3" />
-          <Property Name="GIAVE1" Type="Int32" />
-          <Property Name="DIENGIAIVE1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CAMVE1" Type="Boolean" />
-          <Property Name="IDVE1IDHOADON" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="GIAVE2" Type="Int32" />
-          <Property Name="DIENGIAIVE2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CAMVE2" Type="Boolean" />
-          <Property Name="IDVE2IDHOADON" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="GIAVE3" Type="Int32" />
-          <Property Name="DIENGIAIVE3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CAMVE3" Type="Boolean" />
-          <Property Name="IDVE3IDHOADON" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="GIAVE4" Type="Int32" />
-          <Property Name="DIENGIAIVE4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CAMVE4" Type="Boolean" />
-          <Property Name="IDVE4IDHOADON" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="GIAVE5" Type="Int32" />
-          <Property Name="DIENGIAIVE5" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CAMVE5" Type="Boolean" />
-          <Property Name="IDVE5IDHOADON" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="GIAVE6" Type="Int32" />
-          <Property Name="DIENGIAIVE6" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CAMVE6" Type="Boolean" />
-          <Property Name="IDVE6IDHOADON" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityType Name="DMTUYENCHITIETTRAM">
           <Key>
             <PropertyRef Name="ID" />
@@ -892,8 +860,6 @@ warning 6002: The table/view 'BusTicket.dbo.VNELocation' does not have a primary
           <EntitySet Name="DICHVUs" EntityType="Self.DICHVU" />
           <EntitySet Name="DMHOADONs" EntityType="Self.DMHOADON" />
           <EntitySet Name="DMTAIXEs" EntityType="Self.DMTAIXE" />
-          <EntitySet Name="DMTRAMs" EntityType="Self.DMTRAM" />
-          <EntitySet Name="DMTUYENs" EntityType="Self.DMTUYEN" />
           <EntitySet Name="DMTUYENCHITIETTRAMs" EntityType="Self.DMTUYENCHITIETTRAM" />
           <EntitySet Name="DMXEs" EntityType="Self.DMXE" />
           <EntitySet Name="Docsoes" EntityType="Self.Docso" />
@@ -919,6 +885,9 @@ warning 6002: The table/view 'BusTicket.dbo.VNELocation' does not have a primary
           <EntitySet Name="Ip2City2" EntityType="BusTicketModel.Ip2City2" />
           <EntitySet Name="phuongs" EntityType="BusTicketModel.phuong" />
           <EntitySet Name="VNELocations" EntityType="BusTicketModel.VNELocation" />
+          <EntitySet Name="DMTRAMs" EntityType="BusTicketModel.DMTRAM" />
+          <EntitySet Name="DMTUYENs" EntityType="BusTicketModel.DMTUYEN" />
+          <EntitySet Name="TrackingGPS" EntityType="BusTicketModel.TrackingGP" />
         </EntityContainer>
         <EntityType Name="Country">
           <Key>
@@ -1131,6 +1100,67 @@ warning 6002: The table/view 'BusTicket.dbo.VNELocation' does not have a primary
           <Property Name="ward_id" Type="Int32" />
           <Property Name="rowguid" Type="Guid" Nullable="false" />
         </EntityType>
+        <EntityType Name="DMTRAM">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MATRAM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TENTRAM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LatLng" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="DMTUYEN">
+          <Key>
+            <PropertyRef Name="IDTUYEN" />
+          </Key>
+          <Property Name="IDTUYEN" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MATUYEN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TENTUYENENG" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TENTUYENVN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MATRAMDAU" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MATRAMGIUA" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MATRAMCUOI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TONGTRAM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MUCDO" Type="Int32" />
+          <Property Name="THOIGIANTOANTRAM" Type="DateTime" Precision="3" />
+          <Property Name="GIAVE1" Type="Int32" />
+          <Property Name="DIENGIAIVE1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CAMVE1" Type="Boolean" />
+          <Property Name="IDVE1IDHOADON" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GIAVE2" Type="Int32" />
+          <Property Name="DIENGIAIVE2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CAMVE2" Type="Boolean" />
+          <Property Name="IDVE2IDHOADON" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GIAVE3" Type="Int32" />
+          <Property Name="DIENGIAIVE3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CAMVE3" Type="Boolean" />
+          <Property Name="IDVE3IDHOADON" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GIAVE4" Type="Int32" />
+          <Property Name="DIENGIAIVE4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CAMVE4" Type="Boolean" />
+          <Property Name="IDVE4IDHOADON" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GIAVE5" Type="Int32" />
+          <Property Name="DIENGIAIVE5" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CAMVE5" Type="Boolean" />
+          <Property Name="IDVE5IDHOADON" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GIAVE6" Type="Int32" />
+          <Property Name="DIENGIAIVE6" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CAMVE6" Type="Boolean" />
+          <Property Name="IDVE6IDHOADON" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LatLng" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TrackingGP">
+          <Key>
+            <PropertyRef Name="IdTracking" />
+          </Key>
+          <Property Name="IdTracking" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaXe" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MaTuyen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Time" Type="DateTime" Precision="3" />
+          <Property Name="DeviceId" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Lat" Type="Decimal" Precision="9" Scale="5" />
+          <Property Name="lng" Type="Decimal" Precision="9" Scale="5" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1247,55 +1277,6 @@ warning 6002: The table/view 'BusTicket.dbo.VNELocation' does not have a primary
                 <ScalarProperty Name="SDT" ColumnName="SDT" />
                 <ScalarProperty Name="DIACHINOIO" ColumnName="DIACHINOIO" />
                 <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="DMTRAMs">
-            <EntityTypeMapping TypeName="BusTicketModel.DMTRAM">
-              <MappingFragment StoreEntitySet="DMTRAM">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="MATRAM" ColumnName="MATRAM" />
-                <ScalarProperty Name="TENTRAM" ColumnName="TENTRAM" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="DMTUYENs">
-            <EntityTypeMapping TypeName="BusTicketModel.DMTUYEN">
-              <MappingFragment StoreEntitySet="DMTUYEN">
-                <ScalarProperty Name="IDTUYEN" ColumnName="IDTUYEN" />
-                <ScalarProperty Name="MATUYEN" ColumnName="MATUYEN" />
-                <ScalarProperty Name="TENTUYENENG" ColumnName="TENTUYENENG" />
-                <ScalarProperty Name="TENTUYENVN" ColumnName="TENTUYENVN" />
-                <ScalarProperty Name="MATRAMDAU" ColumnName="MATRAMDAU" />
-                <ScalarProperty Name="MATRAMGIUA" ColumnName="MATRAMGIUA" />
-                <ScalarProperty Name="MATRAMCUOI" ColumnName="MATRAMCUOI" />
-                <ScalarProperty Name="TONGTRAM" ColumnName="TONGTRAM" />
-                <ScalarProperty Name="MUCDO" ColumnName="MUCDO" />
-                <ScalarProperty Name="THOIGIANTOANTRAM" ColumnName="THOIGIANTOANTRAM" />
-                <ScalarProperty Name="GIAVE1" ColumnName="GIAVE1" />
-                <ScalarProperty Name="DIENGIAIVE1" ColumnName="DIENGIAIVE1" />
-                <ScalarProperty Name="CAMVE1" ColumnName="CAMVE1" />
-                <ScalarProperty Name="IDVE1IDHOADON" ColumnName="IDVE1IDHOADON" />
-                <ScalarProperty Name="GIAVE2" ColumnName="GIAVE2" />
-                <ScalarProperty Name="DIENGIAIVE2" ColumnName="DIENGIAIVE2" />
-                <ScalarProperty Name="CAMVE2" ColumnName="CAMVE2" />
-                <ScalarProperty Name="IDVE2IDHOADON" ColumnName="IDVE2IDHOADON" />
-                <ScalarProperty Name="GIAVE3" ColumnName="GIAVE3" />
-                <ScalarProperty Name="DIENGIAIVE3" ColumnName="DIENGIAIVE3" />
-                <ScalarProperty Name="CAMVE3" ColumnName="CAMVE3" />
-                <ScalarProperty Name="IDVE3IDHOADON" ColumnName="IDVE3IDHOADON" />
-                <ScalarProperty Name="GIAVE4" ColumnName="GIAVE4" />
-                <ScalarProperty Name="DIENGIAIVE4" ColumnName="DIENGIAIVE4" />
-                <ScalarProperty Name="CAMVE4" ColumnName="CAMVE4" />
-                <ScalarProperty Name="IDVE4IDHOADON" ColumnName="IDVE4IDHOADON" />
-                <ScalarProperty Name="GIAVE5" ColumnName="GIAVE5" />
-                <ScalarProperty Name="DIENGIAIVE5" ColumnName="DIENGIAIVE5" />
-                <ScalarProperty Name="CAMVE5" ColumnName="CAMVE5" />
-                <ScalarProperty Name="IDVE5IDHOADON" ColumnName="IDVE5IDHOADON" />
-                <ScalarProperty Name="GIAVE6" ColumnName="GIAVE6" />
-                <ScalarProperty Name="DIENGIAIVE6" ColumnName="DIENGIAIVE6" />
-                <ScalarProperty Name="CAMVE6" ColumnName="CAMVE6" />
-                <ScalarProperty Name="IDVE6IDHOADON" ColumnName="IDVE6IDHOADON" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1645,6 +1626,70 @@ warning 6002: The table/view 'BusTicket.dbo.VNELocation' does not have a primary
                 <ScalarProperty Name="District" ColumnName="District" />
                 <ScalarProperty Name="State" ColumnName="State" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DMTRAMs">
+            <EntityTypeMapping TypeName="BusTicketModel.DMTRAM">
+              <MappingFragment StoreEntitySet="DMTRAM">
+                <ScalarProperty Name="LatLng" ColumnName="LatLng" />
+                <ScalarProperty Name="TENTRAM" ColumnName="TENTRAM" />
+                <ScalarProperty Name="MATRAM" ColumnName="MATRAM" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DMTUYENs">
+            <EntityTypeMapping TypeName="BusTicketModel.DMTUYEN">
+              <MappingFragment StoreEntitySet="DMTUYEN">
+                <ScalarProperty Name="LatLng" ColumnName="LatLng" />
+                <ScalarProperty Name="IDVE6IDHOADON" ColumnName="IDVE6IDHOADON" />
+                <ScalarProperty Name="CAMVE6" ColumnName="CAMVE6" />
+                <ScalarProperty Name="DIENGIAIVE6" ColumnName="DIENGIAIVE6" />
+                <ScalarProperty Name="GIAVE6" ColumnName="GIAVE6" />
+                <ScalarProperty Name="IDVE5IDHOADON" ColumnName="IDVE5IDHOADON" />
+                <ScalarProperty Name="CAMVE5" ColumnName="CAMVE5" />
+                <ScalarProperty Name="DIENGIAIVE5" ColumnName="DIENGIAIVE5" />
+                <ScalarProperty Name="GIAVE5" ColumnName="GIAVE5" />
+                <ScalarProperty Name="IDVE4IDHOADON" ColumnName="IDVE4IDHOADON" />
+                <ScalarProperty Name="CAMVE4" ColumnName="CAMVE4" />
+                <ScalarProperty Name="DIENGIAIVE4" ColumnName="DIENGIAIVE4" />
+                <ScalarProperty Name="GIAVE4" ColumnName="GIAVE4" />
+                <ScalarProperty Name="IDVE3IDHOADON" ColumnName="IDVE3IDHOADON" />
+                <ScalarProperty Name="CAMVE3" ColumnName="CAMVE3" />
+                <ScalarProperty Name="DIENGIAIVE3" ColumnName="DIENGIAIVE3" />
+                <ScalarProperty Name="GIAVE3" ColumnName="GIAVE3" />
+                <ScalarProperty Name="IDVE2IDHOADON" ColumnName="IDVE2IDHOADON" />
+                <ScalarProperty Name="CAMVE2" ColumnName="CAMVE2" />
+                <ScalarProperty Name="DIENGIAIVE2" ColumnName="DIENGIAIVE2" />
+                <ScalarProperty Name="GIAVE2" ColumnName="GIAVE2" />
+                <ScalarProperty Name="IDVE1IDHOADON" ColumnName="IDVE1IDHOADON" />
+                <ScalarProperty Name="CAMVE1" ColumnName="CAMVE1" />
+                <ScalarProperty Name="DIENGIAIVE1" ColumnName="DIENGIAIVE1" />
+                <ScalarProperty Name="GIAVE1" ColumnName="GIAVE1" />
+                <ScalarProperty Name="THOIGIANTOANTRAM" ColumnName="THOIGIANTOANTRAM" />
+                <ScalarProperty Name="MUCDO" ColumnName="MUCDO" />
+                <ScalarProperty Name="TONGTRAM" ColumnName="TONGTRAM" />
+                <ScalarProperty Name="MATRAMCUOI" ColumnName="MATRAMCUOI" />
+                <ScalarProperty Name="MATRAMGIUA" ColumnName="MATRAMGIUA" />
+                <ScalarProperty Name="MATRAMDAU" ColumnName="MATRAMDAU" />
+                <ScalarProperty Name="TENTUYENVN" ColumnName="TENTUYENVN" />
+                <ScalarProperty Name="TENTUYENENG" ColumnName="TENTUYENENG" />
+                <ScalarProperty Name="MATUYEN" ColumnName="MATUYEN" />
+                <ScalarProperty Name="IDTUYEN" ColumnName="IDTUYEN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TrackingGPS">
+            <EntityTypeMapping TypeName="BusTicketModel.TrackingGP">
+              <MappingFragment StoreEntitySet="TrackingGPS">
+                <ScalarProperty Name="lng" ColumnName="lng" />
+                <ScalarProperty Name="Lat" ColumnName="Lat" />
+                <ScalarProperty Name="DeviceId" ColumnName="DeviceId" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="MaTuyen" ColumnName="MaTuyen" />
+                <ScalarProperty Name="MaXe" ColumnName="MaXe" />
+                <ScalarProperty Name="IdTracking" ColumnName="IdTracking" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

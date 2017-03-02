@@ -7,16 +7,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AdminGold.Models
+namespace BusTicket.Models
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class DMTRAM
+    public partial class District
     {
-        public int ID { get; set; }
-        public string MATRAM { get; set; }
-        public string TENTRAM { get; set; }
-        public string LatLng { get; set; }
+        public int district_id { get; set; }
+        public int state_id { get; set; }
+        public int name_id { get; set; }
+        public Nullable<decimal> latitude { get; set; }
+        public Nullable<decimal> longitude { get; set; }
+        public string polygon { get; set; }
+        public System.Guid rowguid { get; set; }
     }
 }

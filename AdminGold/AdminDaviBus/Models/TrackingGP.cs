@@ -12,11 +12,14 @@ namespace AdminGold.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class DMTRAM
+    public partial class TrackingGP
     {
-        public int ID { get; set; }
-        public string MATRAM { get; set; }
-        public string TENTRAM { get; set; }
-        public string LatLng { get; set; }
+        public long IdTracking { get; set; }
+        public string MaXe { get; set; }
+        public string MaTuyen { get; set; }
+        public Nullable<System.DateTime> Time { get; set; }
+        public string DeviceId { get; set; }
+        public Nullable<decimal> Lat { get; set; }
+        public Nullable<decimal> lng { get; set; }
     }
 }

@@ -349,6 +349,9 @@
     <Compile Include="Models\tbl_slide_tra.cs">
       <DependentUpon>AdminGold.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\TrackingGP.cs">
+      <DependentUpon>DataBus.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\VanGiaModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1583,6 +1586,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\markerwithlabel.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\morris-data.js" />
     <Content Include="Scripts\respond.js" />
@@ -1653,6 +1657,7 @@
     <Content Include="Views\DmXe\Details.cshtml" />
     <Content Include="Views\DmXe\Edit.cshtml" />
     <Content Include="Views\DmXe\Index.cshtml" />
+    <Content Include="Scripts\js" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

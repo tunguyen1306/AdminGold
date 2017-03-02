@@ -17,5 +17,6 @@ namespace BusTicket.Models
         public int ID { get; set; }
         public string MATRAM { get; set; }
         public string TENTRAM { get; set; }
+        public string LatLng { get; set; }
     }
 }

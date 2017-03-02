@@ -143,6 +143,14 @@ namespace AdminGold.Controllers
             public float lng { get; set; }
         }
 
-
+        [HttpPost]
+        public ActionResult GetPositionBus()
+        {
+           
+            var dataTracking= from data in db.TrackingGPS
+                           select data;
+                     
+            return Json(dataTracking.ToList());
+        }
     }
 }

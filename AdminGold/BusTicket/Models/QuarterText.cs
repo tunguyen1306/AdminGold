@@ -7,16 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AdminGold.Models
+namespace BusTicket.Models
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class DMTRAM
+    public partial class QuarterText
     {
-        public int ID { get; set; }
-        public string MATRAM { get; set; }
-        public string TENTRAM { get; set; }
-        public string LatLng { get; set; }
+        public int id { get; set; }
+        public string language_id { get; set; }
+        public string text { get; set; }
+        public System.Guid rowguid { get; set; }
     }
 }
