@@ -6,14 +6,13 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using ApiManga.Contex;
 using ApiManga.Models;
 
 namespace ApiManga.Controllers
 {
     public class AdminAdvertMangasController : Controller
     {
-        private ConnectContext db = new ConnectContext();
+        private MangaEntities db = new MangaEntities();
 
         // GET: AdminAdvertMangas
         public ActionResult Index()
@@ -47,7 +46,7 @@ namespace ApiManga.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IdAdvertManga,NameAdvertManga,DesAdvertManga,NameAuthorAdvertManga,StatusAdvertManga,StatusChapAdvertManga,CountChapAdvertManga,TypeAdvertManga,ImgAdvertManga")] tblAdvertManga tblAdvertManga)
+        public ActionResult Create([Bind(Include = "IdAdvertManga,NameAdvertManga,CodeAdvertManga,DesAdvertManga,NameAuthorAdvertManga,StatusAdvertManga,StatusChapAdvertManga,CountChapAdvertManga,TypeAdvertManga,ImgAdvertManga,TypeStatusAdvertManga,AlltypeAdvertManga,CountView")] tblAdvertManga tblAdvertManga)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +78,7 @@ namespace ApiManga.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IdAdvertManga,NameAdvertManga,DesAdvertManga,NameAuthorAdvertManga,StatusAdvertManga,StatusChapAdvertManga,CountChapAdvertManga,TypeAdvertManga,ImgAdvertManga")] tblAdvertManga tblAdvertManga)
+        public ActionResult Edit([Bind(Include = "IdAdvertManga,NameAdvertManga,CodeAdvertManga,DesAdvertManga,NameAuthorAdvertManga,StatusAdvertManga,StatusChapAdvertManga,CountChapAdvertManga,TypeAdvertManga,ImgAdvertManga,TypeStatusAdvertManga,AlltypeAdvertManga,CountView")] tblAdvertManga tblAdvertManga)
         {
             if (ModelState.IsValid)
             {

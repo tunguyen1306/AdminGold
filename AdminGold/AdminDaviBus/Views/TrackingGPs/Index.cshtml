@@ -1,0 +1,64 @@
+﻿@model IEnumerable<AdminGold.Models.TrackingGP>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MaXe)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaTuyen)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Time)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DeviceId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Lat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lng)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaXe)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaTuyen)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Time)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DeviceId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Lat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lng)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdTracking }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdTracking }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdTracking })
+        </td>
+    </tr>
+}
+
+</table>
