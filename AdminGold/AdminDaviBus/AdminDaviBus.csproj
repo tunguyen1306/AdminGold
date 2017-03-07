@@ -353,6 +353,9 @@
     <Compile Include="Models\TrackingGP.cs">
       <DependentUpon>DataBus.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\TrackingGPSDetail.cs">
+      <DependentUpon>DataBus.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\VanGiaModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1633,11 +1636,6 @@
     <Content Include="Views\DmTaiXe\Details.cshtml" />
     <Content Include="Views\DmTaiXe\Edit.cshtml" />
     <Content Include="Views\DmTaiXe\Index.cshtml" />
-    <Content Include="Views\DmTram\Create.cshtml" />
-    <Content Include="Views\DmTram\Delete.cshtml" />
-    <Content Include="Views\DmTram\Details.cshtml" />
-    <Content Include="Views\DmTram\Edit.cshtml" />
-    <Content Include="Views\DmTram\Index.cshtml" />
     <Content Include="Views\DichVu\Create.cshtml" />
     <Content Include="Views\DichVu\Delete.cshtml" />
     <Content Include="Views\DichVu\Details.cshtml" />
@@ -1664,6 +1662,11 @@
     <Content Include="Views\TrackingGPs\Details.cshtml" />
     <Content Include="Views\TrackingGPs\Edit.cshtml" />
     <Content Include="Views\TrackingGPs\Index.cshtml" />
+    <Content Include="Views\DmTram\Create.cshtml" />
+    <Content Include="Views\DmTram\Delete.cshtml" />
+    <Content Include="Views\DmTram\Details.cshtml" />
+    <Content Include="Views\DmTram\Edit.cshtml" />
+    <Content Include="Views\DmTram\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

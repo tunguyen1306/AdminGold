@@ -46,7 +46,7 @@ namespace AdminGold.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,MATRAM,TENTRAM")] DMTRAM dMTRAM)
+        public ActionResult Create([Bind(Include = "ID,MATRAM,TENTRAM,LatLng,FileTram")] DMTRAM dMTRAM)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace AdminGold.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,MATRAM,TENTRAM")] DMTRAM dMTRAM)
+        public ActionResult Edit([Bind(Include = "ID,MATRAM,TENTRAM,LatLng,FileTram")] DMTRAM dMTRAM)
         {
             if (ModelState.IsValid)
             {

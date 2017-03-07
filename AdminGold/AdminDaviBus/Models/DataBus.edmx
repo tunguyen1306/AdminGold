@@ -162,6 +162,7 @@
           <Property Name="MATRAM" Type="nvarchar" MaxLength="50" />
           <Property Name="TENTRAM" Type="nvarchar" MaxLength="50" />
           <Property Name="LatLng" Type="ntext" />
+          <Property Name="FileTram" Type="nvarchar" MaxLength="500" />
         </EntityType>
         <EntityType Name="DMTUYEN">
           <Key>
@@ -248,7 +249,7 @@
           <Property Name="GIAYPHEP" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'BusTicket.dbo.GeoIP2CityText' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'nhvanxol_bus.dbo.GeoIP2CityText' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="GeoIP2CityText">
           <Key>
             <PropertyRef Name="rowguid" />
@@ -293,7 +294,7 @@ warning 6002: The table/view 'BusTicket.dbo.GeoIP2CityText' does not have a prim
           <Property Name="Check" Type="bit" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'BusTicket.dbo.Ip2City' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'nhvanxol_bus.dbo.Ip2City' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Ip2City">
           <Key>
             <PropertyRef Name="rowguid" />
@@ -316,7 +317,7 @@ warning 6002: The table/view 'BusTicket.dbo.Ip2City' does not have a primary key
           <Property Name="rowguid" Type="uniqueidentifier" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'BusTicket.dbo.Ip2City2' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'nhvanxol_bus.dbo.Ip2City2' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Ip2City2">
           <Key>
             <PropertyRef Name="rowguid" />
@@ -428,7 +429,7 @@ warning 6002: The table/view 'BusTicket.dbo.Ip2City2' does not have a primary ke
           <Property Name="Ghichu" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'BusTicket.dbo.phuong' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'nhvanxol_bus.dbo.phuong' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="phuong">
           <Key>
             <PropertyRef Name="rowguid" />
@@ -498,8 +499,18 @@ warning 6002: The table/view 'BusTicket.dbo.phuong' does not have a primary key 
           <Property Name="lng" Type="decimal" Precision="9" Scale="5" />
           <Property Name="Lat" Type="decimal" Precision="9" Scale="5" />
         </EntityType>
+        <EntityType Name="TrackingGPSDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdTracking" Type="bigint" />
+          <Property Name="Lat" Type="decimal" Precision="9" Scale="5" />
+          <Property Name="Lng" Type="decimal" Precision="9" Scale="5" />
+          <Property Name="Time" Type="datetime" />
+        </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'BusTicket.dbo.VNELocation' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'nhvanxol_bus.dbo.VNELocation' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VNELocation">
           <Key>
             <PropertyRef Name="rowguid" />
@@ -542,6 +553,7 @@ warning 6002: The table/view 'BusTicket.dbo.VNELocation' does not have a primary
           <EntitySet Name="State" EntityType="Self.State" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="StateText" EntityType="Self.StateText" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TrackingGPS" EntityType="Self.TrackingGPS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TrackingGPSDetail" EntityType="Self.TrackingGPSDetail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GeoIP2CityText" EntityType="Self.GeoIP2CityText" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [GeoIP2CityText].[geoname_id] AS [geoname_id], 
@@ -885,9 +897,10 @@ warning 6002: The table/view 'BusTicket.dbo.VNELocation' does not have a primary
           <EntitySet Name="Ip2City2" EntityType="BusTicketModel.Ip2City2" />
           <EntitySet Name="phuongs" EntityType="BusTicketModel.phuong" />
           <EntitySet Name="VNELocations" EntityType="BusTicketModel.VNELocation" />
-          <EntitySet Name="DMTRAMs" EntityType="BusTicketModel.DMTRAM" />
           <EntitySet Name="DMTUYENs" EntityType="BusTicketModel.DMTUYEN" />
           <EntitySet Name="TrackingGPS" EntityType="BusTicketModel.TrackingGP" />
+          <EntitySet Name="DMTRAMs" EntityType="BusTicketModel.DMTRAM" />
+          <EntitySet Name="TrackingGPSDetails" EntityType="BusTicketModel.TrackingGPSDetail" />
         </EntityContainer>
         <EntityType Name="Country">
           <Key>
@@ -1100,15 +1113,6 @@ warning 6002: The table/view 'BusTicket.dbo.VNELocation' does not have a primary
           <Property Name="ward_id" Type="Int32" />
           <Property Name="rowguid" Type="Guid" Nullable="false" />
         </EntityType>
-        <EntityType Name="DMTRAM">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="MATRAM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="TENTRAM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="LatLng" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityType Name="DMTUYEN">
           <Key>
             <PropertyRef Name="IDTUYEN" />
@@ -1160,6 +1164,26 @@ warning 6002: The table/view 'BusTicket.dbo.VNELocation' does not have a primary
           <Property Name="DeviceId" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Lat" Type="Decimal" Precision="9" Scale="5" />
           <Property Name="lng" Type="Decimal" Precision="9" Scale="5" />
+        </EntityType>
+        <EntityType Name="DMTRAM">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MATRAM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TENTRAM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LatLng" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FileTram" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TrackingGPSDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdTracking" Type="Int64" />
+          <Property Name="Lat" Type="Decimal" Precision="9" Scale="5" />
+          <Property Name="Lng" Type="Decimal" Precision="9" Scale="5" />
+          <Property Name="Time" Type="DateTime" Precision="3" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1629,16 +1653,6 @@ warning 6002: The table/view 'BusTicket.dbo.VNELocation' does not have a primary
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="DMTRAMs">
-            <EntityTypeMapping TypeName="BusTicketModel.DMTRAM">
-              <MappingFragment StoreEntitySet="DMTRAM">
-                <ScalarProperty Name="LatLng" ColumnName="LatLng" />
-                <ScalarProperty Name="TENTRAM" ColumnName="TENTRAM" />
-                <ScalarProperty Name="MATRAM" ColumnName="MATRAM" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="DMTUYENs">
             <EntityTypeMapping TypeName="BusTicketModel.DMTUYEN">
               <MappingFragment StoreEntitySet="DMTUYEN">
@@ -1690,6 +1704,28 @@ warning 6002: The table/view 'BusTicket.dbo.VNELocation' does not have a primary
                 <ScalarProperty Name="MaTuyen" ColumnName="MaTuyen" />
                 <ScalarProperty Name="MaXe" ColumnName="MaXe" />
                 <ScalarProperty Name="IdTracking" ColumnName="IdTracking" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DMTRAMs">
+            <EntityTypeMapping TypeName="BusTicketModel.DMTRAM">
+              <MappingFragment StoreEntitySet="DMTRAM">
+                <ScalarProperty Name="FileTram" ColumnName="FileTram" />
+                <ScalarProperty Name="LatLng" ColumnName="LatLng" />
+                <ScalarProperty Name="TENTRAM" ColumnName="TENTRAM" />
+                <ScalarProperty Name="MATRAM" ColumnName="MATRAM" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TrackingGPSDetails">
+            <EntityTypeMapping TypeName="BusTicketModel.TrackingGPSDetail">
+              <MappingFragment StoreEntitySet="TrackingGPSDetail">
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="Lng" ColumnName="Lng" />
+                <ScalarProperty Name="Lat" ColumnName="Lat" />
+                <ScalarProperty Name="IdTracking" ColumnName="IdTracking" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

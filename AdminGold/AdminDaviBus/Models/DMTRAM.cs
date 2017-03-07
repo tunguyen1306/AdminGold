@@ -18,5 +18,6 @@ namespace AdminGold.Models
         public string MATRAM { get; set; }
         public string TENTRAM { get; set; }
         public string LatLng { get; set; }
+        public string FileTram { get; set; }
     }
 }

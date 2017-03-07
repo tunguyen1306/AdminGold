@@ -34,7 +34,6 @@ namespace BusTicket.Models
         public virtual DbSet<DistrictText> DistrictTexts { get; set; }
         public virtual DbSet<DMHOADON> DMHOADONs { get; set; }
         public virtual DbSet<DMTAIXE> DMTAIXEs { get; set; }
-        public virtual DbSet<DMTRAM> DMTRAMs { get; set; }
         public virtual DbSet<DMTUYEN> DMTUYENs { get; set; }
         public virtual DbSet<DMTUYENCHITIETTRAM> DMTUYENCHITIETTRAMs { get; set; }
         public virtual DbSet<DMXE> DMXEs { get; set; }
@@ -59,5 +58,6 @@ namespace BusTicket.Models
         public virtual DbSet<VNELocation> VNELocations { get; set; }
         public virtual DbSet<TrackingGP> TrackingGPS { get; set; }
         public virtual DbSet<TrackingGPSDetail> TrackingGPSDetails { get; set; }
+        public virtual DbSet<DMTRAM> DMTRAMs { get; set; }
     }
 }

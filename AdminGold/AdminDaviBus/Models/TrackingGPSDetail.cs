@@ -7,17 +7,17 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BusTicket.Models
+namespace AdminGold.Models
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class DMTRAM
+    public partial class TrackingGPSDetail
     {
-        public int ID { get; set; }
-        public string MATRAM { get; set; }
-        public string TENTRAM { get; set; }
-        public string LatLng { get; set; }
-        public string FileTram { get; set; }
+        public long Id { get; set; }
+        public Nullable<long> IdTracking { get; set; }
+        public Nullable<decimal> Lat { get; set; }
+        public Nullable<decimal> Lng { get; set; }
+        public Nullable<System.DateTime> Time { get; set; }
     }
 }
