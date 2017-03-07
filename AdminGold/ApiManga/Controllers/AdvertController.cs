@@ -29,7 +29,7 @@ namespace ApiManga.Controllers
         //[System.Web.Http.HttpGet]
         public List<tblAdvertManga> GetListAdvert()
         {
-            return db.tblAdvertMangas.Where(x=>x.StatusAdvertManga==1).OrderByDescending(x => x.CountView).ToList();
+            return db.tblAdvertMangas.OrderByDescending(x => x.CountView).ToList();
         }
 
         [System.Web.Http.Route("api/Advert/GetAdvertById")]
@@ -38,7 +38,7 @@ namespace ApiManga.Controllers
         {
           
             var data = from dataAdvert in db.tblAdvertMangas
-                       where dataAdvert.IdAdvertManga==id && dataAdvert.StatusAdvertManga==1
+                       where dataAdvert.IdAdvertManga==id 
                        select new clsAllAdvert { tblAdvertManga= dataAdvert,ListChapterManga= db.tblChapterMangas.Where(x=>x.IdAdvertManga==id).ToList() };
             return data.ToList();
          }
@@ -48,7 +48,7 @@ namespace ApiManga.Controllers
         {
             var getId = db.tblAdvertMangas.Select(x => x.TypeStatusAdvertManga).ToList();
             // getId.Contains( x.TypeStatusAdvertManga)
-            return db.tblAdvertMangas.Where(x => x.StatusAdvertManga == 1 && x.TypeStatusAdvertManga==id).OrderByDescending(x => x.CountView).ToList();
+            return db.tblAdvertMangas.Where(x =>  x.TypeStatusAdvertManga==id).OrderByDescending(x => x.CountView).ToList();
         }
 
         [System.Web.Http.Route("api/Advert/GetAdvertWithChap")]
@@ -56,7 +56,7 @@ namespace ApiManga.Controllers
         public List<clsAllAdvert> GetAdvertWithChap()
         {
             var data = from dataAdvert in db.tblAdvertMangas
-                       where  dataAdvert.StatusAdvertManga == 1
+               
                        select new clsAllAdvert { tblAdvertManga = dataAdvert, ListChapterManga = db.tblChapterMangas.Where(x => x.IdAdvertManga == dataAdvert.IdAdvertManga).ToList() };
             return data.ToList();
         }
@@ -105,7 +105,7 @@ namespace ApiManga.Controllers
                 db.SaveChanges();
                 
             }
-            return db.tblAdvertMangas.Where(x => x.StatusAdvertManga == 1 && x.IdAdvertManga == id).ToList();
+            return db.tblAdvertMangas.Where(x =>  x.IdAdvertManga == id).ToList();
         }
         [System.Web.Http.Route("api/Advert/GetListAdvertByType")]
         [System.Web.Http.HttpGet]
@@ -118,7 +118,7 @@ namespace ApiManga.Controllers
                
             }
             typei = type.Split(',').ToList();
-            return db.tblAdvertMangas.Where(x => x.StatusAdvertManga == 1 && typei.Any(folder => x.TypeAdvertManga.Contains(folder))).OrderByDescending(x => x.CountView).ToList();
+            return db.tblAdvertMangas.Where(x =>  typei.Any(folder => x.TypeAdvertManga.Contains(folder))).OrderByDescending(x => x.CountView).ToList();
         }
         [System.Web.Http.Route("api/Advert/test")]
         [System.Web.Http.HttpGet]
@@ -126,7 +126,7 @@ namespace ApiManga.Controllers
         {
             int i = 0;
             var sqlquery = from data in db.tblAdvertMangas
-                           where data.StatusAdvertManga == 1
+                          
                            select new clsAllAdvert { tblAdvertManga = data, row_num = i };
             return sqlquery.Select((x, index) => new clsAllAdvert { row_num = index, tblAdvertManga = x.tblAdvertManga }).ToList();//db.tblAdvertMangas.Where(x=>x.StatusAdvertManga==1).OrderByDescending(x => x.CountView).Select((x, i) => new clsAllAdvert { row_num = i,tblAdvertManga=x  }).ToList();
         }
