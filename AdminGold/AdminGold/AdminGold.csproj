@@ -139,6 +139,7 @@
     <Compile Include="Controllers\AdminGoldController.cs" />
     <Compile Include="Controllers\APISendGiftController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MathVGController.cs" />
     <Compile Include="Controllers\NavbarController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\tblSysPicturesController.cs" />
@@ -1516,6 +1517,11 @@
     <Content Include="Views\tbl_blog_tra\IndexVG.cshtml" />
     <Content Include="Views\tbl_blog_tra\CreateVG.cshtml" />
     <Content Include="Views\tbl_blog_tra\EditVG.cshtml" />
+    <Content Include="Views\MathVG\Create.cshtml" />
+    <Content Include="Views\MathVG\Delete.cshtml" />
+    <Content Include="Views\MathVG\Details.cshtml" />
+    <Content Include="Views\MathVG\Edit.cshtml" />
+    <Content Include="Views\MathVG\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

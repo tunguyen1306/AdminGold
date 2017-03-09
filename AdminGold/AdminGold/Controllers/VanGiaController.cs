@@ -33,6 +33,10 @@ namespace AdminGold.Controllers
         // GET: VanGia/Details/5
         public ActionResult Details(int? id)
         {
+            if (Session["user"] == null)
+            {
+                return RedirectToAction("Login", "Home");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -48,6 +52,10 @@ namespace AdminGold.Controllers
         // GET: VanGia/Create
         public ActionResult Create()
         {
+            if (Session["user"] == null)
+            {
+                return RedirectToAction("Login", "Home");
+            }
             return View();
         }
 
@@ -58,6 +66,10 @@ namespace AdminGold.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create( web_vangia_project web_vangia_project)
         {
+            if (Session["user"] == null)
+            {
+                return RedirectToAction("Login", "Home");
+            }
             if (ModelState.IsValid)
             {
                 db.web_vangia_project.Add(web_vangia_project);
@@ -71,6 +83,10 @@ namespace AdminGold.Controllers
         // GET: VanGia/Edit/5
         public ActionResult Edit(int? id)
         {
+            if (Session["user"] == null)
+            {
+                return RedirectToAction("Login", "Home");
+            }
             VanGiaPicture pic = new VanGiaPicture { tblProject = db.web_vangia_project.Find(id), tblListPicture = db.tblSysPictures.Where(t => t.advert_id == id).ToList() };
 
 
@@ -84,6 +100,10 @@ namespace AdminGold.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(VanGiaPicture web_vangia_project)
         {
+            if (Session["user"] == null)
+            {
+                return RedirectToAction("Login", "Home");
+            }
             if (ModelState.IsValid)
             {
                 if (Request.Files.Count > 0)
@@ -112,6 +132,10 @@ namespace AdminGold.Controllers
         // GET: VanGia/Delete/5
         public ActionResult Delete(int? id)
         {
+            if (Session["user"] == null)
+            {
+                return RedirectToAction("Login", "Home");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -134,6 +158,10 @@ namespace AdminGold.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+            if (Session["user"] == null)
+            {
+                return RedirectToAction("Login", "Home");
+            }
             web_vangia_project web_vangia_project = db.web_vangia_project.Find(id);
             db.web_vangia_project.Remove(web_vangia_project);
             db.SaveChanges();
@@ -150,6 +178,10 @@ namespace AdminGold.Controllers
         }
         public ActionResult CreateFirst(web_vangia_project tbl_project)
         {
+            if (Session["user"] == null)
+            {
+                return RedirectToAction("Login", "Home");
+            }
             if (ModelState.IsValid)
             {
                 db.web_vangia_project.Add(tbl_project);
@@ -165,6 +197,7 @@ namespace AdminGold.Controllers
 
         public void SaveImg(VanGiaPicture projectPicture)
         {
+           
             var t = projectPicture.cfile == null ? "" : projectPicture.cfile;
             var file = t.Replace("data:image/png;base64,", "");
             var photoBytes = Convert.FromBase64String(file);
