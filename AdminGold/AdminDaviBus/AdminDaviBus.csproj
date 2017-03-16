@@ -151,51 +151,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\AdminGold.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AdminGold.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AdminGold.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AdminGold.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AdminGold.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AdminGold.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AdminGoldMain.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AdminGoldMain.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AdminGoldMain.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AdminGoldMain.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AdminGoldMain.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AdminGoldMain.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\APISendGift.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>APISendGift.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\APISendGift.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>APISendGift.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\APISendGift.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>APISendGift.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Models\clsBlog.cs" />
     <Compile Include="Models\Counter.cs">
       <DependentUpon>DataBus.tt</DependentUpon>
@@ -308,75 +263,15 @@
     <Compile Include="Models\StateText.cs">
       <DependentUpon>DataBus.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\tblAdvertGift.cs">
-      <DependentUpon>APISendGift.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tblCategory.cs">
-      <DependentUpon>AdminGoldMain.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tblCategoryGift.cs">
-      <DependentUpon>APISendGift.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tblCityGift.cs">
-      <DependentUpon>APISendGift.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tblMath_vangia.cs">
-      <DependentUpon>VanGiaModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tblMenu.cs">
-      <DependentUpon>AdminGoldMain.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tblProduct.cs">
-      <DependentUpon>AdminGoldMain.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tblSysPicture.cs">
-      <DependentUpon>VanGiaModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tblType.cs">
-      <DependentUpon>AdminGoldMain.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tblTypeGift.cs">
-      <DependentUpon>APISendGift.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tblUser.cs">
-      <DependentUpon>AdminGoldMain.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tbl_blog_tra.cs">
-      <DependentUpon>AdminGold.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tbl_products_tra.cs">
-      <DependentUpon>AdminGold.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tbl_slide_tra.cs">
-      <DependentUpon>AdminGold.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\TrackingGP.cs">
       <DependentUpon>DataBus.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TrackingGPSDetail.cs">
       <DependentUpon>DataBus.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\VanGiaModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>VanGiaModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\VanGiaModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>VanGiaModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\VanGiaModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>VanGiaModel.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Models\VanGiaPicture.cs" />
     <Compile Include="Models\VNELocation.cs">
       <DependentUpon>DataBus.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\web_vangia_project.cs">
-      <DependentUpon>VanGiaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -1157,36 +1052,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Global.asax" />
-    <Content Include="Models\AdminGold.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>AdminGold.edmx</DependentUpon>
-      <LastGenOutput>AdminGold.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\AdminGold.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>AdminGold.edmx</DependentUpon>
-      <LastGenOutput>AdminGold.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\AdminGoldMain.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>AdminGoldMain.edmx</DependentUpon>
-      <LastGenOutput>AdminGoldMain.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\AdminGoldMain.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>AdminGoldMain.edmx</DependentUpon>
-      <LastGenOutput>AdminGoldMain.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\APISendGift.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>APISendGift.edmx</DependentUpon>
-      <LastGenOutput>APISendGift.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\APISendGift.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>APISendGift.edmx</DependentUpon>
-      <LastGenOutput>APISendGift.cs</LastGenOutput>
-    </Content>
     <Content Include="Models\DataBus.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DataBus.edmx</DependentUpon>
@@ -1196,16 +1061,6 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DataBus.edmx</DependentUpon>
       <LastGenOutput>DataBus.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\VanGiaModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>VanGiaModel.edmx</DependentUpon>
-      <LastGenOutput>VanGiaModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\VanGiaModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>VanGiaModel.edmx</DependentUpon>
-      <LastGenOutput>VanGiaModel.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -1522,20 +1377,6 @@
     <Content Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
-    <EntityDeploy Include="Models\AdminGold.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>AdminGold.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\AdminGold.edmx.diagram">
-      <DependentUpon>AdminGold.edmx</DependentUpon>
-    </Content>
-    <EntityDeploy Include="Models\VanGiaModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>VanGiaModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\VanGiaModel.edmx.diagram">
-      <DependentUpon>VanGiaModel.edmx</DependentUpon>
-    </Content>
     <Content Include="ckeditor\CHANGES.md" />
     <Content Include="ckeditor\LICENSE.md" />
     <Content Include="ckeditor\plugins\scayt\CHANGELOG.md" />
@@ -1553,20 +1394,6 @@
     <Content Include="ckeditor\samples\toolbarconfigurator\font\fontello.woff" />
     <Content Include="ckeditor\samples\toolbarconfigurator\lib\codemirror\LICENSE" />
     <Content Include="ckeditor\skins\moono\readme.md" />
-    <EntityDeploy Include="Models\AdminGoldMain.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>AdminGoldMain.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\AdminGoldMain.edmx.diagram">
-      <DependentUpon>AdminGoldMain.edmx</DependentUpon>
-    </Content>
-    <EntityDeploy Include="Models\APISendGift.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>APISendGift.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\APISendGift.edmx.diagram">
-      <DependentUpon>APISendGift.edmx</DependentUpon>
-    </Content>
     <EntityDeploy Include="Models\DataBus.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>DataBus.Designer.cs</LastGenOutput>
