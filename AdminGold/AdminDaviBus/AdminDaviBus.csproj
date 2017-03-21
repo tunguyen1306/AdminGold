@@ -250,7 +250,6 @@
     <Compile Include="Models\phuong.cs">
       <DependentUpon>DataBus.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ProductsPicture.cs" />
     <Compile Include="Models\Quarter.cs">
       <DependentUpon>DataBus.tt</DependentUpon>
     </Compile>
@@ -269,7 +268,6 @@
     <Compile Include="Models\TrackingGPSDetail.cs">
       <DependentUpon>DataBus.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\VanGiaPicture.cs" />
     <Compile Include="Models\VNELocation.cs">
       <DependentUpon>DataBus.tt</DependentUpon>
     </Compile>
