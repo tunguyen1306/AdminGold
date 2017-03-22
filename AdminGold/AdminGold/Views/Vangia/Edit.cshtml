@@ -42,11 +42,19 @@
                                         new SelectListItem {Text = "2.Thương mại", Value = "2"},
                                         new SelectListItem {Text = "a.Thương mại-phân phối", Value = "21"},
                                         new SelectListItem {Text = "b.Thương mại-thông tin", Value = "22"},
-                                        new SelectListItem {Text = "3.Dịch vụ", Value = "3"},
-                                        new SelectListItem {Text = "a.Dịch vụ-hành trình", Value = "31"},
+                                        new SelectListItem {Text = "3.Dịch vụ-Video", Value = "3"},
+                                        new SelectListItem {Text = "a.Tour Du Lịch", Value = "31"},
                                         new SelectListItem {Text = "b.Dịch vụ-thông tin", Value = "32"},
                                         
-                                    }, new { @class = "form-control", @name = "tblProject.vangia_typeid_project" })
+                                    }, new { @class = "form-control dropType", @name = "tblProject.vangia_typeid_project" })
+
+                            </div>
+                            <div class="form-group groupLink hidden">
+                                <label>Link video</label>
+                               
+
+                                @Html.EditorFor(model => model.tblProject.vangia_link_video_project, new { htmlAttributes = new { @name = "tblProject.vangia_link_video_project", @class = "form-control" } })
+
 
                             </div>
                             <div class="form-group">
@@ -176,6 +184,23 @@
 
 }
 <script>
+    var iddrop = $(".dropType option:selected").val();
+    if (iddrop == 3) {
+        $('.groupLink').removeClass('hidden');
+
+    }
+    else {
+        $('.groupLink').addClass('hidden');
+    }
+    $('.dropType').on('change', function () {
+        if (this.value == 3) {
+            $('.groupLink').removeClass('hidden');
+
+        }
+        else {
+            $('.groupLink').addClass('hidden');
+        }
+    })
     $(function () {
         $.each($('.dz-preview'), function (i, o) {
             $(o).find("input:radio[name=groupimg][disabled=false]:first").attr('checked', true);

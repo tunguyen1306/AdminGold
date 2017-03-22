@@ -254,8 +254,29 @@ namespace AdminGold.Controllers
                     if (string.IsNullOrWhiteSpace(picture.tblPicture.originalFilepath))
                         picture.tblPicture.originalFilepath = picture.GetFilePath(VanGiaPicture.PictureSize.Medium);
                 }
+ if (picture.GetFilePathPhysical(VanGiaPicture.PictureSize.Tiny) != null)
+                {
+                    string dest = path + picture.FileName(VanGiaPicture.PictureSize.Tiny);
+                    settings.MaxWidth = 1500;
+                    settings.MaxHeight = 600;
+                    if (picture.WaterMarkLarge == VanGiaPicture.WatermarkType.None)
+                        ImageBuilder.Current.Build(photoBytes, dest, settings, false, false);
+                    // save biggest version as original
+                    if (string.IsNullOrWhiteSpace(picture.tblPicture.originalFilepath))
+                        picture.tblPicture.originalFilepath = picture.GetFilePath(VanGiaPicture.PictureSize.Tiny);
+                }
 
-
+                if (picture.GetFilePathPhysical(VanGiaPicture.PictureSize.Small) != null)
+                {
+                    string dest = path + picture.FileName(VanGiaPicture.PictureSize.Small);
+                    settings.MaxWidth = 600;
+                    settings.MaxHeight = 300;
+                    if (picture.WaterMarkLarge == VanGiaPicture.WatermarkType.None)
+                        ImageBuilder.Current.Build(photoBytes, dest, settings, false, false);
+                    // save biggest version as original
+                    if (string.IsNullOrWhiteSpace(picture.tblPicture.originalFilepath))
+                        picture.tblPicture.originalFilepath = picture.GetFilePath(VanGiaPicture.PictureSize.Small);
+                }
                 db.tblSysPictures.Add(picture.tblPicture);
                 db.SaveChanges();
             }
