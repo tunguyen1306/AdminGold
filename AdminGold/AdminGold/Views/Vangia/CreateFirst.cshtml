@@ -9,7 +9,8 @@
     </div>
     <!-- /.col-lg-12 -->
 </div>
-
+<script src="~/ckeditor/ckeditor.js"></script>
+<script src="~/ckeditor/adapters/jquery.js"></script>
 @using (Html.BeginForm("CreateFirst", "VanGia", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
@@ -76,7 +77,8 @@
                             <div class="form-group">
                                 <label>Nội dung</label>
                                
-                                <textarea class="form-control" name="tblProject.vangia_content_project"></textarea>
+                              
+                                @Html.TextAreaFor(x => x.vangia_content_project, htmlAttributes: new { @id = "txtContentPro", @class = "form-control" })
                             </div>
                         </div>
                     </div>
@@ -130,7 +132,12 @@
 
 }
 <script>
-  
+    $(function () {
+        $('#txtContentPro').ckeditor({
+            filebrowserImageUploadUrl: '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images'
+        });
+
+    });
     $('.dropType').on('change', function () {
         if (this.value == 3) {
             $('.groupLink').removeClass('hidden');

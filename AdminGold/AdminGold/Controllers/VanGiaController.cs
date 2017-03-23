@@ -64,6 +64,7 @@ namespace AdminGold.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public ActionResult Create( web_vangia_project web_vangia_project)
         {
             if (Session["user"] == null)
@@ -98,6 +99,7 @@ namespace AdminGold.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public ActionResult Edit(VanGiaPicture web_vangia_project)
         {
             if (Session["user"] == null)

@@ -10,7 +10,8 @@
     </div>
     <!-- /.col-lg-12 -->
 </div>
-
+<script src="~/ckeditor/ckeditor.js"></script>
+<script src="~/ckeditor/adapters/jquery.js"></script>
 @using (Html.BeginForm("Edit", "VanGia", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.HiddenFor(model => model.tblProject.vangia_id_project)
@@ -103,7 +104,7 @@
                                 <label>Mô tả</label>
 
 
-                                @Html.TextAreaFor(model => model.tblProject.vangia_content_project, htmlAttributes: new { @name = "tblProject.vangia_content_project", @class = "form-control" })
+                                @Html.TextAreaFor(model => model.tblProject.vangia_content_project, htmlAttributes: new { @name = "tblProject.vangia_content_project",@id="txtcontent", @class = "form-control" })
 
                             </div>
                         </div>
@@ -184,6 +185,12 @@
 
 }
 <script>
+    $(function () {
+        $('#txtcontent').ckeditor({
+            filebrowserImageUploadUrl: '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images'
+        });
+
+    });
     var iddrop = $(".dropType option:selected").val();
     if (iddrop == 3) {
         $('.groupLink').removeClass('hidden');
