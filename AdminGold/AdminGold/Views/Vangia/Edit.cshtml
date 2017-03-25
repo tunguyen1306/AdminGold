@@ -104,7 +104,7 @@
                                 <label>Mô tả</label>
 
 
-                                @Html.TextAreaFor(model => model.tblProject.vangia_content_project, htmlAttributes: new { @name = "tblProject.vangia_content_project",@id="txtcontent", @class = "form-control" })
+                                @Html.TextAreaFor(x => x.tblProject.vangia_content_project, htmlAttributes: new { @id = "txtContentPro", @name = "tblProject.vangia_content_project", @class = "form-control" })
 
                             </div>
                         </div>
@@ -186,7 +186,7 @@
 }
 <script>
     $(function () {
-        $('#txtcontent').ckeditor({
+        $('#txtContentPro').ckeditor({
             filebrowserImageUploadUrl: '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images'
         });
 
