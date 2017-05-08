@@ -64,6 +64,7 @@ namespace AdminGold.Controllers
             {
                 ViewBag.des_blog_tra = tbl_blog_tra.des_blog_tra;
                 tbl_blog_tra.id_company = 1;
+                tbl_blog_tra.create_date_blog_tra = DateTime.Now;
                 db.tbl_blog_tra.Add(tbl_blog_tra);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -89,6 +90,7 @@ namespace AdminGold.Controllers
             {
                 ViewBag.des_blog_tra = tbl_blog_tra.des_blog_tra;
                 tbl_blog_tra.id_company = 2;
+                tbl_blog_tra.create_date_blog_tra = DateTime.Now;
                 db.tbl_blog_tra.Add(tbl_blog_tra);
                 db.SaveChanges();
                 return RedirectToAction("IndexVG");
@@ -106,6 +108,7 @@ namespace AdminGold.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             tbl_blog_tra tbl_blog_tra = db.tbl_blog_tra.Find(id);
+
             if (tbl_blog_tra == null)
             {
                 return HttpNotFound();
@@ -138,7 +141,7 @@ namespace AdminGold.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             tbl_blog_tra tbl_blog_tra = db.tbl_blog_tra.Find(id);
-          
+            
             if (tbl_blog_tra == null)
             {
                 return HttpNotFound();
@@ -157,6 +160,7 @@ namespace AdminGold.Controllers
             {
                 db.Entry(tbl_blog_tra).State = EntityState.Modified;
                 tbl_blog_tra.id_company = 2;
+                tbl_blog_tra.create_date_blog_tra = DateTime.Now;
                 db.SaveChanges();
                 return RedirectToAction("IndexVG");
             }
