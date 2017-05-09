@@ -29,5 +29,6 @@ namespace AdminGold.Models
         public virtual DbSet<tbl_slide_tra> tbl_slide_tra { get; set; }
         public virtual DbSet<tblSysPicture> tblSysPictures { get; set; }
         public virtual DbSet<tbl_blog_tra> tbl_blog_tra { get; set; }
+        public virtual DbSet<web_vangia_silde> web_vangia_silde { get; set; }
     }
 }

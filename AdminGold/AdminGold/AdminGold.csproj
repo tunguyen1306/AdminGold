@@ -221,7 +221,7 @@
       <DependentUpon>AdminGoldMain.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblSysPicture.cs">
-      <DependentUpon>VanGiaModel.tt</DependentUpon>
+      <DependentUpon>AdminGold.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblType.cs">
       <DependentUpon>AdminGoldMain.tt</DependentUpon>
@@ -261,7 +261,7 @@
       <DependentUpon>VanGiaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\web_vangia_silde.cs">
-      <DependentUpon>VanGiaModel.tt</DependentUpon>
+      <DependentUpon>AdminGold.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -996,12 +996,11 @@
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\no-image-available.jpg" />
     <Content Include="Content\sb-admin-2.css" />
     <Content Include="Content\timeline.css" />
+    <Content Include="Content\UploadSlider\Home.html" />
     <Content Include="Content\UploadVanGia\cropper.css" />
     <Content Include="Content\UploadVanGia\cropper.min.css" />
     <Content Include="Content\UploadVanGia\cropper.min.js" />
@@ -1035,10 +1034,7 @@
     <Content Include="Content\UploadNew\main.css" />
     <Content Include="Content\UploadNew\pg.png" />
     <Content Include="favicon.ico" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Global.asax" />
     <Content Include="Models\AdminGold.Context.tt">
@@ -1082,8 +1078,6 @@
       <LastGenOutput>VanGiaModel.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="bower_components\bootstrap-social\.bower.json" />
     <Content Include="bower_components\bootstrap-social\.editorconfig" />
     <Content Include="bower_components\bootstrap-social\bootstrap-social.less" />
@@ -1388,6 +1382,7 @@
     <Content Include="Content\less\sb-admin-2.less" />
     <Content Include="Content\less\variables.less" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\dropzoneSlider.js" />
     <Content Include="Scripts\jquery-1.10.2-vsdoc.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -1440,6 +1435,11 @@
     <Content Include="Models\APISendGift.edmx.diagram">
       <DependentUpon>APISendGift.edmx</DependentUpon>
     </Content>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Properties\PublishProfiles\publish.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\cropperVG.js" />
@@ -1534,11 +1534,13 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\UploadSlider\css\" />
+    <Folder Include="Content\UploadSlider\img\" />
+    <Folder Include="Content\UploadSlider\js\" />
     <Folder Include="fileUpload\" />
     <Folder Include="Views\AdminGold\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />

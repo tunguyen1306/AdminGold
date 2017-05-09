@@ -74,11 +74,25 @@
           <Property Name="cms_sql_id" Type="int" />
           <Property Name="shortdescription" Type="nvarchar(max)" />
         </EntityType>
+        <EntityType Name="web_vangia_silde">
+          <Key>
+            <PropertyRef Name="vangia_id_silde" />
+          </Key>
+          <Property Name="vangia_id_silde" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vangia_noidung_silde" Type="ntext" />
+          <Property Name="vangia_tomtat_silde" Type="ntext" />
+          <Property Name="vangia_img_silde" Type="nvarchar" MaxLength="200" />
+          <Property Name="vangia_name_silde" Type="ntext" />
+          <Property Name="vangia_status_silde" Type="int" />
+          <Property Name="vangia_order_silde" Type="int" />
+          <Property Name="vangia_language_silde" Type="int" />
+        </EntityType>
         <EntityContainer Name="AdminGoldModelStoreContainer">
           <EntitySet Name="tbl_blog_tra" EntityType="Self.tbl_blog_tra" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_products_tra" EntityType="Self.tbl_products_tra" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_slide_tra" EntityType="Self.tbl_slide_tra" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblSysPicture" EntityType="Self.tblSysPicture" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="web_vangia_silde" EntityType="Self.web_vangia_silde" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -121,6 +135,7 @@
           <EntitySet Name="tbl_slide_tra" EntityType="Self.tbl_slide_tra" />
           <EntitySet Name="tblSysPictures" EntityType="AdminGoldModel.tblSysPicture" />
           <EntitySet Name="tbl_blog_tra" EntityType="AdminGoldModel.tbl_blog_tra" />
+          <EntitySet Name="web_vangia_silde" EntityType="AdminGoldModel.web_vangia_silde" />
         </EntityContainer>
         <EntityType Name="tblSysPicture">
           <Key>
@@ -158,6 +173,19 @@
           <Property Name="img_blog_tra" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
           <Property Name="video_blog_tra" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
           <Property Name="id_company" Type="Int32" />
+        </EntityType>
+        <EntityType Name="web_vangia_silde">
+          <Key>
+            <PropertyRef Name="vangia_id_silde" />
+          </Key>
+          <Property Name="vangia_id_silde" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vangia_noidung_silde" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_tomtat_silde" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_img_silde" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_name_silde" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_status_silde" Type="Int32" />
+          <Property Name="vangia_order_silde" Type="Int32" />
+          <Property Name="vangia_language_silde" Type="Int32" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -235,6 +263,20 @@
                 <ScalarProperty Name="short_des_blog_tra" ColumnName="short_des_blog_tra" />
                 <ScalarProperty Name="titile_blog_tra" ColumnName="titile_blog_tra" />
                 <ScalarProperty Name="id_blog_tra" ColumnName="id_blog_tra" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="web_vangia_silde">
+            <EntityTypeMapping TypeName="AdminGoldModel.web_vangia_silde">
+              <MappingFragment StoreEntitySet="web_vangia_silde">
+                <ScalarProperty Name="vangia_language_silde" ColumnName="vangia_language_silde" />
+                <ScalarProperty Name="vangia_order_silde" ColumnName="vangia_order_silde" />
+                <ScalarProperty Name="vangia_status_silde" ColumnName="vangia_status_silde" />
+                <ScalarProperty Name="vangia_name_silde" ColumnName="vangia_name_silde" />
+                <ScalarProperty Name="vangia_img_silde" ColumnName="vangia_img_silde" />
+                <ScalarProperty Name="vangia_tomtat_silde" ColumnName="vangia_tomtat_silde" />
+                <ScalarProperty Name="vangia_noidung_silde" ColumnName="vangia_noidung_silde" />
+                <ScalarProperty Name="vangia_id_silde" ColumnName="vangia_id_silde" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
