@@ -137,6 +137,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminGoldController.cs" />
+    <Compile Include="Controllers\AdminSliderController.cs" />
     <Compile Include="Controllers\APISendGiftController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MathVGController.cs" />
@@ -257,6 +258,9 @@
     </Compile>
     <Compile Include="Models\VanGiaPicture.cs" />
     <Compile Include="Models\web_vangia_project.cs">
+      <DependentUpon>VanGiaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\web_vangia_silde.cs">
       <DependentUpon>VanGiaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -1522,6 +1526,11 @@
     <Content Include="Views\MathVG\Details.cshtml" />
     <Content Include="Views\MathVG\Edit.cshtml" />
     <Content Include="Views\MathVG\Index.cshtml" />
+    <Content Include="Views\AdminSlider\Create.cshtml" />
+    <Content Include="Views\AdminSlider\Delete.cshtml" />
+    <Content Include="Views\AdminSlider\Details.cshtml" />
+    <Content Include="Views\AdminSlider\Edit.cshtml" />
+    <Content Include="Views\AdminSlider\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

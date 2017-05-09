@@ -1,0 +1,99 @@
+﻿@model AdminGold.Models.web_vangia_silde
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>web_vangia_silde</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.vangia_noidung_silde)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.vangia_noidung_silde)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.vangia_tomtat_silde)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.vangia_tomtat_silde)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.vangia_img_silde)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.vangia_img_silde)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.vangia_name_silde)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.vangia_name_silde)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.vangia_status_silde)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.vangia_status_silde)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.vangia_order_silde)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.vangia_order_silde)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.vangia_language_silde)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.vangia_language_silde)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.vangia_link_silde)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.vangia_link_silde)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.vangia_stype_slide)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.vangia_stype_slide)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.vangia_type_slide)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.vangia_type_slide)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.vangia_id_silde }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

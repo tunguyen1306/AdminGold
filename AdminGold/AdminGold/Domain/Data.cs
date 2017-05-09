@@ -36,6 +36,7 @@ namespace AdminGold.Domain
             menu.Add(new Navbar { Id = 4, nameOption = "Danh sách dự án Vạn Gia", controller = "VanGia", action = "Index", imageClass = "fa fa-dashboard fa-fw", status = true, isParent = false, parentId = 2 });
             menu.Add(new Navbar { Id = 6, nameOption = "Quản lý Blog Vạn Gia", controller = "tbl_blog_tra", action = "IndexVG", imageClass = "fa fa-dashboard fa-fw", status = true, isParent = false, parentId = 2 });
             menu.Add(new Navbar { Id = 7, nameOption = "Tính xây dựng", controller = "MathVG", action = "Index", imageClass = "fa fa-dashboard fa-fw", status = true, isParent = false, parentId = 2 });
+            menu.Add(new Navbar { Id = 8, nameOption = "Quản lý Slider", controller = "AdminSlider", action = "Index", imageClass = "fa fa-dashboard fa-fw", status = true, isParent = false, parentId = 2 });
             return menu.ToList();
         }
     }

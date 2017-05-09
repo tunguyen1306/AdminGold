@@ -28,5 +28,6 @@ namespace AdminGold.Models
         public virtual DbSet<web_vangia_project> web_vangia_project { get; set; }
         public virtual DbSet<tblSysPicture> tblSysPictures { get; set; }
         public virtual DbSet<tblMath_vangia> tblMath_vangia { get; set; }
+        public virtual DbSet<web_vangia_silde> web_vangia_silde { get; set; }
     }
 }

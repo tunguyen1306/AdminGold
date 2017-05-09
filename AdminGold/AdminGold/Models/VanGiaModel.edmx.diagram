@@ -8,6 +8,7 @@
         <EntityTypeShape EntityType="VanGiaModel.web_vangia_project" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="VanGiaModel.tblSysPicture" Width="1.5" PointX="3.375" PointY="0.75" />
         <EntityTypeShape EntityType="VanGiaModel.tblMath_vangia" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="VanGiaModel.web_vangia_silde" Width="1.5" PointX="5.375" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -75,7 +75,7 @@ namespace AdminGold.Controllers
             {
                 db.web_vangia_project.Add(web_vangia_project);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "VanGia");
             }
 
             return View(web_vangia_project);
@@ -126,7 +126,7 @@ namespace AdminGold.Controllers
 
                 db.Entry(web_vangia_project.tblProject).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "VanGia");
             }
             return View(web_vangia_project);
         }

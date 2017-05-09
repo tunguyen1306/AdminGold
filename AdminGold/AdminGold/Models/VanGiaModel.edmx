@@ -60,12 +60,29 @@
           <Property Name="vangia_img8_project" Type="ntext" />
           <Property Name="vangia_img9_project" Type="ntext" />
           <Property Name="vangia_vanban_project" Type="nvarchar" MaxLength="200" />
-          <Property Name="vangia_link_video_project" Type="ntext" />
+          <Property Name="vangia_link_video_project" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="web_vangia_silde">
+          <Key>
+            <PropertyRef Name="vangia_id_silde" />
+          </Key>
+          <Property Name="vangia_id_silde" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vangia_noidung_silde" Type="ntext" />
+          <Property Name="vangia_tomtat_silde" Type="ntext" />
+          <Property Name="vangia_img_silde" Type="nvarchar" MaxLength="200" />
+          <Property Name="vangia_name_silde" Type="ntext" />
+          <Property Name="vangia_status_silde" Type="int" />
+          <Property Name="vangia_order_silde" Type="int" />
+          <Property Name="vangia_language_silde" Type="int" />
+          <Property Name="vangia_link_silde" Type="ntext" />
+          <Property Name="vangia_stype_slide" Type="ntext" />
+          <Property Name="vangia_type_slide" Type="int" />
         </EntityType>
         <EntityContainer Name="VanGiaModelStoreContainer">
           <EntitySet Name="tblMath_vangia" EntityType="Self.tblMath_vangia" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblSysPicture" EntityType="Self.tblSysPicture" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="web_vangia_project" EntityType="Self.web_vangia_project" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="web_vangia_silde" EntityType="Self.web_vangia_silde" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -101,6 +118,7 @@
           <EntitySet Name="web_vangia_project" EntityType="Self.web_vangia_project" />
           <EntitySet Name="tblSysPictures" EntityType="VanGiaModel.tblSysPicture" />
           <EntitySet Name="tblMath_vangia" EntityType="VanGiaModel.tblMath_vangia" />
+          <EntitySet Name="web_vangia_silde" EntityType="VanGiaModel.web_vangia_silde" />
         </EntityContainer>
         <EntityType Name="tblSysPicture">
           <Key>
@@ -132,6 +150,22 @@
           <Property Name="NameMath" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ValueMath" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="TypeMath" Type="Int32" />
+        </EntityType>
+        <EntityType Name="web_vangia_silde">
+          <Key>
+            <PropertyRef Name="vangia_id_silde" />
+          </Key>
+          <Property Name="vangia_id_silde" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vangia_noidung_silde" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_tomtat_silde" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_img_silde" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_name_silde" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_status_silde" Type="Int32" />
+          <Property Name="vangia_order_silde" Type="Int32" />
+          <Property Name="vangia_language_silde" Type="Int32" />
+          <Property Name="vangia_link_silde" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_stype_slide" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_type_slide" Type="Int32" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -196,6 +230,23 @@
                 <ScalarProperty Name="ValueMath" ColumnName="ValueMath" />
                 <ScalarProperty Name="NameMath" ColumnName="NameMath" />
                 <ScalarProperty Name="idMath" ColumnName="idMath" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="web_vangia_silde">
+            <EntityTypeMapping TypeName="VanGiaModel.web_vangia_silde">
+              <MappingFragment StoreEntitySet="web_vangia_silde">
+                <ScalarProperty Name="vangia_type_slide" ColumnName="vangia_type_slide" />
+                <ScalarProperty Name="vangia_stype_slide" ColumnName="vangia_stype_slide" />
+                <ScalarProperty Name="vangia_link_silde" ColumnName="vangia_link_silde" />
+                <ScalarProperty Name="vangia_language_silde" ColumnName="vangia_language_silde" />
+                <ScalarProperty Name="vangia_order_silde" ColumnName="vangia_order_silde" />
+                <ScalarProperty Name="vangia_status_silde" ColumnName="vangia_status_silde" />
+                <ScalarProperty Name="vangia_name_silde" ColumnName="vangia_name_silde" />
+                <ScalarProperty Name="vangia_img_silde" ColumnName="vangia_img_silde" />
+                <ScalarProperty Name="vangia_tomtat_silde" ColumnName="vangia_tomtat_silde" />
+                <ScalarProperty Name="vangia_noidung_silde" ColumnName="vangia_noidung_silde" />
+                <ScalarProperty Name="vangia_id_silde" ColumnName="vangia_id_silde" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
