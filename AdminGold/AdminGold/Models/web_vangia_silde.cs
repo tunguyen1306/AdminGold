@@ -22,5 +22,8 @@ namespace AdminGold.Models
         public Nullable<int> vangia_status_silde { get; set; }
         public Nullable<int> vangia_order_silde { get; set; }
         public Nullable<int> vangia_language_silde { get; set; }
+        public string vangia_link_silde { get; set; }
+        public string vangia_stype_slide { get; set; }
+        public Nullable<int> vangia_type_slide { get; set; }
     }
 }

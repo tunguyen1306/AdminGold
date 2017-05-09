@@ -14,8 +14,8 @@ namespace AdminGold.Controllers
 {
     public class VanGiaController : Controller
     {
-        private VanGiaEntities db = new VanGiaEntities();
-
+        private VanGiaEntities db1 = new VanGiaEntities();
+        private AdminGoldEntities db = new AdminGoldEntities();
         // GET: VanGia
         public ActionResult Index()
         {

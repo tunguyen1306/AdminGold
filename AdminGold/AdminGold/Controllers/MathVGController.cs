@@ -12,8 +12,8 @@ namespace AdminGold.Controllers
 {
     public class MathVGController : Controller
     {
-        private VanGiaEntities db = new VanGiaEntities();
-
+        private VanGiaEntities db1 = new VanGiaEntities();
+        private AdminGoldEntities db = new AdminGoldEntities();
         // GET: MathVG
         public ActionResult Index()
         {

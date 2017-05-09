@@ -14,16 +14,30 @@ namespace AdminGold.Models
     
     public partial class tblUser
     {
-        public int IdUser { get; set; }
-        public string NameUser { get; set; }
-        public string PassUser { get; set; }
-        public Nullable<int> IdTypeUser { get; set; }
-        public Nullable<double> TotalPointUser { get; set; }
-        public Nullable<int> PhoneUser { get; set; }
-        public string EmailUser { get; set; }
-        public string FirtNameUser { get; set; }
-        public string LastNameUser { get; set; }
-        public string AddressUser { get; set; }
-        public Nullable<bool> SubscribeUser { get; set; }
+        public long user_id { get; set; }
+        public string user_email { get; set; }
+        public string user_pass { get; set; }
+        public string user_fullname { get; set; }
+        public Nullable<int> user_status { get; set; }
+        public Nullable<System.DateTime> user_create { get; set; }
+        public Nullable<System.DateTime> user_update { get; set; }
+        public Nullable<int> id_group_user { get; set; }
+        public string user_img { get; set; }
+        public Nullable<int> user_vip { get; set; }
+        public Nullable<System.DateTime> user_vip_end { get; set; }
+        public Nullable<int> user_role { get; set; }
+        public string forget_pass { get; set; }
+        public Nullable<int> user_money { get; set; }
+        public string user_avatar { get; set; }
+        public Nullable<int> user_online { get; set; }
+        public Nullable<int> id_company { get; set; }
+        public Nullable<int> user_disk { get; set; }
+        public string user_code { get; set; }
+        public string seri_number { get; set; }
+        public string user_birthday { get; set; }
+        public string user_code_country { get; set; }
+        public string user_gender { get; set; }
+        public string user_id_facebook { get; set; }
+        public Nullable<int> user_point { get; set; }
     }
 }

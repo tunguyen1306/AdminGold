@@ -197,8 +197,155 @@
       <DependentUpon>APISendGift.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\clsBlog.cs" />
+    <Compile Include="Models\ctr_in_form.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ctr_steel.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\form_steel.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\form_store.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\form_store_para.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\fs_auth.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\fs_manga.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\fs_manga_chap.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\fs_manga_img.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\fs_manga_tag.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\fs_manga_type.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\grid_view_mapping.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\log_store_prod.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\mar_project.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Navbar.cs" />
+    <Compile Include="Models\pct_department.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\pct_employee.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\pct_ticket.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\pct_title.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ProductsPicture.cs" />
+    <Compile Include="Models\project_steel.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\so_orther.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\so_orther_detail.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\so_prod_image_detail.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\store_.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\store_cate.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\store_company.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\store_com_ship.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\store_com_type.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\store_contact.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\store_exp.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\store_imp.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\store_prod.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\store_prod_sku.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\store_slot.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\store_stock.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\store_unit.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sys_company.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sys_data_fixed.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sys_fs_help.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sys_gridview_control.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sys_group_page.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sys_info.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sys_mapped_col.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sys_mapped_join.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sys_mapped_operators.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sys_mapped_table.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sys_mapped_type.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sys_mapped_ty_op.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sys_page.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sys_store_prod.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\tblAdvertGift.cs">
       <DependentUpon>APISendGift.tt</DependentUpon>
     </Compile>
@@ -211,8 +358,11 @@
     <Compile Include="Models\tblCityGift.cs">
       <DependentUpon>APISendGift.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\tblDomain.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\tblMath_vangia.cs">
-      <DependentUpon>VanGiaModel.tt</DependentUpon>
+      <DependentUpon>AdminGold.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblMenu.cs">
       <DependentUpon>AdminGoldMain.tt</DependentUpon>
@@ -220,7 +370,40 @@
     <Compile Include="Models\tblProduct.cs">
       <DependentUpon>AdminGoldMain.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\tblSysCompany.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblSysGroupPage.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblSysGroupPageDetail.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\tblSysPicture.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblSysUserGroupPage.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblSysUserGroupPageDetail.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblSysUserGroupPagePage.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblSysUserListShareDetail.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblSysUserRoleGroup.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblSysUserRolePage.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblSysUserRoleRecord.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblSysUser_Page.cs">
       <DependentUpon>AdminGold.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblType.cs">
@@ -230,15 +413,39 @@
       <DependentUpon>APISendGift.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblUser.cs">
-      <DependentUpon>AdminGoldMain.tt</DependentUpon>
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblUserCloud.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblUserFriend.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblUserImg.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tbl_blog_tra.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_menu_dulich.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_new_dulich.cs">
       <DependentUpon>AdminGold.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tbl_products_tra.cs">
       <DependentUpon>AdminGold.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\tbl_slide_dulich.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\tbl_slide_tra.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_spam_dulich.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\user_steel.cs">
       <DependentUpon>AdminGold.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\VanGiaModel.Context.cs">
@@ -257,10 +464,118 @@
       <DependentUpon>VanGiaModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\VanGiaPicture.cs" />
+    <Compile Include="Models\wb_advertising.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\wb_banner.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\wb_comment.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\wb_mail.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\wb_menu.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\wb_menu_products.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\wb_products.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\web_banner.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\web_chater.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\web_chater_content.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\web_content.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\web_content_other.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\web_customer.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\web_department.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\web_employer.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\web_list_product.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\web_menu_root.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\web_products.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\web_title.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\web_tr_menutop.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\web_tr_menu_product.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\web_tr_products.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\web_tr_quangcao.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\web_vangia_config.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\web_vangia_doitac.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\web_vangia_duanmau.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\web_vangia_employee.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\web_vangia_language.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\web_vangia_menu.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\web_vangia_menucon.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\web_vangia_news.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\web_vangia_products.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\web_vangia_project.cs">
-      <DependentUpon>VanGiaModel.tt</DependentUpon>
+      <DependentUpon>AdminGold.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\web_vangia_silde.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\web_vangia_team.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\web_vangia_tuyendung.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\web_vangia_typeproject.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\web_vangia_type_products.cs">
       <DependentUpon>AdminGold.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
