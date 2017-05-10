@@ -236,8 +236,8 @@ namespace AdminGold.Controllers
                 if (picture.GetFilePathPhysical(VanGiaPicture.PictureSize.Large) != null)
                 {
                     string dest = path + picture.FileName(VanGiaPicture.PictureSize.Large);
-                    settings.MaxWidth = 720;
-                    settings.MaxHeight = 480;
+                    settings.MaxWidth = 1920;
+                    settings.MaxHeight = 1200;
                     if (picture.WaterMarkLarge == VanGiaPicture.WatermarkType.None)
                         ImageBuilder.Current.Build(photoBytes, dest, settings, false, false);
                     // save biggest version as original
@@ -248,8 +248,8 @@ namespace AdminGold.Controllers
                 if (picture.GetFilePathPhysical(VanGiaPicture.PictureSize.Medium) != null)
                 {
                     string dest = path + picture.FileName(VanGiaPicture.PictureSize.Medium);
-                    settings.MaxWidth = 288;
-                    settings.MaxHeight = 192;
+                    settings.MaxWidth = 130;
+                    settings.MaxHeight = 130;
                     if (picture.WaterMarkLarge == VanGiaPicture.WatermarkType.None)
                         ImageBuilder.Current.Build(photoBytes, dest, settings, false, false);
                     // save biggest version as original
