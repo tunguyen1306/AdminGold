@@ -298,6 +298,10 @@
             //dictRemoveFileConfirmation: null,
             //dictMaxFilesExceeded: "You can not upload any more files.",
 
+           
+
+
+
             url: null,
             method: "post",
             withCredentials: false,
@@ -307,7 +311,7 @@
 
             paramName: "file",
             createImageThumbnails: true,
-            maxThumbnailFilesize: 2,
+            maxThumbnailFilesize:10,
             //thumbnailWidth: 615,
             //thumbnailHeight: 800,
 
