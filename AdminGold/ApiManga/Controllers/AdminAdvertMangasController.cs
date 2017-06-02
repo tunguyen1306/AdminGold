@@ -12,7 +12,7 @@ namespace ApiManga.Controllers
 {
     public class AdminAdvertMangasController : Controller
     {
-        private MangaEntities db = new MangaEntities();
+        private Manga1Entities db = new Manga1Entities();
 
         // GET: AdminAdvertMangas
         public ActionResult Index()

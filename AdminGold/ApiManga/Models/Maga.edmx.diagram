@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e298c816b8964494af1b33b0f3936371" Name="Diagram1" >
+        <EntityTypeShape EntityType="MagaModel.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MagaModel.Country" Width="1.5" PointX="0.75" PointY="3.875" />
+        <EntityTypeShape EntityType="MagaModel.CountryText" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MagaModel.District" Width="1.5" PointX="5.25" PointY="3.625" />
+        <EntityTypeShape EntityType="MagaModel.DistrictText" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MagaModel.DMTRAM" Width="1.5" PointX="0.75" PointY="7.75" />
+        <EntityTypeShape EntityType="MagaModel.Location" Width="1.5" PointX="7.5" PointY="3" />
+        <EntityTypeShape EntityType="MagaModel.LocationText" Width="1.5" PointX="2.75" PointY="7.75" />
+        <EntityTypeShape EntityType="MagaModel.Quarter" Width="1.5" PointX="9.75" PointY="3.75" />
+        <EntityTypeShape EntityType="MagaModel.QuarterText" Width="1.5" PointX="4.75" PointY="7.75" />
+        <EntityTypeShape EntityType="MagaModel.State" Width="1.5" PointX="3" PointY="3.375" />
+        <EntityTypeShape EntityType="MagaModel.StateText" Width="1.5" PointX="6.75" PointY="7.75" />
+        <EntityTypeShape EntityType="MagaModel.tbl_advert_promotion" Width="1.5" PointX="8.75" PointY="7.75" />
+        <EntityTypeShape EntityType="MagaModel.tbl_brand_promotion" Width="1.5" PointX="0.75" PointY="10.75" />
+        <EntityTypeShape EntityType="MagaModel.tbl_category_promotion" Width="1.5" PointX="9.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MagaModel.tbl_slide_promotion" Width="1.5" PointX="2.75" PointY="10.75" />
+        <EntityTypeShape EntityType="MagaModel.tbl_user_promotion" Width="1.5" PointX="4.75" PointY="10.75" />
+        <EntityTypeShape EntityType="MagaModel.tblAdvertGift" Width="1.5" PointX="10.75" PointY="7.75" />
+        <EntityTypeShape EntityType="MagaModel.tblAdvertManga" Width="1.5" PointX="11.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MagaModel.tblCategoryGift" Width="1.5" PointX="12.75" PointY="5.75" />
+        <EntityTypeShape EntityType="MagaModel.tblChapterManga" Width="1.5" PointX="6.75" PointY="12.75" />
+        <EntityTypeShape EntityType="MagaModel.tblCityGift" Width="1.5" PointX="12.75" PointY="8.75" />
+        <EntityTypeShape EntityType="MagaModel.tblDeviceManga" Width="1.5" PointX="8.75" PointY="12.75" />
+        <EntityTypeShape EntityType="MagaModel.tblImgManga" Width="1.5" PointX="10.75" PointY="12.75" />
+        <EntityTypeShape EntityType="MagaModel.tblTypeGift" Width="1.5" PointX="12.75" PointY="11.75" />
+        <EntityTypeShape EntityType="MagaModel.tblTypeManga" Width="1.5" PointX="13.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MagaModel.tbl_advert_picture_promotion" Width="1.5" PointX="2.75" PointY="14.75" />
+        <AssociationConnector Association="MagaModel.FK_Location_Country" />
+        <AssociationConnector Association="MagaModel.FK_State_Country" />
+        <AssociationConnector Association="MagaModel.FK_District_State" />
+        <AssociationConnector Association="MagaModel.FK_Location_District" />
+        <AssociationConnector Association="MagaModel.FK_Location_State" />
+        <AssociationConnector Association="MagaModel.FK_Quarter_Location" />
+        <EntityTypeShape EntityType="MagaModel.TblDoge" Width="1.5" PointX="15.375" PointY="3.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -14,7 +14,7 @@ namespace ApiManga.Controllers
 {
     public class DeviceController : ApiController
     {
-        private MangaEntities db = new MangaEntities();
+        private Manga1Entities db = new Manga1Entities();
 
         // GET: api/Device
         public List<tblDeviceManga> GetDeviceById(int id)

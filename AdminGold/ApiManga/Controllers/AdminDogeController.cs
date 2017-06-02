@@ -10,107 +10,107 @@ using ApiManga.Models;
 
 namespace ApiManga.Controllers
 {
-    public class AdminTypeMangasController : Controller
+    public class AdminDogeController : Controller
     {
         private Manga1Entities db = new Manga1Entities();
 
-        // GET: AdminTypeMangas
+        // GET: AdminDoge
         public ActionResult Index()
         {
-            return View(db.tblTypeMangas.ToList());
+            return View(db.TblDoges.ToList());
         }
 
-        // GET: AdminTypeMangas/Details/5
+        // GET: AdminDoge/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            tblTypeManga tblTypeManga = db.tblTypeMangas.Find(id);
-            if (tblTypeManga == null)
+            TblDoge tblDoge = db.TblDoges.Find(id);
+            if (tblDoge == null)
             {
                 return HttpNotFound();
             }
-            return View(tblTypeManga);
+            return View(tblDoge);
         }
 
-        // GET: AdminTypeMangas/Create
+        // GET: AdminDoge/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: AdminTypeMangas/Create
+        // POST: AdminDoge/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IdTypeManga,NameTypeManga,StatusTypeManga")] tblTypeManga tblTypeManga)
+        public ActionResult Create([Bind(Include = "Id,UserName,Status,Money,Pass")] TblDoge tblDoge)
         {
             if (ModelState.IsValid)
             {
-                db.tblTypeMangas.Add(tblTypeManga);
+                db.TblDoges.Add(tblDoge);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(tblTypeManga);
+            return View(tblDoge);
         }
 
-        // GET: AdminTypeMangas/Edit/5
+        // GET: AdminDoge/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            tblTypeManga tblTypeManga = db.tblTypeMangas.Find(id);
-            if (tblTypeManga == null)
+            TblDoge tblDoge = db.TblDoges.Find(id);
+            if (tblDoge == null)
             {
                 return HttpNotFound();
             }
-            return View(tblTypeManga);
+            return View(tblDoge);
         }
 
-        // POST: AdminTypeMangas/Edit/5
+        // POST: AdminDoge/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IdTypeManga,NameTypeManga,StatusTypeManga")] tblTypeManga tblTypeManga)
+        public ActionResult Edit([Bind(Include = "Id,UserName,Status,Money,Pass")] TblDoge tblDoge)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(tblTypeManga).State = EntityState.Modified;
+                db.Entry(tblDoge).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(tblTypeManga);
+            return View(tblDoge);
         }
 
-        // GET: AdminTypeMangas/Delete/5
+        // GET: AdminDoge/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            tblTypeManga tblTypeManga = db.tblTypeMangas.Find(id);
-            if (tblTypeManga == null)
+            TblDoge tblDoge = db.TblDoges.Find(id);
+            if (tblDoge == null)
             {
                 return HttpNotFound();
             }
-            return View(tblTypeManga);
+            return View(tblDoge);
         }
 
-        // POST: AdminTypeMangas/Delete/5
+        // POST: AdminDoge/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            tblTypeManga tblTypeManga = db.tblTypeMangas.Find(id);
-            db.tblTypeMangas.Remove(tblTypeManga);
+            TblDoge tblDoge = db.TblDoges.Find(id);
+            db.TblDoges.Remove(tblDoge);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -24,7 +24,7 @@ namespace ApiManga.Controllers
         /// 3:truyện phổ biến
         /// </summary>
 
-        private MangaEntities db = new MangaEntities();
+        private Manga1Entities db = new Manga1Entities();
         //[System.Web.Http.Route("api/Advert/GetListAdvert")]
         //[System.Web.Http.HttpGet]
         public List<tblAdvertManga> GetListAdvert()
