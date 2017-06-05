@@ -19,5 +19,9 @@ namespace ApiManga.Models
         public Nullable<int> Status { get; set; }
         public string Money { get; set; }
         public string Pass { get; set; }
+        public string CreateDate { get; set; }
+        public string ipServer { get; set; }
+        public Nullable<int> statusEnd { get; set; }
+        public Nullable<int> statusStart { get; set; }
     }
 }
