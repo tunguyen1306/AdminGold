@@ -43,14 +43,17 @@
 
                             @foreach (var item in Model)
                             {
-                                var itemIm = db.tblSysPictures.Where(x => x.advert_id == item.tblProject.vangia_id_project).FirstOrDefault();
+                               
 
                                 <tr class="odd gradeX">
                                     <td>
                                    
-                                            @*<img width="50" src="@ConfigurationManager.AppSettings["domain"]@itemIm.originalFilepath.ToString().Split('_')[0]/@itemIm.originalFilepath" alt="@item.tblProject.vangia_name_project" />*@
-                                        
-                                  
+                                        @foreach (var itemIm in db.tblSysPictures.Where(x => x.advert_id == item.tblProject.vangia_id_project).Take(1).ToList())
+                                        {
+                                     
+                                        <img width="50" src="@ConfigurationManager.AppSettings["domain"]@itemIm.originalFilepath.ToString().Split('_')[0]/@itemIm.originalFilepath" alt="@item.tblProject.vangia_name_project" />
+
+                                        }
                                     
                                      </td>
                                     <td>

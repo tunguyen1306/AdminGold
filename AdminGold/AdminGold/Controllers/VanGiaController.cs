@@ -24,6 +24,7 @@ namespace AdminGold.Controllers
                 return RedirectToAction("Login", "Home");
             }
             var qrData = (from dataPro in db.web_vangia_project
+                          where dataPro.vangia_status_project !=null
                           select new VanGiaPicture { tblProject = dataPro});
             return View(qrData.ToList());
         }
