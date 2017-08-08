@@ -24,9 +24,7 @@ namespace AdminGold.Controllers
                 return RedirectToAction("Login", "Home");
             }
             var qrData = (from dataPro in db.web_vangia_project
-                          join dataImg in db.tblSysPictures on dataPro.vangia_id_project equals dataImg.advert_id
-                          where dataImg.position == 1
-                          select new VanGiaPicture { tblProject = dataPro, tblPicture = dataImg });
+                          select new VanGiaPicture { tblProject = dataPro});
             return View(qrData.ToList());
         }
 

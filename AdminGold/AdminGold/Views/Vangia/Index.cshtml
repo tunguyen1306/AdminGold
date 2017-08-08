@@ -3,7 +3,11 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    AdminGoldEntities db = new AdminGoldEntities();
+  
 }
+@using  AdminGold.Models;
+
 @using System.Configuration
 
 
@@ -39,8 +43,16 @@
 
                             @foreach (var item in Model)
                             {
+                                var itemIm = db.tblSysPictures.Where(x => x.advert_id == item.tblProject.vangia_id_project).FirstOrDefault();
+
                                 <tr class="odd gradeX">
-                                    <td><img width="50" src="@ConfigurationManager.AppSettings["domain"]@item.tblPicture.originalFilepath.ToString().Split('_')[0]/@item.tblPicture.originalFilepath" alt="@item.tblProject.vangia_name_project" /> </td>
+                                    <td>
+                                   
+                                            @*<img width="50" src="@ConfigurationManager.AppSettings["domain"]@itemIm.originalFilepath.ToString().Split('_')[0]/@itemIm.originalFilepath" alt="@item.tblProject.vangia_name_project" />*@
+                                        
+                                  
+                                    
+                                     </td>
                                     <td>
 
                                         @item.tblProject.vangia_name_project
@@ -68,11 +80,11 @@
                                         }
                                         @if (item.tblProject.vangia_typeid_project == 11)
                                         {
-                                            @("a.Xây dựng-kế hoạch")
+                                            @("1a.Xây dựng-kế hoạch")
                                         }
                                         @if (item.tblProject.vangia_typeid_project == 12)
                                         {
-                                            @("b.Xây dựng-thông tin")
+                                            @("1b.Xây dựng-thông tin")
                                         }
                                         @if (item.tblProject.vangia_typeid_project == 2)
                                         {
@@ -80,11 +92,11 @@
                                         }
                                         @if (item.tblProject.vangia_typeid_project == 21)
                                         {
-                                            @("a.Thương mại-phân phối")
+                                            @("2a.Thương mại-phân phối")
                                         }
                                         @if (item.tblProject.vangia_typeid_project == 22)
                                         {
-                                            @("b.Thương mại-thông tin")
+                                            @("2b.Thương mại-thông tin")
                                         }
                                         @if (item.tblProject.vangia_typeid_project == 3)
                                         {
@@ -93,11 +105,11 @@
 
                                         @if (item.tblProject.vangia_typeid_project == 31)
                                         {
-                                            @("a.Dịch vụ-hành trình")
+                                            @("3a.Tour du lịch")
                                         }
                                         @if (item.tblProject.vangia_typeid_project == 32)
                                         {
-                                            @("b.Dịch vụ-thông tin")
+                                            @("3b.Dịch vụ-thông tin")
                                         }
 
                                     </td>
