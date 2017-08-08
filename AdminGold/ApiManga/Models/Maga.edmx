@@ -350,6 +350,10 @@ warning 6002: The table/view 'nhvanxol_api.dbo.tbl_advert_picture_promotion' doe
           <Property Name="Status" Type="int" />
           <Property Name="Money" Type="varchar" MaxLength="50" />
           <Property Name="Pass" Type="varchar" MaxLength="50" />
+          <Property Name="CreateDate" Type="nvarchar" MaxLength="50" />
+          <Property Name="ipServer" Type="nvarchar" MaxLength="50" />
+          <Property Name="statusEnd" Type="int" />
+          <Property Name="statusStart" Type="int" />
         </EntityType>
         <Association Name="FK_District_State">
           <End Role="State" Type="Self.State" Multiplicity="1" />
@@ -982,6 +986,10 @@ warning 6002: The table/view 'nhvanxol_api.dbo.tbl_advert_picture_promotion' doe
           <Property Name="Status" Type="Int32" />
           <Property Name="Money" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Pass" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ipServer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="statusEnd" Type="Int32" />
+          <Property Name="statusStart" Type="Int32" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1340,6 +1348,10 @@ warning 6002: The table/view 'nhvanxol_api.dbo.tbl_advert_picture_promotion' doe
           <EntitySetMapping Name="TblDoges">
             <EntityTypeMapping TypeName="MagaModel.TblDoge">
               <MappingFragment StoreEntitySet="TblDoge">
+                <ScalarProperty Name="statusStart" ColumnName="statusStart" />
+                <ScalarProperty Name="statusEnd" ColumnName="statusEnd" />
+                <ScalarProperty Name="ipServer" ColumnName="ipServer" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
                 <ScalarProperty Name="Pass" ColumnName="Pass" />
                 <ScalarProperty Name="Money" ColumnName="Money" />
                 <ScalarProperty Name="Status" ColumnName="Status" />

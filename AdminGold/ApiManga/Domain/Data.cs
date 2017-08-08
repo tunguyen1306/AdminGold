@@ -33,6 +33,8 @@ namespace AdminGold.Domain
           
             menu.Add(new Navbar { Id =2, nameOption = "Danh Sách Truyện", controller = "AdminAdvertMangas", action = "Index", imageClass = "fa fa-dashboard fa-fw", status = true, isParent = false, parentId = 1 });
             menu.Add(new Navbar { Id = 3, nameOption = "Danh Sách Loại", controller = "AdminTypeMangas", action = "Index", imageClass = "fa fa-dashboard fa-fw", status = true, isParent = false, parentId = 1 });
+            menu.Add(new Navbar { Id = 4, nameOption = "Danh Sách User 1", controller = "AdminDoge", action = "Index", imageClass = "fa fa-dashboard fa-fw", status = true, isParent = false, parentId = 1 });
+            menu.Add(new Navbar { Id = 5, nameOption = "Danh Sách User 2", controller = "AdminDoge", action = "Index1", imageClass = "fa fa-dashboard fa-fw", status = true, isParent = false, parentId = 1 });
 
             return menu.ToList();
         }

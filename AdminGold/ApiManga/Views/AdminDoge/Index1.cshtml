@@ -17,7 +17,7 @@
     <div class="col-lg-12">
         <div class="panel panel-default">
             <div class="panel-heading">
-             
+
             </div>
             <!-- /.panel-heading -->
             <div class="panel-body">
@@ -52,48 +52,48 @@
                                 <th>
                                     @Html.DisplayNameFor(model => model.ipServer)
                                 </th>
-                             
+
                                 <th></th>
                             </tr>
                         </thead>
                         <tbody>
-                          @foreach (var item in Model)
-                          {
-                            <tr>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Id)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.UserName)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Status)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Money)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Pass)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(model => item.CreateDate)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(model => item.statusStart)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(model => item.statusEnd)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(model => item.ipServer)
-                                </td>
-                                <td>
-                                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-                                </td>
-                            </tr>
-                          }
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Id)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.UserName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Status)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Money)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Pass)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(model => item.CreateDate)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(model => item.statusStart)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(model => item.statusEnd)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(model => item.ipServer)
+                                    </td>
+                                    <td>
+                                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                                        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                                    </td>
+                                </tr>
+                            }
                         </tbody>
                     </table>
                 </div>

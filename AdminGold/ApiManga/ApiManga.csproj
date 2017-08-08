@@ -1213,6 +1213,7 @@
     <Content Include="Views\AdminDoge\Details.cshtml" />
     <Content Include="Views\AdminDoge\Edit.cshtml" />
     <Content Include="Views\AdminDoge\Index.cshtml" />
+    <Content Include="Views\AdminDoge\Index1.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

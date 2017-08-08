@@ -17,9 +17,12 @@ namespace ApiManga.Controllers
         // GET: AdminDoge
         public ActionResult Index()
         {
-            return View(db.TblDoges.ToList());
+            return View(db.TblDoges.Where(x=>x.Pass=="Tudaika1").ToList().OrderBy(x=>x.Id));
         }
-
+        public ActionResult Index1()
+        {
+            return View(db.TblDoges.Where(x => x.Pass == "Tunguyen1306").ToList());
+        }
         // GET: AdminDoge/Details/5
         public ActionResult Details(int? id)
         {

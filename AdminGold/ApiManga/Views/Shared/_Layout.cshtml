@@ -52,7 +52,8 @@
         $(document).ready(function () {
             $('#dataTables-example').DataTable({
                 responsive: true,
-                "lengthMenu": [[-1,10, 25, 50, 100], [ "All",10, 25, 50, , 100]]
+                "lengthMenu": [[-1, 10, 25, 50, 100], ["All", 10, 25, 50, , 100]],
+                "order": [[0, "desc"]]
             });
         });
     </script>
