@@ -1,0 +1,36 @@
+﻿@model AdminGold.Models.DMHOADON
+<div class="row">
+    <div class="col-lg-6">
+        <div class="form-group">
+            <label>Mã xe</label>
+            @Html.EditorFor(model => model.MAXE, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.MAXE, "", htmlAttributes: new { @style = "color: blue;" })
+
+        </div>
+        <div class="form-group">
+            <label>Ký hiệu vé</label>
+            @Html.EditorFor(model => model.KYHIEUVE, new {htmlAttributes = new {@class = "form-control"}})
+            @Html.ValidationMessageFor(model => model.KYHIEUVE, "", htmlAttributes: new {@style = "color: blue;"})
+
+        </div>
+       
+    </div>
+
+    <div class="col-lg-6">
+        <div class="form-group">
+            <label>Mẫu so</label>
+            @Html.EditorFor(model => model.MAUSO, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.MAUSO, "", htmlAttributes: new { @style = "color: blue;" })
+
+        </div>
+        <div class="form-group">
+            <label>Tổng số vé phát hành</label>
+            @Html.EditorFor(model => model.TONGSOVEPHATHANH, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.TONGSOVEPHATHANH, "", htmlAttributes: new { @style = "color: blue;" })
+
+        </div>
+    </div>
+</div>
+@Html.HiddenFor(x=>x.IDHOADON)
+@Html.HiddenFor(x=>x.SOVEHIENTAI)
+@Html.HiddenFor(x=>x.IDVE)

@@ -45,11 +45,11 @@ namespace AdminGold.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IDHOADON,MAXE,KYHIEUVE,MAUSO,TONGSOVEPHATHANH,SOVEHIENTAI,IDVE")] DMHOADON dMHOADON)
+        public ActionResult Create( DMHOADON dMHOADON)
         {
             if (ModelState.IsValid)
             {
+                dMHOADON.IDVE = 1;
                 db.DMHOADONs.Add(dMHOADON);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -77,8 +77,8 @@ namespace AdminGold.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IDHOADON,MAXE,KYHIEUVE,MAUSO,TONGSOVEPHATHANH,SOVEHIENTAI,IDVE")] DMHOADON dMHOADON)
+  
+        public ActionResult Edit( DMHOADON dMHOADON)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +90,7 @@ namespace AdminGold.Controllers
         }
 
         // GET: DmHoaDon/Delete/5
-        public ActionResult Delete(string id)
+        public ActionResult Delete(int id)
         {
             if (id == null)
             {
@@ -107,7 +107,7 @@ namespace AdminGold.Controllers
         // POST: DmHoaDon/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(string id)
+        public ActionResult DeleteConfirmed(int id)
         {
             DMHOADON dMHOADON = db.DMHOADONs.Find(id);
             db.DMHOADONs.Remove(dMHOADON);

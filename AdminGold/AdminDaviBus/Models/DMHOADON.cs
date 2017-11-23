@@ -14,7 +14,7 @@ namespace AdminGold.Models
     
     public partial class DMHOADON
     {
-        public string IDHOADON { get; set; }
+        public int IDHOADON { get; set; }
         public string MAXE { get; set; }
         public string KYHIEUVE { get; set; }
         public string MAUSO { get; set; }
