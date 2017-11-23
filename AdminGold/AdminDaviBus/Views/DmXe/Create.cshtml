@@ -1,73 +1,55 @@
-﻿@model AdminGold.Models.DMXE
+﻿
 
 @{
     ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Create</h2>
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Thêm xe</h1>
+    </div>
 
+</div>
+<!-- /.row -->
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                @using (Html.BeginForm("Create", "DmXe", FormMethod.Post))
+                {
+                    @Html.Partial("_InputDmXe")
+                    <div class="row">
+                        <div class="col-lg-6 text-right">
+                            <button type="submit" id="submitbutton" class="btn btn-primary">Lưu</button>
 
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>DMXE</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.MAXE, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.MAXE, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.MAXE, "", new { @class = "text-danger" })
+                            <a href="@Url.Action("Index","DmXe")" class="btn btn-primary">Hủy</a>
+                        </div>
+                        <div class="col-lg-6 text-left">
+
+                        </div>
+                    </div>
+
+                }
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.SOXE, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.SOXE, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.SOXE, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.LOAIXE, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.LOAIXE, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.LOAIXE, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.MATAIXE, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.MATAIXE, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.MATAIXE, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.SOGHE, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.SOGHE, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.SOGHE, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
         </div>
     </div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
 </div>
+
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
+<script>
+
+    $("#submitbutton").on('click', function (e) {
+        e.preventDefault();
+        bootbox.confirm("Lưu", function (isOK) {
+            if (isOK) {
+                $('#submitbutton').parents("form").submit();
+            }
+        });
+    });
+</script>

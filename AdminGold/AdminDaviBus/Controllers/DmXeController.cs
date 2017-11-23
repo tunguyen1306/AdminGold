@@ -38,15 +38,22 @@ namespace AdminGold.Controllers
         // GET: DmXe/Create
         public ActionResult Create()
         {
-            return View();
+            var dataTaiXe = db.DMTAIXEs.ToList();
+            dataTaiXe.Insert(0, new DMTAIXE { MATAIXE = "", TENTAIXE = "Chọn tài xế" });
+            var model = new AllModel
+            {
+                DmXe = new DMXE(),
+                ListDmTaiXe = dataTaiXe
+            };
+            return View(model);
         }
 
         // POST: DmXe/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MAXE,SOXE,LOAIXE,MATAIXE,SOGHE")] DMXE dMXE)
+       
+        public ActionResult Create(DMXE dMXE)
         {
             if (ModelState.IsValid)
             {
@@ -70,15 +77,22 @@ namespace AdminGold.Controllers
             {
                 return HttpNotFound();
             }
-            return View(dMXE);
+            var dataTaiXe = db.DMTAIXEs.ToList();
+            dataTaiXe.Insert(0, new DMTAIXE { MATAIXE = "", TENTAIXE = "Chọn tài xế" });
+            var model = new AllModel
+            {
+                DmXe = dMXE,
+                ListDmTaiXe = dataTaiXe
+            };
+            return View(model);
         }
 
         // POST: DmXe/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MAXE,SOXE,LOAIXE,MATAIXE,SOGHE")] DMXE dMXE)
+      
+        public ActionResult Edit( DMXE dMXE)
         {
             if (ModelState.IsValid)
             {
@@ -97,11 +111,9 @@ namespace AdminGold.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             DMXE dMXE = db.DMXEs.Find(id);
-            if (dMXE == null)
-            {
-                return HttpNotFound();
-            }
-            return View(dMXE);
+            db.DMXEs.Remove(dMXE);
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
 
         // POST: DmXe/Delete/5

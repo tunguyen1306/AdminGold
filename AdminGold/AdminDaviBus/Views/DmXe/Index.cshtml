@@ -5,48 +5,79 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.SOXE)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LOAIXE)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MATAIXE)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SOGHE)
-        </th>
-        <th></th>
-    </tr>
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Danh sách xe</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                @Html.ActionLink("Thêm xe", "Create", "DmXe", "", htmlAttributes: new { @class = "btn btn-primary" })
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <div class="dataTable_wrapper">
+                    <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                        <thead>
+                        <tr>
+                            <th>Mã xe</th>
+                            <th>Số xe</th>
+                            <th>Loại xe</th>
+                            <th>Mã tài xế</th>
+                            <th>Số ghế</th>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.SOXE)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LOAIXE)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MATAIXE)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SOGHE)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MAXE }) |
-            @Html.ActionLink("Details", "Details", new { id=item.MAXE }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.MAXE })
-        </td>
-    </tr>
-}
+                            <th></th>
 
-</table>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach (var item in Model)
+                            {
+
+
+                                <tr class="odd gradeX">
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.MAXE)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.SOXE)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.LOAIXE)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.MATAIXE)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.SOGHE)
+                                    </td>
+                                    <td>
+                                        <a href="@Url.Action("Edit", "DmXe", new {id = item.MAXE})" class="btn btn-default btn-xs">Sửa</a>
+                                        <a href="@Url.Action("Delete", "DmXe", new {id = item.MAXE})" onclick=" return confirm('Bạn có muốn xóa hóa đơn không?'); " class="btn btn-default btn-xs">Xóa</a>
+
+                                    </td>
+
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.table-responsive -->
+
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+
+
+
+

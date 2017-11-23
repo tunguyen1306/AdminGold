@@ -1,0 +1,45 @@
+﻿
+@using System.Configuration
+@model AdminGold.Models.AllModel
+<div class="row">
+    <div class="col-lg-6">
+        <div class="form-group">
+            <label>Mã xe</label>
+            @Html.EditorFor(model => model.DmXe.MAXE, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.DmXe.MAXE, "", htmlAttributes: new { @style = "color: blue;" })
+
+        </div>
+        <div class="form-group">
+            <label>Số xe</label>
+            @Html.EditorFor(model => model.DmXe.SOXE, new {htmlAttributes = new {@class = "form-control"}})
+            @Html.ValidationMessageFor(model => model.DmXe.SOXE, "", htmlAttributes: new {@style = "color: blue;"})
+
+        </div>
+        <div class="form-group">
+            <label>Số ghế</label>
+            @Html.EditorFor(model => model.DmXe.SOGHE, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.DmXe.SOGHE, "", htmlAttributes: new { @style = "color: blue;" })
+
+        </div>
+
+    </div>
+
+    <div class="col-lg-6">
+        <div class="form-group">
+            <label>Loại xe</label>
+            @Html.EditorFor(model => model.DmXe.LOAIXE, new { htmlAttributes = new { @class = "form-control" } })
+
+        </div>
+        <div class="form-group">
+            <label>Mã tài xế</label>
+
+            @Html.DropDownListFor(m => m.DmXe.MATAIXE, new SelectList(Model.ListDmTaiXe, "MATAIXE", "TENTAIXE", "Chọn tài xế"), new { @class = "form-control" })
+
+
+        </div>
+
+    </div>
+</div>
+@Html.HiddenFor(x => x.DmXe.MAXE)
+
+

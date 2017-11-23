@@ -38,7 +38,7 @@ namespace AdminGold.Controllers
         // GET: DmHoaDon/Create
         public ActionResult Create()
         {
-            return View();
+            return View(new DMHOADON {IDHOADON = 0});
         }
 
         // POST: DmHoaDon/Create
@@ -50,6 +50,7 @@ namespace AdminGold.Controllers
             if (ModelState.IsValid)
             {
                 dMHOADON.IDVE = 1;
+                dMHOADON.SOVEHIENTAI = 0;
                 db.DMHOADONs.Add(dMHOADON);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -59,7 +60,7 @@ namespace AdminGold.Controllers
         }
 
         // GET: DmHoaDon/Edit/5
-        public ActionResult Edit(string id)
+        public ActionResult Edit(int id)
         {
             if (id == null)
             {
@@ -97,23 +98,12 @@ namespace AdminGold.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             DMHOADON dMHOADON = db.DMHOADONs.Find(id);
-            if (dMHOADON == null)
-            {
-                return HttpNotFound();
-            }
-            return View(dMHOADON);
-        }
-
-        // POST: DmHoaDon/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            DMHOADON dMHOADON = db.DMHOADONs.Find(id);
             db.DMHOADONs.Remove(dMHOADON);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+     
 
         protected override void Dispose(bool disposing)
         {

@@ -64,6 +64,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AllModel.cs" />
     <Compile Include="Models\clsBlog.cs" />
     <Compile Include="Models\Counter.cs">
       <DependentUpon>DataBus.tt</DependentUpon>
@@ -1419,6 +1420,9 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\DmHoaDon\_InputDmHoaDon.cshtml" />
+    <Content Include="Views\DmTaiXe\_InputDmTaiXe.cshtml" />
+    <Content Include="Views\DmTram\_InputDmTram.cshtml" />
+    <Content Include="Views\DmXe\_InputDmXe.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

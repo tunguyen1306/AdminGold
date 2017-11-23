@@ -45,8 +45,8 @@ namespace AdminGold.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,MATRAM,TENTRAM,LatLng,FileTram")] DMTRAM dMTRAM)
+       
+        public ActionResult Create(DMTRAM dMTRAM)
         {
             if (ModelState.IsValid)
             {
@@ -77,8 +77,8 @@ namespace AdminGold.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,MATRAM,TENTRAM,LatLng,FileTram")] DMTRAM dMTRAM)
+       
+        public ActionResult Edit( DMTRAM dMTRAM)
         {
             if (ModelState.IsValid)
             {
@@ -97,11 +97,9 @@ namespace AdminGold.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             DMTRAM dMTRAM = db.DMTRAMs.Find(id);
-            if (dMTRAM == null)
-            {
-                return HttpNotFound();
-            }
-            return View(dMTRAM);
+            db.DMTRAMs.Remove(dMTRAM);
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
 
         // POST: DmTram/Delete/5

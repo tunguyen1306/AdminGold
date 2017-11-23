@@ -45,8 +45,8 @@ namespace AdminGold.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MATAIXE,TENTAIXE,TUOI,GIOITINH,BANGLAI,SDT,DIACHINOIO,EMAIL")] DMTAIXE dMTAIXE)
+
+        public ActionResult Create( DMTAIXE dMTAIXE)
         {
             if (ModelState.IsValid)
             {
@@ -77,8 +77,8 @@ namespace AdminGold.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MATAIXE,TENTAIXE,TUOI,GIOITINH,BANGLAI,SDT,DIACHINOIO,EMAIL")] DMTAIXE dMTAIXE)
+    
+        public ActionResult Edit(DMTAIXE dMTAIXE)
         {
             if (ModelState.IsValid)
             {
@@ -97,23 +97,14 @@ namespace AdminGold.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             DMTAIXE dMTAIXE = db.DMTAIXEs.Find(id);
-            if (dMTAIXE == null)
-            {
-                return HttpNotFound();
-            }
-            return View(dMTAIXE);
-        }
-
-        // POST: DmTaiXe/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(string id)
-        {
-            DMTAIXE dMTAIXE = db.DMTAIXEs.Find(id);
             db.DMTAIXEs.Remove(dMTAIXE);
             db.SaveChanges();
             return RedirectToAction("Index");
+           
         }
+
+        // POST: DmTaiXe/Delete/5
+      
 
         protected override void Dispose(bool disposing)
         {
