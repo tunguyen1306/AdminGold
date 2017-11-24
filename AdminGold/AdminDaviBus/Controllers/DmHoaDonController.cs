@@ -38,7 +38,14 @@ namespace AdminGold.Controllers
         // GET: DmHoaDon/Create
         public ActionResult Create()
         {
-            return View(new DMHOADON {IDHOADON = 0});
+            var dataTaiXe = db.DMXEs.ToList();
+            dataTaiXe.Insert(0, new DMXE { MAXE = "", SOXE = "Chọn số xe" });
+            var model = new AllModel
+            {
+                ListDmXe = dataTaiXe,
+                DmHoaDon = new DMHOADON { IDHOADON = 0 }
+            };
+            return View(model);
         }
 
         // POST: DmHoaDon/Create
@@ -66,12 +73,20 @@ namespace AdminGold.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            var dataTaiXe = db.DMXEs.ToList();
+            dataTaiXe.Insert(0, new DMXE { MAXE = "", SOXE = "Chọn số xe" });
+           
             DMHOADON dMHOADON = db.DMHOADONs.Find(id);
             if (dMHOADON == null)
             {
                 return HttpNotFound();
             }
-            return View(dMHOADON);
+            var model = new AllModel
+            {
+                ListDmXe = dataTaiXe,
+                DmHoaDon = dMHOADON
+            };
+            return View(model);
         }
 
         // POST: DmHoaDon/Edit/5

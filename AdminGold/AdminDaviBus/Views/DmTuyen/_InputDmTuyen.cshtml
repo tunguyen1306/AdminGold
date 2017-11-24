@@ -1,0 +1,304 @@
+﻿
+@using System.Configuration
+@model AdminGold.Models.DMTUYEN
+<div class="row">
+    <div class="col-lg-6">
+        <div class="form-group">
+            @Html.LabelFor(model => model.IDTUYEN)
+          
+                @Html.EditorFor(model => model.IDTUYEN, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.IDTUYEN, "", new { @class = "text-danger" })
+         
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MATUYEN)
+           
+                @Html.EditorFor(model => model.MATUYEN, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MATUYEN, "", new { @class = "text-danger" })
+           
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TENTUYENENG)
+           
+                @Html.EditorFor(model => model.TENTUYENENG, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TENTUYENENG, "", new { @class = "text-danger" })
+           
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TENTUYENVN)
+          
+                @Html.EditorFor(model => model.TENTUYENVN, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TENTUYENVN, "", new { @class = "text-danger" })
+           
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MATRAMDAU)
+           
+                @Html.EditorFor(model => model.MATRAMDAU, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MATRAMDAU, "", new { @class = "text-danger" })
+           
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MATRAMGIUA)
+         
+                @Html.EditorFor(model => model.MATRAMGIUA, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MATRAMGIUA, "", new { @class = "text-danger" })
+           
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MATRAMCUOI)
+         
+                @Html.EditorFor(model => model.MATRAMCUOI, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MATRAMCUOI, "", new { @class = "text-danger" })
+        
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TONGTRAM)
+           
+                @Html.EditorFor(model => model.TONGTRAM, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TONGTRAM, "", new { @class = "text-danger" })
+         
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MUCDO)
+           
+                @Html.EditorFor(model => model.MUCDO, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MUCDO, "", new { @class = "text-danger" })
+           
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.THOIGIANTOANTRAM)
+            
+                @Html.EditorFor(model => model.THOIGIANTOANTRAM, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.THOIGIANTOANTRAM, "", new { @class = "text-danger" })
+           
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.GIAVE1)
+           
+                @Html.EditorFor(model => model.GIAVE1, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.GIAVE1, "", new { @class = "text-danger" })
+         
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DIENGIAIVE1)
+           
+                @Html.EditorFor(model => model.DIENGIAIVE1, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DIENGIAIVE1, "", new { @class = "text-danger" })
+           
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CAMVE1)
+
+            <div class="checkbox">
+                @Html.EditorFor(model => model.CAMVE1, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CAMVE1, "", new { @class = "text-danger" })
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IDVE1IDHOADON)
+
+            @Html.EditorFor(model => model.IDVE1IDHOADON, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.IDVE1IDHOADON, "", new { @class = "text-danger" })
+
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.GIAVE2)
+
+            @Html.EditorFor(model => model.GIAVE2, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.GIAVE2, "", new { @class = "text-danger" })
+
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DIENGIAIVE2)
+
+            @Html.EditorFor(model => model.DIENGIAIVE2, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.DIENGIAIVE2, "", new { @class = "text-danger" })
+
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CAMVE2)
+
+            <div class="checkbox">
+                @Html.EditorFor(model => model.CAMVE2, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CAMVE2, "", new { @class = "text-danger" })
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IDVE2IDHOADON)
+
+            @Html.EditorFor(model => model.IDVE2IDHOADON, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.IDVE2IDHOADON, "", new { @class = "text-danger" })
+
+        </div>
+      
+    </div>
+
+    <div class="col-lg-6">
+
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.GIAVE3)
+          
+                @Html.EditorFor(model => model.GIAVE3, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.GIAVE3, "", new { @class = "text-danger" })
+          
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DIENGIAIVE3)
+           
+                @Html.EditorFor(model => model.DIENGIAIVE3, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DIENGIAIVE3, "", new { @class = "text-danger" })
+          
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CAMVE3)
+          
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.CAMVE3, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.CAMVE3, "", new { @class = "text-danger" })
+                </div>
+           
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IDVE3IDHOADON)
+          
+                @Html.EditorFor(model => model.IDVE3IDHOADON, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.IDVE3IDHOADON, "", new { @class = "text-danger" })
+           
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.GIAVE4)
+           
+                @Html.EditorFor(model => model.GIAVE4, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.GIAVE4, "", new { @class = "text-danger" })
+           
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DIENGIAIVE4)
+          
+                @Html.EditorFor(model => model.DIENGIAIVE4, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DIENGIAIVE4, "", new { @class = "text-danger" })
+            
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CAMVE4)
+           
+               
+                    @Html.EditorFor(model => model.CAMVE4, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.CAMVE4, "", new { @class = "text-danger" })
+               
+            
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IDVE4IDHOADON)
+           
+                @Html.EditorFor(model => model.IDVE4IDHOADON, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.IDVE4IDHOADON, "", new { @class = "text-danger" })
+           
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.GIAVE5)
+         
+                @Html.EditorFor(model => model.GIAVE5, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.GIAVE5, "", new { @class = "text-danger" })
+           
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DIENGIAIVE5)
+          
+                @Html.EditorFor(model => model.DIENGIAIVE5, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DIENGIAIVE5, "", new { @class = "text-danger" })
+           
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CAMVE5)
+         
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.CAMVE5, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.CAMVE5, "", new { @class = "text-danger" })
+                </div>
+           
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IDVE5IDHOADON)
+          
+                @Html.EditorFor(model => model.IDVE5IDHOADON, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.IDVE5IDHOADON, "", new { @class = "text-danger" })
+          
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.GIAVE6)
+           
+                @Html.EditorFor(model => model.GIAVE6, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.GIAVE6, "", new { @class = "text-danger" })
+            
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DIENGIAIVE6)
+          
+                @Html.EditorFor(model => model.DIENGIAIVE6, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DIENGIAIVE6, "", new { @class = "text-danger" })
+           
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CAMVE6)
+        
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.CAMVE6, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.CAMVE6, "", new { @class = "text-danger" })
+                </div>
+         
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IDVE6IDHOADON)
+           
+                @Html.EditorFor(model => model.IDVE6IDHOADON, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.IDVE6IDHOADON, "", new { @class = "text-danger" })
+           
+        </div>
+
+    
+
+    </div>
+</div>
+@Html.HiddenFor(x => x.IDTUYEN)
+
+
+
+

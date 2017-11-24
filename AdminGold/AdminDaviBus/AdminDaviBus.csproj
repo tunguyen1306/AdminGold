@@ -1423,6 +1423,7 @@
     <Content Include="Views\DmTaiXe\_InputDmTaiXe.cshtml" />
     <Content Include="Views\DmTram\_InputDmTram.cshtml" />
     <Content Include="Views\DmXe\_InputDmXe.cshtml" />
+    <Content Include="Views\DmTuyen\_InputDmTuyen.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

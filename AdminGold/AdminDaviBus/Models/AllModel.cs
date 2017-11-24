@@ -8,12 +8,11 @@ namespace AdminGold.Models
     public class AllModel
     {
         public DMXE DmXe { get; set; } 
+        public DMHOADON DmHoaDon { get; set; } 
+        public List<DMHOADON> ListDmHoaDon { get; set; } 
+        public List<DMXE> ListDmXe { get; set; } 
         public DMTAIXE TblDmTaiXe { get; set; } 
         public List<DMTAIXE>  ListDmTaiXe { get; set; } 
     }
-    public class DmTaiXeModel
-    {
-      public string MaTaiXe { get; set; }
-      public string TenTaiXe { get; set; }
-    }
+   
 }
