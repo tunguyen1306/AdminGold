@@ -133,7 +133,7 @@
           <Key>
             <PropertyRef Name="IDHOADON" />
           </Key>
-          <Property Name="IDHOADON" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IDHOADON" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="MAXE" Type="varchar" MaxLength="50" />
           <Property Name="KYHIEUVE" Type="varchar" MaxLength="50" />
           <Property Name="MAUSO" Type="varchar" MaxLength="50" />
@@ -648,7 +648,6 @@ warning 6002: The table/view 'nhvanxol_bus.dbo.VNELocation' does not have a prim
           <EntitySet Name="DICHVUs" EntityType="BusTicketModel.DICHVU" />
           <EntitySet Name="Districts" EntityType="BusTicketModel.District" />
           <EntitySet Name="DistrictTexts" EntityType="BusTicketModel.DistrictText" />
-          <EntitySet Name="DMHOADONs" EntityType="BusTicketModel.DMHOADON" />
           <EntitySet Name="DMTAIXEs" EntityType="BusTicketModel.DMTAIXE" />
           <EntitySet Name="DMTUYENs" EntityType="BusTicketModel.DMTUYEN" />
           <EntitySet Name="DMTUYENCHITIETTRAMs" EntityType="BusTicketModel.DMTUYENCHITIETTRAM" />
@@ -675,6 +674,7 @@ warning 6002: The table/view 'nhvanxol_bus.dbo.VNELocation' does not have a prim
           <EntitySet Name="TrackingGPS" EntityType="BusTicketModel.TrackingGP" />
           <EntitySet Name="TrackingGPSDetails" EntityType="BusTicketModel.TrackingGPSDetail" />
           <EntitySet Name="DMTRAMs" EntityType="BusTicketModel.DMTRAM" />
+          <EntitySet Name="DMHOADONs" EntityType="BusTicketModel.DMHOADON" />
         </EntityContainer>
         <EntityType Name="Counter">
           <Key>
@@ -799,18 +799,6 @@ warning 6002: The table/view 'nhvanxol_bus.dbo.VNELocation' does not have a prim
           <Property Name="language_id" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
           <Property Name="text" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="rowguid" Type="Guid" Nullable="false" />
-        </EntityType>
-        <EntityType Name="DMHOADON">
-          <Key>
-            <PropertyRef Name="IDHOADON" />
-          </Key>
-          <Property Name="IDHOADON" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="MAXE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="KYHIEUVE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="MAUSO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="TONGSOVEPHATHANH" Type="Int32" />
-          <Property Name="SOVEHIENTAI" Type="Int32" />
-          <Property Name="IDVE" Type="Int32" />
         </EntityType>
         <EntityType Name="DMTAIXE">
           <Key>
@@ -1185,6 +1173,18 @@ warning 6002: The table/view 'nhvanxol_bus.dbo.VNELocation' does not have a prim
           <Property Name="LatLng" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="FileTram" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="DMHOADON">
+          <Key>
+            <PropertyRef Name="IDHOADON" />
+          </Key>
+          <Property Name="IDHOADON" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MAXE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="KYHIEUVE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MAUSO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TONGSOVEPHATHANH" Type="Int32" />
+          <Property Name="SOVEHIENTAI" Type="Int32" />
+          <Property Name="IDVE" Type="Int32" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1317,19 +1317,6 @@ warning 6002: The table/view 'nhvanxol_bus.dbo.VNELocation' does not have a prim
                 <ScalarProperty Name="text" ColumnName="text" />
                 <ScalarProperty Name="language_id" ColumnName="language_id" />
                 <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="DMHOADONs">
-            <EntityTypeMapping TypeName="BusTicketModel.DMHOADON">
-              <MappingFragment StoreEntitySet="DMHOADON">
-                <ScalarProperty Name="IDVE" ColumnName="IDVE" />
-                <ScalarProperty Name="SOVEHIENTAI" ColumnName="SOVEHIENTAI" />
-                <ScalarProperty Name="TONGSOVEPHATHANH" ColumnName="TONGSOVEPHATHANH" />
-                <ScalarProperty Name="MAUSO" ColumnName="MAUSO" />
-                <ScalarProperty Name="KYHIEUVE" ColumnName="KYHIEUVE" />
-                <ScalarProperty Name="MAXE" ColumnName="MAXE" />
-                <ScalarProperty Name="IDHOADON" ColumnName="IDHOADON" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1726,6 +1713,19 @@ warning 6002: The table/view 'nhvanxol_bus.dbo.VNELocation' does not have a prim
                 <ScalarProperty Name="TENTRAM" ColumnName="TENTRAM" />
                 <ScalarProperty Name="MATRAM" ColumnName="MATRAM" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DMHOADONs">
+            <EntityTypeMapping TypeName="BusTicketModel.DMHOADON">
+              <MappingFragment StoreEntitySet="DMHOADON">
+                <ScalarProperty Name="IDVE" ColumnName="IDVE" />
+                <ScalarProperty Name="SOVEHIENTAI" ColumnName="SOVEHIENTAI" />
+                <ScalarProperty Name="TONGSOVEPHATHANH" ColumnName="TONGSOVEPHATHANH" />
+                <ScalarProperty Name="MAUSO" ColumnName="MAUSO" />
+                <ScalarProperty Name="KYHIEUVE" ColumnName="KYHIEUVE" />
+                <ScalarProperty Name="MAXE" ColumnName="MAXE" />
+                <ScalarProperty Name="IDHOADON" ColumnName="IDHOADON" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

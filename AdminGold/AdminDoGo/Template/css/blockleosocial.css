@@ -1,0 +1,48 @@
+/** blockleosocail**/
+
+#leosocial_block {
+	float: left;
+    padding: 18px 0 16px;
+    width: 30%;
+}
+#leosocial_block h2 {
+	display: inline-block;
+    line-height: 30px;
+    margin-right: 13px;
+}
+#leosocial_block ul {float:right;}
+#leosocial_block ul li {
+	display:inline-block;
+}
+#leosocial_block ul li a {
+	float: left;
+    text-indent: -9999px;
+	width: 30px;
+	height: 30px;
+	background:url(../img/social-bg.png) left top no-repeat;
+	margin-right: 5px;
+	text-align: left;
+}
+
+#leosocial_block .twitter a {
+	background-position: -38px 0;
+}
+#leosocial_block .gg a {
+	background-position: -76px 0;
+}
+#leosocial_block .rss a {
+	background-position: -112px 0;
+}
+
+#leosocial_block ul li a:hover {
+		background-position: 0 -49px;
+}
+#leosocial_block .twitter a:hover {
+	background-position: -38px -49px;
+}
+#leosocial_block .gg a:hover {
+	background-position: -76px -49px;
+}
+#leosocial_block .rss a:hover {
+	background-position: -112px -49px;
+}

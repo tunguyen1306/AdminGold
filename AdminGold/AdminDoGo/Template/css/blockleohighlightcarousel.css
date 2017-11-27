@@ -1,0 +1,199 @@
+/* Block blockleohighlightcarousel */
+.highlight-carousel,
+.highlight-carousel .row-fluid [class*="span"] {
+}
+
+.carousel-control {
+    z-index: 10;
+}
+
+.highlight-carousel .highlight-info {
+    color: #FFFFFF;
+    height: 55px;
+}
+
+    .highlight-carousel .highlight-info h3 {
+        font-size: 17px;
+        margin-top: 12px;
+        padding-bottom: 5px;
+    }
+
+#blockleohighlightcarousel {
+    margin-top: 0;
+    margin-bottom: -10px;
+}
+
+.highlight-carousel {
+    position: relative;
+}
+
+    .highlight-carousel .product_block {
+        margin-bottom: 0;
+    }
+
+.highlight-image {
+    width: 100%;
+    background: #655a54;
+    position: relative;
+    margin-top: -40px;
+}
+.price_an {
+    display:none !important;
+}
+
+    .highlight-image h2 {
+         padding: 25px 0 15px;
+        text-align: center;
+    }
+
+    .highlight-image img {
+        margin: 3%;
+        width: 94%;
+        height:330px;
+    }
+
+#leohighlightcarousel {
+    margin-top: 17px;
+}
+
+    #leohighlightcarousel .carousel-control {
+        background: url("../img/carousel-button.png") no-repeat scroll left 0 transparent;
+        border: 0 none;
+        border-radius: 0 0 0 0;
+        bottom: 22px;
+        left: 1%;
+        top: auto;
+        opacity: 1;
+        width: 23px;
+        height: 23px;
+    }
+
+        #leohighlightcarousel .carousel-control.right {
+            left: 20.7%;
+            background: url("../img/carousel-button.png") no-repeat scroll right 0 transparent;
+        }
+
+        #leohighlightcarousel .carousel-control:hover {
+            background: url("../img/carousel-button.png") no-repeat scroll left -40px transparent;
+        }
+
+        #leohighlightcarousel .carousel-control.right:hover {
+            background: url("../img/carousel-button.png") no-repeat scroll right -40px transparent;
+        }
+
+    #leohighlightcarousel .s_title_block {
+        background: none repeat scroll 0 0 #424242;
+        height: 30px;
+        line-height: 30px;
+        margin-left: -6%;
+        padding: 0 6%;
+        margin-top: -40px;
+    }
+
+        #leohighlightcarousel .s_title_block a {
+            color: #FFFFFF;
+            display: block;
+            height: 30px;
+        }
+
+            #leohighlightcarousel .s_title_block a:hover {
+                color: #F2711F;
+            }
+
+    #leohighlightcarousel .leo-icon-plus {
+        background: url("../img/icon-plus.png") no-repeat scroll center center #F2711F;
+        bottom: 0;
+        cursor: pointer;
+        height: 30px;
+        position: absolute;
+        right: 0;
+        width: 30px;
+        z-index: 10;
+    }
+
+    #leohighlightcarousel .leo-wishlist .icon-heart {
+        opacity: 1;
+        background-image: url("../../../../Template/img/glyphicons-halflings-white.png");
+        background-position: -96px 0;
+    }
+
+    #leohighlightcarousel .leo-wishlist,
+    #leohighlightcarousel .product-link {
+        border-right: 1px solid #8cbc2b;
+        margin-top: 0;
+        padding: 0;
+    }
+
+        #leohighlightcarousel .product-link a,
+        #leohighlightcarousel .leo-wishlist a {
+            display: block;
+            text-align: center;
+            border-right: 1px solid #6d951d;
+            padding: 7px 0;
+        }
+
+        #leohighlightcarousel .product-link a {
+            background-image: url(../img/product-link-bg.png);
+            background-position: center center;
+            background-repeat: no-repeat;
+        }
+
+    #leohighlightcarousel span.icon-addcart {
+        background: url(../img/icon-cart-bg.png) center center no-repeat transparent;
+    }
+
+    #leohighlightcarousel .exclusive {
+        background: none repeat scroll 0 0 transparent;
+        height: 30px;
+        line-height: 20px;
+        text-indent: 18px;
+        text-align: left;
+    }
+
+    #leohighlightcarousel .list-products .left_block {
+        background: none repeat scroll 0 0 #7EAC22;
+        border: 0 none;
+        bottom: 30px;
+        position: absolute;
+        right: -400px;
+        -webkit-transition: all 0.3s ease-in-out;
+        -moz-transition: all 0.3s ease-in-out;
+        -o-transition: all 0.3s ease-in-out;
+        -ms-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+        width: 101%;
+    }
+
+    #leohighlightcarousel .center_block:hover .left_block {
+        right: 0;
+    }
+
+    #leohighlightcarousel .center_block:hover .leo-icon-plus {
+        background-color: #7eac22;
+    }
+
+    #leohighlightcarousel .content_price {
+        margin-left: 0;
+        padding-bottom: 6px;
+    }
+
+        #leohighlightcarousel .content_price .price {
+            color: #f2711f;
+            font-size: 13px;
+        }
+
+.center_block img {
+    height: 180px;
+    margin: 1px;
+    width: 231px;
+}
+
+#leohighlightcarousel .content_price .price_km {
+    color: #655a54;
+    text-decoration: line-through;
+    font-size: 13px;
+}
+
+#leohighlightcarousel .product-container:hover .left_block {
+    display: block;
+}

@@ -12,7 +12,6 @@
         <EntityTypeShape EntityType="BusTicketModel.DICHVU" Width="1.5" PointX="4.75" PointY="4.75" />
         <EntityTypeShape EntityType="BusTicketModel.District" Width="1.5" PointX="6.75" PointY="0.75" />
         <EntityTypeShape EntityType="BusTicketModel.DistrictText" Width="1.5" PointX="0.75" PointY="6.75" />
-        <EntityTypeShape EntityType="BusTicketModel.DMHOADON" Width="1.5" PointX="6.75" PointY="4.75" />
         <EntityTypeShape EntityType="BusTicketModel.DMTAIXE" Width="1.5" PointX="8.75" PointY="0.75" />
         <EntityTypeShape EntityType="BusTicketModel.DMTUYEN" Width="1.5" PointX="6.75" PointY="8.75" />
         <EntityTypeShape EntityType="BusTicketModel.DMTUYENCHITIETTRAM" Width="1.5" PointX="8.75" PointY="7.75" />
@@ -39,6 +38,7 @@
         <EntityTypeShape EntityType="BusTicketModel.TrackingGP" Width="1.5" PointX="17.375" PointY="5.75" />
         <EntityTypeShape EntityType="BusTicketModel.TrackingGPSDetail" Width="1.5" PointX="15.375" PointY="11.75" />
         <EntityTypeShape EntityType="BusTicketModel.DMTRAM" Width="1.5" PointX="5.375" PointY="17.75" />
+        <EntityTypeShape EntityType="BusTicketModel.DMHOADON" Width="1.5" PointX="7.375" PointY="17.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

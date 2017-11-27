@@ -1,0 +1,19 @@
+﻿
+ul.megamenu li > ul.megamenu{
+    position:absolute;
+    top:40px; 
+    left:0px;
+    display:none;
+    /*display: block;*/
+  font-size: 13px;
+  line-height: 15px !important;
+  font-family: 'Ubuntu', sans-serif;
+   z-index: 9999999;
+  
+}
+ul.megamenu li:hover > ul.megamenu{
+    display:block;
+    background: #54acc9;
+  color: #ffffff;
+  padding: 6px 12px;
+}

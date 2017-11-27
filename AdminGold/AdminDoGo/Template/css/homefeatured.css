@@ -1,0 +1,11 @@
+/*******************************************************
+	block homefeatured 
+*******************************************************/
+
+#featured-products_block_center .block_content {
+	padding:0;
+}
+
+#featured-products_block_center h2 {
+	margin-top: 0;
+}

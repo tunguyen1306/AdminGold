@@ -1,0 +1,87 @@
+#lofadvafooterfooter{}
+#lofadvafooterfooter .lof-position-wrap { }
+	.lof-block-wrap {padding-right: 5%;}
+	.lof-block:last-child .lof-block-wrap  {padding-right: 0}
+/*************** POSITION 1***************/
+#lofadva-pos-1 {
+	background: #fff;
+	}
+
+	
+	/*social*/
+	
+	#lofadva-pos-1 .block > ul > li > ul > li.leo-fb {
+		background-position: 0 0;
+		padding-left: 23px;
+	}
+	#lofadva-pos-1 .block > ul > li > ul > li.leo-tt{
+		background-position: 0 -39px;
+		padding-left: 23px;
+	}
+	#lofadva-pos-1 .block > ul > li > ul > li.leo-vu{
+		background-position: 0 -83px;
+		padding-left: 23px;
+	}
+	#lofadva-pos-1 .block > ul > li > ul > li.leo-rss{
+		background-position: 0 -129px;
+		padding-left: 23px;
+	}
+	#lofadva-pos-1 .block > ul > li > ul > li.leo-fb:hover {background-position: 0 -163px;}
+	#lofadva-pos-1 .block > ul > li > ul > li.leo-tt:hover {background-position: 0 -202px;}
+	#lofadva-pos-1 .block > ul > li > ul > li.leo-vu:hover {background-position: 0 -246px;}
+	#lofadva-pos-1 .block > ul > li > ul > li.leo-rss:hover{background-position: 0 -292px;}
+	
+	#lofadva-pos-1 .lofadva-block-2 { }
+	#lofadva-pos-1 .lofadva-block-2  .lof-block-wrap { }	
+
+/********* POSITION 2 *******************/
+
+#lofadva-pos-2 {  
+		padding: 20px 0 30px;
+	}	
+	.lofadva-block-4 .lof-block-wrap {padding-right:0;}
+	#lofadva-pos-2 h2 { margin-bottom: 18px;}
+	
+	#lofadva-pos-2 .lofadva-block-1 p { margin-bottom: 10px;}
+	
+	.leo-store {
+		background:url(images/store.png) left top no-repeat;
+		float:Left;
+		width: 70px;
+		height: 65px;
+		display:block;
+		text-indent: -99999px;
+		margin-right: 10px;
+	}
+	
+	.leo-telephone {
+		padding-left: 40px;
+		padding-top: 5px;
+		background: url(images/icon-telephone-bg.png) left 0 no-repeat;
+		margin-bottom: 10px;
+	}
+	.leo-shipping {
+		padding-left: 40px;
+		padding-top: 5px;
+		background: url(images/icon-shipping-bg.png) left 0 no-repeat;
+		margin-bottom: 10px;
+	}
+	.leo-address {
+		background: url(images/map-bg.png) center top no-repeat; 
+		padding-top: 10px;
+		min-height: 90px;
+		margin-top: -10px;
+	}
+	.leo-address span {
+		padding-left: 40px;
+		padding-top: 5px;
+		background: url(images/icon-map-bg.png) left 0 no-repeat;
+		display:block;
+	}
+/*************** POSTION 3**************************/
+
+
+	#lofadva-pos-4 { float:left; background:#34291b; color:#b9bcbd; font-size: 12px;}
+	#lofadva-pos-4 a{color:#f6470a;}
+	#lofadva-pos-4 p {padding: 15px 0;}
+

@@ -1,0 +1,196 @@
+.megamenu .menu-icon{
+	background-position:center center;
+	display:block;
+}
+	.megamenu .menu-title{
+		display:block;
+	}
+	.megamenu .menu-desc{
+		display:block;
+		font-size:9px
+	}
+
+.megamenu  .menu-content{
+	padding:5px 9px
+}
+
+.megamenu .caret{
+	position:absolute;
+	top:30%;
+	right:10px;
+}
+
+.megamenu ul{
+	margin:0;
+	padding:0
+}
+.megamenu ul li{
+	list-style:none;
+	line-height:25px;
+}
+.dropdown-submenu > a:after {
+    margin-right: -10px;
+    margin-top: -16px;
+}
+
+.megamenu .mega-cols.cols2{
+	min-width:400px;
+}
+.megamenu .mega-cols.cols3{
+	min-width:650px;
+}
+
+.megamenu .mega-cols.cols4{
+	min-width:820px;
+}
+.megamenu .mega-cols.cols5{
+	min-width:820px;
+}
+.megamenu .mega-cols.cols6{
+	min-width:820px;
+}
+
+
+.megamenu .mega-group  > a .menu-title {
+    font-size: 15px;	
+    padding: 5px 5px 7px 10px; 
+}
+.menu-content.mega-cols > .row-fluid > div:first-child .mega-group  > a .menu-title {
+	margin-left: 0;
+}
+
+.megamenu .mega-group .dropdown-mega {
+	padding: 0 5%;
+}
+
+	.dropdown-mega > li > a > .menu-title{
+	    display: block;
+	    line-height: 37px;
+	    padding-left: 10px;
+	}
+	.megamenu .dropdown-menu .mega-col .dropdown-mega .dropdown-mega .menu-title{
+		margin-left:15px
+	}
+	.megamenu .dropdown-menu .mega-col .dropdown-mega .menu-title:hover
+	{	
+		
+	}	
+	.dropdown-mega > li  > .menu-content {padding-left: 0; padding-right:0;}
+		
+	.nav  .dropdown-menu { min-width: 200px }
+	.nav > .dropdown:hover > .dropdown-menu {
+		display: block;
+	}
+	.dropdown-menu li:first-child a {
+		border-radius: 3px 3px 0 0;
+	}
+
+	.dropdown-menu > li > a {		 
+		line-height: 30px;
+		border-bottom: 1px solid #ddd
+	}
+	.dropdown-menu > li:last-child > a {
+		border-bottom: 0;
+		border-radius: 0 0 3px 3px;
+	}
+	.dropdown-menu > li > a:hover{
+		color:#D22753;	
+	}
+	.mega-group p{
+		margin-top:0;
+	}
+
+	.navbar .nav > li > a {
+		float: none;
+	    display: block;
+	    margin: 0;color:#ffffff;
+	    text-decoration: none;
+	    font-size: 14px;
+	    padding: 12px 8px;
+        white-space: nowrap;
+	}
+
+	.navbar .nav > li.parent > a {
+		padding-right: 30px;
+	}
+	.navbar .nav > .dropdown:hover  > .caret ,
+	.navbar .nav > .dropdown.active  > .caret {
+		border-top-color: #F2711F;
+	}
+
+	.navbar .nav > .dropdown:hover  > a ,
+	.navbar .nav > .dropdown.active  > a {
+		color: #F2711F;
+	}
+/************* fix menubootstrap **************/
+.open > .dropdown-menu {
+    display: block;
+}
+
+/*submenu group*/
+
+.dropdown > .dropdown-menu.menu-content{padding: 5px 0;}
+
+
+/*submenu nonegroup*/
+	.dropdown-submenu > .dropdown-menu {
+		border-radius: 3px 3px 3px 3px;
+		top: 10px;
+	}
+	
+	.nav li.dropdown.open .caret, 
+	.nav li.dropdown.open.active .caret {
+		border-bottom-color: transparent;
+		border-top-color: transparent;
+	}
+	 .dropdown-submenu > a:after{
+		border: transparent;
+	 }
+	 .dropdown-submenu .caret {
+		border-bottom: 4px solid transparent;
+		border-left-color: #B1B1B1;
+		border-top-color: transparent;
+		margin-top: 5px;
+		right: 5px;
+	 }
+	 .dropdown-submenu:hover > .caret {
+		border-left-color: #F2711F;
+	 }
+	 
+	 .dropdown-menu.mega-group:hover > a:after,
+	 .dropdown-menu.mega-group > a:after {
+		border-left-color: transparent;
+	 }
+	 
+	 .nav .dropdown-toggle .caret {
+		border-bottom-color :transparent;
+		border-top-color :transparent;
+	 }
+	.nav .dropdown-toggle:hover .caret,
+	.nav .dropdown-toggle:focus .caret { 
+		border-top-color: transparent;
+		border-bottom-color: transparent;
+	}
+	.navbar .nav .dropdown-menu .dropdown-toggle  .caret { margin-top: 3px;}
+	.megamenu .mega-group > a:after {
+		display:none!important;
+	}
+	.dropdown-menu > li > a:hover, 
+	.dropdown-menu > li > a:focus, 
+	.dropdown-submenu:hover > a, 
+	.dropdown-submenu:focus > a {
+		color:#F2711F;
+	}
+
+	.megamenu  p {line-height: 22px;}
+
+	/********* fix boostrap *********/
+
+	.megamenu .mega-group > .caret {
+		display: none;
+	}
+
+	.navbar .nav > .active > a, .navbar .nav > .active > a:hover, .navbar .nav > .active > a:focus {
+		background-color: transparent;
+		box-shadow: none;
+	}

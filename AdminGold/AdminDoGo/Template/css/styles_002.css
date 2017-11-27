@@ -1,0 +1,11 @@
+.leocamera_container {
+	position:relative;
+}
+
+.camera_pag_ul {
+    text-align: center !important;
+}
+.leo_camera_title a {
+    color: #e2e2e2;
+    font-weight: bold;
+}

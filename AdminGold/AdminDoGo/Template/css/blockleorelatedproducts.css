@@ -1,0 +1,30 @@
+/* Block relatedproducts */
+#relatedproducts {
+	position: relative;
+}
+	#relatedproducts .carousel-control {
+		background: url("carousel-button.png") no-repeat scroll left 0 transparent;
+		border: 0 none;
+		border-radius: 0 0 0 0;
+		top:5px;
+		right: 5%;
+		left: auto;
+		opacity: 1;
+		top: 30px;
+		width: 23px;
+		height: 23px;
+	}
+	#relatedproducts .carousel-control:hover {background: url("carousel-button.png") no-repeat scroll left -40px transparent;}
+	#relatedproducts .carousel-control.right {
+		background: url("carousel-button.png") no-repeat scroll right 0 transparent;
+		right: 1%;
+	}
+	#relatedproducts .carousel-control.right:hover {background: url("carousel-button.png") no-repeat scroll right -40px transparent;}
+  .carousel-control{
+	z-index:10;
+	
+}
+.carousel
+{
+	position:inherit;
+}

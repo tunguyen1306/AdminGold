@@ -37,7 +37,7 @@ namespace BusTicket.Controllers
 
         // PUT: api/DMHOADONs/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutDMHOADON(string id, DMHOADON dMHOADON)
+        public IHttpActionResult PutDMHOADON(int id, DMHOADON dMHOADON)
         {
             if (!ModelState.IsValid)
             {
@@ -125,13 +125,13 @@ namespace BusTicket.Controllers
             base.Dispose(disposing);
         }
 
-        private bool DMHOADONExists(string id)
+        private bool DMHOADONExists(int id)
         {
             return db.DMHOADONs.Count(e => e.IDHOADON == id) > 0;
         }
         [System.Web.Http.Route("api/DMHOADONs/CountView")]
         [System.Web.Http.HttpGet]
-        public List<DMHOADON> CountView(string id)
+        public List<DMHOADON> CountView(int id)
         {
             var view = db.DMHOADONs.Where(x => x.IDHOADON == id).FirstOrDefault().SOVEHIENTAI;
                 DMHOADON tblDMHOADONs = db.DMHOADONs.Find(id);

@@ -1,0 +1,1378 @@
+﻿
+
+<!DOCTYPE html>
+<html class="off-canvas" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head>
+    <asp:ContentPlaceHolder ID="fb" runat="server">
+        <uc1:ctr_fb runat="server" ID="ctr_fb" />
+    </asp:ContentPlaceHolder>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Trang chủ website Đồ Gỗ Mỹ Nghệ Nguyễn Diệp</title>
+    <meta http-equiv="content-language" content="en-br-de-pl-fr-it-ru-es">
+    <meta name="generator" content="Đồ gỗ mỹ nghệ NGUYỄN DIỆP">
+    <meta name="robots" content="index,follow">
+    <meta property="fb:app_id" content="324503021040953">
+    <link type="img/hinhbieutttuong.jpg" rel="icon" href="http://dogonguyendiep.com/img/hinhbieutttuong.jpg" />
+    <link href="css/global.css" rel="stylesheet" type="text/css" media="all">
+  
+    <link href="css/blockcart.css" rel="stylesheet" type="text/css" media="all">
+    <link href="css/blockcategories.css" rel="stylesheet" type="text/css" media="all">
+    <link href="css/blockcurrencies.css" rel="stylesheet" type="text/css" media="all">
+    <link href="css/blockuserinfo.css" rel="stylesheet" type="text/css" media="all">
+    <link href="css/blocklanguages.css" rel="stylesheet" type="text/css" media="all">
+    <link href="css/jquery.autocomplete.css" rel="stylesheet" type="text/css" media="all">
+    <link href="css/product_list.css" rel="stylesheet" type="text/css" media="all">
+    <link href="css/blocksearch.css" rel="stylesheet" type="text/css" media="all">
+    <link href="css/form.css" rel="stylesheet" type="text/css" media="all">
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <link href="css/leocamera.css" rel="stylesheet" type="text/css" media="all">
+    <link href="css/camera.css" rel="stylesheet" type="text/css" media="all">
+    <link href="css/styles.css" rel="stylesheet" type="text/css" media="all">
+
+    <link href="css/sendtoafriend.css" rel="stylesheet" type="text/css" media="all">
+    <link href="css/blockleorelatedproducts.css" rel="stylesheet" type="text/css" media="all">
+    <link href="css/blockwishlist.css" rel="stylesheet" type="text/css" media="all">
+    <link href="css/homefeatured.css" rel="stylesheet" type="text/css" media="all">
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="all">
+    <link href="css/blockleohighlightcarousel.css" rel="stylesheet" type="text/css" media="all">
+
+    <link href="css/prettyPhoto.css" rel="stylesheet" type="text/css" media="all">
+    <link href="css/blockleosocial.css" rel="stylesheet" type="text/css" media="all">
+    <link href="css/cus1.css" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="css/theme-responsive.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.css">
+    <script type="text/javascript" src="./js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="./js/jquery.easing.js"></script>
+    <script src="js/cus.js"></script>
+    <script type="text/javascript" src="./js/treeManagement.js"></script>
+    <script type="text/javascript" src="./js/jquery.autocomplete.js"></script>
+    <script type="text/javascript" src="./js/bootstrap.js"></script>
+    <script type="text/javascript" src="./js/form.js"></script>
+    <script type="text/javascript" src="./js/camera.js"></script>
+    <script type="text/javascript" src="./js/ajax-wishlist.js"></script>
+    <script type="text/javascript" src="./js/jquery.prettyPhoto.js"></script>
+    <link href="css/css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="./js/custom.js"></script>
+    <script type="text/javascript" src="./js/jquery.cookie.js"></script>
+
+
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <script>
+        //plugin
+        jQuery.fn.topLink = function (settings) {
+            settings = jQuery.extend({
+                min: 1,
+                fadeSpeed: 200
+            }, settings);
+            return this.each(function () {
+                //listen for scroll
+                var el = $(this);
+                el.hide(); //in case the user forgot
+                $(window).scroll(function () {
+                    if ($(window).scrollTop() >= settings.min) {
+                        el.fadeIn(settings.fadeSpeed);
+                    }
+                    else {
+                        el.fadeOut(settings.fadeSpeed);
+                    }
+                });
+            });
+        };
+
+        //usage w/ smoothscroll
+        $(document).ready(function () {
+            //set the link
+            $('#top-link').topLink({
+                min: 400,
+                fadeSpeed: 500
+            });
+            //smoothscroll
+            $('#top-link').click(function (e) {
+                e.preventDefault();
+                $('html, body').animate({ scrollTop: 0 }, 'slow');
+                $.scrollTo(0, 300);
+            });
+        });
+    </script>
+    <link href="css/colorbox.css" rel="stylesheet">
+    <script src="./js/jquery.colorbox.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //Examples of how to assign the Colorbox event to elements
+            $(".group1").colorbox({ rel: 'group1' });
+            $(".group2").colorbox({ rel: 'group2', transition: "fade", maxWidth: '90%', maxHeight: '90%' });
+            $(".group3").colorbox({ rel: 'group3', transition: "none", width: "75%", height: "75%" });
+            $(".group4").colorbox({ rel: 'group4', slideshow: true });
+            $(".ajax").colorbox();
+            $(".youtube").colorbox({ iframe: true, innerWidth: 640, innerHeight: 390 });
+            $(".vimeo").colorbox({ iframe: true, innerWidth: 500, innerHeight: 409 });
+            $(".iframe").colorbox({ iframe: true, width: "80%", height: "80%" });
+            //iframe_muahang
+            $(".iframe_muahang").colorbox({ iframe: true, width: "470px", height: "620px" });
+
+            $(".inline").colorbox({ inline: true, width: "50%" });
+            $(".callbacks").colorbox({
+                onOpen: function () { alert('onOpen: colorbox is about to open'); },
+                onLoad: function () { alert('onLoad: colorbox has started to load the targeted content'); },
+                onComplete: function () { alert('onComplete: colorbox has displayed the loaded content'); },
+                onCleanup: function () { alert('onCleanup: colorbox has begun the close process'); },
+                onClosed: function () { alert('onClosed: colorbox has completely closed'); }
+            });
+
+            $('.non-retina').colorbox({ rel: 'group5', transition: 'none' })
+            $('.retina').colorbox({ rel: 'group5', transition: 'none', retinaImage: true, retinaUrl: true });
+
+            //Example of preserving a JavaScript event for inline calls.
+            $("#click").click(function () {
+                $('#click').css({ "background-color": "#f00", "color": "#fff", "cursor": "inherit" }).text("Open this window again and this message will still be here.");
+                return false;
+            });
+        });
+    </script>
+
+    <script type="text/javascript">var switchTo5x = true;</script>
+    <script type="text/javascript">var switchTo5x = true;</script>
+    <script>
+        var txt = "Chào mừng bạn đến Trang Web Đồ Gỗ Mỹ Nghệ Nguyễn Diệp ";
+        var espera = 200;
+        var refresco = null;
+        function rotulo_title() {
+            document.title = txt;
+            txt = txt.substring(1, txt.length) + txt.charAt(0);
+            refresco = setTimeout("rotulo_title()", espera);
+        }
+        rotulo_title();
+    </script>
+</head>
+<body id="index" class=" fs11">
+
+
+    <div id="left_ads_float" style="position:fixed;bottom:90px;">
+        <a target="_blank" href="http://dogonguyendiep.com/"><img border="0" width="130" src="img/banner-chuc-tet-dep.png"></a>
+    </div>
+
+    <div id="Div1" style="position:fixed;bottom:90px;right:5px">
+        <a target="_blank" href="http://dogonguyendiep.com/"><img border="0" width="130" src="img/banner-chuc-tet-dep-2015.png"></a>
+    </div>
+    <div id="page" class="clearfix">
+
+        <!-- Header -->
+
+
+        <header id="header">
+            <section class="header">
+                <div class="container">
+                    <div class="row-fluid">
+                        <div class="span3">
+                            <a id="header_logo" style="width: 230px; height: 150px;" href="/Default.aspx" title="Đồ gỗ mỹ nghệ NGUYỄN DIỆP">
+                                <img src="/img/nguyen-diep2.png" alt="Đồ gỗ mỹ nghệ NGUYỄN DIỆP">
+                            </a>
+                        </div>
+                        <div class="span9">
+                            <section class="topbar">
+                                <div class="row-fluid">
+
+                                    <div id="header_user">
+
+                                        <div id="header_user_info" style="display: block;">
+
+                                        </div>
+                                    </div>
+                                    <!-- block seach mobile -->
+                                    <div class="block-search-top inline cboxElement" style="top: 64px; right: 3px; height: 100px; position: absolute; display: none; padding-top: 1px;">
+                                        <div class="item-top">Search</div>
+                                        <!-- Block search module TOP -->
+
+                                        <div id="search_block_top">
+                                            <div class="leo-search-button">&nbsp;</div>
+                                            <div id="searchbox">
+                                                <p>
+                                                    <label for="search_query_top">
+                                                        <!-- image on background -->
+                                                    </label>
+
+                                                    <input name="ctl00$headControl$txtSearch" type="text" id="ctl00_headControl_txtSearch" class="search_query">
+                                                    <input type="submit" name="ctl00$headControl$btnSearch" value="Tìm kiếm" id="ctl00_headControl_btnSearch" class="button">
+                                                </p>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                    <!-- /Block search module TOP -->
+
+                                </div>
+                            </section>
+                            <nav id="topnavigation">
+                                <div class="row-fluid">
+                                    <div class="navbar">
+                                        <div class="navbar-inner">
+                                            <a data-target=".nav-collapse" data-toggle="collapse" class="btn btn-navbar">
+                                                <span class="icon-bar"></span>
+                                                <span class="icon-bar"></span>
+                                                <span class="icon-bar"></span>
+                                            </a>
+                                            <div class="nav-collapse collapse">
+                                                <ul class="nav megamenu">
+
+                                                    <li class="itemmenu" style="padding: 0 0 0 27px;">
+                                                        <a href="/Default.aspx">Trang chủ</a>
+
+                                                    </li>
+
+                                                    <li class="itemmenu" style="padding: 0 0 0 27px;">
+                                                        <a href="/news.aspx">Tin Tức</a>
+
+                                                    </li>
+
+                                                    <li class="itemmenu" style="padding: 0 0 0 27px;">
+                                                        <a href="/contact.aspx">Liên Hệ</a>
+
+                                                    </li>
+
+                                                    <li class="itemmenu" style="padding: 0 0 0 27px;">
+                                                        <a href="/products_new.aspx">Sản phẩm Mới</a>
+                                                        <ul class="megamenu">
+
+                                                            <li style="width: 170px; line-height: 25px;"><a style="color: white !important; margin: -3px !important; background: #54acc9;" href="products.aspx?id_menu=1&amp;&amp;id=1">Lộc Bình</a></li>
+
+                                                            <li style="width: 170px; line-height: 25px;"><a style="color: white !important; margin: -3px !important; background: #54acc9;" href="products.aspx?id_menu=13&amp;&amp;id=13">Sản phẩm gỗ nu kháo</a></li>
+
+                                                            <li style="width: 170px; line-height: 25px;"><a style="color: white !important; margin: -3px !important; background: #54acc9;" href="products.aspx?id_menu=7&amp;&amp;id=7">Sản phẩm gỗ nu xá xị</a></li>
+
+                                                            <li style="width: 170px; line-height: 25px;"><a style="color: white !important; margin: -3px !important; background: #54acc9;" href="products.aspx?id_menu=11&amp;&amp;id=11">Tượng Di lặc gỗ Thủy tùng</a></li>
+
+                                                            <li style="width: 170px; line-height: 25px;"><a style="color: white !important; margin: -3px !important; background: #54acc9;" href="products.aspx?id_menu=15&amp;&amp;id=15">SP gỗ hương và nu hương</a></li>
+
+                                                            <li style="width: 170px; line-height: 25px;"><a style="color: white !important; margin: -3px !important; background: #54acc9;" href="products.aspx?id_menu=14&amp;&amp;id=14">SP gỗ Thủy tùng</a></li>
+
+                                                            <li style="width: 170px; line-height: 25px;"><a style="color: white !important; margin: -3px !important; background: #54acc9;" href="products.aspx?id_menu=12&amp;&amp;id=12">Sản phẩm gỗ Thủy tùng</a></li>
+
+                                                        </ul>
+                                                    </li>
+
+                                                    <li class="itemmenu" style="padding: 0 0 0 27px;">
+                                                        <a href="/about.aspx">Giới thiệu</a>
+
+                                                    </li>
+
+
+
+
+                                                </ul>
+
+
+
+                                                <input type="hidden" name="ctl00$header$ctr_header$hdid" id="header_ctr_header_hdid" value="2">
+                                            </div>
+
+
+
+                                        </div>
+                                    </div>
+                                    <script type="text/javascript">
+                                        // <![CDATA[
+                                        var currentURL = window.location;
+                                        currentURL = String(currentURL);
+                                        currentURL = currentURL.replace("https:///", "").replace("http://", "").replace("www.", "");
+
+                                        $(".megamenu > li > a").each(function () {
+                                            menuURL = $(this).attr("href").replace("https:///", "").replace("http://", "").replace("www.", "");
+                                            if (currentURL == menuURL) {
+                                                $(this).parent().addClass("active");
+                                                return false;
+                                            }
+                                        });
+                                        // ]]>
+                                    </script>
+                                </div>
+                            </nav>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </header>
+
+        <section id="slideshow">
+            <div class="main_silde">
+                <div class="container">
+                    <div class="row-fluid">
+                        <div class="leocamera_container span8">
+                            <div id="leo-camera" class="camera_wrap default" style="display: block; margin-bottom: 23px; height: 470px;">
+                                <div class="camera_fakehover">
+                                    <div class="camera_src camerasliding">
+
+                                        <div data-thumb="http://localhost:1805/fileupload/74/74_2015-03-15-12-47-26_DSC_0302.JPG" data-src="http://localhost:1805/fileupload/74/74_2015-03-15-12-47-26_DSC_0302.JPG">
+                                        </div>
+
+
+                                        <div data-thumb="http://localhost:1805/fileupload/74/74_2015-03-15-12-48-36_DSC_0454.JPG" data-src="http://localhost:1805/fileupload/74/74_2015-03-15-12-48-36_DSC_0454.JPG">
+                                        </div>
+
+
+                                        <div data-thumb="http://localhost:1805/fileupload/74/74_2015-03-15-12-49-20_DSC_0495.JPG" data-src="http://localhost:1805/fileupload/74/74_2015-03-15-12-49-20_DSC_0495.JPG">
+                                        </div>
+
+
+                                        <div data-thumb="http://localhost:1805/fileupload/74/74_2015-03-15-12-50-15_DSC_0501.JPG" data-src="http://localhost:1805/fileupload/74/74_2015-03-15-12-50-15_DSC_0501.JPG">
+                                        </div>
+
+
+                                        <div data-thumb="http://localhost:1805/fileupload/74/74_2015-03-15-12-50-46_DSC_0029.JPG" data-src="http://localhost:1805/fileupload/74/74_2015-03-15-12-50-46_DSC_0029.JPG">
+                                        </div>
+
+
+                                        <div data-thumb="http://localhost:1805/fileupload/74/74_2015-03-15-12-51-23_DSC_0451.JPG" data-src="http://localhost:1805/fileupload/74/74_2015-03-15-12-51-23_DSC_0451.JPG">
+                                        </div>
+
+
+                                        <div data-thumb="http://localhost:1805/fileupload/74/74_2015-03-15-12-52-39_DSC_0504.JPG" data-src="http://localhost:1805/fileupload/74/74_2015-03-15-12-52-39_DSC_0504.JPG">
+                                        </div>
+
+
+                                        <div data-thumb="http://localhost:1805/fileupload/74/74_2015-03-15-12-53-17_DSC_0549.JPG" data-src="http://localhost:1805/fileupload/74/74_2015-03-15-12-53-17_DSC_0549.JPG">
+                                        </div>
+
+
+                                        <div data-thumb="http://localhost:1805/fileupload/74/74_2015-03-15-14-10-8_483925_437887659677924_1538398717_n(1).jpg" data-src="http://localhost:1805/fileupload/74/74_2015-03-15-14-10-8_483925_437887659677924_1538398717_n(1).jpg">
+                                        </div>
+
+
+                                        <div data-thumb="http://localhost:1805/fileupload/74/74_2015-03-15-14-10-22_483925_437887659677924_1538398717_n.jpg" data-src="http://localhost:1805/fileupload/74/74_2015-03-15-14-10-22_483925_437887659677924_1538398717_n.jpg">
+                                        </div>
+
+
+                                        <div data-thumb="http://localhost:1805/fileupload/74/74_2015-03-15-14-10-36_69088_437886856344671_428415656_n(1).jpg" data-src="http://localhost:1805/fileupload/74/74_2015-03-15-14-10-36_69088_437886856344671_428415656_n(1).jpg">
+                                        </div>
+
+
+                                        <div data-thumb="http://localhost:1805/fileupload/74/74_2015-03-15-14-11-1_DSC_1013 - Copy.JPG" data-src="http://localhost:1805/fileupload/74/74_2015-03-15-14-11-1_DSC_1013 - Copy.JPG">
+                                        </div>
+
+
+                                        <div data-thumb="http://localhost:1805/fileupload/74/74_2015-03-15-14-11-16_563101_437886883011335_1354251088_n.jpg" data-src="http://localhost:1805/fileupload/74/74_2015-03-15-14-11-16_563101_437886883011335_1354251088_n.jpg">
+                                        </div>
+
+
+                                        <div data-thumb="http://localhost:1805/fileupload/74/74_2015-03-15-14-11-27_DSC_0765.JPG" data-src="http://localhost:1805/fileupload/74/74_2015-03-15-14-11-27_DSC_0765.JPG">
+                                        </div>
+
+
+                                        <div data-thumb="http://localhost:1805/fileupload/74/74_2015-03-15-14-12-13_DSC_1015.JPG" data-src="http://localhost:1805/fileupload/74/74_2015-03-15-14-12-13_DSC_1015.JPG">
+                                        </div>
+
+
+                                        <div data-thumb="http://localhost:1805/fileupload/74/74_2015-03-15-14-13-19_DSC_0172.JPG" data-src="http://localhost:1805/fileupload/74/74_2015-03-15-14-13-19_DSC_0172.JPG">
+                                        </div>
+
+
+                                        <div data-thumb="http://localhost:1805/fileupload/74/74_2015-03-15-14-14-21_DSC_0124.JPG" data-src="http://localhost:1805/fileupload/74/74_2015-03-15-14-14-21_DSC_0124.JPG">
+                                        </div>
+
+
+                                        <div data-thumb="http://localhost:1805/fileupload/74/74_2015-03-15-14-15-31_DSC_0874.JPG" data-src="http://localhost:1805/fileupload/74/74_2015-03-15-14-15-31_DSC_0874.JPG">
+                                        </div>
+
+
+                                        <div data-thumb="http://localhost:1805/fileupload/74/74_2015-03-15-14-16-6_DSC_0419.JPG" data-src="http://localhost:1805/fileupload/74/74_2015-03-15-14-16-6_DSC_0419.JPG">
+                                        </div>
+
+
+                                        <div data-thumb="http://localhost:1805/fileupload/74/74_2015-03-08-17-1-48_DSC_0509.JPG" data-src="http://localhost:1805/fileupload/74/74_2015-03-08-17-1-48_DSC_0509.JPG">
+                                        </div>
+
+
+                                        <div data-thumb="http://localhost:1805/fileupload/74/74_2015-03-15-10-41-19_DSC_0841.JPG" data-src="http://localhost:1805/fileupload/74/74_2015-03-15-10-41-19_DSC_0841.JPG">
+                                        </div>
+
+
+                                        <div data-thumb="http://localhost:1805/fileupload/74/74_2015-03-15-12-31-40_DSC_0201.JPG" data-src="http://localhost:1805/fileupload/74/74_2015-03-15-12-31-40_DSC_0201.JPG">
+                                        </div>
+
+
+                                        <div data-thumb="http://localhost:1805/fileupload/74/74_2015-03-15-17-53-16_DSC_0925.JPG" data-src="http://localhost:1805/fileupload/74/74_2015-03-15-17-53-16_DSC_0925.JPG">
+                                        </div>
+
+
+                                        <div data-thumb="http://localhost:1805/fileupload/74/74_2015-03-15-17-53-58_DSC_0923.JPG" data-src="http://localhost:1805/fileupload/74/74_2015-03-15-17-53-58_DSC_0923.JPG">
+                                        </div>
+
+
+                                        <div data-thumb="http://localhost:1805/fileupload/74/74_2015-03-15-17-54-15_DSC_0924.JPG" data-src="http://localhost:1805/fileupload/74/74_2015-03-15-17-54-15_DSC_0924.JPG">
+                                        </div>
+
+
+                                        <div data-thumb="http://localhost:1805/fileupload/74/74_2015-03-15-17-54-49_DSC_0935.JPG" data-src="http://localhost:1805/fileupload/74/74_2015-03-15-17-54-49_DSC_0935.JPG">
+                                        </div>
+
+
+                                        <div data-thumb="http://localhost:1805/fileupload/74/74_2015-03-15-12-38-50_DSC_0156.JPG" data-src="http://localhost:1805/fileupload/74/74_2015-03-15-12-38-50_DSC_0156.JPG">
+                                        </div>
+
+
+                                        <div data-thumb="http://localhost:1805/fileupload/74/74_2015-03-15-12-39-39_DSC_0166.JPG" data-src="http://localhost:1805/fileupload/74/74_2015-03-15-12-39-39_DSC_0166.JPG">
+                                        </div>
+
+
+                                        <div data-thumb="http://localhost:1805/fileupload/74/74_2015-03-15-12-40-9_DSC_0182.JPG" data-src="http://localhost:1805/fileupload/74/74_2015-03-15-12-40-9_DSC_0182.JPG">
+                                        </div>
+
+
+                                        <div data-thumb="http://localhost:1805/fileupload/74/74_2014-12-19-21-9-47_DSC_0055.JPG" data-src="http://localhost:1805/fileupload/74/74_2014-12-19-21-9-47_DSC_0055.JPG">
+                                        </div>
+
+
+                                        <div data-thumb="http://localhost:1805/fileupload/74/74_2015-03-15-12-41-1_DSC_0267.JPG" data-src="http://localhost:1805/fileupload/74/74_2015-03-15-12-41-1_DSC_0267.JPG">
+                                        </div>
+
+
+                                        <div data-thumb="http://localhost:1805/fileupload/74/74_2015-03-15-12-41-34_DSC_0061.JPG" data-src="http://localhost:1805/fileupload/74/74_2015-03-15-12-41-34_DSC_0061.JPG">
+                                        </div>
+
+
+                                        <div data-thumb="http://localhost:1805/fileupload/74/74_2014-12-19-21-10-20_DSC_0136.JPG" data-src="http://localhost:1805/fileupload/74/74_2014-12-19-21-10-20_DSC_0136.JPG">
+                                        </div>
+
+
+                                        <div data-thumb="http://localhost:1805/fileupload/74/74_2014-12-19-21-10-43_DSC_0580.JPG" data-src="http://localhost:1805/fileupload/74/74_2014-12-19-21-10-43_DSC_0580.JPG">
+                                        </div>
+
+
+                                        <div data-thumb="http://localhost:1805/fileupload/74/74_2014-12-19-21-11-4_DSC_0601.JPG" data-src="http://localhost:1805/fileupload/74/74_2014-12-19-21-11-4_DSC_0601.JPG">
+                                        </div>
+
+
+                                        <div data-thumb="http://localhost:1805/fileupload/74/74_2015-03-15-12-42-14_DSC_0092.JPG" data-src="http://localhost:1805/fileupload/74/74_2015-03-15-12-42-14_DSC_0092.JPG">
+                                        </div>
+
+
+                                        <div data-thumb="http://localhost:1805/fileupload/74/74_2015-03-15-12-43-38_DSC_0445.JPG" data-src="http://localhost:1805/fileupload/74/74_2015-03-15-12-43-38_DSC_0445.JPG">
+                                        </div>
+
+
+                                        <div data-thumb="http://localhost:1805/fileupload/74/74_2015-03-15-12-43-38_DSC_0445.JPG" data-src="http://localhost:1805/fileupload/74/74_2015-03-15-12-43-38_DSC_0445.JPG">
+                                        </div>
+
+
+
+
+
+
+
+                                    </div><div class="camera_target"><div class="cameraCont"><div class="cameraSlide cameraSlide_0" style="visibility: hidden;"><img src="http://localhost:1805/fileupload/74/74_2015-03-15-12-47-26_DSC_0302.JPG?1511621058748" class="imgLoaded" style="visibility: hidden;"><div class="camerarelative"></div></div><div class="cameraSlide cameraSlide_1 cameranext" style="display: none;"><div class="camerarelative"></div></div><div class="cameraSlide cameraSlide_2"><div class="camerarelative"></div></div><div class="cameraSlide cameraSlide_3"><div class="camerarelative"></div></div><div class="cameraSlide cameraSlide_4"><div class="camerarelative"></div></div><div class="cameraSlide cameraSlide_5"><div class="camerarelative"></div></div><div class="cameraSlide cameraSlide_6"><div class="camerarelative"></div></div><div class="cameraSlide cameraSlide_7"><div class="camerarelative"></div></div><div class="cameraSlide cameraSlide_8"><div class="camerarelative"></div></div><div class="cameraSlide cameraSlide_9"><div class="camerarelative"></div></div><div class="cameraSlide cameraSlide_10"><div class="camerarelative"></div></div><div class="cameraSlide cameraSlide_11"><div class="camerarelative"></div></div><div class="cameraSlide cameraSlide_12"><div class="camerarelative"></div></div><div class="cameraSlide cameraSlide_13"><div class="camerarelative"></div></div><div class="cameraSlide cameraSlide_14"><div class="camerarelative"></div></div><div class="cameraSlide cameraSlide_15"><div class="camerarelative"></div></div><div class="cameraSlide cameraSlide_16"><div class="camerarelative"></div></div><div class="cameraSlide cameraSlide_17"><div class="camerarelative"></div></div><div class="cameraSlide cameraSlide_18"><div class="camerarelative"></div></div><div class="cameraSlide cameraSlide_19"><div class="camerarelative"></div></div><div class="cameraSlide cameraSlide_20"><div class="camerarelative"></div></div><div class="cameraSlide cameraSlide_21"><div class="camerarelative"></div></div><div class="cameraSlide cameraSlide_22"><div class="camerarelative"></div></div><div class="cameraSlide cameraSlide_23"><div class="camerarelative"></div></div><div class="cameraSlide cameraSlide_24"><div class="camerarelative"></div></div><div class="cameraSlide cameraSlide_25"><div class="camerarelative"></div></div><div class="cameraSlide cameraSlide_26"><div class="camerarelative"></div></div><div class="cameraSlide cameraSlide_27"><div class="camerarelative"></div></div><div class="cameraSlide cameraSlide_28"><div class="camerarelative"></div></div><div class="cameraSlide cameraSlide_29"><div class="camerarelative"></div></div><div class="cameraSlide cameraSlide_30"><div class="camerarelative"></div></div><div class="cameraSlide cameraSlide_31"><div class="camerarelative"></div></div><div class="cameraSlide cameraSlide_32"><div class="camerarelative"></div></div><div class="cameraSlide cameraSlide_33"><div class="camerarelative"></div></div><div class="cameraSlide cameraSlide_34"><div class="camerarelative"></div></div><div class="cameraSlide cameraSlide_35"><div class="camerarelative"></div></div><div class="cameraSlide cameraSlide_36"><div class="camerarelative"></div></div><div class="cameraSlide cameraSlide_37"><div class="camerarelative"></div></div><div class="cameraSlide cameraSlide_38"><div class="camerarelative"></div></div></div></div><div class="camera_overlayer"></div><div class="camera_target_content"><div class="cameraContents"><div class="cameraContent"></div><div class="cameraContent"></div><div class="cameraContent"></div><div class="cameraContent"></div><div class="cameraContent"></div><div class="cameraContent"></div><div class="cameraContent"></div><div class="cameraContent"></div><div class="cameraContent"></div><div class="cameraContent"></div><div class="cameraContent"></div><div class="cameraContent"></div><div class="cameraContent"></div><div class="cameraContent"></div><div class="cameraContent"></div><div class="cameraContent"></div><div class="cameraContent"></div><div class="cameraContent"></div><div class="cameraContent"></div><div class="cameraContent"></div><div class="cameraContent"></div><div class="cameraContent"></div><div class="cameraContent"></div><div class="cameraContent"></div><div class="cameraContent"></div><div class="cameraContent"></div><div class="cameraContent"></div><div class="cameraContent"></div><div class="cameraContent"></div><div class="cameraContent"></div><div class="cameraContent"></div><div class="cameraContent"></div><div class="cameraContent"></div><div class="cameraContent"></div><div class="cameraContent"></div><div class="cameraContent"></div><div class="cameraContent"></div><div class="cameraContent"></div></div></div><div class="camera_pie"><canvas id="pie_0" width="38" height="38" style="position: absolute; z-index: 1002; right: 0px; top: 0px; display: block;"></canvas></div><div class="camera_commands" style="opacity: 0;"><div class="camera_play" style="display: none;"></div><div class="camera_stop" style="display: block;"></div></div><div class="camera_prev" style="opacity: 0;"><span></span></div><div class="camera_next" style="opacity: 0;"><span></span></div>
+                                </div><div class="camera_loader"></div>
+                            </div>
+                        </div>
+                        <script type="text/javascript">
+                            $(function () {
+                                $('#leo-camera').camera({
+                                    height: '470px',
+                                    alignment: 'center',
+                                    autoAdvance: true,
+                                    barDirection: 'leftToRight',
+                                    barPosition: 'bottom',
+                                    cols: 6,
+                                    easing: 'easeInOutExpo',
+                                    fx: 'random',
+                                    hover: false,
+                                    loader: 'pie',
+                                    navigation: true,
+                                    navigationHover: true,
+                                    pagination: false,
+                                    playPause: true,
+                                    pauseOnClick: false,
+                                    thumbnails: false
+                                });
+                            });
+                        </script>
+                        <div class="customhtml hidden-phone block   span4" id="leo-customhtml-slideshow">
+                            <div class="block_content">
+                                <div class="leo-adv">
+
+
+
+                                    <a class="youtube cboxElement" href="http://www.youtube.com/watch?v=eAzFvgKPIOw" title="Đồ Gỗ Mỹ Nghệ Nguyễn Diệp">
+                                        <img class="img-responsive" alt="Đồ Gỗ Mỹ Nghệ Nguyễn Diệp" title="Đồ Gỗ Mỹ Nghệ Nguyễn Diệp" src="../Template/img/f425e4nq9w.jpg">
+                                    </a>
+
+
+
+                                    <a href="/Default.aspx">
+                                        <img class="img-responsive" alt="#" title="#" src="../Template/img/z5w6o44uar.jpg">
+                                    </a>
+
+                                    <a href="/Default.aspx">
+                                        <img class="img-responsive" alt="#" title="#" src="../Template/img/wkp6gxcyz0.jpg">
+                                    </a>
+
+
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+        <section id="columns" class="clearfix">
+            <div class="container">
+                <div class="row-fluid">
+
+
+                    <!-- Center -->
+                    <section id="center_column" class="span9">
+
+
+
+                        <!-- MODULE Home Featured Products -->
+
+
+                        <div id="featured-products_block_center" class="block products_block clearfix thumnail">
+                            <h2 class="bg_gray"><span class="title_block_content">Sản phẩm mới</span></h2>
+                            <div class="block_content">
+                                <div class="row-fluid">
+
+
+
+                                    <div class="p-item span4 ajax_block_product product_block item thumnail">
+                                        <div class="list-products thumnail">
+                                            <div class="product-container clearfix">
+                                                <div class="center_block">
+                                                    <a href="Detail.aspx?id=1052&amp;&amp;id_type=15" title="TP Bát tiên gỗ hương ( Tây nguyên )">
+                                                        <img src="http://localhost:1805/fileupload/75/75_2015-03-22-4-4-10_DSC_0549.JPG" alt="" class="img-responsive">
+                                                    </a>
+
+
+                                                </div>
+                                                <div class="right_block">
+                                                    <h3 class="s_title_block"><div style="float:left;font-style:oblique;color:blue;width:125px;"> Mã sản phẩm : 1052</div></h3>
+                                                    <h3 class="s_title_block">
+                                                        <a href="Detail.aspx?id=1052&amp;&amp;id_type=15" title="TP Bát tiên gỗ hương ( Tây nguyên )"><b>TP Bát tiên gỗ hương ( Tây nguyên )</b></a>
+                                                    </h3>
+                                                    <div class="product_desc">
+
+                                                        Tác phẩm nguyên khối , nét đục rất đẹp có một ít nu.
+                                                    </div>
+
+                                                </div>
+                                                <div class="left_block">
+                                                    <div class="content_price">
+                                                        <span class="price"><b>Liên Hệ</b></span>
+                                                    </div>
+                                                    <a class="button ajax_add_to_cart_button exclusive iframe_muahang cboxElement" data-id="15" href="xemnhanh.aspx?id=15&amp;&amp;id_pro=1052" title="TP Bát tiên gỗ hương ( Tây nguyên )"><span class="icon-addcart"></span>Add to cart</a>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+
+
+                                    <div class="p-item span4 ajax_block_product product_block item thumnail">
+                                        <div class="list-products thumnail">
+                                            <div class="product-container clearfix">
+                                                <div class="center_block">
+                                                    <a href="Detail.aspx?id=1051&amp;&amp;id_type=14" title="Tượng Phật Bà Quan Âm Gỗ Thỷu tùng">
+                                                        <img src="http://localhost:1805/fileupload/75/75_2015-03-21-18-9-55_DSC_0450.JPG" alt="" class="img-responsive">
+                                                    </a>
+
+
+                                                </div>
+                                                <div class="right_block">
+                                                    <h3 class="s_title_block"><div style="float:left;font-style:oblique;color:blue;width:125px;"> Mã sản phẩm : 1051</div></h3>
+                                                    <h3 class="s_title_block">
+                                                        <a href="Detail.aspx?id=1051&amp;&amp;id_type=14" title="Tượng Phật Bà Quan Âm Gỗ Thỷu tùng"><b>Tượng Phật Bà Quan Âm Gỗ Thỷu tùng</b></a>
+                                                    </h3>
+                                                    <div class="product_desc">
+
+                                                        Tượng Phật Bà nguyên khối , vân chuối rất đẹp
+                                                    </div>
+
+                                                </div>
+                                                <div class="left_block">
+                                                    <div class="content_price">
+                                                        <span class="price"><b>Liên Hệ</b></span>
+                                                    </div>
+                                                    <a class="button ajax_add_to_cart_button exclusive iframe_muahang cboxElement" data-id="14" href="xemnhanh.aspx?id=14&amp;&amp;id_pro=1051" title="Tượng Phật Bà Quan Âm Gỗ Thỷu tùng"><span class="icon-addcart"></span>Add to cart</a>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+
+
+                                    <div class="p-item span4 ajax_block_product product_block item thumnail">
+                                        <div class="list-products thumnail">
+                                            <div class="product-container clearfix">
+                                                <div class="center_block">
+                                                    <a href="Detail.aspx?id=1050&amp;&amp;id_type=1" title="Cụ Thiềm thử gỗ nu kháo">
+                                                        <img src="http://localhost:1805/fileupload/75/75_2015-03-21-17-55-31_DSC_0460.JPG" alt="" class="img-responsive">
+                                                    </a>
+
+
+                                                </div>
+                                                <div class="right_block">
+                                                    <h3 class="s_title_block"><div style="float:left;font-style:oblique;color:blue;width:125px;"> Mã sản phẩm : 1050</div></h3>
+                                                    <h3 class="s_title_block">
+                                                        <a href="Detail.aspx?id=1050&amp;&amp;id_type=1" title="Cụ Thiềm thử gỗ nu kháo"><b>Cụ Thiềm thử gỗ nu kháo</b></a>
+                                                    </h3>
+                                                    <div class="product_desc">
+
+                                                        Cụ Thiềm thử gỗ nu kháo vùng rừng núi Đông Bắc Việt nam . SP nguyên khói có ý nghĩa phong thủy khi trưng bày ở Phòng làm việc hoặc Phòng khách.....
+                                                    </div>
+
+                                                </div>
+                                                <div class="left_block">
+                                                    <div class="content_price">
+                                                        <span class="price"><b>Liên Hệ</b></span>
+                                                    </div>
+                                                    <a class="button ajax_add_to_cart_button exclusive iframe_muahang cboxElement" data-id="1" href="xemnhanh.aspx?id=1&amp;&amp;id_pro=1050" title="Cụ Thiềm thử gỗ nu kháo"><span class="icon-addcart"></span>Add to cart</a>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+
+
+                                    <div class="p-item span4 ajax_block_product product_block item thumnail">
+                                        <div class="list-products thumnail">
+                                            <div class="product-container clearfix">
+                                                <div class="center_block">
+                                                    <a href="Detail.aspx?id=1049&amp;&amp;id_type=11" title="Tượng Di lặc khủng gỗ Thủy tùng">
+                                                        <img src="http://localhost:1805/fileupload/75/75_2015-03-21-5-0-5_DSC_0841.JPG" alt="" class="img-responsive">
+                                                    </a>
+
+
+                                                </div>
+                                                <div class="right_block">
+                                                    <h3 class="s_title_block"><div style="float:left;font-style:oblique;color:blue;width:125px;"> Mã sản phẩm : 1049</div></h3>
+                                                    <h3 class="s_title_block">
+                                                        <a href="Detail.aspx?id=1049&amp;&amp;id_type=11" title="Tượng Di lặc khủng gỗ Thủy tùng"><b>Tượng Di lặc khủng gỗ Thủy tùng</b></a>
+                                                    </h3>
+                                                    <div class="product_desc">
+
+                                                        Sản phẩm có xuất xuất xứ từ Đăklăk ( Tây nguyên), được chế tác từ gốc Thủy tùng kích thước khủng , gần như nguyên khối ( chỉ ghép một số chi tiết để tạo  điểm nhấn không đáng kề)
+                                                        Sản phẩm thuộc dạng hiếm tại thời điểm hiện nay.
+                                                    </div>
+
+                                                </div>
+                                                <div class="left_block">
+                                                    <div class="content_price">
+                                                        <span class="price"><b>Liên Hệ</b></span>
+                                                    </div>
+                                                    <a class="button ajax_add_to_cart_button exclusive iframe_muahang cboxElement" data-id="11" href="xemnhanh.aspx?id=11&amp;&amp;id_pro=1049" title="Tượng Di lặc khủng gỗ Thủy tùng"><span class="icon-addcart"></span>Add to cart</a>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+
+
+                                    <div class="p-item span4 ajax_block_product product_block item thumnail">
+                                        <div class="list-products thumnail">
+                                            <div class="product-container clearfix">
+                                                <div class="center_block">
+                                                    <a href="Detail.aspx?id=1048&amp;&amp;id_type=9" title="Tượng Di Lặc Gỗ Thủy tùng">
+                                                        <img src="http://localhost:1805/fileupload/75/75_2015-03-20-19-52-52_DSC_0445.JPG" alt="" class="img-responsive">
+                                                    </a>
+
+
+                                                </div>
+                                                <div class="right_block">
+                                                    <h3 class="s_title_block"><div style="float:left;font-style:oblique;color:blue;width:125px;"> Mã sản phẩm : 1048</div></h3>
+                                                    <h3 class="s_title_block">
+                                                        <a href="Detail.aspx?id=1048&amp;&amp;id_type=9" title="Tượng Di Lặc Gỗ Thủy tùng"><b>Tượng Di Lặc Gỗ Thủy tùng</b></a>
+                                                    </h3>
+                                                    <div class="product_desc">
+
+                                                        Tượng Di Lặc Gỗ Thủy tùng xịn 100%, nguyên khối , vân chuối rất đẹp. Hàng rất hiếm.
+                                                    </div>
+
+                                                </div>
+                                                <div class="left_block">
+                                                    <div class="content_price">
+                                                        <span class="price"><b>Liên Hệ</b></span>
+                                                    </div>
+                                                    <a class="button ajax_add_to_cart_button exclusive iframe_muahang cboxElement" data-id="9" href="xemnhanh.aspx?id=9&amp;&amp;id_pro=1048" title="Tượng Di Lặc Gỗ Thủy tùng"><span class="icon-addcart"></span>Add to cart</a>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+
+
+                                    <div class="p-item span4 ajax_block_product product_block item thumnail">
+                                        <div class="list-products thumnail">
+                                            <div class="product-container clearfix">
+                                                <div class="center_block">
+                                                    <a href="Detail.aspx?id=1046&amp;&amp;id_type=7" title="Mặt bàn gỗ nu xá xị ĐK 1m , dày 20cm">
+                                                        <img src="http://localhost:1805/fileupload/75/75_2015-03-20-19-22-31_DSC_1025.JPG" alt="" class="img-responsive">
+                                                    </a>
+
+
+                                                </div>
+                                                <div class="right_block">
+                                                    <h3 class="s_title_block"><div style="float:left;font-style:oblique;color:blue;width:125px;"> Mã sản phẩm : 1046</div></h3>
+                                                    <h3 class="s_title_block">
+                                                        <a href="Detail.aspx?id=1046&amp;&amp;id_type=7" title="Mặt bàn gỗ nu xá xị ĐK 1m , dày 20cm"><b>Mặt bàn gỗ nu xá xị ĐK 1m , dày 20cm</b></a>
+                                                    </h3>
+                                                    <div class="product_desc">
+
+                                                        Mặt bàn gỗ nu xá xị đỏ gần như 100% , không lỗi, rất đẹp
+                                                    </div>
+
+                                                </div>
+                                                <div class="left_block">
+                                                    <div class="content_price">
+                                                        <span class="price"><b>Liên Hệ</b></span>
+                                                    </div>
+                                                    <a class="button ajax_add_to_cart_button exclusive iframe_muahang cboxElement" data-id="7" href="xemnhanh.aspx?id=7&amp;&amp;id_pro=1046" title="Mặt bàn gỗ nu xá xị ĐK 1m , dày 20cm"><span class="icon-addcart"></span>Add to cart</a>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+
+
+                                    <div class="p-item span4 ajax_block_product product_block item thumnail">
+                                        <div class="list-products thumnail">
+                                            <div class="product-container clearfix">
+                                                <div class="center_block">
+                                                    <a href="Detail.aspx?id=1043&amp;&amp;id_type=1" title="Gỗ thủy tùng">
+                                                        <img src="http://localhost:1805/fileupload/75/75_2015-03-15-13-42-57_DSC_0645.JPG" alt="" class="img-responsive">
+                                                    </a>
+
+
+                                                </div>
+                                                <div class="right_block">
+                                                    <h3 class="s_title_block"><div style="float:left;font-style:oblique;color:blue;width:125px;"> Mã sản phẩm : 1043</div></h3>
+                                                    <h3 class="s_title_block">
+                                                        <a href="Detail.aspx?id=1043&amp;&amp;id_type=1" title="Gỗ thủy tùng"><b>Gỗ thủy tùng</b></a>
+                                                    </h3>
+                                                    <div class="product_desc">
+
+
+                                                    </div>
+
+                                                </div>
+                                                <div class="left_block">
+                                                    <div class="content_price">
+                                                        <span class="price"><b>Liên Hệ</b></span>
+                                                    </div>
+                                                    <a class="button ajax_add_to_cart_button exclusive iframe_muahang cboxElement" data-id="1" href="xemnhanh.aspx?id=1&amp;&amp;id_pro=1043" title="Gỗ thủy tùng"><span class="icon-addcart"></span>Add to cart</a>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+
+
+                                    <div class="p-item span4 ajax_block_product product_block item thumnail">
+                                        <div class="list-products thumnail">
+                                            <div class="product-container clearfix">
+                                                <div class="center_block">
+                                                    <a href="Detail.aspx?id=1042&amp;&amp;id_type=2" title="Dê nu nghiến">
+                                                        <img src="http://localhost:1805/fileupload/75/75_2015-01-09-13-50-22_large_gal_132047_541d214310b09.jpg" alt="" class="img-responsive">
+                                                    </a>
+
+
+                                                </div>
+                                                <div class="right_block">
+                                                    <h3 class="s_title_block"><div style="float:left;font-style:oblique;color:blue;width:125px;"> Mã sản phẩm : 1042</div></h3>
+                                                    <h3 class="s_title_block">
+                                                        <a href="Detail.aspx?id=1042&amp;&amp;id_type=2" title="Dê nu nghiến"><b>Dê nu nghiến</b></a>
+                                                    </h3>
+                                                    <div class="product_desc">
+
+                                                        Dê nu nghiến
+                                                    </div>
+
+                                                </div>
+                                                <div class="left_block">
+                                                    <div class="content_price">
+                                                        <span class="price"><b>Liên Hệ</b></span>
+                                                    </div>
+                                                    <a class="button ajax_add_to_cart_button exclusive iframe_muahang cboxElement" data-id="2" href="xemnhanh.aspx?id=2&amp;&amp;id_pro=1042" title="Dê nu nghiến"><span class="icon-addcart"></span>Add to cart</a>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+
+
+                                    <div class="p-item span4 ajax_block_product product_block item thumnail">
+                                        <div class="list-products thumnail">
+                                            <div class="product-container clearfix">
+                                                <div class="center_block">
+                                                    <a href="Detail.aspx?id=1041&amp;&amp;id_type=2" title="Bộ sập chân quỳ ">
+                                                        <img src="http://localhost:1805/fileupload/75/75_2015-01-07-9-39-1_large_gal_132047_53a2842beaa68.jpg" alt="" class="img-responsive">
+                                                    </a>
+
+
+                                                </div>
+                                                <div class="right_block">
+                                                    <h3 class="s_title_block"><div style="float:left;font-style:oblique;color:blue;width:125px;"> Mã sản phẩm : 1041</div></h3>
+                                                    <h3 class="s_title_block">
+                                                        <a href="Detail.aspx?id=1041&amp;&amp;id_type=2" title="Bộ sập chân quỳ "><b>Bộ sập chân quỳ </b></a>
+                                                    </h3>
+                                                    <div class="product_desc">
+
+                                                        Bộ sập chân quỳ dài 3,2m rộng 2,02m ( 1,07m+0,95m) dày 15cm
+                                                    </div>
+
+                                                </div>
+                                                <div class="left_block">
+                                                    <div class="content_price">
+                                                        <span class="price"><b>Liên Hệ</b></span>
+                                                    </div>
+                                                    <a class="button ajax_add_to_cart_button exclusive iframe_muahang cboxElement" data-id="2" href="xemnhanh.aspx?id=2&amp;&amp;id_pro=1041" title="Bộ sập chân quỳ "><span class="icon-addcart"></span>Add to cart</a>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+
+
+                                    <div class="p-item span4 ajax_block_product product_block item thumnail">
+                                        <div class="list-products thumnail">
+                                            <div class="product-container clearfix">
+                                                <div class="center_block">
+                                                    <a href="Detail.aspx?id=1040&amp;&amp;id_type=2" title="Bộ phản ( có chân) gỗ gỏ mật">
+                                                        <img src="http://localhost:1805/fileupload/75/75_2015-01-07-9-37-24_large_gal_132047_53312b000339d.jpg" alt="" class="img-responsive">
+                                                    </a>
+
+
+                                                </div>
+                                                <div class="right_block">
+                                                    <h3 class="s_title_block"><div style="float:left;font-style:oblique;color:blue;width:125px;"> Mã sản phẩm : 1040</div></h3>
+                                                    <h3 class="s_title_block">
+                                                        <a href="Detail.aspx?id=1040&amp;&amp;id_type=2" title="Bộ phản ( có chân) gỗ gỏ mật"><b>Bộ phản ( có chân) gỗ gỏ mật</b></a>
+                                                    </h3>
+                                                    <div class="product_desc">
+
+                                                        Bộ phản ( có chân) gỗ gỏ mật dài 5,4m
+                                                    </div>
+
+                                                </div>
+                                                <div class="left_block">
+                                                    <div class="content_price">
+                                                        <span class="price"><b>Liên Hệ</b></span>
+                                                    </div>
+                                                    <a class="button ajax_add_to_cart_button exclusive iframe_muahang cboxElement" data-id="2" href="xemnhanh.aspx?id=2&amp;&amp;id_pro=1040" title="Bộ phản ( có chân) gỗ gỏ mật"><span class="icon-addcart"></span>Add to cart</a>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+
+
+                                    <div class="p-item span4 ajax_block_product product_block item thumnail">
+                                        <div class="list-products thumnail">
+                                            <div class="product-container clearfix">
+                                                <div class="center_block">
+                                                    <a href="Detail.aspx?id=1039&amp;&amp;id_type=2" title="Bộ bàn ghế gốc gõ đỏ ">
+                                                        <img src="http://localhost:1805/fileupload/75/75_2015-01-06-11-35-26_large_gal_132047_533a87143a669.jpg" alt="" class="img-responsive">
+                                                    </a>
+
+
+                                                </div>
+                                                <div class="right_block">
+                                                    <h3 class="s_title_block"><div style="float:left;font-style:oblique;color:blue;width:125px;"> Mã sản phẩm : 1039</div></h3>
+                                                    <h3 class="s_title_block">
+                                                        <a href="Detail.aspx?id=1039&amp;&amp;id_type=2" title="Bộ bàn ghế gốc gõ đỏ "><b>Bộ bàn ghế gốc gõ đỏ </b></a>
+                                                    </h3>
+                                                    <div class="product_desc">
+
+                                                        Bộ bàn ghế gốc gõ đỏ ( cate/ Tây nguyên ) nguyên gốc ( không chắp ghép ) 8 món
+                                                    </div>
+
+                                                </div>
+                                                <div class="left_block">
+                                                    <div class="content_price">
+                                                        <span class="price"><b>Liên Hệ</b></span>
+                                                    </div>
+                                                    <a class="button ajax_add_to_cart_button exclusive iframe_muahang cboxElement" data-id="2" href="xemnhanh.aspx?id=2&amp;&amp;id_pro=1039" title="Bộ bàn ghế gốc gõ đỏ "><span class="icon-addcart"></span>Add to cart</a>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+
+
+                                    <div class="p-item span4 ajax_block_product product_block item thumnail">
+                                        <div class="list-products thumnail">
+                                            <div class="product-container clearfix">
+                                                <div class="center_block">
+                                                    <a href="Detail.aspx?id=81&amp;&amp;id_type=2" title="khay trà nu nghiến đục cặp cá">
+                                                        <img src="http://localhost:1805/fileupload/75/75_2014-12-29-11-2-26_gal_132047_538c7a2f6661f.jpg" alt="" class="img-responsive">
+                                                    </a>
+
+
+                                                </div>
+                                                <div class="right_block">
+                                                    <h3 class="s_title_block"><div style="float:left;font-style:oblique;color:blue;width:125px;"> Mã sản phẩm : 81</div></h3>
+                                                    <h3 class="s_title_block">
+                                                        <a href="Detail.aspx?id=81&amp;&amp;id_type=2" title="khay trà nu nghiến đục cặp cá"><b>khay trà nu nghiến đục cặp cá</b></a>
+                                                    </h3>
+                                                    <div class="product_desc">
+
+                                                        khay trà nu nghiến đục cặp cá
+                                                    </div>
+
+                                                </div>
+                                                <div class="left_block">
+                                                    <div class="content_price">
+                                                        <span class="price"><b>Liên Hệ</b></span>
+                                                    </div>
+                                                    <a class="button ajax_add_to_cart_button exclusive iframe_muahang cboxElement" data-id="2" href="xemnhanh.aspx?id=2&amp;&amp;id_pro=81" title="khay trà nu nghiến đục cặp cá"><span class="icon-addcart"></span>Add to cart</a>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+
+
+                                    <div class="p-item span4 ajax_block_product product_block item thumnail">
+                                        <div class="list-products thumnail">
+                                            <div class="product-container clearfix">
+                                                <div class="center_block">
+                                                    <a href="Detail.aspx?id=80&amp;&amp;id_type=2" title="Cô gái gỗ trai ( nguyên khối ) ">
+                                                        <img src="http://localhost:1805/fileupload/75/75_2014-12-29-11-1-18_gal_132047_5482fc1d2145a.jpg" alt="" class="img-responsive">
+                                                    </a>
+
+
+                                                </div>
+                                                <div class="right_block">
+                                                    <h3 class="s_title_block"><div style="float:left;font-style:oblique;color:blue;width:125px;"> Mã sản phẩm : 80</div></h3>
+                                                    <h3 class="s_title_block">
+                                                        <a href="Detail.aspx?id=80&amp;&amp;id_type=2" title="Cô gái gỗ trai ( nguyên khối ) "><b>Cô gái gỗ trai ( nguyên khối ) </b></a>
+                                                    </h3>
+                                                    <div class="product_desc">
+
+                                                        Cô gái gỗ trai ( nguyên khối ) cao 64cm, ngang 13- 23cm, sâu 12- 25cm.
+                                                    </div>
+
+                                                </div>
+                                                <div class="left_block">
+                                                    <div class="content_price">
+                                                        <span class="price"><b>Liên Hệ</b></span>
+                                                    </div>
+                                                    <a class="button ajax_add_to_cart_button exclusive iframe_muahang cboxElement" data-id="2" href="xemnhanh.aspx?id=2&amp;&amp;id_pro=80" title="Cô gái gỗ trai ( nguyên khối ) "><span class="icon-addcart"></span>Add to cart</a>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+
+
+                                    <div class="p-item span4 ajax_block_product product_block item thumnail">
+                                        <div class="list-products thumnail">
+                                            <div class="product-container clearfix">
+                                                <div class="center_block">
+                                                    <a href="Detail.aspx?id=79&amp;&amp;id_type=2" title="Tác phẩm rồng trong hang lủa gỗ táo">
+                                                        <img src="http://localhost:1805/fileupload/75/75_2014-12-29-11-0-19_gal_132047_5482fa34b2fc0.jpg" alt="" class="img-responsive">
+                                                    </a>
+
+
+                                                </div>
+                                                <div class="right_block">
+                                                    <h3 class="s_title_block"><div style="float:left;font-style:oblique;color:blue;width:125px;"> Mã sản phẩm : 79</div></h3>
+                                                    <h3 class="s_title_block">
+                                                        <a href="Detail.aspx?id=79&amp;&amp;id_type=2" title="Tác phẩm rồng trong hang lủa gỗ táo"><b>Tác phẩm rồng trong hang lủa gỗ táo</b></a>
+                                                    </h3>
+                                                    <div class="product_desc">
+
+                                                        Tác phẩm rồng trong hang lủa gỗ táo ( nguyên khối ) cao 70cm, ngang 35cm , sâu 37cm
+                                                    </div>
+
+                                                </div>
+                                                <div class="left_block">
+                                                    <div class="content_price">
+                                                        <span class="price"><b>Liên Hệ</b></span>
+                                                    </div>
+                                                    <a class="button ajax_add_to_cart_button exclusive iframe_muahang cboxElement" data-id="2" href="xemnhanh.aspx?id=2&amp;&amp;id_pro=79" title="Tác phẩm rồng trong hang lủa gỗ táo"><span class="icon-addcart"></span>Add to cart</a>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+
+
+                                    <div class="p-item span4 ajax_block_product product_block item thumnail">
+                                        <div class="list-products thumnail">
+                                            <div class="product-container clearfix">
+                                                <div class="center_block">
+                                                    <a href="Detail.aspx?id=78&amp;&amp;id_type=2" title="Đầu đạn gỗ sơn huyết ( nguyên khối ) cao 1m Đk 25cm.">
+                                                        <img src="http://localhost:1805/fileupload/75/75_2014-12-29-10-59-17_gal_132047_5482f8c025199.jpg" alt="" class="img-responsive">
+                                                    </a>
+
+
+                                                </div>
+                                                <div class="right_block">
+                                                    <h3 class="s_title_block"><div style="float:left;font-style:oblique;color:blue;width:125px;"> Mã sản phẩm : 78</div></h3>
+                                                    <h3 class="s_title_block">
+                                                        <a href="Detail.aspx?id=78&amp;&amp;id_type=2" title="Đầu đạn gỗ sơn huyết ( nguyên khối ) cao 1m Đk 25cm."><b>Đầu đạn gỗ sơn huyết ( nguyên khối ) cao 1m Đk 25cm.</b></a>
+                                                    </h3>
+                                                    <div class="product_desc">
+
+                                                        Đầu đạn gỗ sơn huyết ( nguyên khối ) cao 1m Đk 25cm.
+                                                    </div>
+
+                                                </div>
+                                                <div class="left_block">
+                                                    <div class="content_price">
+                                                        <span class="price"><b>Liên Hệ</b></span>
+                                                    </div>
+                                                    <a class="button ajax_add_to_cart_button exclusive iframe_muahang cboxElement" data-id="2" href="xemnhanh.aspx?id=2&amp;&amp;id_pro=78" title="Đầu đạn gỗ sơn huyết ( nguyên khối ) cao 1m Đk 25cm."><span class="icon-addcart"></span>Add to cart</a>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+
+
+                                </div>
+
+
+
+
+                                <div class="row-fluid sortPagiBar bg_gray">
+                                    <div class="span9">
+                                        <div class="inner">
+
+
+                                            <!-- Pagination -->
+                                            <div class="pagination" id="pagination_bottom">
+                                                <ul class="pagination"></ul>
+
+                                            </div>
+                                            <!-- /Pagination -->
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+
+                        <!-- /MODULE Home Featured Products -->
+
+
+
+                    </section>
+
+
+
+                    <!-- Right -->
+
+                    <section class="column span3 omega" id="right_column">
+                        <!-- Block categories module -->
+                        <div class="block" id="categories_block_left">
+                            <h4 class="title_block title_blue">Danh mục</h4>
+                            <div class="block_content">
+                                <ul style="display: block;" class="tree dynamized">
+
+                                    <li><a href="/Default.aspx">Trang chủ</a></li>
+
+
+                                    <li><a href="/news.aspx">Tin Tức</a></li>
+
+
+                                    <li><a href="/contact.aspx">Liên Hệ</a></li>
+
+
+                                    <li><a href="/products_new.aspx">Sản phẩm Mới</a></li>
+
+
+                                    <li><a href="/about.aspx">Giới thiệu</a></li>
+
+
+
+                                    <li><a href="products.aspx?id_menu=1&amp;&amp;id=1">Lộc Bình</a></li>
+
+
+                                    <li><a href="products.aspx?id_menu=13&amp;&amp;id=13">Sản phẩm gỗ nu kháo</a></li>
+
+
+                                    <li><a href="products.aspx?id_menu=7&amp;&amp;id=7">Sản phẩm gỗ nu xá xị</a></li>
+
+
+                                    <li><a href="products.aspx?id_menu=11&amp;&amp;id=11">Tượng Di lặc gỗ Thủy tùng</a></li>
+
+
+                                    <li><a href="products.aspx?id_menu=15&amp;&amp;id=15">SP gỗ hương và nu hương</a></li>
+
+
+                                    <li><a href="products.aspx?id_menu=14&amp;&amp;id=14">SP gỗ Thủy tùng</a></li>
+
+
+                                    <li><a href="products.aspx?id_menu=12&amp;&amp;id=12">Sản phẩm gỗ Thủy tùng</a></li>
+
+
+                                </ul>
+
+
+
+                                <asp:SqlDataSource ID="ds_load_menu" runat="server" ConnectionString="<%$ ConnectionStrings:dogonguyendiepConnectionString %>" SelectCommand="SELECT * FROM [wb_menu] where menu_status=1 order by menu_order"></asp:SqlDataSource>
+                                <asp:SqlDataSource ID="ds_load_menu_products" runat="server" ConnectionString="<%$ ConnectionStrings:dogonguyendiepConnectionString %>" SelectCommand="SELECT * FROM [wb_menu_products] where menu_status=1   order by menu_products_order "></asp:SqlDataSource>
+                                <asp:HiddenField ID="hd_load_products_top" runat="server" />
+
+                                <script type="text/javascript">
+                                    // &lt;![CDATA[
+                                    // we hide the tree only if JavaScript is activated
+                                    $('div#categories_block_left ul.dhtml').hide();
+                                    // ]]&gt;
+                                </script>
+                            </div>
+                        </div>
+                        <!-- /Block categories module -->
+                        <!-- MODULE Block cart -->
+                        <div class="block exclusive block_wood" id="cart_block">
+                            <h4 class="title_block">
+                                <a rel="nofollow" title="Video" href="//video/video_link_home/1000">Video</a>
+                                <span class="hidden" id="block_cart_expand">&nbsp;</span>
+                                <span id="block_cart_collapse">&nbsp;</span>
+                            </h4>
+                            <div class="block_content">
+                                <!-- block summary -->
+                                <!-- block list of products -->
+                                <div style="text-align: center;" class="expanded" id="cart_block_list">
+                                    <a title="Đồ Gỗ Mỹ Nghệ Nguyễn Diệp" class="youtube cboxElement" href="http://www.youtube.com/watch?v=eAzFvgKPIOw">
+                                        <img alt="Đồ Gỗ Mỹ Nghệ Nguyễn Diệp" src="./img/f425e4nq9w.jpg" style="width: 231px; height: 165px" class="img-responsive">
+                                    </a>
+                                    <br>
+                                    <a title="Đồ Gỗ Mỹ Nghệ Nguyễn Diệp" class="youtube cboxElement" href="http://www.youtube.com/watch?v=eAzFvgKPIOw">
+                                        <b style="font-size: 13px; line-height: 25px;">Đồ Gỗ Mỹ Nghệ Nguyễn Diệp</b>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /MODULE Block cart -->
+                        <!-- Block categories module -->
+                        <div id="categories_block_left" class="block">
+                            <h4 class="title_block title_blue">Thống kê truy cập</h4>
+                            <div class="block_content">
+                                <table class="table_thongke">
+
+                                    <tbody>
+                                        <tr>
+                                            <td style="width: 50%; padding-left: 10px; display: inline-block !important;">
+                                                <img src="./img/1.png">
+                                                Đang online:
+                                            </td>
+                                            <td style="width: 38%; display: inline-block !important;">3</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 50%; padding-left: 10px; display: inline-block !important;">
+                                                <img src="./img/2.png">Hôm nay:
+                                            </td>
+                                            <td style="width: 38%; display: inline-block !important;">22</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 50%; padding-left: 10px; display: inline-block !important;">
+                                                <img src="./img/3.png">
+                                                Hôm qua:
+                                            </td>
+                                            <td style="width: 38%; display: inline-block !important;">49</td>
+                                        </tr>
+
+
+                                        <tr>
+                                            <td style="width: 50%; padding-left: 10px; display: inline-block !important;">
+                                                <img src="./img/4.png">
+                                                Tuần này:
+                                            </td>
+                                            <td style="width: 38%; display: inline-block !important;">194</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 50%; padding-left: 10px; display: inline-block !important;">
+                                                <img src="./img/1.png">
+                                                Tuần trước:
+                                            </td>
+                                            <td style="width: 38%; display: inline-block !important;">724</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 50%; padding-left: 10px; display: inline-block !important;">
+                                                <img src="./img/2.png">
+                                                Tháng này:
+                                            </td>
+                                            <td style="width: 38%; display: inline-block !important;">1,345</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 50%; padding-left: 10px; display: inline-block !important;">
+                                                <img src="./img/3.png">
+                                                Tháng trước:
+                                            </td>
+                                            <td style="width: 38%; display: inline-block !important;">78</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 50%; padding-left: 10px; display: inline-block !important;">
+                                                <img src="./img/5.png">
+                                                Tất cả:
+                                            </td>
+                                            <td style="width: 38%; display: inline-block !important;">4,558</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <!-- Histats.com  START  (standard)-->
+                                <!-- Histats.com  END  -->
+
+                            </div>
+                        </div>
+                        <!-- /Block categories module -->
+                        <!-- Block categories module -->
+                        <div id="categories_block_left" class="block">
+                            <h4 class="title_block title_blue">FanPage Facebook</h4>
+                            <div class="block_content">
+                                <div class="fb-like-box" data-href="https://www.facebook.com/pages/%C4%90%E1%BB%93-G%E1%BB%97-M%E1%BB%B9-Ngh%E1%BB%87-Nguy%E1%BB%85n-Di%E1%BB%87p/1400040813563351?ref=hl" data-width="232px" data-colorscheme="light" data-show-faces="true" data-header="false" data-stream="false" data-show-border="false"></div>
+
+                                <!-- Histats.com  START  (standard)-->
+                                <!-- Histats.com  END  -->
+
+                            </div>
+                        </div>
+                    </section>
+                    <div id="fb-root"></div>
+                    <script>
+                        (function (d, s, id) {
+                            var js, fjs = d.getElementsByTagName(s)[0];
+                            if (d.getElementById(id)) return;
+                            js = d.createElement(s); js.id = id;
+                            js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.0";
+                            fjs.parentNode.insertBefore(js, fjs);
+                        }(document, 'script', 'facebook-jssdk'));</script>
+
+
+                    <!-- /Right -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+
+        <footer id="footer" class="omega clearfix">
+
+            <section id="footer-bottom" class="bg_wood">
+                <div>
+                    <div class="container">
+                        <div class="row-fluid">
+                            <div class="span6">
+                                <div class="copyright">
+                                    Copyright © 2014 Đồ gỗ mỹ nghệ NGUYỄN DIỆP.<br>
+                                    <a href="#" taget="_blank">Thiết kế bởi Tu Nguyen - 0984.984.691 - Email:tunguyen.it.dev@gmail.com</a>
+
+                                </div>
+                            </div>
+                            <div class="span6">
+                                <div class="footnav">
+                                    <div class="customhtml hidden-phone block " id="leo-customhtml-footnav">
+                                        <div class="block_content">
+                                            <ul>
+                                                <li><strong>Đồ gỗ mỹ nghệ NGUYỄN DIỆP</strong></li>
+                                                <li></li>
+                                                <li><strong>Giám đốc:</strong> NGUYỄN DIỆP - <strong>Điện thoại:</strong> 0915105684</li>
+                                            </ul>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </footer>
+
+
+
+        <!-- /Footer -->
+
+        <a href="//Default.aspx#top" id="top-link" style="display: inline;">Lên đầu trang</a>
+
+        <div class="sthoverbuttons-pos-left" id="sthoverbuttons">
+            <div class="sthoverbuttons-background-l" id="sthoverbuttons-background">
+                <div class="sthoverbuttons-top-l" id="sthoverbuttons-top">&nbsp;</div>
+
+                <div class="sthoverbuttons-bottom-l" id="sthoverbuttons-bottom">&nbsp;</div>
+            </div>
+            <div class="sthoverbuttonsMain-l" id="sthoverbuttonsMain">
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

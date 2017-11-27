@@ -1,0 +1,102 @@
+/**********************************************************
+		SUFFIX CLASS COLOR
+***********************************************************/
+
+/*********** TITLE MODULES********************************/
+	@media print {
+	  a:link:after, a:visited:after {
+	    content: "";
+	  }
+	}
+	.title_blue:before {
+		background: url("../../Template/img/title-block-bg.png") no-repeat scroll left top transparent;
+		content: "";
+		height: 45px;
+		left: 0;
+		margin-top: 0;
+		position: absolute;
+		top: 0;
+		width: 45px;
+	}
+	.title_block .title_blue ,
+	.title_block .title_wood {
+		padding-left: 55px;
+		position: relative;
+
+	}
+	
+	.title_wood {
+		background:url("../../Template/img/navright-bg.png") repeat scroll center top transparent;
+		padding: 12px 10px 11px;
+		line-height: 20px;
+		border:1px solid #DEDEDE;
+		color: #fff;
+	}
+	.title_oranges:before {
+		background: url("../../Template/img/title-block-bg.png") no-repeat scroll left -123px transparent;
+		content: "";
+		height: 45px;
+		left: 0;
+		margin-top: 0;
+		position: absolute;
+		top: 0;
+		width: 45px;
+	}
+	.title_block_content {
+		background: url(../../Template/img/navbar-bg.png) right center no-repeat;
+		padding:10px 25px 10px 15px;
+		color: #fff;
+		display:inline-block;
+	}
+	
+/********************* CONTENT MODULES******************************/
+	.block_wood {
+		background:url("../../Template/img/bg_wood.png") repeat scroll 0 0 #5e544e;
+		color: #fff;
+	}
+		#left_column .block_wood .title_block ,
+		#right_column .block_wood .title_block {
+			background: url("../../Template/img/title-wood-bg.png") repeat scroll 0 0 transparent;
+		}
+	
+	
+	
+/********************* BACKGROUND DEFAULT *******************************/
+	.bg_wood {
+		background:url("../../Template/img/navright-bg.png") repeat scroll center top transparent
+	}
+	.bg_white {
+		background: #fff;
+	}
+	.bg_gray {
+		background: #F3F3F1;
+	}
+
+
+/****************** PRODUCT-LIST ************************************/
+	#productsview > .btn > i {
+		background: url("../../Template/img/icon/view-grid-bg.png") no-repeat scroll 2px 2px transparent;
+	}
+	#productsview > .btn:hover > i,
+	#productsview > .btn > i.active {
+		background-position: 2px -28px;
+	}
+	#productsview > .btn > i.icon-th-list {
+		background-position: -30px 2px;
+	}
+	#productsview > .btn:hover > i.icon-th-list,
+	#productsview > .btn > i.icon-th-list.active {
+		background-position: -30px -29px;
+	}
+	
+/** bootstrap *********/
+	.control-group label.radio {
+		display: inline-block;
+		float: left;
+		margin-right: 10px;
+		margin-top: 5px;
+	}
+	
+	textarea.input-xlarge, select.input-xlarge {
+		width: 275px;
+	}

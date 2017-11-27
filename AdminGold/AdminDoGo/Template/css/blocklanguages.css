@@ -1,0 +1,54 @@
+/* block top languages */
+#languages_block_top {
+	width: 100px;
+}
+#languages_block_top #first-languages	{
+		cursor: pointer;
+		position: relative;
+		background: url("../../../../Template/img/icon/icon-header.png") no-repeat scroll right top transparent;
+		padding:2px 23px 2px 0
+	}
+	#languages_block_top:hover #first-languages {
+		background: url("../../../../Template/img/icon/icon-header-hover.png") no-repeat scroll right top transparent;
+	}
+	#languages_block_top .item-data ul{
+		background:#fef2ea;
+		border: 1px solid #fcd0b4;
+		border-top:0;
+		border-radius: 0 0 3px 3px;
+		list-style: none;
+
+	}
+	#first-languages p {padding:0;}
+	#languages_block_top #first-languages img
+	{
+		max-width :16px;
+	}
+	#languages_block_top .item-data {
+		 border-radius: 0 0 2px 2px;
+		left: -11px;
+		position: absolute;
+		top: 20px;
+		width: 122px;
+		z-index: 99;
+	}
+	#languages_block_top .item-data ul li {
+		line-height: 16px;
+		padding: 5px 15px;
+		text-align: left;
+		}
+
+	#languages_block_top .item-data ul li:hover
+		{
+			opacity:1
+		}
+	#languages_block_top ul#first-languages li {
+		float: left;
+		margin-right: 3px
+	}
+	#languages_block_top ul#first-languages li.selected_language {
+		float: left;
+		margin-right: 0.3em
+	}
+	.topbar .btn:hover  li a {color: #8F8E8E}
+	.topbar .btn:hover  li a:hover {color: #f2711f;}

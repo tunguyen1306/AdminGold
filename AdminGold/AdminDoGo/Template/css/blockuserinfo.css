@@ -1,0 +1,104 @@
+/* block top user information */
+
+#header_user {
+	display:inline-block;
+}
+#topminibasket{
+
+}
+#header_right #header_user {
+
+}
+
+#header_user #header_nav {
+	list-style-type:none;
+	float:right;
+}
+#topminibasket  {
+	display: inline-block;
+    margin-top: 3px;
+    vertical-align: top;
+}
+#shopping_cart{}
+/* cart */
+#header_nav a{ display:block;}
+#header_nav a:hover
+{
+	text-decoration: none;
+	color:#fff;
+}
+#header_nav span
+{
+	font-style:italic;
+	color:#fff;
+}
+#header_nav a:hover span{text-decoration: none}
+#header_user #shopping_cart .ajax_cart_quantity { font-weight:bold; font-size:18px }
+#header_user #shopping_cart .ajax_cart_total { display:none !important; }
+
+
+/* account */
+
+.leo-button {
+		display:none;
+		width: 25%
+}
+/* user infos */ 
+#header_user_info {
+
+	
+}
+
+
+#header_user_info a {
+}
+#header_user_info a.account {
+	border: none;
+	display: inline;
+	margin: 0;
+	padding: 0;
+}
+*:first-child+html #header_user_info a {line-height:14px;}
+#header_user_info a.login {}
+#header_user_info a.logout {background: url('../img/icon/logout.png') no-repeat 1px -1px; padding-left:23px}
+#header_user_info .btn:hover a.logout {background: url('../img/icon/logout-hover.png') no-repeat 1px -1px; padding-left:23px}
+/*mobile*/
+#header_user a.leo-mobile {
+	background: url("../../../../Template/img/icon/icon-header.png") no-repeat scroll right top transparent;
+    cursor: pointer;
+    padding:3px 23px 2px 0;
+    position: relative;
+}
+
+#header_user:hover  a.leo-mobile {
+	background: url("../../../../Template/img/icon/icon-header-hover.png") no-repeat scroll right top transparent;
+}
+
+/* custom */
+
+#header_user_info a{
+	background:url(../../../../Template/img/icon/icon-header.png) left -39px no-repeat;
+	padding-left: 23px;
+}
+#header_user_info a.Wishlist {background-position: 0 -79px}
+#header_user_info a.CheckOut {background-position: 0 -127px}
+#header_user_info a.login {background-position: 0 -181px}
+
+.btn:hover  {
+	background: #fff9f5; /* Old browsers */
+	background: -moz-linear-gradient(top,  #fff9f5 0%, #fef3ec 50%, #fdece1 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fff9f5), color-stop(50%,#fef3ec), color-stop(100%,#fdece1)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #fff9f5 0%,#fef3ec 50%,#fdece1 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #fff9f5 0%,#fef3ec 50%,#fdece1 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #fff9f5 0%,#fef3ec 50%,#fdece1 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #fff9f5 0%,#fef3ec 50%,#fdece1 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fff9f5', endColorstr='#fdece1',GradientType=0 ); /* IE6-9 */
+	border: 1px solid #fcd0b4;
+}
+#header_user_info .btn:hover a{
+	background:url(../../../../Template/img/icon/icon-header-hover.png) left -39px no-repeat;
+	color:#ee630b;
+}
+#header_user_info .btn:hover  a.Wishlist {background-position: 0 -79px}
+#header_user_info .btn:hover a.CheckOut {background-position: 0 -127px}
+#header_user_info .btn:hover a.login {background-position: 0 -181px}

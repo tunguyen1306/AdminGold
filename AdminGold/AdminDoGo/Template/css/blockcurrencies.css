@@ -1,0 +1,70 @@
+/* block top currencies */
+#currencies_block_top {
+	width: 63px;
+}
+#currencies_block_top #setCurrency	{
+		cursor: pointer;
+		position: relative;
+		background: url("../../../../Template/img/icon/icon-header.png") no-repeat scroll right top transparent;
+		padding:2px 23px 2px 0
+	}
+#currencies_block_top:hover #setCurrency  {
+	background: url("../../../../Template/img/icon/icon-header-hover.png") no-repeat scroll right top transparent;
+}
+
+#currencies_block_top .block-cur-languages{
+}
+#header_right #currencies_block_top p {
+	clear: left;
+	padding-right:16px;
+	font: 11px Arial,Verdana,sans-serif;
+	color: #ccc;
+	text-align: right;
+	
+}
+#currencies_block_top ul#first-currencies li {
+	margin-right: 3px
+}
+/*languages with jquery*/
+#setCurrency {
+	cursor: pointer;
+	position: relative;
+	top: 1px;
+}
+#setCurrency p {
+	position: relative;
+	top: 0;
+	margin-left: 5px;
+	padding: 0;
+}
+#setCurrency p img {
+	padding-left: 5px;
+}
+#setCurrency .currencies_ul{
+	display:none;
+	right: -11px;
+    position: absolute;
+    top:18px;
+    z-index: 5000;
+	list-style-type:none;
+	background:#fef2ea;
+	border-radius: 0 0 3px 3px;
+}
+#setCurrency .currencies_ul_hover{
+	display:block;
+	z-index: 5000;
+	padding:5px 5px 5px 14px;;
+	height:auto;
+    width: 64px;
+	background:#fef2ea;
+	border: 1px solid #fcd0b4;
+	border-top:0;
+	border-radius: 0 0 3px 3px;
+	text-align: left;
+}
+#setCurrency .currencies_ul_hover a {color:#8F8E8E;}
+#setCurrency .currencies_ul_hover a:hover,
+.topbar .btn:hover  li a:hover ,
+.topbar .btn:hover  a {
+	color: #f2711f;
+}

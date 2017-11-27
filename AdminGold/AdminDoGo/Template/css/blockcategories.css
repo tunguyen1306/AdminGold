@@ -1,0 +1,73 @@
+
+#right_column #categories_block_left .block_content {
+    padding: 0;
+}
+
+#categories_block_left .title_block {
+    text-transform: uppercase;
+    position: relative;
+    padding-left: 55px;
+}
+
+#categories_block_left li {
+    border-bottom: 1px dashed #e1e0e0;
+}
+
+    #categories_block_left li.last {
+        border: none;
+    }
+
+    #categories_block_left li a {
+        display: block;font-size:13px;
+        padding: 8px 5px 8px 23px;
+        background: url("../img/icon-category.png") no-repeat scroll 13px 12px transparent;
+    }
+
+    #categories_block_left li ul {
+        padding-top: 0;
+        display: none;
+    }
+
+        #categories_block_left li ul li a {
+            padding-left: 0;
+            text-transform: capitalize;
+        }
+
+    #categories_block_left li a.selected,
+    #categories_block_left li a:hover {
+        color: #f2711f;
+        background: url("../img/icon-category.png") no-repeat scroll 13px -44px transparent;
+    }
+
+
+
+/* footer */
+.blockcategories_footer {
+    padding: 15px 10px;
+}
+
+    .blockcategories_footer ul ul {
+        display: none !important;
+    }
+
+/*categore leve2*/
+#categories_block_left li ul li a {
+    padding-left: 30px;
+    background-position: 21px 12px;
+}
+
+    #categories_block_left li ul li a.selected,
+    #categories_block_left li ul li a:hover {
+        background-position: 21px -44px;
+    }
+
+/*category leve3*/
+#categories_block_left li ul li ul li a {
+    padding-left: 37px;
+    background-position: 28px 12px;
+}
+
+    #categories_block_left li ul li ul li a.selected,
+    #categories_block_left li ul li ul li a:hover {
+        background-position: 28px -44px;
+    }
