@@ -1,38 +1,70 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
-using System.Data;
+using System.Configuration;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 using AdminGold.Models;
 using ImageResizer;
-using System.IO;
-
 
 namespace AdminGold.Controllers
 {
-    public class VanGiaController : Controller
+    public class TravelController : Controller
     {
-        private VanGiaEntities db1 = new VanGiaEntities();
         private AdminGoldEntities db = new AdminGoldEntities();
-        // GET: VanGia
+        // GET: Travel
         public ActionResult Index()
+        {
+            try
+            {
+                if (Session["user"].ToString() != "anhthi@gmail.com")
+                {
+                    return RedirectToAction("Login", "Home");
+                }
+                var qrData = (from dataPro in db.web_vangia_project
+                              where dataPro.vangia_status_project != null && dataPro.company == 3
+                              select new VanGiaPicture { tblProject = dataPro });
+                return View(qrData.ToList());
+            }
+            catch (Exception)
+            {
+
+                return RedirectToAction("Login", "Home");
+            }
+            
+        }
+       public ActionResult IndexBlog()
         {
             if (Session["user"] == null)
             {
                 return RedirectToAction("Login", "Home");
             }
-            if (Session["user"].ToString() != "vangia.net@gmail.com")
+            if (Session["user"].ToString() != "anhthi@gmail.com")
             {
                 return RedirectToAction("Login", "Home");
             }
-            var qrData = (from dataPro in db.web_vangia_project
-                          where dataPro.vangia_status_project !=null  && dataPro.company==1
-                          select new VanGiaPicture { tblProject = dataPro});
-            return View(qrData.ToList());
+            var query = from data in db.tbl_blog_tra
+                        where data.id_company == 3 && data.status_blog_tra == 1
+                        select data;
+            return View(query.ToList());
+           
         }
-
+        public ActionResult IndexSlider()
+        {
+            if (Session["user"] ==null)
+            {
+                return RedirectToAction("Login", "Home");
+            }
+            if (Session["user"].ToString() != "anhthi@gmail.com")
+            {
+                return RedirectToAction("Login", "Home");
+            }
+            return View(db.web_vangia_silde.Where(x => x.company == 3).ToList());
+         
+        }
         // GET: VanGia/Details/5
         public ActionResult Details(int? id)
         {
@@ -68,7 +100,7 @@ namespace AdminGold.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ValidateInput(false)]
-        public ActionResult Create( web_vangia_project web_vangia_project)
+        public ActionResult Create(web_vangia_project web_vangia_project)
         {
             if (Session["user"] == null)
             {
@@ -78,7 +110,7 @@ namespace AdminGold.Controllers
             {
                 db.web_vangia_project.Add(web_vangia_project);
                 db.SaveChanges();
-                return RedirectToAction("Index", "VanGia");
+                return RedirectToAction("Index", "Travel");
             }
 
             return View(web_vangia_project);
@@ -129,7 +161,7 @@ namespace AdminGold.Controllers
 
                 db.Entry(web_vangia_project.tblProject).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index", "VanGia");
+                return RedirectToAction("Index", "Travel");
             }
             return View(web_vangia_project);
         }
@@ -147,7 +179,7 @@ namespace AdminGold.Controllers
             }
             web_vangia_project web_vangia_project = db.web_vangia_project.Find(id);
             VanGiaPicture vgpic = new VanGiaPicture();
-            List<tblSysPicture> list = (from t in db.tblSysPictures where t.advert_id==id select t).ToList();
+            List<tblSysPicture> list = (from t in db.tblSysPictures where t.advert_id == id select t).ToList();
             foreach (tblSysPicture item in list)
             {
                 db.tblSysPictures.Remove(item);
@@ -155,7 +187,7 @@ namespace AdminGold.Controllers
             db.SaveChanges();
             db.web_vangia_project.Remove(web_vangia_project);
             db.SaveChanges();
-            return RedirectToAction("Index", "VanGia");
+            return RedirectToAction("Index", "Travel");
         }
 
         // POST: VanGia/Delete/5
@@ -202,7 +234,7 @@ namespace AdminGold.Controllers
 
         public void SaveImg(VanGiaPicture projectPicture)
         {
-           
+
             var t = projectPicture.cfile == null ? "" : projectPicture.cfile;
             var file = t.Replace("data:image/png;base64,", "");
             var photoBytes = Convert.FromBase64String(file);
@@ -259,7 +291,7 @@ namespace AdminGold.Controllers
                     if (string.IsNullOrWhiteSpace(picture.tblPicture.originalFilepath))
                         picture.tblPicture.originalFilepath = picture.GetFilePath(VanGiaPicture.PictureSize.Medium);
                 }
- if (picture.GetFilePathPhysical(VanGiaPicture.PictureSize.Tiny) != null)
+                if (picture.GetFilePathPhysical(VanGiaPicture.PictureSize.Tiny) != null)
                 {
                     string dest = path + picture.FileName(VanGiaPicture.PictureSize.Tiny);
                     settings.MaxWidth = 1500;
@@ -293,7 +325,7 @@ namespace AdminGold.Controllers
                 tblpict.position = projectPicture.isactive;
                 db.Entry(tblpict).State = EntityState.Modified;
                 db.SaveChanges();
-                RedirectToAction("Index", "VanGia");
+                RedirectToAction("Index", "Travel");
             }
 
 
@@ -324,7 +356,7 @@ namespace AdminGold.Controllers
 
             db.Entry(tblproduct).State = EntityState.Modified;
             db.SaveChanges();
-            return RedirectToAction("Index", "VanGia");
+            return RedirectToAction("Index", "Travel");
 
 
 
@@ -345,11 +377,11 @@ namespace AdminGold.Controllers
             VanGiaPicture vgp = new VanGiaPicture();
             if (picture == null)
                 return;
-            var fo = picture.Substring(0,3);
-            string dir = Server.MapPath("~/fileUpload/"+fo+"/"+ picture);
-           
+            var fo = picture.Substring(0, 3);
+            string dir = Server.MapPath("~/fileUpload/" + fo + "/" + picture);
+
             System.IO.File.Delete(dir);
-           
+
 
 
         }
@@ -359,26 +391,260 @@ namespace AdminGold.Controllers
             web_vangia_project tblproduct = db.web_vangia_project.Find(id);
             db.web_vangia_project.Remove(tblproduct);
             db.SaveChanges();
-            return RedirectToAction("Index", "VanGia");
+            return RedirectToAction("Index", "Travel");
 
 
 
         }
-        //[HttpPost]
-        //public ActionResult Upload(HttpPostedFileBase file)
-        //{
-        //    if (file != null && file.ContentLength > 0)
-        //    {
-        //        var fileName = Path.GetFileName(file.FileName);
-        //        var path = Path.Combine(Server.MapPath("~/fileUpload/"), fileName);
-        //        file.SaveAs(path);
-        //    }
-
-        //    return RedirectToAction("UploadDocument");
-        //}
+       
         public ActionResult IndexBuld()
         {
             return View();
         }
+
+
+
+
+        /////////////////Slider//////////////////
+         public ActionResult CreateSlider()
+        {
+
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateSlider(web_vangia_silde web_vangia_silde)
+        {
+
+            if (ModelState.IsValid)
+            {
+                db.web_vangia_silde.Add(web_vangia_silde);
+                db.SaveChanges();
+                return RedirectToAction("IndexSlider");
+            }
+
+            return View(web_vangia_silde);
+        }
+       
+        [HttpPost]
+        public ActionResult UploadImgSlider(web_vangia_silde web_vangia_silde)
+        {
+            var t = web_vangia_silde.vangia_img_silde == null ? "" : web_vangia_silde.vangia_img_silde;
+            var file = t.Replace("data:image/png;base64,", "");
+            if (!String.IsNullOrEmpty(file))
+            {
+                var photoBytes = Convert.FromBase64String(file);
+                string format = "jpg";
+
+
+                var settings = new ResizeSettings();
+                settings.Scale = ScaleMode.DownscaleOnly;
+                settings.Format = format;
+
+                //string uploadFolder = picture.DirectoryPhysical;
+
+                string path = Server.MapPath("~/fileUpload/") + DateTime.Now.Day + DateTime.Now.Month + "/";
+                // check for directory
+                if (!Directory.Exists(path))
+                    Directory.CreateDirectory(path);
+
+                var picture = new VanGiaPicture
+                {
+                    tblPicture = new tblSysPicture { advert_id = 0, angleType = 0, cms_sql_id = 0, converted = DateTime.Now, tocheck = true, type_id = 1, title = "", position = 1 }
+                };
+                if (picture.GetConvertedFileName() == null || string.IsNullOrWhiteSpace(picture.GetConvertedFileName()))
+                    picture.SetFileName(DateTime.Now.Day.ToString() + DateTime.Now.Month.ToString() + "_" + picture.CreateFilename() + "_{0}." + format);
+
+                if (picture.GetFilePathPhysical(VanGiaPicture.PictureSize.Large) != null)
+                {
+                    string dest = path + picture.FileName(VanGiaPicture.PictureSize.Large);
+                    settings.MaxWidth = 1920;
+                    settings.MaxHeight = 1200;
+                    if (picture.WaterMarkLarge == VanGiaPicture.WatermarkType.None)
+                        ImageBuilder.Current.Build(photoBytes, dest, settings, false, false);
+                    web_vangia_silde.vangia_img_silde = picture.GetFilePath(VanGiaPicture.PictureSize.Large);
+                }
+                if (picture.GetFilePathPhysical(VanGiaPicture.PictureSize.Medium) != null)
+                {
+                    string dest = path + picture.FileName(VanGiaPicture.PictureSize.Medium);
+                    settings.MaxWidth = 130;
+                    settings.MaxHeight = 130;
+                    if (picture.WaterMarkLarge == VanGiaPicture.WatermarkType.None)
+                        ImageBuilder.Current.Build(photoBytes, dest, settings, false, false);
+                }
+                return Json(new { result = web_vangia_silde.vangia_img_silde });
+
+            }
+            else
+            {
+                var data = db.web_vangia_silde.Where(x => x.vangia_id_silde == web_vangia_silde.vangia_id_silde).FirstOrDefault();
+                return Json(new { result = data.vangia_img_silde });
+            }
+
+
+        }
+        // GET: AdminSlider/Edit/5
+        public ActionResult EditSlider(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            web_vangia_silde web_vangia_silde = db.web_vangia_silde.Find(id);
+            if (web_vangia_silde == null)
+            {
+                return HttpNotFound();
+            }
+            return View(web_vangia_silde);
+        }
+
+        // POST: AdminSlider/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditSlider( web_vangia_silde web_vangia_silde)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(web_vangia_silde).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("IndexSlider");
+            }
+            return View(web_vangia_silde);
+        }
+
+        // GET: AdminSlider/Delete/5
+        public ActionResult DeleteSlider(int? id)
+        {
+            web_vangia_silde web_vangia_silde = db.web_vangia_silde.Find(id);
+            db.web_vangia_silde.Remove(web_vangia_silde);
+            db.SaveChanges();
+            return RedirectToAction("IndexSlider");
+        }
+
+        // POST: AdminSlider/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteSlider(int id)
+        {
+            web_vangia_silde web_vangia_silde = db.web_vangia_silde.Find(id);
+            db.web_vangia_silde.Remove(web_vangia_silde);
+            db.SaveChanges();
+            return RedirectToAction("IndexSlider");
+        }
+       [HttpPost, ActionName("DeleteBlog")]
+        public ActionResult DeleteBlog(int id)
+        {
+            web_vangia_silde web_vangia_silde = db.web_vangia_silde.Find(id);
+            db.web_vangia_silde.Remove(web_vangia_silde);
+            db.SaveChanges();
+            return RedirectToAction("IndexBlog");
+        }
+
+        //////Blog
+        public ActionResult CreateBlog()
+        {
+            return View();
+        }
+
+        // POST: tbl_blog_tra/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult CreateBlog(tbl_blog_tra tbl_blog_tra)
+        {
+            if (ModelState.IsValid)
+            {
+                ViewBag.des_blog_tra = tbl_blog_tra.des_blog_tra;
+                tbl_blog_tra.id_company = 1;
+                tbl_blog_tra.create_date_blog_tra = DateTime.Now;
+                db.tbl_blog_tra.Add(tbl_blog_tra);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(tbl_blog_tra);
+        }
+
+        public ActionResult EditBlog(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            tbl_blog_tra tbl_blog_tra = db.tbl_blog_tra.Find(id);
+
+            if (tbl_blog_tra == null)
+            {
+                return HttpNotFound();
+            }
+            return View(tbl_blog_tra);
+        }
+
+        // POST: tbl_blog_tra/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult EditBlog(tbl_blog_tra tbl_blog_tra)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(tbl_blog_tra).State = EntityState.Modified;
+                tbl_blog_tra.id_company = 1;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(tbl_blog_tra);
+        }
+
+        [HttpPost, ActionName("GetLink")]
+        public JsonResult GetLink()
+        {
+            var path = string.Empty; var path1 = string.Empty;
+            var NewPath = string.Empty;
+            var fortmatName = string.Empty;
+            var fileNameFull = string.Empty;
+            if (System.Web.HttpContext.Current.Request.Files.AllKeys.Any())
+            {
+                var file = System.Web.HttpContext.Current.Request.Files["HelpSectionImages"];
+                if (file != null && file.ContentLength > 0)
+                {
+
+                    var fileName = Path.GetFileName(file.FileName);
+                    string newFileNmae = Path.GetFileNameWithoutExtension(fileName);
+                    fortmatName = Path.GetExtension(fileName);
+
+                    NewPath = newFileNmae.Replace(newFileNmae, (DateTime.Now.Day.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString()).ToString());
+                    fileNameFull = DateTime.Now.Day + "" + DateTime.Now.Month + "_" + NewPath + fortmatName;
+                    path = Server.MapPath("~/fileUpload/") + DateTime.Now.Day + DateTime.Now.Month + "/";
+                    if (!Directory.Exists(path))
+                        Directory.CreateDirectory(path);
+                    path1 = Path.Combine(path, fileNameFull);
+
+                    file.SaveAs(path1);
+                }
+            }
+
+            if (HttpContext.Request.Url != null && HttpContext.Request.Url.Host.Contains("localhost"))
+            {
+                path = HttpContext.Request.Url.Host + ":" + HttpContext.Request.Url.Port + "/fileUpload/" + DateTime.Now.Day + DateTime.Now.Month + "/";
+            }
+            else
+            {
+                path = ConfigurationManager.AppSettings["domain"] + DateTime.Now.Day + DateTime.Now.Month + "/";
+            }
+            var _fullUrl = path + fileNameFull;
+            return Json(new
+            {
+                fullurl = _fullUrl,
+                shorurl = "/fileUpload/" + DateTime.Now.Day + DateTime.Now.Month + "/" + fileNameFull,
+                imgName = fileNameFull
+            });
+        }
+
+
     }
 }

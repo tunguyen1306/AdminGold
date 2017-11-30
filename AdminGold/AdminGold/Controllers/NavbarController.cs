@@ -14,7 +14,10 @@ namespace AdminGold.Controllers
         public ActionResult Index()
         {
             var data = new Data();
-            return PartialView("_Navbar", data.navbarItems().ToList());
+            var listId = new List<int>();
+            listId = Session["user"].ToString() == "anhthi@gmail.com" ? new List<int> { 9,10,11,13 } : new List<int> {2,4,6,7,8 };
+            return PartialView("_Navbar", data.navbarItems().ToList().Where(x => listId.Contains(x.Id)));
+
         }
     }
 }

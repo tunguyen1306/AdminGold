@@ -25,5 +25,6 @@ namespace AdminGold.Models
         public string vangia_link_silde { get; set; }
         public string vangia_stype_slide { get; set; }
         public Nullable<int> vangia_type_slide { get; set; }
+        public Nullable<int> company { get; set; }
     }
 }

@@ -11,7 +11,7 @@
 </div>
 <script src="~/ckeditor/ckeditor.js"></script>
 <script src="~/ckeditor/adapters/jquery.js"></script>
-@using (Html.BeginForm("CreateFirst", "VanGia", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("CreateFirst", "Travel", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     <!-- /.row -->
@@ -22,50 +22,22 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-6">
-
+                            <input type="hidden" value="3" name="tblProject.company" />
                             <div class="form-group">
-                                <label>Tên dự án</label>
-                                <input type="hidden" value="1" name="tblProject.company" />
+                                <label>Tên sản phẩm</label>
                                 <input class="form-control" name="tblProject.vangia_name_project">
                             </div>
                             <div class="form-group">
-                                <label>Loại dự án</label>
-                                <select class="form-control dropType"  name="tblProject.vangia_typeid_project">
-                                    <option value="1">1.Xây dựng</option>
-                                    <option value="11">a.Xây dựng-kế hoạch</option>
-                                    <option value="12">b.Xây dựng-thông tin</option>
-                                    <option value="2">2.Thương mại</option>
-                                    <option value="21">a.Thương mại-phân phối</option>
-                                    <option value="22">b.Thương mại-thông tin</option>
-                                    <option value="3">3.Dịch vụ-Video</option>
-                                    <option value="31">a.Tour Du Lịch</option>
-                                    <option value="32">b.Dịch vụ-thông tin</option>
-                                </select>
-                            </div>
-                            <div class="form-group groupLink hidden">
-                                <label>Link video</label>
-                                <input class="form-control" name="tblProject.vangia_link_video_project">
-                            </div>
-                            <div class="form-group">
-                                <label>Ngôn ngữ</label>
-                                <select class="form-control" name="tblProject.vangia_language_project">
-                                    <option value="1">English</option>
-                                    <option value="2">Việt Nam</option>
+                                <label>Nội dung</label>
 
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label>Upload File</label>
-                               
-                                    <input type="file" name="tblProject.vangia_vanban_project" value="" />
-                                
 
+                                @Html.TextAreaFor(x => x.vangia_content_project, htmlAttributes: new { @id = "txtContentPro", @name = "tblProject.vangia_content_project", @class = "form-control" })
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <label>Thời gian</label>
-                                <input class="form-control" name="tblProject.vangia_time_project">
+                                <label>Giá sản phẩm</label>
+                                <input class="form-control" name="tblProject.vangia_img1_project">
                             </div>
                             <div class="form-group">
                                 <label>Trạng thái</label>
@@ -75,12 +47,7 @@
 
                                 </select>
                             </div>
-                            <div class="form-group">
-                                <label>Nội dung</label>
-                               
-                              
-                                @Html.TextAreaFor(x => x.vangia_content_project, htmlAttributes: new { @id = "txtContentPro" ,@name= "tblProject.vangia_content_project", @class = "form-control" })
-                            </div>
+
                         </div>
                     </div>
                     <div class="row">
@@ -112,7 +79,7 @@
                                 <button type="submit" class="btn btn-default btnAdd hidden"></button>
 
                                 <div onclick="UploadImg(this)" class="btn btn-primary btnAdd1">Thêm</div>
-                                <a href="@Url.Action("Delete", "VanGia", new { id = Model.vangia_id_project })" class="btn btn-primary">Hủy</a>
+                                <a href="@Url.Action("Delete", "Travel", new { id = Model.vangia_id_project })" class="btn btn-primary">Hủy</a>
                             </div>
                         </div>
                     </div>
@@ -129,7 +96,7 @@
     <input type="hidden" name="nameImg" />
     <!-- /.row -->
 
-  
+
 
 }
 <script>
@@ -164,7 +131,7 @@
 
 
         var options = {
-            aspectRatio:9 / 6,
+            aspectRatio: 9 / 6,
             preview: '.img-preview',
             crop: function (e) {
                 $dataX.val(Math.round(e.x));

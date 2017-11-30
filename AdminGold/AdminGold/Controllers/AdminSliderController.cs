@@ -19,7 +19,7 @@ namespace AdminGold.Controllers
         // GET: AdminSlider
         public ActionResult Index()
         {
-            return View(db.web_vangia_silde.ToList());
+            return View(db.web_vangia_silde.Where(x=>x.company==1).ToList());
         }
 
         // GET: AdminSlider/Details/5
@@ -138,7 +138,7 @@ namespace AdminGold.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "vangia_id_silde,vangia_noidung_silde,vangia_tomtat_silde,vangia_img_silde,vangia_name_silde,vangia_status_silde,vangia_order_silde,vangia_language_silde,vangia_link_silde,vangia_stype_slide,vangia_type_slide")] web_vangia_silde web_vangia_silde)
+        public ActionResult Edit( web_vangia_silde web_vangia_silde)
         {
             if (ModelState.IsValid)
             {

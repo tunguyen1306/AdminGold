@@ -30,13 +30,21 @@ namespace AdminGold.Domain
             //menu.Add(new Navbar { Id = 17, nameOption = "Blank Page", controller = "Home", action = "Blank", status = true, isParent = false, parentId = 16 });
             ////menu.Add(new Navbar { Id = 18, nameOption = "Login Page", controller = "Home", action = "Login", status = true, isParent = false, parentId = 16 });
             //menu.Add(new Navbar { Id = 1, nameOption = "Trafashion",  imageClass = "fa fa-dashboard fa-fw", status = true, isParent = true, parentId = 0 });
-            menu.Add(new Navbar { Id = 2, nameOption = "Vạn Gia", imageClass = "fa fa-dashboard fa-fw", status = true, isParent = true, parentId = 0 });
             //menu.Add(new Navbar { Id = 3, nameOption = "Danh sách sản phẩm Trafashion", controller = "Products", action = "Index", imageClass = "fa fa-dashboard fa-fw", status = true, isParent = false, parentId = 1 });
             //menu.Add(new Navbar { Id = 5, nameOption = "Quản lý Blog Trafashion", controller = "tbl_blog_tra", action = "Index", imageClass = "fa fa-dashboard fa-fw", status = true, isParent = false, parentId = 1 });
+           
+            menu.Add(new Navbar { Id = 2, nameOption = "Vạn Gia", imageClass = "fa fa-dashboard fa-fw", status = true, isParent = true, parentId = 0 });
             menu.Add(new Navbar { Id = 4, nameOption = "Danh sách dự án Vạn Gia", controller = "VanGia", action = "Index", imageClass = "fa fa-dashboard fa-fw", status = true, isParent = false, parentId = 2 });
             menu.Add(new Navbar { Id = 6, nameOption = "Quản lý Blog Vạn Gia", controller = "tbl_blog_tra", action = "IndexVG", imageClass = "fa fa-dashboard fa-fw", status = true, isParent = false, parentId = 2 });
             menu.Add(new Navbar { Id = 7, nameOption = "Tính xây dựng", controller = "MathVG", action = "Index", imageClass = "fa fa-dashboard fa-fw", status = true, isParent = false, parentId = 2 });
             menu.Add(new Navbar { Id = 8, nameOption = "Quản lý Slider", controller = "AdminSlider", action = "Index", imageClass = "fa fa-dashboard fa-fw", status = true, isParent = false, parentId = 2 });
+
+
+
+            menu.Add(new Navbar { Id = 9, nameOption = "Bàu trắng", imageClass = "fa fa-dashboard fa-fw", status = true, isParent = true, parentId = 0 });
+            menu.Add(new Navbar { Id = 10, nameOption = "Danh sản phẩm", controller = "Travel", action = "Index", imageClass = "fa fa-dashboard fa-fw", status = true, isParent = false, parentId = 9 });
+            menu.Add(new Navbar { Id = 11, nameOption = "Danh sách blog", controller = "Travel", action = "IndexBlog", imageClass = "fa fa-dashboard fa-fw", status = true, isParent = false, parentId = 9 });
+            menu.Add(new Navbar { Id = 13, nameOption = "Danh sách slider", controller = "Travel", action = "IndexSlider", imageClass = "fa fa-dashboard fa-fw", status = true, isParent = false, parentId = 9 });
             return menu.ToList();
         }
     }

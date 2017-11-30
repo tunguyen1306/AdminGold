@@ -77,10 +77,16 @@ namespace AdminGold.Controllers
         {
             if (email=="vangia.net@gmail.com" && password=="anhtoan77")
             {   Session["user"] = "vangia.net@gmail.com";
-               
+                return RedirectToAction("Index", "VanGia"); ;
 
             }
-            return RedirectToAction("Index", "VanGia"); ;
+            else if (email == "anhthi@gmail.com" && password == "anhthi123")
+            {
+                Session["user"] = "anhthi@gmail.com";
+                return RedirectToAction("Index", "Travel"); ;
+
+            }
+            return RedirectToAction("Login", "Home"); ;
         }
 
     }
