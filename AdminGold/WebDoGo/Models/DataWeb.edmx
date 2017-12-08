@@ -1,0 +1,937 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="WebDoGoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tbl_blog_tra">
+          <Key>
+            <PropertyRef Name="id_blog_tra" />
+          </Key>
+          <Property Name="id_blog_tra" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="titile_blog_tra" Type="nvarchar" MaxLength="250" />
+          <Property Name="short_des_blog_tra" Type="nvarchar(max)" />
+          <Property Name="des_blog_tra" Type="nvarchar(max)" />
+          <Property Name="status_blog_tra" Type="int" />
+          <Property Name="type_blog_tra" Type="int" />
+          <Property Name="create_date_blog_tra" Type="datetime" />
+          <Property Name="img_blog_tra" Type="varchar" MaxLength="2000" />
+          <Property Name="video_blog_tra" Type="varchar" MaxLength="2000" />
+          <Property Name="id_company" Type="int" />
+        </EntityType>
+        <EntityType Name="tblSysPicture">
+          <Key>
+            <PropertyRef Name="picture_id" />
+          </Key>
+          <Property Name="picture_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="advert_id" Type="int" />
+          <Property Name="originalFilepath" Type="varchar" MaxLength="255" />
+          <Property Name="position" Type="tinyint" />
+          <Property Name="converted" Type="datetime" />
+          <Property Name="convertedFilename" Type="varchar" MaxLength="50" />
+          <Property Name="tocheck" Type="bit" />
+          <Property Name="isvalidated" Type="bit" />
+          <Property Name="convertedFilename90" Type="varchar" MaxLength="50" />
+          <Property Name="convertedFilename180" Type="varchar" MaxLength="50" />
+          <Property Name="convertedFilename270" Type="varchar" MaxLength="50" />
+          <Property Name="angleType" Type="tinyint" />
+          <Property Name="type_id" Type="tinyint" />
+          <Property Name="title" Type="nvarchar(max)" />
+          <Property Name="description" Type="nvarchar(max)" />
+          <Property Name="cms_sql_id" Type="int" />
+          <Property Name="shortdescription" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="web_vangia_category">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="500" />
+          <Property Name="Link" Type="nvarchar" MaxLength="500" />
+          <Property Name="Status" Type="int" />
+          <Property Name="Order_tt" Type="int" />
+          <Property Name="Description" Type="nvarchar" MaxLength="4000" />
+          <Property Name="IconClass" Type="nvarchar" MaxLength="50" />
+          <Property Name="IdCompany" Type="int" />
+        </EntityType>
+        <EntityType Name="web_vangia_config">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name_vg" Type="ntext" />
+          <Property Name="key_word_vg" Type="nvarchar" MaxLength="200" />
+          <Property Name="laguage_word_vg" Type="int" />
+          <Property Name="order_word_vg" Type="int" />
+          <Property Name="type_word_vg" Type="int" />
+          <Property Name="detail_type_word_vg" Type="ntext" />
+        </EntityType>
+        <EntityType Name="web_vangia_doitac">
+          <Key>
+            <PropertyRef Name="vangia_id_doitac" />
+          </Key>
+          <Property Name="vangia_id_doitac" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vangia_name_doitac" Type="ntext" />
+          <Property Name="vangia_img_doitac" Type="nvarchar" MaxLength="200" />
+          <Property Name="vangia_noidung" Type="ntext" />
+          <Property Name="vangia_status_doitac" Type="int" />
+          <Property Name="vangia_order_doitac" Type="int" />
+          <Property Name="vangia_language_doitac" Type="int" />
+          <Property Name="vangia_type_doitac" Type="int" />
+        </EntityType>
+        <EntityType Name="web_vangia_duanmau">
+          <Key>
+            <PropertyRef Name="vangia_id_duanmau" />
+          </Key>
+          <Property Name="vangia_id_duanmau" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vangia_img_duanmau" Type="nvarchar" MaxLength="200" />
+          <Property Name="vangia_name_duanmau" Type="ntext" />
+          <Property Name="vangia_time_duanmau" Type="nvarchar" MaxLength="200" />
+          <Property Name="vangia_img1_duanmau" Type="nvarchar" MaxLength="200" />
+          <Property Name="vangia_img2_duanmau" Type="nvarchar" MaxLength="200" />
+          <Property Name="vangia_img3_duanmau" Type="nvarchar" MaxLength="200" />
+          <Property Name="vangia_status_duanmau" Type="int" />
+          <Property Name="vangia_order_duanmau" Type="int" />
+          <Property Name="vangia_language" Type="int" />
+          <Property Name="vangia_content_duanmau" Type="ntext" />
+          <Property Name="vangia_tomtat_duanmau" Type="ntext" />
+        </EntityType>
+        <EntityType Name="web_vangia_employee">
+          <Key>
+            <PropertyRef Name="vangia_id_employee" />
+          </Key>
+          <Property Name="vangia_id_employee" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vangia_img_employee" Type="nvarchar" MaxLength="200" />
+          <Property Name="vangia_name_employee" Type="nvarchar" MaxLength="200" />
+          <Property Name="vangia_tiesu_employee" Type="ntext" />
+          <Property Name="vangia_status_employee" Type="int" />
+          <Property Name="vangia_order_employee" Type="int" />
+          <Property Name="vangia_language_employee" Type="int" />
+          <Property Name="vangia_team_employee" Type="int" />
+          <Property Name="vangia_noidung_employee" Type="ntext" />
+        </EntityType>
+        <EntityType Name="web_vangia_language">
+          <Key>
+            <PropertyRef Name="vangia_id_language" />
+          </Key>
+          <Property Name="vangia_id_language" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vangia_name_language" Type="nvarchar" MaxLength="200" />
+          <Property Name="vangia_code_langue" Type="nvarchar" MaxLength="200" />
+          <Property Name="vangia_status_lague" Type="int" />
+          <Property Name="vangia_icon_language" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="web_vangia_menu">
+          <Key>
+            <PropertyRef Name="vangia_id_menu" />
+          </Key>
+          <Property Name="vangia_id_menu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vangia_name_menu" Type="nvarchar" MaxLength="200" />
+          <Property Name="vangia_link_menu" Type="ntext" />
+          <Property Name="vangia_status_menu" Type="int" />
+          <Property Name="vangia_order_menu" Type="int" />
+          <Property Name="vangia_id_language" Type="int" />
+          <Property Name="vangia_key_menu" Type="nvarchar" MaxLength="200" />
+          <Property Name="vangia_loai_menu" Type="int" />
+          <Property Name="vangia_tt_menu" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="web_vangia_menucon">
+          <Key>
+            <PropertyRef Name="vangia_id_menucon" />
+          </Key>
+          <Property Name="vangia_id_menucon" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vangia_name_menucon" Type="nvarchar" MaxLength="200" />
+          <Property Name="vangia_link_menucon" Type="nvarchar" MaxLength="200" />
+          <Property Name="vangia_menucha_menucon" Type="nvarchar" MaxLength="200" />
+          <Property Name="vangia_status_menucon" Type="int" />
+          <Property Name="vangia_order_menucon" Type="int" />
+          <Property Name="vangia_language_menucon" Type="int" />
+        </EntityType>
+        <EntityType Name="web_vangia_news">
+          <Key>
+            <PropertyRef Name="vangia_id_news" />
+          </Key>
+          <Property Name="vangia_id_news" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vangia_name_news" Type="ntext" />
+          <Property Name="vangia_img_news" Type="nvarchar" MaxLength="200" />
+          <Property Name="vangia_links_news" Type="ntext" />
+          <Property Name="vangia_type_news" Type="int" />
+          <Property Name="vangia_img1_news" Type="nvarchar" MaxLength="200" />
+          <Property Name="vangia_img2_news" Type="nvarchar" MaxLength="200" />
+          <Property Name="vangia_tomtat_news" Type="ntext" />
+          <Property Name="vangia_noidung_news" Type="ntext" />
+          <Property Name="vangia_status_news" Type="int" />
+          <Property Name="vangia_order_news" Type="int" />
+          <Property Name="vangia_language_news" Type="int" />
+          <Property Name="vangia_vanban_news" Type="ntext" />
+        </EntityType>
+        <EntityType Name="web_vangia_products">
+          <Key>
+            <PropertyRef Name="vangia_id_products" />
+          </Key>
+          <Property Name="vangia_id_products" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vangia_img_products" Type="nvarchar" MaxLength="200" />
+          <Property Name="vangia_name_products" Type="ntext" />
+          <Property Name="vangia_noidung_products" Type="ntext" />
+          <Property Name="vangia_img1_products" Type="nvarchar" MaxLength="200" />
+          <Property Name="vangia_img2_products" Type="nvarchar" MaxLength="200" />
+          <Property Name="vangia_img3_products" Type="ntext" />
+          <Property Name="vangia_tomtat_products" Type="ntext" />
+          <Property Name="vangia_order_products" Type="int" />
+          <Property Name="vangia_language_products" Type="int" />
+          <Property Name="vangia_status_products" Type="int" />
+          <Property Name="vangia_type_products" Type="int" />
+          <Property Name="ful_img4_products_vg" Type="nvarchar" MaxLength="200" />
+          <Property Name="ful_img5_products_vg" Type="nvarchar" MaxLength="200" />
+          <Property Name="ful_img6_products_vg" Type="nvarchar" MaxLength="200" />
+          <Property Name="ful_img7_products_vg" Type="nvarchar" MaxLength="200" />
+          <Property Name="ful_img8_products_vg" Type="nvarchar" MaxLength="200" />
+          <Property Name="ful_img9_products_vg" Type="ntext" />
+        </EntityType>
+        <EntityType Name="web_vangia_project">
+          <Key>
+            <PropertyRef Name="vangia_id_project" />
+          </Key>
+          <Property Name="vangia_id_project" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vangia_img1_project" Type="ntext" />
+          <Property Name="vangia_img2_project" Type="ntext" />
+          <Property Name="vangia_img3_project" Type="ntext" />
+          <Property Name="vangia_img_project" Type="ntext" />
+          <Property Name="vangia_content_project" Type="ntext" />
+          <Property Name="vangia_name_project" Type="ntext" />
+          <Property Name="vangia_time_project" Type="nvarchar" MaxLength="200" />
+          <Property Name="vangia_status_project" Type="int" />
+          <Property Name="vangia_order_project" Type="int" />
+          <Property Name="vangia_language_project" Type="int" />
+          <Property Name="vangia_tomtat_project" Type="ntext" />
+          <Property Name="vangia_typeid_project" Type="int" />
+          <Property Name="vangia_img4_project" Type="ntext" />
+          <Property Name="vangia_img5_project" Type="ntext" />
+          <Property Name="vangia_img6_project" Type="ntext" />
+          <Property Name="vangia_img7_project" Type="ntext" />
+          <Property Name="vangia_img8_project" Type="ntext" />
+          <Property Name="vangia_img9_project" Type="ntext" />
+          <Property Name="vangia_vanban_project" Type="nvarchar" MaxLength="200" />
+          <Property Name="vangia_link_video_project" Type="nvarchar(max)" />
+          <Property Name="company" Type="int" />
+        </EntityType>
+        <EntityType Name="web_vangia_silde">
+          <Key>
+            <PropertyRef Name="vangia_id_silde" />
+          </Key>
+          <Property Name="vangia_id_silde" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vangia_noidung_silde" Type="ntext" />
+          <Property Name="vangia_tomtat_silde" Type="ntext" />
+          <Property Name="vangia_img_silde" Type="nvarchar" MaxLength="200" />
+          <Property Name="vangia_name_silde" Type="ntext" />
+          <Property Name="vangia_status_silde" Type="int" />
+          <Property Name="vangia_order_silde" Type="int" />
+          <Property Name="vangia_language_silde" Type="int" />
+          <Property Name="vangia_link_silde" Type="ntext" />
+          <Property Name="vangia_stype_slide" Type="ntext" />
+          <Property Name="vangia_type_slide" Type="int" />
+          <Property Name="company" Type="int" />
+        </EntityType>
+        <EntityType Name="web_vangia_team">
+          <Key>
+            <PropertyRef Name="vangia_id_team" />
+          </Key>
+          <Property Name="vangia_id_team" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vangia_name_team" Type="ntext" />
+          <Property Name="vangia_status_team" Type="int" />
+          <Property Name="vangia_language_team" Type="int" />
+          <Property Name="vangia_tomtat_team" Type="ntext" />
+          <Property Name="vangia_img_team" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="web_vangia_tuyendung">
+          <Key>
+            <PropertyRef Name="vangia_id_tuyendung" />
+          </Key>
+          <Property Name="vangia_id_tuyendung" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vangia_name_tuyendung" Type="ntext" />
+          <Property Name="vangia_img_tuyendung" Type="ntext" />
+          <Property Name="vangia_tomtat_tuyendung" Type="ntext" />
+          <Property Name="vangia_img1_tuyendung" Type="ntext" />
+          <Property Name="vangia_img2_tuyendung" Type="ntext" />
+          <Property Name="vangia_status_tuyendung" Type="int" />
+          <Property Name="vangia_noidung_tuyendung" Type="ntext" />
+          <Property Name="vangia_language_tuyendung" Type="int" />
+          <Property Name="vangia_order_tuyendung" Type="int" />
+          <Property Name="vangia_type_tuyendung" Type="int" />
+          <Property Name="vangia_ma_tuyendung" Type="nvarchar" MaxLength="200" />
+          <Property Name="vangia_vitri_tuyendung" Type="ntext" />
+          <Property Name="vangia_soluong_tuyendung" Type="nvarchar" MaxLength="200" />
+          <Property Name="vangia_diadiem_tuyendung" Type="ntext" />
+          <Property Name="vangia_date_tuyendung" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="web_vangia_type_products">
+          <Key>
+            <PropertyRef Name="vangia_id_type_products" />
+          </Key>
+          <Property Name="vangia_id_type_products" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vangia_img_type_products" Type="nvarchar" MaxLength="200" />
+          <Property Name="vangia_name_type_products" Type="nvarchar" MaxLength="200" />
+          <Property Name="vangia_status_type_products" Type="int" />
+          <Property Name="vangia_order_type_products" Type="int" />
+          <Property Name="vangia_language_type_products" Type="int" />
+        </EntityType>
+        <EntityType Name="web_vangia_typeproject">
+          <Key>
+            <PropertyRef Name="vangia_id_typeproject" />
+          </Key>
+          <Property Name="vangia_id_typeproject" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vangia_name_typeproject" Type="nvarchar" MaxLength="200" />
+          <Property Name="vangia_status_typeproject" Type="int" />
+          <Property Name="vangia_language_typeproject" Type="int" />
+        </EntityType>
+        <EntityContainer Name="WebDoGoModelStoreContainer">
+          <EntitySet Name="tbl_blog_tra" EntityType="Self.tbl_blog_tra" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblSysPicture" EntityType="Self.tblSysPicture" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="web_vangia_category" EntityType="Self.web_vangia_category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="web_vangia_config" EntityType="Self.web_vangia_config" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="web_vangia_doitac" EntityType="Self.web_vangia_doitac" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="web_vangia_duanmau" EntityType="Self.web_vangia_duanmau" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="web_vangia_employee" EntityType="Self.web_vangia_employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="web_vangia_language" EntityType="Self.web_vangia_language" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="web_vangia_menu" EntityType="Self.web_vangia_menu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="web_vangia_menucon" EntityType="Self.web_vangia_menucon" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="web_vangia_news" EntityType="Self.web_vangia_news" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="web_vangia_products" EntityType="Self.web_vangia_products" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="web_vangia_project" EntityType="Self.web_vangia_project" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="web_vangia_silde" EntityType="Self.web_vangia_silde" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="web_vangia_team" EntityType="Self.web_vangia_team" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="web_vangia_tuyendung" EntityType="Self.web_vangia_tuyendung" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="web_vangia_type_products" EntityType="Self.web_vangia_type_products" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="web_vangia_typeproject" EntityType="Self.web_vangia_typeproject" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="WebDoGoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tbl_blog_tra">
+          <Key>
+            <PropertyRef Name="id_blog_tra" />
+          </Key>
+          <Property Name="id_blog_tra" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="titile_blog_tra" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="short_des_blog_tra" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="des_blog_tra" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="status_blog_tra" Type="Int32" />
+          <Property Name="type_blog_tra" Type="Int32" />
+          <Property Name="create_date_blog_tra" Type="DateTime" Precision="3" />
+          <Property Name="img_blog_tra" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="video_blog_tra" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="id_company" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tblSysPicture">
+          <Key>
+            <PropertyRef Name="picture_id" />
+          </Key>
+          <Property Name="picture_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="advert_id" Type="Int32" />
+          <Property Name="originalFilepath" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="position" Type="Byte" />
+          <Property Name="converted" Type="DateTime" Precision="3" />
+          <Property Name="convertedFilename" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="tocheck" Type="Boolean" />
+          <Property Name="isvalidated" Type="Boolean" />
+          <Property Name="convertedFilename90" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="convertedFilename180" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="convertedFilename270" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="angleType" Type="Byte" />
+          <Property Name="type_id" Type="Byte" />
+          <Property Name="title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="cms_sql_id" Type="Int32" />
+          <Property Name="shortdescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="web_vangia_category">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Link" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="Order_tt" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="IconClass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IdCompany" Type="Int32" />
+        </EntityType>
+        <EntityType Name="web_vangia_config">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name_vg" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="key_word_vg" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="laguage_word_vg" Type="Int32" />
+          <Property Name="order_word_vg" Type="Int32" />
+          <Property Name="type_word_vg" Type="Int32" />
+          <Property Name="detail_type_word_vg" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="web_vangia_doitac">
+          <Key>
+            <PropertyRef Name="vangia_id_doitac" />
+          </Key>
+          <Property Name="vangia_id_doitac" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vangia_name_doitac" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_img_doitac" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_noidung" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_status_doitac" Type="Int32" />
+          <Property Name="vangia_order_doitac" Type="Int32" />
+          <Property Name="vangia_language_doitac" Type="Int32" />
+          <Property Name="vangia_type_doitac" Type="Int32" />
+        </EntityType>
+        <EntityType Name="web_vangia_duanmau">
+          <Key>
+            <PropertyRef Name="vangia_id_duanmau" />
+          </Key>
+          <Property Name="vangia_id_duanmau" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vangia_img_duanmau" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_name_duanmau" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_time_duanmau" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_img1_duanmau" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_img2_duanmau" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_img3_duanmau" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_status_duanmau" Type="Int32" />
+          <Property Name="vangia_order_duanmau" Type="Int32" />
+          <Property Name="vangia_language" Type="Int32" />
+          <Property Name="vangia_content_duanmau" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_tomtat_duanmau" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="web_vangia_employee">
+          <Key>
+            <PropertyRef Name="vangia_id_employee" />
+          </Key>
+          <Property Name="vangia_id_employee" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vangia_img_employee" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_name_employee" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_tiesu_employee" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_status_employee" Type="Int32" />
+          <Property Name="vangia_order_employee" Type="Int32" />
+          <Property Name="vangia_language_employee" Type="Int32" />
+          <Property Name="vangia_team_employee" Type="Int32" />
+          <Property Name="vangia_noidung_employee" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="web_vangia_language">
+          <Key>
+            <PropertyRef Name="vangia_id_language" />
+          </Key>
+          <Property Name="vangia_id_language" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vangia_name_language" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_code_langue" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_status_lague" Type="Int32" />
+          <Property Name="vangia_icon_language" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="web_vangia_menu">
+          <Key>
+            <PropertyRef Name="vangia_id_menu" />
+          </Key>
+          <Property Name="vangia_id_menu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vangia_name_menu" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_link_menu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_status_menu" Type="Int32" />
+          <Property Name="vangia_order_menu" Type="Int32" />
+          <Property Name="vangia_id_language" Type="Int32" />
+          <Property Name="vangia_key_menu" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_loai_menu" Type="Int32" />
+          <Property Name="vangia_tt_menu" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="web_vangia_menucon">
+          <Key>
+            <PropertyRef Name="vangia_id_menucon" />
+          </Key>
+          <Property Name="vangia_id_menucon" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vangia_name_menucon" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_link_menucon" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_menucha_menucon" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_status_menucon" Type="Int32" />
+          <Property Name="vangia_order_menucon" Type="Int32" />
+          <Property Name="vangia_language_menucon" Type="Int32" />
+        </EntityType>
+        <EntityType Name="web_vangia_news">
+          <Key>
+            <PropertyRef Name="vangia_id_news" />
+          </Key>
+          <Property Name="vangia_id_news" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vangia_name_news" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_img_news" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_links_news" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_type_news" Type="Int32" />
+          <Property Name="vangia_img1_news" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_img2_news" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_tomtat_news" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_noidung_news" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_status_news" Type="Int32" />
+          <Property Name="vangia_order_news" Type="Int32" />
+          <Property Name="vangia_language_news" Type="Int32" />
+          <Property Name="vangia_vanban_news" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="web_vangia_products">
+          <Key>
+            <PropertyRef Name="vangia_id_products" />
+          </Key>
+          <Property Name="vangia_id_products" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vangia_img_products" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_name_products" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_noidung_products" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_img1_products" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_img2_products" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_img3_products" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_tomtat_products" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_order_products" Type="Int32" />
+          <Property Name="vangia_language_products" Type="Int32" />
+          <Property Name="vangia_status_products" Type="Int32" />
+          <Property Name="vangia_type_products" Type="Int32" />
+          <Property Name="ful_img4_products_vg" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ful_img5_products_vg" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ful_img6_products_vg" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ful_img7_products_vg" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ful_img8_products_vg" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ful_img9_products_vg" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="web_vangia_project">
+          <Key>
+            <PropertyRef Name="vangia_id_project" />
+          </Key>
+          <Property Name="vangia_id_project" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vangia_img1_project" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_img2_project" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_img3_project" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_img_project" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_content_project" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_name_project" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_time_project" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_status_project" Type="Int32" />
+          <Property Name="vangia_order_project" Type="Int32" />
+          <Property Name="vangia_language_project" Type="Int32" />
+          <Property Name="vangia_tomtat_project" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_typeid_project" Type="Int32" />
+          <Property Name="vangia_img4_project" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_img5_project" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_img6_project" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_img7_project" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_img8_project" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_img9_project" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_vanban_project" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_link_video_project" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="company" Type="Int32" />
+        </EntityType>
+        <EntityType Name="web_vangia_silde">
+          <Key>
+            <PropertyRef Name="vangia_id_silde" />
+          </Key>
+          <Property Name="vangia_id_silde" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vangia_noidung_silde" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_tomtat_silde" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_img_silde" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_name_silde" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_status_silde" Type="Int32" />
+          <Property Name="vangia_order_silde" Type="Int32" />
+          <Property Name="vangia_language_silde" Type="Int32" />
+          <Property Name="vangia_link_silde" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_stype_slide" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_type_slide" Type="Int32" />
+          <Property Name="company" Type="Int32" />
+        </EntityType>
+        <EntityType Name="web_vangia_team">
+          <Key>
+            <PropertyRef Name="vangia_id_team" />
+          </Key>
+          <Property Name="vangia_id_team" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vangia_name_team" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_status_team" Type="Int32" />
+          <Property Name="vangia_language_team" Type="Int32" />
+          <Property Name="vangia_tomtat_team" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_img_team" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="web_vangia_tuyendung">
+          <Key>
+            <PropertyRef Name="vangia_id_tuyendung" />
+          </Key>
+          <Property Name="vangia_id_tuyendung" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vangia_name_tuyendung" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_img_tuyendung" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_tomtat_tuyendung" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_img1_tuyendung" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_img2_tuyendung" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_status_tuyendung" Type="Int32" />
+          <Property Name="vangia_noidung_tuyendung" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_language_tuyendung" Type="Int32" />
+          <Property Name="vangia_order_tuyendung" Type="Int32" />
+          <Property Name="vangia_type_tuyendung" Type="Int32" />
+          <Property Name="vangia_ma_tuyendung" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_vitri_tuyendung" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_soluong_tuyendung" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_diadiem_tuyendung" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_date_tuyendung" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="web_vangia_type_products">
+          <Key>
+            <PropertyRef Name="vangia_id_type_products" />
+          </Key>
+          <Property Name="vangia_id_type_products" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vangia_img_type_products" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_name_type_products" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_status_type_products" Type="Int32" />
+          <Property Name="vangia_order_type_products" Type="Int32" />
+          <Property Name="vangia_language_type_products" Type="Int32" />
+        </EntityType>
+        <EntityType Name="web_vangia_typeproject">
+          <Key>
+            <PropertyRef Name="vangia_id_typeproject" />
+          </Key>
+          <Property Name="vangia_id_typeproject" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vangia_name_typeproject" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="vangia_status_typeproject" Type="Int32" />
+          <Property Name="vangia_language_typeproject" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="WebDoGoEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tbl_blog_tra" EntityType="Self.tbl_blog_tra" />
+          <EntitySet Name="tblSysPictures" EntityType="Self.tblSysPicture" />
+          <EntitySet Name="web_vangia_category" EntityType="Self.web_vangia_category" />
+          <EntitySet Name="web_vangia_config" EntityType="Self.web_vangia_config" />
+          <EntitySet Name="web_vangia_doitac" EntityType="Self.web_vangia_doitac" />
+          <EntitySet Name="web_vangia_duanmau" EntityType="Self.web_vangia_duanmau" />
+          <EntitySet Name="web_vangia_employee" EntityType="Self.web_vangia_employee" />
+          <EntitySet Name="web_vangia_language" EntityType="Self.web_vangia_language" />
+          <EntitySet Name="web_vangia_menu" EntityType="Self.web_vangia_menu" />
+          <EntitySet Name="web_vangia_menucon" EntityType="Self.web_vangia_menucon" />
+          <EntitySet Name="web_vangia_news" EntityType="Self.web_vangia_news" />
+          <EntitySet Name="web_vangia_products" EntityType="Self.web_vangia_products" />
+          <EntitySet Name="web_vangia_project" EntityType="Self.web_vangia_project" />
+          <EntitySet Name="web_vangia_silde" EntityType="Self.web_vangia_silde" />
+          <EntitySet Name="web_vangia_team" EntityType="Self.web_vangia_team" />
+          <EntitySet Name="web_vangia_tuyendung" EntityType="Self.web_vangia_tuyendung" />
+          <EntitySet Name="web_vangia_type_products" EntityType="Self.web_vangia_type_products" />
+          <EntitySet Name="web_vangia_typeproject" EntityType="Self.web_vangia_typeproject" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="WebDoGoModelStoreContainer" CdmEntityContainer="WebDoGoEntities">
+          <EntitySetMapping Name="tbl_blog_tra">
+            <EntityTypeMapping TypeName="WebDoGoModel.tbl_blog_tra">
+              <MappingFragment StoreEntitySet="tbl_blog_tra">
+                <ScalarProperty Name="id_blog_tra" ColumnName="id_blog_tra" />
+                <ScalarProperty Name="titile_blog_tra" ColumnName="titile_blog_tra" />
+                <ScalarProperty Name="short_des_blog_tra" ColumnName="short_des_blog_tra" />
+                <ScalarProperty Name="des_blog_tra" ColumnName="des_blog_tra" />
+                <ScalarProperty Name="status_blog_tra" ColumnName="status_blog_tra" />
+                <ScalarProperty Name="type_blog_tra" ColumnName="type_blog_tra" />
+                <ScalarProperty Name="create_date_blog_tra" ColumnName="create_date_blog_tra" />
+                <ScalarProperty Name="img_blog_tra" ColumnName="img_blog_tra" />
+                <ScalarProperty Name="video_blog_tra" ColumnName="video_blog_tra" />
+                <ScalarProperty Name="id_company" ColumnName="id_company" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblSysPictures">
+            <EntityTypeMapping TypeName="WebDoGoModel.tblSysPicture">
+              <MappingFragment StoreEntitySet="tblSysPicture">
+                <ScalarProperty Name="picture_id" ColumnName="picture_id" />
+                <ScalarProperty Name="advert_id" ColumnName="advert_id" />
+                <ScalarProperty Name="originalFilepath" ColumnName="originalFilepath" />
+                <ScalarProperty Name="position" ColumnName="position" />
+                <ScalarProperty Name="converted" ColumnName="converted" />
+                <ScalarProperty Name="convertedFilename" ColumnName="convertedFilename" />
+                <ScalarProperty Name="tocheck" ColumnName="tocheck" />
+                <ScalarProperty Name="isvalidated" ColumnName="isvalidated" />
+                <ScalarProperty Name="convertedFilename90" ColumnName="convertedFilename90" />
+                <ScalarProperty Name="convertedFilename180" ColumnName="convertedFilename180" />
+                <ScalarProperty Name="convertedFilename270" ColumnName="convertedFilename270" />
+                <ScalarProperty Name="angleType" ColumnName="angleType" />
+                <ScalarProperty Name="type_id" ColumnName="type_id" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="cms_sql_id" ColumnName="cms_sql_id" />
+                <ScalarProperty Name="shortdescription" ColumnName="shortdescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="web_vangia_category">
+            <EntityTypeMapping TypeName="WebDoGoModel.web_vangia_category">
+              <MappingFragment StoreEntitySet="web_vangia_category">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Order_tt" ColumnName="Order_tt" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="IconClass" ColumnName="IconClass" />
+                <ScalarProperty Name="IdCompany" ColumnName="IdCompany" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="web_vangia_config">
+            <EntityTypeMapping TypeName="WebDoGoModel.web_vangia_config">
+              <MappingFragment StoreEntitySet="web_vangia_config">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name_vg" ColumnName="name_vg" />
+                <ScalarProperty Name="key_word_vg" ColumnName="key_word_vg" />
+                <ScalarProperty Name="laguage_word_vg" ColumnName="laguage_word_vg" />
+                <ScalarProperty Name="order_word_vg" ColumnName="order_word_vg" />
+                <ScalarProperty Name="type_word_vg" ColumnName="type_word_vg" />
+                <ScalarProperty Name="detail_type_word_vg" ColumnName="detail_type_word_vg" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="web_vangia_doitac">
+            <EntityTypeMapping TypeName="WebDoGoModel.web_vangia_doitac">
+              <MappingFragment StoreEntitySet="web_vangia_doitac">
+                <ScalarProperty Name="vangia_id_doitac" ColumnName="vangia_id_doitac" />
+                <ScalarProperty Name="vangia_name_doitac" ColumnName="vangia_name_doitac" />
+                <ScalarProperty Name="vangia_img_doitac" ColumnName="vangia_img_doitac" />
+                <ScalarProperty Name="vangia_noidung" ColumnName="vangia_noidung" />
+                <ScalarProperty Name="vangia_status_doitac" ColumnName="vangia_status_doitac" />
+                <ScalarProperty Name="vangia_order_doitac" ColumnName="vangia_order_doitac" />
+                <ScalarProperty Name="vangia_language_doitac" ColumnName="vangia_language_doitac" />
+                <ScalarProperty Name="vangia_type_doitac" ColumnName="vangia_type_doitac" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="web_vangia_duanmau">
+            <EntityTypeMapping TypeName="WebDoGoModel.web_vangia_duanmau">
+              <MappingFragment StoreEntitySet="web_vangia_duanmau">
+                <ScalarProperty Name="vangia_id_duanmau" ColumnName="vangia_id_duanmau" />
+                <ScalarProperty Name="vangia_img_duanmau" ColumnName="vangia_img_duanmau" />
+                <ScalarProperty Name="vangia_name_duanmau" ColumnName="vangia_name_duanmau" />
+                <ScalarProperty Name="vangia_time_duanmau" ColumnName="vangia_time_duanmau" />
+                <ScalarProperty Name="vangia_img1_duanmau" ColumnName="vangia_img1_duanmau" />
+                <ScalarProperty Name="vangia_img2_duanmau" ColumnName="vangia_img2_duanmau" />
+                <ScalarProperty Name="vangia_img3_duanmau" ColumnName="vangia_img3_duanmau" />
+                <ScalarProperty Name="vangia_status_duanmau" ColumnName="vangia_status_duanmau" />
+                <ScalarProperty Name="vangia_order_duanmau" ColumnName="vangia_order_duanmau" />
+                <ScalarProperty Name="vangia_language" ColumnName="vangia_language" />
+                <ScalarProperty Name="vangia_content_duanmau" ColumnName="vangia_content_duanmau" />
+                <ScalarProperty Name="vangia_tomtat_duanmau" ColumnName="vangia_tomtat_duanmau" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="web_vangia_employee">
+            <EntityTypeMapping TypeName="WebDoGoModel.web_vangia_employee">
+              <MappingFragment StoreEntitySet="web_vangia_employee">
+                <ScalarProperty Name="vangia_id_employee" ColumnName="vangia_id_employee" />
+                <ScalarProperty Name="vangia_img_employee" ColumnName="vangia_img_employee" />
+                <ScalarProperty Name="vangia_name_employee" ColumnName="vangia_name_employee" />
+                <ScalarProperty Name="vangia_tiesu_employee" ColumnName="vangia_tiesu_employee" />
+                <ScalarProperty Name="vangia_status_employee" ColumnName="vangia_status_employee" />
+                <ScalarProperty Name="vangia_order_employee" ColumnName="vangia_order_employee" />
+                <ScalarProperty Name="vangia_language_employee" ColumnName="vangia_language_employee" />
+                <ScalarProperty Name="vangia_team_employee" ColumnName="vangia_team_employee" />
+                <ScalarProperty Name="vangia_noidung_employee" ColumnName="vangia_noidung_employee" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="web_vangia_language">
+            <EntityTypeMapping TypeName="WebDoGoModel.web_vangia_language">
+              <MappingFragment StoreEntitySet="web_vangia_language">
+                <ScalarProperty Name="vangia_id_language" ColumnName="vangia_id_language" />
+                <ScalarProperty Name="vangia_name_language" ColumnName="vangia_name_language" />
+                <ScalarProperty Name="vangia_code_langue" ColumnName="vangia_code_langue" />
+                <ScalarProperty Name="vangia_status_lague" ColumnName="vangia_status_lague" />
+                <ScalarProperty Name="vangia_icon_language" ColumnName="vangia_icon_language" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="web_vangia_menu">
+            <EntityTypeMapping TypeName="WebDoGoModel.web_vangia_menu">
+              <MappingFragment StoreEntitySet="web_vangia_menu">
+                <ScalarProperty Name="vangia_id_menu" ColumnName="vangia_id_menu" />
+                <ScalarProperty Name="vangia_name_menu" ColumnName="vangia_name_menu" />
+                <ScalarProperty Name="vangia_link_menu" ColumnName="vangia_link_menu" />
+                <ScalarProperty Name="vangia_status_menu" ColumnName="vangia_status_menu" />
+                <ScalarProperty Name="vangia_order_menu" ColumnName="vangia_order_menu" />
+                <ScalarProperty Name="vangia_id_language" ColumnName="vangia_id_language" />
+                <ScalarProperty Name="vangia_key_menu" ColumnName="vangia_key_menu" />
+                <ScalarProperty Name="vangia_loai_menu" ColumnName="vangia_loai_menu" />
+                <ScalarProperty Name="vangia_tt_menu" ColumnName="vangia_tt_menu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="web_vangia_menucon">
+            <EntityTypeMapping TypeName="WebDoGoModel.web_vangia_menucon">
+              <MappingFragment StoreEntitySet="web_vangia_menucon">
+                <ScalarProperty Name="vangia_id_menucon" ColumnName="vangia_id_menucon" />
+                <ScalarProperty Name="vangia_name_menucon" ColumnName="vangia_name_menucon" />
+                <ScalarProperty Name="vangia_link_menucon" ColumnName="vangia_link_menucon" />
+                <ScalarProperty Name="vangia_menucha_menucon" ColumnName="vangia_menucha_menucon" />
+                <ScalarProperty Name="vangia_status_menucon" ColumnName="vangia_status_menucon" />
+                <ScalarProperty Name="vangia_order_menucon" ColumnName="vangia_order_menucon" />
+                <ScalarProperty Name="vangia_language_menucon" ColumnName="vangia_language_menucon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="web_vangia_news">
+            <EntityTypeMapping TypeName="WebDoGoModel.web_vangia_news">
+              <MappingFragment StoreEntitySet="web_vangia_news">
+                <ScalarProperty Name="vangia_id_news" ColumnName="vangia_id_news" />
+                <ScalarProperty Name="vangia_name_news" ColumnName="vangia_name_news" />
+                <ScalarProperty Name="vangia_img_news" ColumnName="vangia_img_news" />
+                <ScalarProperty Name="vangia_links_news" ColumnName="vangia_links_news" />
+                <ScalarProperty Name="vangia_type_news" ColumnName="vangia_type_news" />
+                <ScalarProperty Name="vangia_img1_news" ColumnName="vangia_img1_news" />
+                <ScalarProperty Name="vangia_img2_news" ColumnName="vangia_img2_news" />
+                <ScalarProperty Name="vangia_tomtat_news" ColumnName="vangia_tomtat_news" />
+                <ScalarProperty Name="vangia_noidung_news" ColumnName="vangia_noidung_news" />
+                <ScalarProperty Name="vangia_status_news" ColumnName="vangia_status_news" />
+                <ScalarProperty Name="vangia_order_news" ColumnName="vangia_order_news" />
+                <ScalarProperty Name="vangia_language_news" ColumnName="vangia_language_news" />
+                <ScalarProperty Name="vangia_vanban_news" ColumnName="vangia_vanban_news" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="web_vangia_products">
+            <EntityTypeMapping TypeName="WebDoGoModel.web_vangia_products">
+              <MappingFragment StoreEntitySet="web_vangia_products">
+                <ScalarProperty Name="vangia_id_products" ColumnName="vangia_id_products" />
+                <ScalarProperty Name="vangia_img_products" ColumnName="vangia_img_products" />
+                <ScalarProperty Name="vangia_name_products" ColumnName="vangia_name_products" />
+                <ScalarProperty Name="vangia_noidung_products" ColumnName="vangia_noidung_products" />
+                <ScalarProperty Name="vangia_img1_products" ColumnName="vangia_img1_products" />
+                <ScalarProperty Name="vangia_img2_products" ColumnName="vangia_img2_products" />
+                <ScalarProperty Name="vangia_img3_products" ColumnName="vangia_img3_products" />
+                <ScalarProperty Name="vangia_tomtat_products" ColumnName="vangia_tomtat_products" />
+                <ScalarProperty Name="vangia_order_products" ColumnName="vangia_order_products" />
+                <ScalarProperty Name="vangia_language_products" ColumnName="vangia_language_products" />
+                <ScalarProperty Name="vangia_status_products" ColumnName="vangia_status_products" />
+                <ScalarProperty Name="vangia_type_products" ColumnName="vangia_type_products" />
+                <ScalarProperty Name="ful_img4_products_vg" ColumnName="ful_img4_products_vg" />
+                <ScalarProperty Name="ful_img5_products_vg" ColumnName="ful_img5_products_vg" />
+                <ScalarProperty Name="ful_img6_products_vg" ColumnName="ful_img6_products_vg" />
+                <ScalarProperty Name="ful_img7_products_vg" ColumnName="ful_img7_products_vg" />
+                <ScalarProperty Name="ful_img8_products_vg" ColumnName="ful_img8_products_vg" />
+                <ScalarProperty Name="ful_img9_products_vg" ColumnName="ful_img9_products_vg" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="web_vangia_project">
+            <EntityTypeMapping TypeName="WebDoGoModel.web_vangia_project">
+              <MappingFragment StoreEntitySet="web_vangia_project">
+                <ScalarProperty Name="vangia_id_project" ColumnName="vangia_id_project" />
+                <ScalarProperty Name="vangia_img1_project" ColumnName="vangia_img1_project" />
+                <ScalarProperty Name="vangia_img2_project" ColumnName="vangia_img2_project" />
+                <ScalarProperty Name="vangia_img3_project" ColumnName="vangia_img3_project" />
+                <ScalarProperty Name="vangia_img_project" ColumnName="vangia_img_project" />
+                <ScalarProperty Name="vangia_content_project" ColumnName="vangia_content_project" />
+                <ScalarProperty Name="vangia_name_project" ColumnName="vangia_name_project" />
+                <ScalarProperty Name="vangia_time_project" ColumnName="vangia_time_project" />
+                <ScalarProperty Name="vangia_status_project" ColumnName="vangia_status_project" />
+                <ScalarProperty Name="vangia_order_project" ColumnName="vangia_order_project" />
+                <ScalarProperty Name="vangia_language_project" ColumnName="vangia_language_project" />
+                <ScalarProperty Name="vangia_tomtat_project" ColumnName="vangia_tomtat_project" />
+                <ScalarProperty Name="vangia_typeid_project" ColumnName="vangia_typeid_project" />
+                <ScalarProperty Name="vangia_img4_project" ColumnName="vangia_img4_project" />
+                <ScalarProperty Name="vangia_img5_project" ColumnName="vangia_img5_project" />
+                <ScalarProperty Name="vangia_img6_project" ColumnName="vangia_img6_project" />
+                <ScalarProperty Name="vangia_img7_project" ColumnName="vangia_img7_project" />
+                <ScalarProperty Name="vangia_img8_project" ColumnName="vangia_img8_project" />
+                <ScalarProperty Name="vangia_img9_project" ColumnName="vangia_img9_project" />
+                <ScalarProperty Name="vangia_vanban_project" ColumnName="vangia_vanban_project" />
+                <ScalarProperty Name="vangia_link_video_project" ColumnName="vangia_link_video_project" />
+                <ScalarProperty Name="company" ColumnName="company" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="web_vangia_silde">
+            <EntityTypeMapping TypeName="WebDoGoModel.web_vangia_silde">
+              <MappingFragment StoreEntitySet="web_vangia_silde">
+                <ScalarProperty Name="vangia_id_silde" ColumnName="vangia_id_silde" />
+                <ScalarProperty Name="vangia_noidung_silde" ColumnName="vangia_noidung_silde" />
+                <ScalarProperty Name="vangia_tomtat_silde" ColumnName="vangia_tomtat_silde" />
+                <ScalarProperty Name="vangia_img_silde" ColumnName="vangia_img_silde" />
+                <ScalarProperty Name="vangia_name_silde" ColumnName="vangia_name_silde" />
+                <ScalarProperty Name="vangia_status_silde" ColumnName="vangia_status_silde" />
+                <ScalarProperty Name="vangia_order_silde" ColumnName="vangia_order_silde" />
+                <ScalarProperty Name="vangia_language_silde" ColumnName="vangia_language_silde" />
+                <ScalarProperty Name="vangia_link_silde" ColumnName="vangia_link_silde" />
+                <ScalarProperty Name="vangia_stype_slide" ColumnName="vangia_stype_slide" />
+                <ScalarProperty Name="vangia_type_slide" ColumnName="vangia_type_slide" />
+                <ScalarProperty Name="company" ColumnName="company" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="web_vangia_team">
+            <EntityTypeMapping TypeName="WebDoGoModel.web_vangia_team">
+              <MappingFragment StoreEntitySet="web_vangia_team">
+                <ScalarProperty Name="vangia_id_team" ColumnName="vangia_id_team" />
+                <ScalarProperty Name="vangia_name_team" ColumnName="vangia_name_team" />
+                <ScalarProperty Name="vangia_status_team" ColumnName="vangia_status_team" />
+                <ScalarProperty Name="vangia_language_team" ColumnName="vangia_language_team" />
+                <ScalarProperty Name="vangia_tomtat_team" ColumnName="vangia_tomtat_team" />
+                <ScalarProperty Name="vangia_img_team" ColumnName="vangia_img_team" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="web_vangia_tuyendung">
+            <EntityTypeMapping TypeName="WebDoGoModel.web_vangia_tuyendung">
+              <MappingFragment StoreEntitySet="web_vangia_tuyendung">
+                <ScalarProperty Name="vangia_id_tuyendung" ColumnName="vangia_id_tuyendung" />
+                <ScalarProperty Name="vangia_name_tuyendung" ColumnName="vangia_name_tuyendung" />
+                <ScalarProperty Name="vangia_img_tuyendung" ColumnName="vangia_img_tuyendung" />
+                <ScalarProperty Name="vangia_tomtat_tuyendung" ColumnName="vangia_tomtat_tuyendung" />
+                <ScalarProperty Name="vangia_img1_tuyendung" ColumnName="vangia_img1_tuyendung" />
+                <ScalarProperty Name="vangia_img2_tuyendung" ColumnName="vangia_img2_tuyendung" />
+                <ScalarProperty Name="vangia_status_tuyendung" ColumnName="vangia_status_tuyendung" />
+                <ScalarProperty Name="vangia_noidung_tuyendung" ColumnName="vangia_noidung_tuyendung" />
+                <ScalarProperty Name="vangia_language_tuyendung" ColumnName="vangia_language_tuyendung" />
+                <ScalarProperty Name="vangia_order_tuyendung" ColumnName="vangia_order_tuyendung" />
+                <ScalarProperty Name="vangia_type_tuyendung" ColumnName="vangia_type_tuyendung" />
+                <ScalarProperty Name="vangia_ma_tuyendung" ColumnName="vangia_ma_tuyendung" />
+                <ScalarProperty Name="vangia_vitri_tuyendung" ColumnName="vangia_vitri_tuyendung" />
+                <ScalarProperty Name="vangia_soluong_tuyendung" ColumnName="vangia_soluong_tuyendung" />
+                <ScalarProperty Name="vangia_diadiem_tuyendung" ColumnName="vangia_diadiem_tuyendung" />
+                <ScalarProperty Name="vangia_date_tuyendung" ColumnName="vangia_date_tuyendung" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="web_vangia_type_products">
+            <EntityTypeMapping TypeName="WebDoGoModel.web_vangia_type_products">
+              <MappingFragment StoreEntitySet="web_vangia_type_products">
+                <ScalarProperty Name="vangia_id_type_products" ColumnName="vangia_id_type_products" />
+                <ScalarProperty Name="vangia_img_type_products" ColumnName="vangia_img_type_products" />
+                <ScalarProperty Name="vangia_name_type_products" ColumnName="vangia_name_type_products" />
+                <ScalarProperty Name="vangia_status_type_products" ColumnName="vangia_status_type_products" />
+                <ScalarProperty Name="vangia_order_type_products" ColumnName="vangia_order_type_products" />
+                <ScalarProperty Name="vangia_language_type_products" ColumnName="vangia_language_type_products" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="web_vangia_typeproject">
+            <EntityTypeMapping TypeName="WebDoGoModel.web_vangia_typeproject">
+              <MappingFragment StoreEntitySet="web_vangia_typeproject">
+                <ScalarProperty Name="vangia_id_typeproject" ColumnName="vangia_id_typeproject" />
+                <ScalarProperty Name="vangia_name_typeproject" ColumnName="vangia_name_typeproject" />
+                <ScalarProperty Name="vangia_status_typeproject" ColumnName="vangia_status_typeproject" />
+                <ScalarProperty Name="vangia_language_typeproject" ColumnName="vangia_language_typeproject" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

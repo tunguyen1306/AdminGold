@@ -1,0 +1,94 @@
+﻿@using WebDoGo.Models
+@{
+    WebDoGoEntities db = new WebDoGoEntities();
+}
+<div id="filter" class="c-menu-slide-right mv-c-menu full">
+    <div class="container">
+        <div class="mv-fi-heading visible-xs">
+            <button class="c-menu_back glyphicon glyphicon-menu-left"></button>
+            <span class="heading"> Lọc bởi</span>
+
+        </div>
+        <div class="filter-category filter with-border" data-filter-type="FILTER">
+            <div class="row">
+
+                <div class="col-sm-1 fi-col-left">
+                    <label class="filter-label">Danh mục:</label>
+                </div>
+                <div class="col-sm-11 col-xs-12 ">
+
+                    <div class="fi fi-collapse ">
+                        <div class="row">
+                            <div class="fi-row fi-dropdown">
+                                <a class="toggleMenu visible-xs"
+                                   href="#">
+                                    Nội thất&nbsp;(158)                                            <span class="pull-right caret"></span>
+                                </a>
+                                <ul class="nav">
+                                    <li class="col-sm-2 col-xs-12 fi-it"><a class="df" href="@Url.Action("Index", "Default", new {page=1,sort = 0,type="" })" title="Tất cả danh mục">TẤT CẢ DANH MỤC</a></li>
+
+                                    @foreach (var item in db.web_vangia_category.Where(x => x.IdCompany == 4 && x.Status == 1))
+                                    {
+                                        var countProduct = (from a in db.web_vangia_project
+                                                            join b in db.web_vangia_category on a.vangia_typeid_project equals b.Id
+                                                            where a.vangia_status_project == 1 && a.company==4 && b.Id == item.Id
+                                                            select a.vangia_id_project).Count();
+                                        <li class="col-sm-2  col-xs-12 fi-it ">
+                                            <a class="tsf" href="@(item.Link ?? Url.Action("Index", "Default", new { type = item.Name.UrlFrendly() + "-" + item.Id }))" title="@item.Name">@item.Name...(<span class="count">@countProduct</span>)</a>
+                                        </li>
+
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="#" class="filter-toggle is-close hidden-xs" data-type="categories">
+                            <i class="glyphicon glyphicon-menu-down"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="filter-select filter with-border">
+            <div id="fi-sort" class="fi-radio-button " data-filter-type="SORT">
+
+                <ul class="fi">
+                    <li class="fi-s-it fix-col">
+                        <a class="s-d s-d_0" rel="0" href="@Url.Action("Index", "Default", new {sort = 0,type= ViewData["type"] })" title="Sản phẩm mới nhất"><i class="fa fa-star"></i> Sản phẩm mới nhất</a>
+                    </li>
+                    <li class="fi-s-it fix-col">
+                        <a class="s-d s-d_1" rel="1" href="@Url.Action("Index","Default",new {sort=1,type= ViewData["type"]})" title="Sản phẩm hot"><i class="fa fa-fire"></i> Sản phẩm hot</a>
+                      
+                    </li>
+                    <li class="fi-s-it fix-col">
+                        <a class="s-d s-d_2" rel="2" href="@Url.Action("Index","Default",new {sort=2,type= ViewData["type"]})" title="Giá tăng dần"><i class="fa fa-arrow-up"></i> Giá tăng dần</a>
+                    </li>
+                    <li class="fi-s-it fix-col">
+                        <a class="s-d s-d_3" rel="3" href="@Url.Action("Index","Default",new {sort=3,type= ViewData["type"]})" title="Giá giảm dần"><i class="fa fa-arrow-down"></i> Giá giảm dần</a>
+                    </li>
+
+                </ul>
+            </div>
+
+
+
+        </div>
+    </div>
+</div>
+<div id="mv-filter" class="visible-xs " data-spy="affix">
+    <div class="mv-fi-wrapper two-col default-hidden">
+        <div class="col-lf sort-option m-op" data-sort-type="SORT">
+            <a href="javascript:void(0)">
+                <span class="fa fa-exchange"></span>
+                <span>Sắp xếp</span>
+            </a>
+        </div>
+        <div class="col-rgt filter-option m-op" data-sort-type="FILTER">
+            <a href="javascript:void(0)">
+                <span class="fa fa-filter"></span>
+                <span>Lọc</span>
+            </a>
+        </div>
+    </div>
+</div>

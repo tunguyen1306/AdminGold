@@ -1,0 +1,345 @@
+﻿@using System.Configuration
+@using WebDoGo.Models
+@model WebDoGo.Models.ProductsModel
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_LayoutWeb.cshtml";
+    WebDoGoEntities db = new WebDoGoEntities();
+    var datareatle =
+               db.web_vangia_project.Where(
+                   x =>
+                       x.company == 4 && x.vangia_status_project == 1).ToList();
+    var dataProductFeature = datareatle.OrderBy(x => Guid.NewGuid());
+
+}
+<div class="content">
+    <div id="breadcrumbs" class="hidden-xs">
+        <div class="container">
+            <ol class="breadcrumbs clearfix">
+                <li><a class="b-it" href="@Url.Action("Index","Default",new {page=1,sort=0,type=""})">Trang chủ</a></li>
+                <li>
+                    @{
+                        var tt = db.web_vangia_category.FirstOrDefault(x => x.Id == Model.tblProject.vangia_typeid_project);
+                        if (tt != null)
+                        {
+                            <a class="b-it" href="@Url.Action("Index", "Default", new {type = tt.Name.UrlFrendly() + "-" + tt.Id})">@tt.Name</a>
+                        }
+                    }
+                   
+                </li>
+                <li><a class="b-it" href="@Url.Action("Detail","Default",new {id=Model.tblProject.vangia_name_project.UrlFrendly()+"-"+Model.tblProject.vangia_id_project})">@Model.tblProject.vangia_name_project</a></li>
+               
+            </ol>
+        </div>
+    </div>
+    <div class="container">
+        <div id="d-product" class="fixScreen">
+            <div class="grid-primary">
+                <div class="col-sm-12 col-xs-12 grid-column grid-detail-product ">
+                    <div class="column-left">
+                        <div id="detail" class="box-padding-right">
+                            <div class="detail-inner">
+                                <div class="col-sm-5 col-xs-12 no-padding-xs">
+                                    <div id="prd-img" class="show-prd-img">
+                                        <div class="img-featured img-responsive">
+                                            @{
+                                                var itemMain = db.tblSysPictures.FirstOrDefault(x => x.advert_id == Model.tblProject.vangia_id_project);
+                                                if (itemMain != null)
+                                                {
+                                               
+                                                        <img class="img-product prdZoom" src="@(ConfigurationManager.AppSettings["domainImages"] + itemMain.originalFilepath.Split('_')[0] + "/" + itemMain.originalFilepath)" alt="@Model.tblProject.vangia_name_project" data-zoom-image="@(ConfigurationManager.AppSettings["domainImages"] + itemMain.originalFilepath.Split('_')[0] + "/" + itemMain.originalFilepath)">
+                                                }
+                                                else
+                                                {
+                                                    <img class="img-product prdZoom" src="http://cdn.luuthong.vn/thumbnails/5-97e193b6ded4/thumb.500x400.jpg" alt="@Model.tblProject.vangia_name_project" data-zoom-image="http://cdn.luuthong.vn/5/97e193b6ded4.jpg">
+                                                }
+                                            }
+                                          
+                                        </div>
+                                        <div class="img-more show-slide" id="zoom-gallery">
+                                           
+                                            @{
+                                                var ListImg = db.tblSysPictures.Where(x => x.advert_id == Model.tblProject.vangia_id_project);
+                                                foreach (var itemImg1 in ListImg)
+                                                {
+                                                    if (itemImg1 != null)
+                                                    {
+                                                        <div class="img-more-item">
+                                                            <span class="img responsive-img">
+                                                                <a class="elevatezoom-gallery" href="javascript:void(0)" data-image="@(ConfigurationManager.AppSettings["domainImages"] + itemImg1.originalFilepath.Split('_')[0] +"/"+ itemImg1.originalFilepath)" data-zoom-image="@(ConfigurationManager.AppSettings["domainImages"] + itemImg1.originalFilepath.Split('_')[0] +"/"+ String.Format(itemImg1.convertedFilename,1))">
+                                                                    <img src="@(ConfigurationManager.AppSettings["domainImages"] + itemImg1.originalFilepath.Split('_')[0] +"/"+ String.Format(itemImg1.convertedFilename,4))" alt="@Model.tblProject.vangia_name_project-1" data-view="@(ConfigurationManager.AppSettings["domainImages"] + itemImg1.originalFilepath.Split('_')[0] +"/"+ String.Format(itemImg1.convertedFilename,1))">
+                                                                </a>
+                                                            </span>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <div class="img-more-item">
+                                                            <span class="img responsive-img">
+                                                                <a class="elevatezoom-gallery" href="javascript:void(0)" data-image="http://cdn.luuthong.vn/thumbnails/5-97e193b6ded4/thumb.500x400.jpg" data-zoom-image="http://cdn.luuthong.vn/5/97e193b6ded4.jpg">
+                                                                    <img src="http://cdn.luuthong.vn/thumbnails/5-97e193b6ded4/thumb.100x100.jpg" alt="@Model.tblProject.vangia_name_project-1" data-view="http://cdn.luuthong.vn/thumbnails/5-97e193b6ded4/thumb.500x400.jpg">
+                                                                </a>
+                                                            </span>
+                                                        </div>
+                                                    }
+                                                }
+
+                                            }
+                                        </div>
+                                    </div>
+                                  
+                                </div>
+                                <div class="col-sm-7 col-xs-12 no-padding-xs" id="productInfo">
+                                    <h1 class="product-title">@Model.tblProject.vangia_name_project</h1>
+                                    <div class="product-range-number">
+                                        <div class="line-range">
+                                            <label class="range-number heading">
+                                                Số lượng
+                                                (Bộ                    )
+                                            </label>
+                                            <label class="range-price heading">Giá bán</label>
+                                        </div>
+                                        <div class="line-range">
+                                            <div class="range-number">
+                                                
+                                            </div>
+                                            <div class="range-price">
+                                                <span class="price">@Model.tblProject.vangia_img1_project</span>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                
+
+                                </div>
+                            </div>
+                        </div>
+                      
+                        <div id="show-product-content" class="box-padding-right">
+                            <div class="row">
+                                <div class="col-sm-9 col-xs-12 pull-right">
+                                    <div class="product-content-right">
+                                        <div id="product-tabs">
+                                            <ul class="product-tabs nav-tabs" role="tablist">
+                                                <li role="presentation" class="active">
+                                                    <a href="#home" aria-controls="home" role="tab" data-toggle="tab"
+                                                       title="Chi tiết sản phẩm">Chi tiết sản phẩm</a>
+                                                </li>
+                                                <li role="presentation">
+                                                    <a href="#product-feedback" aria-controls="product-feedback"
+                                                       role="tab"
+                                                       data-toggle="tab"
+                                                       id="tab-product-feedback"
+                                                       data-action="/shop-feedback/index?pid=1111746"
+                                                       title="Thông tin phản hồi">Đánh giá</a>
+                                                </li>
+                                                <li role="presentation">
+                                                    <a href="#product-comment" aria-controls="product-comment"
+                                                       role="tab"
+                                                       data-toggle="tab"
+                                                       id="tab-product-comment"
+                                                       data-action="/product/list-comment?pid=1111746"
+                                                       title="Chi tiết sản phẩm">Hỏi đáp</a>
+                                                </li>
+                                            </ul>
+
+                                            <!-- Tab panes -->
+                                            <div class="tab-content">
+                                                <div role="tabpanel" class="tab-pane fade in active" id="home">
+                                                    <ul class="product-attribute clearfix">
+
+                                                        <li class="tsf">
+                                                            Tình trạng:
+                                                            <span>Có sẵn</span>
+                                                        </li>
+                                                        <li class="tsf">
+                                                            Tay:
+                                                            <span>10</span>
+                                                        </li>
+                                                        <li class="tsf">
+                                                            Xuất xứ:
+                                                            <span>Việt Nam</span>
+                                                        </li>
+                                                        <li class="tsf">
+                                                            Màu sắc:
+                                                            <span>Màu nâu</span>
+                                                        </li>
+                                                        <li class="tsf">
+                                                            Nguyên liệu:
+                                                            <span>Gỗ</span>
+                                                        </li>
+                                                        <li class="tsf">
+                                                            Thương hiệu:
+                                                            <span>Khác</span>
+                                                        </li>
+                                                    </ul>
+                                                    <div class="product-content">
+
+                                                       @Html.Raw(Model.tblProject.vangia_content_project) 
+                                                    </div>
+                                                </div>
+                                                <div role="tabpanel" class="tab-pane" id="product-comment"></div>
+                                                <div role="tabpanel" class="tab-pane" id="product-feedback"></div>
+                                            </div>
+                                        </div>
+
+
+                                        <div id="product-viewed">
+                                            <div class="box box-widget-product product-viewed">
+                                                <div class="box-header">
+                                                    <span class="box-title">Sản phẩm vừa xem</span>
+                                                </div>
+                                                <div class="box-body">
+                                                    <div class="grid-primary slider-horizontal slide-product-horizontal">
+                                                        <div class="col-md-3 col-sm-4 col-xs-6 grid-column product">
+                                                            <div class="gird-content">
+                                                                <a href="//luuthong.vn/bo-ban-ghe-quoc-dao-go-tram-loi-100-tay-10-6-mon-i1111746"
+                                                                   title="@Model.tblProject.vangia_name_project">
+                                                                    <div class="show-image autoResizeHeight">
+                                                                        <span class="img-vertical">
+                                                                            <img src="http://cdn.luuthong.vn/thumbnails/5-97e193b6ded4/thumb.350x350.jpg"
+                                                                                 alt="@Model.tblProject.vangia_name_project" />
+                                                                        </span>
+                                                                    </div>
+
+                                                                    <p class="product-name textLine">@Model.tblProject.vangia_name_project</p>
+
+                                                                </a>
+                                                                <p class="product-price">9.300.000đ </p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-3 col-sm-4 col-xs-6 grid-column product">
+                                                            <div class="gird-content">
+                                                                <a href="//luuthong.vn/ao-khoac-nam-dai-tay-kem-day-keo-chat-da-thai-cao-cap-i1083990"
+                                                                   title="Áo khoác nam, dài tay kèm dây kéo, chất da thái cao cấp">
+                                                                    <div class="show-image autoResizeHeight">
+                                                                        <span class="img-vertical">
+                                                                            <img src="http://luuthong.vn/uploads/media/20170105/03e0300e0b14ed1012f6c3b92bd8aba3.350x350.jpg"
+                                                                                 alt="Áo khoác nam, dài tay kèm dây kéo, chất da thái cao cấp" />
+                                                                        </span>
+                                                                    </div>
+
+                                                                    <p class="product-name textLine">Áo khoác nam, dài tay kèm dây kéo, chất da thái cao cấp</p>
+
+                                                                </a>
+                                                                <p class="product-price">310.000đ </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="col-sm-3 col-xs-12" style="padding-right: 0px;">
+                                  
+                                    <div class="product-content-left hidden-xs">
+                                      
+                                        <div class="box box-widget-product">
+                                            <div class="box-header">
+                                                <span class="box-title">Sản phẩm cùng shop</span>
+                                            </div>
+                                            <div class="box-body">
+                                                <div class="grid-primary home-product-list">
+                                                    @foreach (var itemRelate in Model.ListProject)
+                                                    {
+                                                        <div class="col-sm-12 col-xs-12 grid-column product">
+                                                            <div class="gird-content">
+                                                                <a href="@Url.Action("Detail","Default",new {id=itemRelate.vangia_name_project.UrlFrendly()+"-"+itemRelate.vangia_id_project})"
+                                                                   title="@itemRelate.vangia_name_project">
+                                                                    <div class="show-image autoResizeHeight">
+                                                                        <span class="img-vertical">
+                                                                       
+                                                                            @{
+                                                                                var itemImg = db.tblSysPictures.FirstOrDefault(x => x.advert_id == itemRelate.vangia_id_project);
+                                                                                if (itemImg != null)
+                                                                                {
+                                                                                    <img src="@(ConfigurationManager.AppSettings["domainImages"] + itemImg.originalFilepath.Split('_')[0] +"/"+ itemImg.originalFilepath)"
+                                                                                         alt="@itemRelate.vangia_name_project" />
+                                                                                }
+                                                                                else
+                                                                                {
+                                                                                    <img   src="http://cdn.luuthong.vn/thumbnails/5-1f24608e2ea4/thumb.350x350.jpg" alt="@itemRelate.vangia_name_project">
+                                                                                }
+                                                                            }
+                                                                        </span>
+                                                                    </div>
+
+                                                                    <p class="product-name textLine">@itemRelate.vangia_name_project</p>
+
+                                                                </a>
+                                                                <p class="product-price">@itemRelate.vangia_img1_project </p>
+                                                            </div>
+                                                        </div>
+                                                    }
+                                                   
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="column-right">
+
+                        <div id="product-sale">
+                            <div class="box box-widget-product">
+                                <div class="box-header">
+                                    <span class="box-title">Sản phẩm gợi ý </span>
+                                </div>
+                                <div class="box-body">
+                                    <div class="grid-primary home-product-list">
+                                        @foreach (var itemHot in dataProductFeature)
+                                        {
+                                            <div class="col-sm-12 col-xs-12 grid-column product">
+                                                <div class="gird-content">
+                                                    <a href="@Url.Action("Detail","Default",new {id=itemHot.vangia_name_project.UrlFrendly()+"-"+itemHot.vangia_id_project})"
+                                                       title="@itemHot.vangia_name_project">
+                                                        <div class="show-image autoResizeHeight">
+                                                            <span class="img-vertical">
+                                                                @{
+                                                                    var itemImg = db.tblSysPictures.FirstOrDefault(x => x.advert_id == itemHot.vangia_id_project);
+                                                                    if (itemImg != null)
+                                                                    {
+                                                                        <img src="@(ConfigurationManager.AppSettings["domainImages"] + itemImg.originalFilepath.Split('_')[0] +"/"+ itemImg.originalFilepath)"
+                                                                             alt="@itemHot.vangia_name_project" />
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        <img src="http://cdn.luuthong.vn/thumbnails/5-1f24608e2ea4/thumb.350x350.jpg" alt="@itemHot.vangia_name_project">
+                                                                    }
+                                                                }
+                                                            </span>
+                                                        </div>
+
+                                                        <p class="product-name textLine">@itemHot.vangia_name_project</p>
+
+                                                    </a>
+                                                    <p class="product-price">@itemHot.vangia_img1_project </p>
+                                                </div>
+                                            </div>
+                                        }
+                                       
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+

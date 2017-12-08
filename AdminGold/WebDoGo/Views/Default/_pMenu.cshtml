@@ -1,0 +1,58 @@
+﻿@using WebDoGo.Models
+@{
+    WebDoGoEntities db=new WebDoGoEntities();
+}
+<div class="fm hidden-xs">
+    <div class="container">
+        <div id="m-menu">
+            <div class="category-title hidden-xs"><span>Danh mục sản phẩm </span> <span class="caret"></span></div>
+
+
+            <div id="categories" class="categories">
+                <div class="list ">
+                    <ul id="main-mn">
+                    <li class="visible-xs"><a href="@Url.Action("Index","Default",new {page=1,sort=0,type=""})" title="Trang chủ">Trang chủ</a></li>
+                        @foreach (var item in db.web_vangia_category.Where(x=>x.IdCompany==4 && x.Status==1))
+                        {
+                            var countProduct = (from a in db.web_vangia_project
+                                                join b in db.web_vangia_category on a.vangia_typeid_project equals b.Id
+                                                where a.vangia_status_project == 1 && a.company == 4 && b.Id == item.Id
+                                                select a.vangia_id_project).Count();
+                            <li data-submenu-id="@item.Id">
+                                <a href="@(item.Link ?? Url.Action("Index","Default",new {page=1,sort=0, type=item.Name.UrlFrendly()+"-"+item.Id}))" title="@item.Name" >
+                                  @item.Name...(<span class="count">@countProduct</span>)
+                                </a>
+                            </li>
+                        }
+                       
+                      
+
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        <div id="mn-top">
+            <ul class="nav navbar-nav navbar-main hidden-xs">
+                <li>
+                    <a href="@Url.Action("About","Default")"
+                       title="Giới thiệu">
+                        <span>Giới thiệu</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Contact","Default")"
+                       title="Liên hệ">
+                        <span>Liên hệ</span>
+                    </a>
+                </li>
+                <li>
+    <a href="@Url.Action("Blog","Default")"
+       title="Blog">
+        <span>Blog</span>
+    </a>
+</li>
+            </ul>
+        </div>
+    </div>
+</div>

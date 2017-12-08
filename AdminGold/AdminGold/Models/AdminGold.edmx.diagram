@@ -118,6 +118,7 @@
         <EntityTypeShape EntityType="AdminGoldModel.web_tr_menutop" Width="1.5" PointX="29.75" PointY="0.75" />
         <EntityTypeShape EntityType="AdminGoldModel.web_tr_products" Width="1.5" PointX="29.75" PointY="3.75" />
         <EntityTypeShape EntityType="AdminGoldModel.web_tr_quangcao" Width="1.5" PointX="29.75" PointY="8.75" />
+        <EntityTypeShape EntityType="AdminGoldModel.web_vangia_category" Width="1.5" PointX="17.375" PointY="29.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

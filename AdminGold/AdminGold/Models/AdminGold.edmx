@@ -1222,6 +1222,19 @@ warning 6002: The table/view 'nhvanxol_dulichbautrang.dbo.web_tr_quangcao' does 
           <Property Name="img_quangcao" Type="nvarchar" MaxLength="200" />
           <Property Name="type_quangcao" Type="int" />
         </EntityType>
+        <EntityType Name="web_vangia_category">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="500" />
+          <Property Name="Link" Type="nvarchar" MaxLength="500" />
+          <Property Name="Status" Type="int" />
+          <Property Name="Order_tt" Type="int" />
+          <Property Name="Description" Type="nvarchar" MaxLength="4000" />
+          <Property Name="IconClass" Type="nvarchar" MaxLength="50" />
+          <Property Name="IdCompany" Type="int" />
+        </EntityType>
         <EntityType Name="web_vangia_config">
           <Key>
             <PropertyRef Name="id" />
@@ -1532,6 +1545,7 @@ warning 6002: The table/view 'nhvanxol_dulichbautrang.dbo.web_tr_quangcao' does 
           <EntitySet Name="web_menu_root" EntityType="Self.web_menu_root" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="web_products" EntityType="Self.web_products" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="web_title" EntityType="Self.web_title" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="web_vangia_category" EntityType="Self.web_vangia_category" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="web_vangia_config" EntityType="Self.web_vangia_config" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="web_vangia_doitac" EntityType="Self.web_vangia_doitac" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="web_vangia_duanmau" EntityType="Self.web_vangia_duanmau" Schema="dbo" store:Type="Tables" />
@@ -1903,6 +1917,7 @@ warning 6002: The table/view 'nhvanxol_dulichbautrang.dbo.web_tr_quangcao' does 
           <EntitySet Name="web_tr_menutop" EntityType="AdminGoldModel.web_tr_menutop" />
           <EntitySet Name="web_tr_products" EntityType="AdminGoldModel.web_tr_products" />
           <EntitySet Name="web_tr_quangcao" EntityType="AdminGoldModel.web_tr_quangcao" />
+          <EntitySet Name="web_vangia_category" EntityType="AdminGoldModel.web_vangia_category" />
         </EntityContainer>
         <EntityType Name="tblSysPicture">
           <Key>
@@ -3281,6 +3296,19 @@ warning 6002: The table/view 'nhvanxol_dulichbautrang.dbo.web_tr_quangcao' does 
           <Property Name="order_quangcao" Type="Int32" />
           <Property Name="img_quangcao" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="type_quangcao" Type="Int32" />
+        </EntityType>
+        <EntityType Name="web_vangia_category">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Link" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="Order_tt" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="IconClass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IdCompany" Type="Int32" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -4775,6 +4803,20 @@ warning 6002: The table/view 'nhvanxol_dulichbautrang.dbo.web_tr_quangcao' does 
                 <ScalarProperty Name="links_quangcao" ColumnName="links_quangcao" />
                 <ScalarProperty Name="name_quangcao" ColumnName="name_quangcao" />
                 <ScalarProperty Name="id_quangcao" ColumnName="id_quangcao" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="web_vangia_category">
+            <EntityTypeMapping TypeName="AdminGoldModel.web_vangia_category">
+              <MappingFragment StoreEntitySet="web_vangia_category">
+                <ScalarProperty Name="IdCompany" ColumnName="IdCompany" />
+                <ScalarProperty Name="IconClass" ColumnName="IconClass" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Order_tt" ColumnName="Order_tt" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

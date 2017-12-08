@@ -1,0 +1,71 @@
+﻿@using System.Configuration
+@using PagedList.Mvc
+@using WebDoGo.Models
+@model PagedList.IPagedList<WebDoGo.Models.ProductsModel>
+@{
+    WebDoGoEntities db = new WebDoGoEntities();
+}
+<div id="loader">
+
+    <div id="list-product" class="list-product grid-primary">
+        @foreach (var item in Model)
+            {
+            <div class="col-sm-4 col-md-3 col-xs-6 grid-column product" data-key="0">
+                <div class="p-it grid-content">
+                    <a  href="@Url.Action("Detail","Default",new {id=item.tblProject.vangia_name_project.UrlFrendly()+"-"+item.tblProject.vangia_id_project})"
+                       title="@item.tblProject.vangia_name_project">
+                        <span class="p-image autoResizeHeight">
+                            @{
+                                var itemImg = db.tblSysPictures.FirstOrDefault(x => x.advert_id == item.tblProject.vangia_id_project);
+                                if (itemImg != null)
+                                {
+                                    <img id="featured-1104125" class="img-product" src="@(ConfigurationManager.AppSettings["domainImages"] + itemImg.originalFilepath.Split('_')[0] +"/"+ itemImg.originalFilepath)" alt="@item.tblProject.vangia_name_project">
+                                }
+                                else
+                                {
+                                    <img id="featured-1104125" class="img-product" src="http://cdn.luuthong.vn/thumbnails/5-1f24608e2ea4/thumb.350x350.jpg" alt="@item.tblProject.vangia_name_project">
+                                }
+                            }
+
+                        </span>
+                    </a>
+
+                    <div class="p-price">
+                        <strong class="pull-left">
+                            @item.tblProject.vangia_img1_project
+                        </strong>
+                    </div>
+                    <h4 class="p-name">
+                        <a class="product-title text-line" href="@Url.Action("Detail","Default",new {id=item.tblProject.vangia_name_project.UrlFrendly()+"-"+item.tblProject.vangia_id_project})" title="@item.tblProject.vangia_name_project">@item.tblProject.vangia_name_project</a>
+                    </h4>
+
+                    <div class="extend  shop-vip">
+                        <div class="shop">
+                            <div class="shop-info">
+                                <a class="shop-title v-tooltip-info text-in-line" href="@Url.Action("Detail","Default",new {id=item.tblProject.vangia_name_project.UrlFrendly()+"-"+item.tblProject.vangia_id_project})" title="@item.tblProject.vangia_name_project" >
+                                    @item.tblProject.vangia_tomtat_project
+                                </a>
+
+
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+                                }
+
+    </div>
+    @*@if (Model.Count > 2)
+    {*@
+        <div class="text-center col-xs-12">
+            <ul class="pagination pagination-sm">
+                @Html.PagedListPager(Model, page => Url.Action("pIndex", "Default", new { page,sort= ViewData["page"],type = ViewData["type"], keyword= ViewData["keyword"] }), PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new AjaxOptions() { UpdateTargetId = "loader" }))
+            </ul>
+        </div>
+    @*}*@
+   
+</div>

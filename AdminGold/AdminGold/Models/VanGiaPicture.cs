@@ -11,6 +11,8 @@ namespace AdminGold.Models
         public List<tblSysPicture> tblListPicture { get; set; }
         public tblSysPicture tblPicture { get; set; }
         public web_vangia_project tblProject { get; set; }
+        public web_vangia_category tblCategory { get; set; }
+        public List<web_vangia_category> ListCategory { get; set; }
         public List<web_vangia_project> tblListProject { get; set; }
 
 

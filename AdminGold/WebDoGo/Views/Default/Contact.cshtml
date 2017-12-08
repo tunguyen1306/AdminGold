@@ -1,0 +1,91 @@
+﻿@using System.Configuration
+@using WebDoGo.Models
+
+@{
+    ViewBag.Title = "Contact";
+    Layout = "~/Views/Shared/_LayoutWeb.cshtml";
+    WebDoGoEntities db = new WebDoGoEntities();
+    var datareatle =
+               db.web_vangia_project.Where(
+                   x =>
+                       x.company == 4 && x.vangia_status_project == 1).ToList();
+    var dataProductFeature = datareatle.OrderBy(x => Guid.NewGuid());
+}
+<div class="content">
+    <div id="breadcrumbs" class="hidden-xs">
+        <div class="container">
+            <ol class="breadcrumbs clearfix">
+                <li><a class="b-it" href="@Url.Action("Index","Default",new {page=1,sort=0,type=""})">Trang chủ</a></li>
+                <li><a class="b-it" href="@Url.Action("Contact","Default")">Liên hệ</a></li>
+
+            </ol>
+        </div>
+    </div>
+    <div class="container">
+        <div id="d-product" class="fixScreen">
+            <div class="grid-primary">
+                <div class="col-sm-12 col-xs-12 grid-column grid-detail-product ">
+                    <div class="column-left">
+                        <div id="detail" class="box-padding-right">
+                            <div class="detail-inner">
+
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="column-right">
+
+                        <div id="product-sale">
+                            <div class="box box-widget-product">
+                                <div class="box-header">
+                                    <span class="box-title">Sản phẩm gợi ý </span>
+                                </div>
+                                <div class="box-body">
+                                    <div class="grid-primary home-product-list">
+                                        @foreach (var itemHot in dataProductFeature)
+                                        {
+                                            <div class="col-sm-12 col-xs-12 grid-column product">
+                                                <div class="gird-content">
+                                                    <a href="@Url.Action("Detail","Default",new {id=itemHot.vangia_name_project.UrlFrendly()+"-"+itemHot.vangia_id_project})"
+                                                       title="@itemHot.vangia_name_project">
+                                                        <div class="show-image autoResizeHeight">
+                                                            <span class="img-vertical">
+                                                                @{
+                                                                    var itemImg = db.tblSysPictures.FirstOrDefault(x => x.advert_id == itemHot.vangia_id_project);
+                                                                    if (itemImg != null)
+                                                                    {
+                                                                        <img src="@(ConfigurationManager.AppSettings["domainImages"] + itemImg.originalFilepath.Split('_')[0] +"/"+ itemImg.originalFilepath)"
+                                                                             alt="@itemHot.vangia_name_project" />
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        <img src="http://cdn.luuthong.vn/thumbnails/5-1f24608e2ea4/thumb.350x350.jpg" alt="@itemHot.vangia_name_project">
+                                                                    }
+                                                                }
+                                                            </span>
+                                                        </div>
+
+                                                        <p class="product-name textLine">@itemHot.vangia_name_project</p>
+
+                                                    </a>
+                                                    <p class="product-price">@itemHot.vangia_img1_project </p>
+                                                </div>
+                                            </div>
+                                                                    }
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+

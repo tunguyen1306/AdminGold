@@ -558,11 +558,11 @@ namespace AdminGold.Controllers
             if (ModelState.IsValid)
             {
                 ViewBag.des_blog_tra = tbl_blog_tra.des_blog_tra;
-                tbl_blog_tra.id_company = 1;
+                tbl_blog_tra.id_company = 3;
                 tbl_blog_tra.create_date_blog_tra = DateTime.Now;
                 db.tbl_blog_tra.Add(tbl_blog_tra);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("IndexBlog");
             }
 
             return View(tbl_blog_tra);
@@ -593,9 +593,9 @@ namespace AdminGold.Controllers
             if (ModelState.IsValid)
             {
                 db.Entry(tbl_blog_tra).State = EntityState.Modified;
-                tbl_blog_tra.id_company = 1;
+                tbl_blog_tra.id_company = 3;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("IndexBlog");
             }
             return View(tbl_blog_tra);
         }

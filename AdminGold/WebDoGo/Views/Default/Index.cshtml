@@ -1,0 +1,24 @@
+﻿@using WebDoGo.Models
+@model PagedList.IPagedList<ProductsModel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutWeb.cshtml";
+    WebDoGoEntities db =new WebDoGoEntities();
+}
+<div class="content">
+    @Html.Partial("_pSlider")
+    <div id="heading">
+        <div class="container">
+            <h1 class="heading">Đồ gỗ thủ công mỹ nghệ</h1><div class="number">(<span class="count">@Model.Count</span> sản phẩm)</div>
+        </div>
+    </div>
+    @Html.Partial("_pFillter")
+
+    <div class="clearfix"></div>
+    <div class="container">
+       @Html.Partial("pIndex",Model)
+    </div>
+
+</div>
+
+

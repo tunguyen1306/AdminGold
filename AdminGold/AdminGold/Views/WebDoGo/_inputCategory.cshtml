@@ -1,0 +1,46 @@
+﻿
+@model AdminGold.Models.web_vangia_category
+<div class="row">
+    <div class="col-lg-6">
+        <div class="form-group">
+            <label>Tên danh mục</label>
+            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+         
+        </div>
+        <div class="form-group">
+            <label>Thứ tự</label>
+            @Html.EditorFor(model => model.Order_tt, new { htmlAttributes = new { @class = "form-control" } })
+
+        </div>
+        <div class="form-group">
+            <label>Trạng thái</label>
+            @Html.DropDownListFor(m => m.Status, new List<SelectListItem>{
+       new SelectListItem{ Text = "Không hoạt động",Value = "0",Selected = true},
+       new SelectListItem{Selected = false,Text = "Hoạt động",Value = "1"},
+
+   }, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="col-lg-6">
+
+        <div class="form-group">
+            <label>Link</label>
+            @Html.EditorFor(model => model.Link, new {htmlAttributes = new {@class = "form-control"}})
+
+        </div>
+        <div class="form-group">
+            <label>Mô tả</label>
+            @Html.TextAreaFor(x => x.Description, htmlAttributes: new {@class = "form-control" })
+
+
+
+
+        </div>
+    </div>
+
+
+</div>
+@Html.HiddenFor(x=>x.Id)
+@Html.HiddenFor(x=>x.IconClass)
+<input type="hidden" value="4" name="IdCompany"/>

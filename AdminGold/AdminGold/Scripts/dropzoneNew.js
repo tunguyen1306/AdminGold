@@ -302,7 +302,7 @@
             method: "post",
             withCredentials: false,
             parallelUploads: 1,
-            uploadMultiple: false,
+            uploadMultiple: true,
             maxFilesize: 10,
 
             paramName: "file",

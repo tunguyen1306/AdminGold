@@ -42,9 +42,18 @@ namespace AdminGold.Domain
 
 
             menu.Add(new Navbar { Id = 9, nameOption = "Bàu trắng", imageClass = "fa fa-dashboard fa-fw", status = true, isParent = true, parentId = 0 });
-            menu.Add(new Navbar { Id = 10, nameOption = "Danh sản phẩm", controller = "Travel", action = "Index", imageClass = "fa fa-dashboard fa-fw", status = true, isParent = false, parentId = 9 });
+            menu.Add(new Navbar { Id = 10, nameOption = "Danh sách sản phẩm", controller = "Travel", action = "Index", imageClass = "fa fa-dashboard fa-fw", status = true, isParent = false, parentId = 9 });
             menu.Add(new Navbar { Id = 11, nameOption = "Danh sách blog", controller = "Travel", action = "IndexBlog", imageClass = "fa fa-dashboard fa-fw", status = true, isParent = false, parentId = 9 });
             menu.Add(new Navbar { Id = 13, nameOption = "Danh sách slider", controller = "Travel", action = "IndexSlider", imageClass = "fa fa-dashboard fa-fw", status = true, isParent = false, parentId = 9 });
+
+            menu.Add(new Navbar { Id = 14, nameOption = "Đồ gỗ Nguyễn Diệp", imageClass = "fa fa-dashboard fa-fw", status = true, isParent = true, parentId = 0 });
+            menu.Add(new Navbar { Id = 15, nameOption = "Danh sách sản phẩm", controller = "WebDoGo", action = "Index", imageClass = "fa fa-dashboard fa-fw", status = true, isParent = false, parentId =14 });
+            menu.Add(new Navbar { Id = 16, nameOption = "Danh sách blog", controller = "WebDoGo", action = "IndexBlog", imageClass = "fa fa-dashboard fa-fw", status = true, isParent = false, parentId = 14 });
+            menu.Add(new Navbar { Id = 17, nameOption = "Danh sách slider", controller = "WebDoGo", action = "IndexSlider", imageClass = "fa fa-dashboard fa-fw", status = true, isParent = false, parentId = 14 });
+            menu.Add(new Navbar { Id = 17, nameOption = "Danh sách danh mục", controller = "WebDoGo", action = "IndexCategory", imageClass = "fa fa-dashboard fa-fw", status = true, isParent = false, parentId = 14 });
+
+
+
             return menu.ToList();
         }
     }

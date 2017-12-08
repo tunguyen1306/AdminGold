@@ -1,0 +1,395 @@
+﻿
+<!DOCTYPE html>
+<html xmlns:fb="http://ogp.me/ns/fb#" version="HTML+RDFa 1.1" lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="csrf-param" content="_csrf">
+    <meta name="csrf-token" content="MkVsYk5WMlEDDjknfw5BK14/KDI/ZFFlYwIeMQ04BSJ8HF40AWAGHg==">
+    <title>Đồ gỗ - mua, bán buôn bán Đồ gỗ - Đồ gỗ</title>
+
+
+    <meta name="title" content="Đồ gỗ - mua, bán buôn Đồ gỗ - Đồ gỗ" />
+    <meta name="description" content="Mua buôn, bán buôn Nội thất. Mua sỉ, bán sỉ Nội thất với giá tốt nhất, nguồn hàng từ các xưởng tại Việt Nam, chất lượng đảm bảo. Vận chuyển toàn quốc." />
+    <meta name="keyword" content="bán buôn, lưu thông, bán sỉ, mua bán, mua bán buôn, nhập hàng, lấy hàng, bỏ sỉ" />
+
+
+    <link href="~/Template/css/bootstrap.css?v=1477007475" rel="stylesheet">
+    <link href="~/Template/css/font-awesome.css?v=1477007475" rel="stylesheet">
+    <link href="~/Template/css/styles.css?v=1509330454" rel="stylesheet">
+    <link href="~/Template/css/slick.css" rel="stylesheet">
+    <script type="text/javascript">
+        var LT_ROOT_URL = '//luuthong.vn';
+        var MODULE_ROOT_URL = '//luuthong.vn';
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-57998077-1"></script>
+    <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-57998077-1');
+    </script>
+
+</head>
+<body class="skill-2017 page">
+    <div id="wrapper">
+       
+    @*Header*@
+        <header id="header">
+            <div class="container">
+                <div class="row row-header">
+                    <div class="col-xs-8 col-sm-3 col-logo">
+                        <div id="logo" class="logo f-logo">
+                            <div class="logo-top">
+                                <a href="@Url.Action("Index","Default",new {page=1,sort=0,type=""})" title="dogonguyendiep.vn"><img src="~/Template/images/nguyen-diep2.png" alt="dogonguyendiep.vn"></a>
+                            </div>
+
+                        </div>
+                        <div class="menu-icon visible-xs open-m-menu"><span>Menu</span></div>
+                    </div>
+                    <div class="col-xs-4 col-sm-3" id="cart-position">
+
+
+                        <div class="clearfix"></div>
+                        <div id="hotline" class="hotline hidden-xs">
+                            <strong class="line">
+                                <label>Hồ chí minh:</label>
+                                <span>0903.905.684</span>
+                            </strong>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 ele-search">
+                        <div id="search" class="search">
+                            <div class="search-main">
+                                <form id="m-search" method="get" class="form"
+                                      action="//dogonguyendiep.com/search">
+                                    <!-- /btn-group -->
+                                    <div class="input-group">
+                                        <div class="input-group-btn hidden-xs">
+                                            <button type="button" class="s-select-option btn btn-default dropdown-toggle"
+                                                    data-toggle="dropdown">
+                                                <span id="lblSearch">Sản phẩm </span> <span class="caret"></span>
+                                            </button>
+                                            <ul class="dropdown-menu s-options">
+                                                <li class="active">
+                                                    <a href=""
+                                                       data-type="product">
+                                                        Sản phẩm
+                                                    </a>
+                                                </li>
+
+                                            </ul>
+                                        </div>
+                                        @using (Html.BeginForm("Index", "Default"))
+                                        {
+                                            <input id="txtSearchKeyWord" class="form-control " name="keyword" type="text" class="txt-key-search"
+                                                   value=""
+                                                   placeholder="Nhập tên hoặc mã sản phẩm...">
+                                            <span class="input-group-addon">
+                                            <button class="btn-search" type="submit"><i class="fa fa-search"></i></button>
+                                        </span>
+                                        }
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                        <div id="hot-words" class="hot-words hidden-xs">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </header>
+    @*Header*@
+
+
+    @*Menu*@
+        @Html.Partial("_pMenu")
+        @*Menu*@
+        @RenderBody()
+      
+
+
+    <footer class="footer">
+            <div class="footer-top">
+                <div class="container">
+                    <h2 class="text-center footer-title">ĐỒ GỖ THỦ CÔNG MỸ NGHỆ CỦA NGƯỜI VIỆT</h2>
+
+                    <div class="footer-social text-center hidden-xs">
+                        <a class="social  social-button" href="https://www.facebook.com/dogomynghenguyendiep/" title="Liên kết tới trang facebook của dogonguyendiep.com" target="_blank"><span class="fa fa-facebook-square"></span>&nbsp;&nbsp;Facebook</a>
+                        <a class="social social-button" href="" title="Liên kết tới trang gplus của dogonguyendiep.com" target="_blank"><span class="fa fa-google-plus-square"></span>&nbsp;&nbsp;Google +</a>
+                        <a class="social social-button" href="" title="Liên kết tới kênh youtube của dogonguyendiep.com" target="_blank"><span class="fa fa-youtube-square"></span>&nbsp;&nbsp;Youtube</a> 
+                      
+
+                    </div>
+                </div>
+            </div>
+            <div class="footer-main hidden-xs">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-4 col-xs-12 footer-left">
+                            <h4 class="title-company-auth">
+                                Chủ sở hữu:Công ty TNHH NGUYỄN DIỆP
+                            </h4>
+                            <address>
+                                <p><strong>Thành Phố Hồ Chí Minh</strong></p>
+                                <p>Địa chỉ: 72/10B đường Nhất Chi Mai Phường 13 Quận Tân Bình.</p>
+                                <p>Số điện thoại: 0903.905.684</p>
+                              
+                            </address>
+                        </div>
+                        <div class="footer-menu col-sm-8 col-xs-12">
+                            <div>
+
+                                <div class="menu-footer-list col-md-4 col-sm-6 col-xs-12">
+                                    <div class="menu-parent">
+                                        <a href="@Url.Action("About","Default")" title="Về chúng tôi">
+                                            Về chúng tôi
+                                        </a>
+                                    </div>
+                                    <ul>
+                                        <li>
+                                            <a href="@Url.Action("About","Default")" title="Giới thiệu dogonguyendiep.com">Giới thiệu dogonguyendiep.com</a>
+                                        </li>
+                                        <li>
+                                            <a href="" title="Thoả thuận người dùng">Thoả thuận người dùng</a>
+                                        </li>
+                                        <li>
+                                            <a href="" title="Những câu hỏi thường gặp">Những câu hỏi thường gặp</a>
+                                        </li>
+                                        <li>
+                                            <a href="" title="Tuyển dụng">Tuyển dụng</a>
+                                        </li>
+                                        <li>
+                                            <a href=""  title="Sitemap">Sitemap</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="menu-footer-list col-md-4 col-sm-6 col-xs-12">
+                                    <div class="menu-parent">
+                                        <a href="@Url.Action("About","Default")" title="ĐIỀU KHOẢN SỬ DỤNG">
+                                            ĐIỀU KHOẢN SỬ DỤNG
+                                        </a>
+                                    </div>
+                                    <ul>
+                                        <li>
+                                            <a href="@Url.Action("About","Default")" title="Quy chế hoạt động">Quy chế hoạt động</a>
+                                        </li>
+                                        <li>
+                                            <a href="@Url.Action("About","Default")" title="Chính sách bảo mật">Chính sách bảo mật</a>
+                                        </li>
+                                        <li>
+                                            <a href="@Url.Action("About","Default")" title="Giải quyết khiếu nại">Giải quyết khiếu nại</a>
+                                        </li>
+                                        <li>
+                                            <a href="@Url.Action("About","Default")" title="Bán hàng cùng Lưu Thông">Bán hàng cùng Lưu Thông</a>
+                                        </li>
+                                        <li>
+                                            <a href="@Url.Action("About","Default")" title="Quy định mua hàng">Quy định mua hàng</a>
+                                        </li>
+                                        <li>
+                                            <a href="@Url.Action("About","Default")" title="Quy định đối với người mua hàng">Quy định đối với người mua hàng</a>
+                                        </li>
+                                        <li>
+                                            <a href="@Url.Action("About","Default")" title="Quy định đối với người bán hàng">Quy định đối với người bán hàng</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="menu-footer-list col-md-4 col-sm-6 col-xs-12">
+                                    <div class="menu-parent">
+                                        <a href="@Url.Action("About","Default")" title="HƯỚNG DẪN SỬ DỤNG">
+                                            HƯỚNG DẪN SỬ DỤNG
+                                        </a>
+                                    </div>
+                                    <ul>
+                                        <li>
+                                            <a href="@Url.Action("About","Default")" title="Hướng dẫn đăng ký tài khoản">Hướng dẫn đăng ký tài khoản</a>
+                                        </li>
+                                        <li>
+                                            <a href="@Url.Action("About","Default")" title="Hướng dẫn đăng nhập">Hướng dẫn đăng nhập</a>
+                                        </li>
+                                        <li>
+                                            <a href="@Url.Action("About","Default")" title="Hướng dẫn mở Shop">Hướng dẫn mở Shop</a>
+                                        </li>
+                                        <li>
+                                            <a href="@Url.Action("About","Default")" title="Hướng dẫn đăng sản phẩm">Hướng dẫn đăng sản phẩm</a>
+                                        </li>
+                                        <li>
+                                            <a href="@Url.Action("About","Default")" title="Hướng dẫn đặt hàng">Hướng dẫn đặt hàng</a>
+                                        </li>
+                                        <li>
+                                            <a href="@Url.Action("About","Default")" title="Hướng dẫn nạp tiền Vào tài khoản">Hướng dẫn nạp tiền Vào tài khoản</a>
+                                        </li>
+                                        <li>
+                                            <a href="@Url.Action("About","Default")" title="Hướng dẫn gửi Liên hệ, Góp ý">Hướng dẫn gửi Liên hệ, Góp ý</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="menu-footer-list col-md-4 col-sm-6 col-xs-12">
+                                    <div class="menu-parent">
+                                        <a href="@Url.Action("Blog","Default")" target="_blank" title="TIN TỨC">
+                                            TIN TỨC
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-md-12 footer-end hidden-xs">
+                <div class="container">
+                    <div class="register-new-feed text-center">
+                        <span class="bg-ico-email"> Đăng ký nhận tin dogonguyendiep.com </span>
+                        <form id="registerEmail" class="form-inline form-register-email" action="/site/subcribe-letter" method="post">
+                            <input type="hidden" name="_csrf" value="MkVsYk5WMlEDDjknfw5BK14/KDI/ZFFlYwIeMQ04BSJ8HF40AWAGHg=="><div class="form-group field-subcribeletter-email required">
+
+                                <input type="text" id="subcribeletter-email" class="form-control" name="SubcribeLetter[email]" placeholder="Nhập email của bạn ...">
+
+                                <div class="help-block"></div>
+                            </div><button type="submit" class="btn btn-sm btn-primary btn-subcribe-letter"><i class="glyphicon glyphicon-envelope"></i>&nbsp;Đăng ký</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <style>
+                #box-advertisement-content {
+                    position: fixed;
+                    bottom: 0px;
+                    left: 0px;
+                    z-index: 9999;
+                }
+
+                .box-advertisement {
+                    width: 300px;
+                    position: relative;
+                    left: 0px;
+                    bottom: 0px;
+                    background-color: rgba(0, 0, 0, 0.15);
+                    z-index: 100;
+                    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, .5);
+                    padding: 10px;
+                    display: none;
+                }
+
+                .box-advertisement-after {
+                    position: relative;
+                    width: 200px;
+                    height: 30px;
+                    background-color: #009688;
+                    left: 6px;
+                    cursor: pointer;
+                }
+
+                    .box-advertisement-after .pull-left {
+                        color: #fff;
+                        padding: 7px 10px;
+                    }
+
+                    .box-advertisement-after .pull-right {
+                        color: #fff;
+                        padding: 7px 10px;
+                    }
+
+                        .box-advertisement-after .pull-right a {
+                            color: #fff;
+                        }
+
+                .box-advertisement .close-box-advertisement {
+                    position: absolute;
+                    top: -6px;
+                    right: -6px;
+                    background-color: #f5f5f5;
+                    border: none;
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 50%;
+                }
+
+                    .box-advertisement .close-box-advertisement span {
+                        font-weight: bold;
+                        font-size: 19px;
+                        position: absolute;
+                        top: -3px;
+                        right: 4px;
+                    }
+
+                .box-advertisement .content-box-advertisement img {
+                    max-width: 280px;
+                }
+
+                .box-advertisement .children-box-advertisement {
+                    width: 40px;
+                    height: 40px;
+                    background-color: rgba(0, 0, 0, 0.15);
+                    position: absolute;
+                    top: -17px;
+                    border-radius: 50%;
+                    right: -17px;
+                    z-index: 99;
+                    -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.28);
+                    -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.28);
+                    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.28);
+                }
+            </style>
+        </footer>
+
+    
+        <div class="navbar-fixed-bottom" id="content-scroll-to-top">
+            <a href="#top" id="scroll-to-top" class="scroll-to-top">
+                <i class="glyphicon glyphicon-arrow-up" aria-hidden="true"></i>
+            </a>
+        </div>
+        <div id="c-mask" class="overlay"></div>
+
+    </div>
+
+    <script src="~/Template/js/jquery.js?v=1477007475"></script>
+    <script src="~/Template/js/yii.js?v=1477007475"></script>
+    <script src="~/Template/js/bootstrap.js?v=1477007475"></script>
+    <script src="~/Template/js/jquery.menu-aim.js?v=1482738993"></script>
+    <script src="~/Template/js/jquery.lazyload.min.js?v=1442221945"></script>
+    <script src="~/Template/js/app.js?v=1501734215"></script>
+    <script src="~/Template/js/frontend-site.js?v=2.0.8"></script>
+<script src="~/Template/js/slick.min.js"></script>
+    <script src="~/Template/js/jquery.elevateZoom.min.js"></script>
+    <!--<script src="~/Template/js/customer.js"></script>-->
+    <script src="~/Template/js/yii.validation.js?v=1477007475"></script>
+<script src="~/Template/js/yii.activeForm.js?v=1477007475"></script>
+
+
+<script>
+    $(document).ready(function () {
+        var sort='@Session["sort"]';
+        if (sort == "1") {
+            $('.s-d').removeClass("selected");
+            $('.s-d_1').addClass("selected");
+        }
+        else if (sort == "2") {
+            $('.s-d').removeClass("selected");
+            $('.s-d_2').addClass("selected");
+        }
+        else if (sort == "3") {
+            $('.s-d').removeClass("selected");
+            $('.s-d_3').addClass("selected");
+        } else {
+            $('.s-d').removeClass("selected");
+            $('.s-d_0').addClass("selected");
+        }
+    });
+    $('.s-d').each(function () {
+        $(this).click(function () {
+            localStorage['visited'] = $(this).attr('rel');
+            $('.s-d').removeClass("selected");
+        });
+    });
+</script>
+</body>
+</html>
+

@@ -1,0 +1,107 @@
+﻿@using System.Configuration
+@using WebDoGo.Models
+
+@{
+    ViewBag.Title = "About";
+    Layout = "~/Views/Shared/_LayoutWeb.cshtml";
+    WebDoGoEntities db = new WebDoGoEntities();
+    var datareatle =
+               db.web_vangia_project.Where(
+                   x =>
+                       x.company == 4 && x.vangia_status_project == 1).ToList();
+    var dataProductFeature = datareatle.OrderBy(x => Guid.NewGuid());
+}
+
+<div class="content">
+    <div id="breadcrumbs" class="hidden-xs">
+        <div class="container">
+            <ol class="breadcrumbs clearfix">
+                <li><a class="b-it" href="@Url.Action("Index","Default",new {page=1,sort=0,type=""})">Trang chủ</a></li>
+                <li><a class="b-it" href="@Url.Action("About","Default")">Giới thiệu</a></li>
+
+            </ol>
+        </div>
+    </div>
+    <div class="container">
+        <div id="d-product" class="fixScreen">
+            <div class="grid-primary">
+                <div class="col-sm-12 col-xs-12 grid-column grid-detail-product ">
+                    <div class="column-left">
+                        <div id="detail" class="box-padding-right">
+                            <div class="detail-inner" style="padding: 20px;">
+                                <h1 class="page-title">Giới thiệu Dogonguyendiep.com</h1>
+                                <div class="page-datetime">
+                                   
+                                </div>
+                                <div class="page-detail">
+                                    <p><img src="~/Template/images/nguyen-diep2.png" style="width:100%"></p>
+
+                                    <p><strong>Dogonguyendiep.com</strong>&nbsp;là website chuyên mua bán đồ gỗ thủ công mỹ nghệ do Công ty TNHH Nguyễn Diệp xây dựng và phát triển. Được xây dựng theo mô hình B2B2C (Business to Business to Consumer) theo hình thức sàn giao dịch điện tử với qui trình bán hàng đơn giản và hiệu quả dành cho nhà cung cấp và người mua hàng.</p>
+
+                                    <p>Thông qua việc mở gian hàng trên <strong>Dogonguyendiep.com</strong> doanh nghiệp thương mại, những nhà sản xuất có thể cung cấp các sản phẩm của mình đến với các cửa hàng bán lẻ hoặc những khách hàng tiêu dùng một cách nhanh và thuận tiện nhất. Mục tiêu của <strong>Dogonguyendiep.com</strong> là tạo ra một kênh giao dịch bán buôn giữa nhà sản xuất với các cửa hàng một cách nhanh, uy tín và thuận tiện nhất.</p>
+
+                                    <p><strong>Dogonguyendiep.com</strong> sử dụng hệ thống thanh toán<strong> </strong>trực tuyến<strong> </strong>tạm giữ để giúp khách hàng đảm bảo giao dịch và vận chuyển hàng hóa. Khách hàng có thể yên tâm giao dịch, trực tiếp thanh toán tại <strong>Dogonguyendiep.com</strong> và nhận hàng hóa tận nơi nhanh, an toàn và đảm bảo nhất. Tiền hàng chỉ được chuyển cho Người bán khi Người mua xác nhận đã nhận được hàng hoặc sau 10 ngày kể từ khi Người mua thanh toán.</p>
+
+                                    <p>Bán hàng trên <strong>Dogonguyendiep.com</strong> Người bán không phải trả bất kì chi phí nào&nbsp;khi có đơn hàng thành công.</p>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="column-right">
+
+                        <div id="product-sale">
+                            <div class="box box-widget-product">
+                                <div class="box-header">
+                                    <span class="box-title">Sản phẩm gợi ý </span>
+                                </div>
+                                <div class="box-body">
+                                    <div class="grid-primary home-product-list">
+                                        @foreach (var itemHot in dataProductFeature)
+                                        {
+                                            <div class="col-sm-12 col-xs-12 grid-column product">
+                                                <div class="gird-content">
+                                                    <a href="@Url.Action("Detail","Default",new {id=itemHot.vangia_name_project.UrlFrendly()+"-"+itemHot.vangia_id_project})"
+                                                       title="@itemHot.vangia_name_project">
+                                                        <div class="show-image autoResizeHeight">
+                                                            <span class="img-vertical">
+                                                                @{
+                                                                    var itemImg = db.tblSysPictures.FirstOrDefault(x => x.advert_id == itemHot.vangia_id_project);
+                                                                    if (itemImg != null)
+                                                                    {
+                                                                        <img src="@(ConfigurationManager.AppSettings["domainImages"] + itemImg.originalFilepath.Split('_')[0] +"/"+ itemImg.originalFilepath)"
+                                                                             alt="@itemHot.vangia_name_project" />
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        <img src="http://cdn.Dogonguyendiep.com/thumbnails/5-1f24608e2ea4/thumb.350x350.jpg" alt="@itemHot.vangia_name_project">
+                                                                    }
+                                                                }
+                                                            </span>
+                                                        </div>
+
+                                                        <p class="product-name textLine">@itemHot.vangia_name_project</p>
+
+                                                    </a>
+                                                    <p class="product-price">@itemHot.vangia_img1_project </p>
+                                                </div>
+                                            </div>
+                                                                    }
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+

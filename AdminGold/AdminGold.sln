@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdminGold", "AdminGold\AdminGold.csproj", "{CEE973D5-3804-40BF-89DC-F3E48DA3FFFC}"
 EndProject
@@ -11,9 +11,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdminDaviBus", "AdminDaviBu
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{25D68521-61F5-4AC5-8334-D0C029677FCA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdminDoGo", "AdminDoGo\AdminDoGo.csproj", "{0E4858DF-7D3E-43E5-84FB-254DF5E989B1}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiBusTicket", "..\ApiBusTicket\ApiBusTicket\ApiBusTicket.csproj", "{8F50780D-59D7-4CD1-BB60-312825144436}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebDoGo", "WebDoGo\WebDoGo.csproj", "{0DEB2391-29A2-4B9F-8CEE-53FB7DA9290D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,14 +33,14 @@ Global
 		{ABF70A25-0C90-4F41-88C9-35A04F75635B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ABF70A25-0C90-4F41-88C9-35A04F75635B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ABF70A25-0C90-4F41-88C9-35A04F75635B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0E4858DF-7D3E-43E5-84FB-254DF5E989B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0E4858DF-7D3E-43E5-84FB-254DF5E989B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0E4858DF-7D3E-43E5-84FB-254DF5E989B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0E4858DF-7D3E-43E5-84FB-254DF5E989B1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8F50780D-59D7-4CD1-BB60-312825144436}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8F50780D-59D7-4CD1-BB60-312825144436}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8F50780D-59D7-4CD1-BB60-312825144436}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8F50780D-59D7-4CD1-BB60-312825144436}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DEB2391-29A2-4B9F-8CEE-53FB7DA9290D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DEB2391-29A2-4B9F-8CEE-53FB7DA9290D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DEB2391-29A2-4B9F-8CEE-53FB7DA9290D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DEB2391-29A2-4B9F-8CEE-53FB7DA9290D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

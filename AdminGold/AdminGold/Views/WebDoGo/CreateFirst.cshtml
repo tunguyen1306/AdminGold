@@ -1,0 +1,404 @@
+﻿@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using System.Configuration
+@model AdminGold.Models.web_vangia_project
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Đăng sản phẩm</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+
+@*<script src="~/ckeditor/ckeditor.js"></script>
+    <script src="~/ckeditor/adapters/jquery.js"></script>*@
+@using (Html.BeginForm("CreateFirst", "WebDoGo", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <input type="hidden" value="@ConfigurationManager.AppSettings["company"]" name="tblProject.company" />
+                            <div class="form-group">
+                                <label>Tên sản phẩm</label>
+                                <input class="form-control" name="tblProject.vangia_name_project">
+                            </div>
+                            <div class="form-group">
+                                <label>Tóm tắt</label>
+                                <input class="form-control" name="tblProject.vangia_tomtat_project">
+                            </div>
+                           
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label>Danh mục sản phẩm</label>
+                                <select class="form-control dropCategory" name="tblProject.web_vangia_category"></select>
+                                <input type="hidden" value="" id="hdCategory" name="tblProject.vangia_typeid_project" />
+                            </div>
+                            <div class="form-group">
+                                <label>Giá sản phẩm</label>
+                                <input class="form-control" name="tblProject.vangia_img1_project">
+                            </div>
+                            <div class="form-group">
+                                <label>Trạng thái</label>
+                                <select class="form-control">
+                                    <option value="0">Không hoạt động</option>
+                                    <option value="1">Hoạt động</option>
+
+                                </select>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label>Nội dung</label>
+
+
+                                @Html.TextAreaFor(x => x.vangia_content_project, htmlAttributes: new { @id = "vangia_content_project", @name = "tblProject.vangia_content_project", @class = "vangia_content_project form-control fck" })
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label>Hình</label>
+                                <div id="demo-upload" class="dropzone needsclick dz-clickable dz-started cusdropzone" method="POST" style="width: auto;" action="/Home/Blank">
+                                    <div class="row">
+                                        <div class="col-lg-4 ">
+                                            <div class="dz-default dz-message cusbuttonmes " style="display: block;">
+                                                <span class="btn btn-action">
+                                                    <label style="margin-left: 5px;" class="btn btn-danger"> Lựa chọn hình ảnh </label>
+                                                </span>
+
+                                            </div>
+
+                                        </div>
+
+
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <button type="submit" class="btn btn-default btnAdd hidden"></button>
+
+                                <div onclick="UploadImg(this)" class="btn btn-primary btnAdd1">Thêm</div>
+                                <a href="@Url.Action("Delete", "WebDoGo", new { id = Model.vangia_id_project })" class="btn btn-primary">Hủy</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-12 -->
+    <input type="hidden" name="cfile" />
+    <input type="hidden" name="tblProject.vangia_id_project" class="idProduct_" value="@Model.vangia_id_project" />
+    <input type="hidden" name="nameImg" />
+    <!-- /.row -->
+
+
+
+}
+<script>
+    setTimeout(function () {
+
+        CKEDITOR.replace('vangia_content_project');
+    }, 200);
+    $(function () {
+        //$('#txtContentPro').ckeditor({
+        //    filebrowserImageUploadUrl: '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images'
+        //});
+        LoadCategory();
+    });
+    function LoadCategory() {
+        $.ajax({
+            type: "POST",
+            url: "@Url.Action("LoadCategory", "WebDoGo")",
+            data: {},
+
+            success: function (data) {
+                console.log(data);
+                var result = "<option value='0'>Chọn danh mục</option>";
+                $.each(data.result, function (i, o) {
+                    result += "<option value='" + o.Id + "'>" + o.Name + "</option>";
+                });
+                $('.dropCategory').html(result);
+            },
+            error: function (e) {
+
+            }
+        });
+    }
+
+    $('.dropType').on('change', function () {
+        if (this.value == 3) {
+            $('.groupLink').removeClass('hidden');
+
+        } else {
+            $('.groupLink').addClass('hidden');
+        }
+    });
+
+    $('.dropCategory').on('change', function () {
+        $('#hdCategory').val($('.dropCategory').val());
+    });
+    function dropNew(ed) {
+
+        var console = window.console || { log: function () { } };
+        var $image = $(ed).parents(".dz-preview").find('#cusimg');
+        var $download = $('#download');
+        var $dataX = $(ed).parents(".dz-preview").find('#dataX');
+        var $dataY = $(ed).parents(".dz-preview").find('#dataY');
+        var $dataHeight = $(ed).parents(".dz-preview").find('#dataHeight');
+        var $dataWidth = $(ed).parents(".dz-preview").find('#dataWidth');
+        var $dataRotate = $(ed).parents(".dz-preview").find('#dataRotate');
+        var $dataScaleX = $(ed).parents(".dz-preview").find('#dataScaleX');
+        var $dataScaleY = $(ed).parents(".dz-preview").find('#dataScaleY');
+        var $putData = $(ed).parents(".dz-preview").find('#dataimg');
+
+
+        var options = {
+            aspectRatio: 1 / 1,
+            preview: '.img-preview',
+            crop: function (e) {
+                $dataX.val(Math.round(e.x));
+                $dataY.val(Math.round(e.y));
+                $dataHeight.val(Math.round(e.height));
+                $dataWidth.val(Math.round(e.width));
+                $dataRotate.val(e.rotate);
+                $dataScaleX.val(e.scaleX);
+                $dataScaleY.val(e.scaleY);
+            }
+        };
+
+
+        // Tooltip
+        $(ed).find('[data-toggle="tooltip"]').tooltip();
+
+
+        // Cropper
+        $image.on({
+            'build.cropper': function (e) {
+                // console.log(e.type);
+            },
+            'built.cropper': function (e) {
+                // console.log(e.type);
+            },
+            'cropstart.cropper': function (e) {
+                // console.log(e.type, e.action);
+            },
+            'cropmove.cropper': function (e) {
+                // console.log(e.type, e.action);
+            },
+            'cropend.cropper': function (e) {
+                //console.log(e.type, e.action);
+            },
+            'crop.cropper': function (e) {
+                //console.log(e.type, e.x, e.y, e.width, e.height, e.rotate, e.scaleX, e.scaleY);
+                //console.log(e.type);
+                //console.log(e.x);
+                //console.log(e.y);
+                //console.log(e.width);
+                //console.log(e.height);
+                //console.log(e.rotate);
+                //console.log(e.scaleX);
+                //console.log(e.scaleY);
+
+
+            },
+            'zoom.cropper': function (e) {
+                // console.log(e.type, e.ratio);
+            }
+        }).cropper(options);
+
+
+        //// Buttons
+        if (!$.isFunction(document.createElement('canvas').getContext)) {
+            $(ed).parents('.dz-preview').eq(0).find('button[data-method="getCroppedCanvas"]').prop('disabled', true);
+        }
+
+        if (typeof document.createElement('cropper').style.transition === 'undefined') {
+            $(ed).parents('.dz-preview').eq(0).find('button[data-method="rotate"]').prop('disabled', true);
+            $(ed).parents('.dz-preview').eq(0).find('button[data-method="scale"]').prop('disabled', true);
+        }
+
+
+        // Methods
+        $(ed).parents('.dz-preview').eq(0).find('.docs-buttons').on('click', '[data-method]', function () {
+            var $this = $(this);
+            var data = $this.data();
+            var $target;
+            var result;
+
+            if ($this.prop('disabled') || $this.hasClass('disabled')) {
+                return;
+            }
+
+            if ($image.data('cropper') && data.method) {
+                data = $.extend({}, data); // Clone a new one
+
+                if (typeof data.target !== 'undefined') {
+                    $target = $(data.target);
+
+                    if (typeof data.option === 'undefined') {
+                        try {
+                            data.option = JSON.parse($target.val());
+                        } catch (e) {
+                            console.log(e.message);
+                        }
+                    }
+                }
+
+                result = $image.cropper(data.method, data.option, data.secondOption);
+
+                switch (data.method) {
+                    case 'scaleX':
+                    case 'scaleY':
+                        $(this).data('option', -data.option);
+                        break;
+
+                    case 'getCroppedCanvas':
+                        console.log(result.toDataURL().length);
+                        var duongdancrop = result.toDataURL();
+                        $(ed).parents(".dz-preview").find('.cussimg').attr("src", duongdancrop);
+                        $(ed).parents(".dz-preview").find('.cropper-canvas img:first').attr("src", duongdancrop);
+                        $(ed).parents(".dz-preview").find('.cropper-view-box img:first').attr("src", duongdancrop);
+
+                        //hiden control drop
+                        $(ed).parent().parent().find('#imgmain').find("img:first").removeClass('cropper-hidden');
+                        $(ed).parent().parent().find('#imgmain').find("img:first").next().addClass('cropper-hidden');
+                        //hiden control drop end
+                        if (result) {
+
+
+                            if (isserver) {
+                                //save to sever
+
+                                $putData.text(result.toDataURL());
+
+                            } else {
+                                $putData.text(result.toDataURL());
+                            }
+
+                            // Bootstrap's Modal
+                            //$('#getCroppedCanvasModal').modal().find('.modal-body').html(result);
+
+                            //if (!$download.hasClass('disabled')) {
+                            //    $download.attr('href', result.toDataURL());
+
+
+                            //}
+                        }
+
+                        break;
+                }
+
+                if ($.isPlainObject(result) && $target) {
+                    try {
+                        $target.val(JSON.stringify(result));
+                    } catch (e) {
+                        console.log(e.message);
+                    }
+                }
+
+            }
+        });
+
+
+    }
+    var isserver = false;
+
+    function uploadtoserver() {
+        $.each($('.cbtn-info-ok'), function (i, o) {
+
+            if ($(o).parents('.dz-preview').find('.tools.final').hasClass('hidden')) {
+                isserver = true;
+
+                $(o).click();
+            }
+        }
+        );
+        return false;
+    }
+
+    function UploadImg(obj) {
+
+        $('.cropper-container img').css({ "transform": "none" });
+        $('.btnAdd1').text('Đang xữ lý');
+        $('.btnAdd1').addClass('disabled');
+        uploadtoserver();
+        var totalitem = $('.dz-preview').size();
+        $.each($('.dz-preview'), function (i, o) {
+            $(o).find("input:radio[name=groupimg][disabled=false]:first").attr('checked', true);
+            var image = $(o).find('#cusimg');
+            var valuerotate = $(o).find('#dataRotate').val();
+            var dataX = $(o).find('#dataX').val();
+            var dataY = $(o).find('#dataY').val();
+            var dataHeight = $(o).find('#dataHeight').val();
+            var dataWidth = $(o).find('#dataWidth').val();
+            var right = $(window).width() - dataX - image.width();
+            var bottom = $(window).height() - dataY - image.height();
+            var dataimg = $(o).find('#dataimg').text();
+            var dataname = $(o).find('.cusinput').val();
+            var idpic = $(o).find('#cusimg').attr('rel');
+
+            document.getElementsByName('cfile')[0].value = dataimg;
+            document.getElementsByName('nameImg')[0].value = dataname;
+            $.ajax({
+                type: "POST",
+                url: "@Url.Action("SaveImg", "WebDoGo")",
+                data: { idProducts: $('.idProduct_').val(), index: i, nameImg: dataname, cfile: (dataimg == null ? "" : dataimg), isactive: $(o).find('input:checked').size(), idpicture: idpic },
+
+                success: function (data) {
+                    $(o).find('#cusimg').attr('rel', data.d);
+
+                    totalitem--;
+
+                    if (totalitem == 0) {
+                        $('.btnAdd1').text('Thêm');
+                        $('.btnAdd1').removeClass('disabled');
+                        $('.btnAdd').click();
+                    }
+
+                },
+                error: function (e) {
+                    $('.btnAdd1').text('Thêm');
+                    $('.btnAdd1').removeClass('disabled');
+                    $('.btnAdd').click();
+                }
+            });
+        });
+
+
+        return true;
+    }
+
+
+</script>
+
+<link href="/Content/UploadNew/main.css" rel="stylesheet" />
+<link href="/Content/UploadNew/dropzone.css" rel="stylesheet" />
+<link href="/Content/UploadNew/cropper.min.css" rel="stylesheet" />
+<link href="/Content/UploadNew/cussupload.css" rel="stylesheet" />
+<script src="~/Scripts/cusjsNew.js"></script>
+<script src="~/Scripts/dropzoneSlider.js"></script>
+<script src="~/Scripts/cropperNew.js"></script>
