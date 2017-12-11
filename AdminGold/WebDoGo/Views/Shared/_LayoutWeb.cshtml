@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta name="csrf-param" content="_csrf">
     <meta name="csrf-token" content="MkVsYk5WMlEDDjknfw5BK14/KDI/ZFFlYwIeMQ04BSJ8HF40AWAGHg==">
-    <title>Đồ gỗ - mua, bán buôn bán Đồ gỗ - Đồ gỗ</title>
-
-
-    <meta name="title" content="Đồ gỗ - mua, bán buôn Đồ gỗ - Đồ gỗ" />
+    @RenderSection("share_fb", false)
+    
+    <title>Đồ gỗ - mua, bán buôn bán Đồ gỗ - Đồ gỗ,nội thất-noi that</title>
+    <meta name="title" content="Đồ gỗ - mua, bán buôn bán Đồ gỗ - Đồ gỗ,nội thất-noi that" />
     <meta name="description" content="Mua buôn, bán buôn Nội thất. Mua sỉ, bán sỉ Nội thất với giá tốt nhất, nguồn hàng từ các xưởng tại Việt Nam, chất lượng đảm bảo. Vận chuyển toàn quốc." />
     <meta name="keyword" content="bán buôn, lưu thông, bán sỉ, mua bán, mua bán buôn, nhập hàng, lấy hàng, bỏ sỉ" />
 
@@ -246,14 +246,20 @@
                 <div class="container">
                     <div class="register-new-feed text-center">
                         <span class="bg-ico-email"> Đăng ký nhận tin dogonguyendiep.com </span>
-                        <form id="registerEmail" class="form-inline form-register-email" action="/site/subcribe-letter" method="post">
-                            <input type="hidden" name="_csrf" value="MkVsYk5WMlEDDjknfw5BK14/KDI/ZFFlYwIeMQ04BSJ8HF40AWAGHg=="><div class="form-group field-subcribeletter-email required">
+                        <div class="form-inline form-register-email">
+                            @using (Html.BeginForm("SendMail", "Default"))
+                            {
+                                <div class="form-group field-subcribeletter-email required">
 
-                                <input type="text" id="subcribeletter-email" class="form-control" name="SubcribeLetter[email]" placeholder="Nhập email của bạn ...">
+                                    <input type="text" id="subcribeletter-email" class="form-control" name="email" placeholder="Nhập email của bạn ...">
 
-                                <div class="help-block"></div>
-                            </div><button type="submit" class="btn btn-sm btn-primary btn-subcribe-letter"><i class="glyphicon glyphicon-envelope"></i>&nbsp;Đăng ký</button>
-                        </form>
+                                    <div class="help-block"></div>
+                                </div>
+                                <button type="submit" class="btn btn-sm btn-primary btn-subcribe-letter"><i class="glyphicon glyphicon-envelope"></i>&nbsp;Đăng ký</button>
+
+                            }
+                        </div>
+                          
                     </div>
                 </div>
             </div>
@@ -382,11 +388,27 @@
             $('.s-d').removeClass("selected");
             $('.s-d_0').addClass("selected");
         }
+        if (localStorage.getItem("myCat")!=null) {
+            var cat = localStorage.getItem("myCat");
+            console.log(cat);
+        }
+       
     });
     $('.s-d').each(function () {
         $(this).click(function () {
             localStorage['visited'] = $(this).attr('rel');
             $('.s-d').removeClass("selected");
+        });
+    });
+   
+    $('.btnItem').each(function () {
+        if (localStorage.getItem("myCat") != null) {
+            var cat = localStorage.getItem("myCat");
+            console.log(cat);
+        }
+        $(this).click(function () {
+            
+            localStorage.setItem('myCat', $(this).attr('rel'));
         });
     });
 </script>

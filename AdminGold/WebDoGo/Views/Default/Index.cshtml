@@ -1,9 +1,26 @@
-﻿@using WebDoGo.Models
+﻿@using System.Configuration
+@using WebDoGo.Models
 @model PagedList.IPagedList<ProductsModel>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutWeb.cshtml";
     WebDoGoEntities db =new WebDoGoEntities();
+}
+@section share_fb{
+
+    <meta property="og:title" content="Đồ gỗ - mua, bán buôn bán Đồ gỗ - Đồ gỗ,nội thất-noi that" />
+
+    <meta property="og:url" content='http://dogonguyendiep.com' />
+    <meta name="description" content="Mua buôn, bán buôn Nội thất. Mua sỉ, bán sỉ Nội thất với giá tốt nhất, nguồn hàng từ các xưởng tại Việt Nam, chất lượng đảm bảo. Vận chuyển toàn quốc.">
+    <meta property="og:description" content="Mua buôn, bán buôn Nội thất. Mua sỉ, bán sỉ Nội thất với giá tốt nhất, nguồn hàng từ các xưởng tại Việt Nam, chất lượng đảm bảo. Vận chuyển toàn quốc." />
+    <meta name="keywords" content="Mua buôn, bán buôn Nội thất. Mua sỉ, bán sỉ Nội thất với giá tốt nhất, nguồn hàng từ các xưởng tại Việt Nam, chất lượng đảm bảo. Vận chuyển toàn quốc." />
+
+    <meta property="og:image:width" content="600" />
+    <meta property="og:image:height" content="315" />
+
+    <meta property="og:image" content="http://dogonguyendiep.com/Template/images/nguyen-diep2.png" />
+
+
 }
 <div class="content">
     @Html.Partial("_pSlider")
@@ -20,5 +37,4 @@
     </div>
 
 </div>
-
 

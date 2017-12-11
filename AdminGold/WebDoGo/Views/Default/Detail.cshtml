@@ -109,7 +109,26 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="product-pay clearfix line-inf">
+                                        <div class="label-title inf-ltr first">Chia sẻ:</div>
+                                        <div class="content inf-ltr">
 
+                                            <div class="fb-share-button" data-href="http://dogonguyendiep.com/mua-ban-do-go/chi-tiet-do-go/@Model.tblProject.vangia_name_project.UrlFrendly()-@Model.tblProject.vangia_id_project" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="http://www.facebook.com/share.php?u=http://dogonguyendiep.com/mua-ban-do-go/chi-tiet-do-go/@Model.tblProject.vangia_name_project.UrlFrendly()-@Model.tblProject.vangia_id_project">Chia sẻ</a></div>
+                                            <div style="display: inline-block; position: relative; top: 6px;">
+                                                <!-- Place this tag in your head or just before your close body tag. -->
+
+                                            </div>
+                                            <div id="fb-root"></div>
+                                            <script>
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.11&appId=1849195448659779';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+                                        </div>
+                                    </div>
                                 
 
                                 </div>
@@ -342,4 +361,30 @@
     </div>
 </div>
 
+@section share_fb{
 
+    <meta property="og:title" content="@Model.tblProject.vangia_name_project" />
+
+    <meta property="og:url" content='http://dogonguyendiep.com/mua-ban-do-go/chi-tiet-do-go/@Model.tblProject.vangia_name_project.UrlFrendly()-@Model.tblProject.vangia_id_project' />
+    <meta name="description" content="@Model.tblProject.vangia_content_project">
+    <meta property="og:description" content="@Model.tblProject.vangia_content_project" />
+    <meta name="keywords" content="CÔNG TY CỔ PHẦN XÂY DỰNG VÀ THƯƠNG MẠI DỊCH VỤ VẠN GIA" />
+
+    <meta property="og:image:width" content="600" />
+    <meta property="og:image:height" content="315" />
+    @{
+
+        var itemMain1 = db.tblSysPictures.FirstOrDefault(x => x.advert_id == Model.tblProject.vangia_id_project);
+        if (itemMain1 != null)
+        {
+
+            <meta property="og:image" content="@(ConfigurationManager.AppSettings["domainImages"] + itemMain1.originalFilepath.Split('_')[0] + "/" + itemMain1.originalFilepath)" />
+
+
+        }
+       
+    }
+   
+
+
+}

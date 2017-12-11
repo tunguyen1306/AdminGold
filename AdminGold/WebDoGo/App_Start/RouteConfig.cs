@@ -13,11 +13,11 @@ namespace WebDoGo
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-          //  routes.MapRoute(
-          //name: "mua-ban-do-go-1",
-          //url: "mua-ban-do-go/do-go",
-          //defaults: new { controller = "Default", action = "Index", id = UrlParameter.Optional }
-          //);
+            routes.MapRoute(
+          name: "detail",
+          url: "mua-ban-do-go/chi-tiet-do-go/{id}",
+          defaults: new { controller = "Default", action = "Detail", id = UrlParameter.Optional }
+          );
             routes.MapRoute(
           name: "mua-ban-do-go-2",
           url: "mua-ban-do-go/do-go/{page}/{sort}",
