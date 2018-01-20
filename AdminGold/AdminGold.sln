@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiBusTicket", "..\ApiBusTi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebDoGo", "WebDoGo\WebDoGo.csproj", "{0DEB2391-29A2-4B9F-8CEE-53FB7DA9290D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebCoin", "WebCoin\WebCoin.csproj", "{ABE250D0-D8F8-4BDA-87A3-5ABB9482C0A3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,10 @@ Global
 		{0DEB2391-29A2-4B9F-8CEE-53FB7DA9290D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0DEB2391-29A2-4B9F-8CEE-53FB7DA9290D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0DEB2391-29A2-4B9F-8CEE-53FB7DA9290D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABE250D0-D8F8-4BDA-87A3-5ABB9482C0A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABE250D0-D8F8-4BDA-87A3-5ABB9482C0A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABE250D0-D8F8-4BDA-87A3-5ABB9482C0A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABE250D0-D8F8-4BDA-87A3-5ABB9482C0A3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

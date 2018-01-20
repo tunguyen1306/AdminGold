@@ -1,0 +1,18 @@
+﻿@using WebCoin.Models
+
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_layoutWeb.cshtml";
+    DataCoinEntities db = new DataCoinEntities();
+}
+
+
+
+<!-- showcase -->
+@Html.Partial("_pShowCase")
+<!-- feature -->
+@Html.Partial("_pFeature")
+<!-- maintop -->
+@Html.Partial("_pMainTop")
+<!-- Main Content row -->
+@Html.Partial("_pMainContentRow")

@@ -6,6 +6,7 @@
     AdminGoldEntities db = new AdminGoldEntities();
 
 }
+
 @using AdminGold.Models;
 
 @using System.Configuration
@@ -22,7 +23,7 @@
     <div class="col-lg-12">
         <div class="panel panel-default">
             <div class="panel-heading">
-                @Html.ActionLink("Thêm sản phẩm", "CreateFirst", "WebDoGo", "", htmlAttributes: new { @class = "btn btn-primary" })
+                @Html.ActionLink("Thêm sản phẩm", "CreateProduct", "WebDoGo", "", htmlAttributes: new { @class = "btn btn-primary" })
             </div>
             <!-- /.panel-heading -->
             <div class="panel-body">
@@ -80,7 +81,7 @@
                                     </td>
 
                                     <td>
-                                        <a href="@Url.Action("Edit", "WebDoGo", new { id = item.tblProject.vangia_id_project })" class="btn btn-default btn-xs">Sửa</a>
+                                        <a href="@Url.Action("EditProduct", "WebDoGo", new { id = item.tblProject.vangia_id_project })" class="btn btn-default btn-xs">Sửa</a>
                                         <a href="@Url.Action("Delete", "WebDoGo", new { id = item.tblProject.vangia_id_project })" onclick="return confirm('Bạn có muốn xóa sản phẩm không?');" class="btn btn-default btn-xs">Xóa</a>
                                     </td>
                                 </tr>

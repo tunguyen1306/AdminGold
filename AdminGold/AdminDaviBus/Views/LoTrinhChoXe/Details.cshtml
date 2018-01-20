@@ -1,0 +1,58 @@
+﻿@model AdminGold.Models.LOTRINHCHOXE
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>LOTRINHCHOXE</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MAXE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MAXE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDTUYEN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDTUYEN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MATAIXE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MATAIXE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CAM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CAM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KICHHOAT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KICHHOAT)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IDLOTRINH }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

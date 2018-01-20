@@ -1,0 +1,49 @@
+﻿@model AdminGold.Models.AllModel
+<div class="row">
+    <div class="col-lg-6">
+        <div class="form-group">
+            <label>Mã xe</label>
+            @Html.DropDownListFor(m => m.TblLoTrinhXe.MAXE, new SelectList(Model.ListDmXe, "MAXE", "SOXE", "Chọn xe"), new { @class = "form-control" })
+
+        </div>
+        <div class="form-group">
+            <label>Tuyến</label>
+          
+            @Html.DropDownListFor(m => m.TblLoTrinhXe.IDTUYEN, new SelectList(Model.ListDMTUYEN, "MATUYEN", "TENTUYENVN", "Chọn tuyến"), new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label>Tài xế</label>
+            @Html.DropDownListFor(m => m.TblLoTrinhXe.MATAIXE, new SelectList(Model.ListDmTaiXe, "MATAIXE", "TENTAIXE", "Chọn tài xế"), new { @class = "form-control" })
+
+        </div>
+       
+    </div>
+
+    <div class="col-lg-6">
+        <div class="form-group">
+            <label>Cấm</label>
+            @Html.DropDownListFor(model => model.Cam, new List<SelectListItem>
+            {
+                new SelectListItem {Text = "Có", Value = "0"},
+                new SelectListItem {Text = "Không", Value = "1"},
+
+            }, new { @class = "form-control", })
+
+
+
+
+        </div>
+        <div class="form-group">
+            <label>Kích hoạt</label>
+            @Html.DropDownListFor(model => model.KichHoat, new List<SelectListItem>
+            {
+                new SelectListItem {Text = "Có", Value = "0"},
+                new SelectListItem {Text = "Không", Value = "1"},
+
+            }, new { @class = "form-control", })
+
+        </div>
+        
+    </div>
+</div>
+@Html.HiddenFor(x => x.TblLoTrinhXe.IDLOTRINH)

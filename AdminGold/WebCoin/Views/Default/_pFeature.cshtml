@@ -1,0 +1,295 @@
+﻿@using System.Configuration
+@using WebCoin.Models
+@{
+    DataCoinEntities db = new DataCoinEntities();
+    var itemFeature = db.tblProducts.Where(x => x.IdCompany == 5 && x.StatusProducts == 1 && x.IdCategoryProducts != 1).OrderByDescending(x => x.IdProducts).ToList().Take(3);
+    var dataProductitemFeature = itemFeature.OrderBy(x => Guid.NewGuid());
+    var itemFeature1 = db.tblProducts.Where(x => x.IdCompany == 5 && x.StatusProducts == 1 && x.IdCategoryProducts != 1).OrderByDescending(x => x.IdProducts).ToList().Take(3);
+    var dataProductitemFeature1 = itemFeature.OrderBy(x => Guid.NewGuid());
+}
+<div id="feature" class="stuck_position">
+    <div class="container">
+        <div class="row">
+            <div class="moduletable   col-sm-4">
+                <div class="module_container">
+                    <header class='page_header'><h4 class="moduleTitle ">
+                            <span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first clvi">Tin tức </span> 
+                            <span class="item_title_part_1 item_title_part_even item_title_part_second_half item_title_part_last clvi">mới</span>
+                                                    <span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first clen hidden">Top</span>
+                                                    <span class="item_title_part_1 item_title_part_even item_title_part_second_half item_title_part_last clen hidden">news</span>
+                        </h4>
+                    </header>
+                    <div class="mod-newsflash-adv news mod-newsflash-adv__ cols-1" id="module_223">
+                        @foreach (var item1 in dataProductitemFeature)
+                        {
+                            <div class="row">
+                                <article class="col-sm-12 item item_num0 item__module  " id="item_155">
+
+                                    <!-- Intro Image -->
+                                    <figure class="item_img img-intro img-intro__none">
+                                       @{
+                                            var firstOrDefault = db.tblPictures.FirstOrDefault(x => x.ProductsId == item1.IdProducts);
+
+                                            if (firstOrDefault != null)
+                                            {
+                                                var linkImg = firstOrDefault.OriginalFilepath;
+                                                var linkImgName = firstOrDefault.ConvertedFilename;
+                                               
+                                            <picture>
+                                                <source media="(max-width: 768px)" srcset="@(ConfigurationManager.AppSettings["UrlImg"] + linkImg.Split('_')[0] + "/" + String.Format(linkImgName,1))">
+                                                <source srcset="@(ConfigurationManager.AppSettings["UrlImg"] + linkImg.Split('_')[0] + "/" + String.Format(linkImgName, 2))">
+                                                <img src="@(ConfigurationManager.AppSettings["UrlImg"] + linkImg.Split('_')[0] + "/" + String.Format(linkImgName, 2))" alt="@item1.NameProducts_en">
+                                            </picture>
+
+                                           }
+                                    }
+
+                                        <div class="image_content">
+
+                                            <ul class="tags inline">
+                                                <li class="tag-20 tag-list0" itemprop="keywords">
+                                                    @{
+                                                        var orDefault = db.tblMenus.FirstOrDefault(x => x.IdMenu == item1.IdCategoryProducts);
+                                                    }
+                                                    @if (orDefault != null)
+                                                    {
+                                                        <a href="@Url.Action("ListNews", "Default", new {id =orDefault.NameMenu.UrlFrendly()+"-"+ item1.IdCategoryProducts})" class="label label-info clvi">@orDefault.NameMenu</a>
+                                                        <a href="@Url.Action("ListNews", "Default", new {id =orDefault.NameMenu_en.UrlFrendly()+"-"+ item1.IdCategoryProducts})" class="label label-info clen hidden">@orDefault.NameMenu_en</a>
+
+                                                    }
+
+                                                </li>
+                                            </ul>
+
+                                            <!-- Item title -->
+                                            <h5 class="item_title item_title__">
+                                                <a href="@Url.Action("Detail","Default",new {id=item1.NameProducts.UrlFrendly()+"-"+item1.IdProducts})">
+                                                    <span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first clvi">@(item1.NameProducts.Length >= 45 ? item1.NameProducts.Substring(0, 43) + "..." : item1.NameProducts)</span>
+
+                                                </a>
+                                                <a href="@Url.Action("Detail","Default",new {id=item1.NameProducts.UrlFrendly()+"-"+item1.IdProducts})">
+                                                    <span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first clen">@(item1.NameProducts_en.Length >= 45 ? item1.NameProducts_en.Substring(0, 43) + "..." : item1.NameProducts_en)</span>
+
+                                                </a>
+                                            </h5>
+
+
+                                            <!-- Read More link -->
+                                        </div>
+
+                                    </figure>
+
+                                </article>
+                            </div>
+                        }
+                      
+                        <div class="clearfix"></div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="moduletable popular  col-sm-4">
+                <div class="module_container">
+                    <header class='page_header'>
+                        <h4 class="moduleTitle ">
+                            <span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first clvi">Tin tức</span>
+                            <span class="item_title_part_1 item_title_part_even item_title_part_second_half item_title_part_last clvi">phổ biến</span>
+                            <span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first clen hidden">Popular</span> 
+                            <span class="item_title_part_1 item_title_part_even item_title_part_second_half item_title_part_last clen hidden">news</span>
+                        </h4>
+                    </header>
+                    <div class="mod-newsflash-adv mod-newsflash-adv__popular cols-1" id="module_224">
+                        @foreach (var item2 in dataProductitemFeature1)
+                        {<div class="row">
+                            <article class="col-sm-12 item item_num0 item__module  " id="item_158">
+
+                                <!-- Intro Image -->
+                                <figure class="item_img img-intro img-intro__left">
+                                    <a href="@Url.Action("Detail","Default",new {id=item2.NameProducts.UrlFrendly()+"-"+item2.IdProducts})">
+                                        @{
+                                            var firstOrDefault = db.tblPictures.FirstOrDefault(x => x.ProductsId == item2.IdProducts);
+
+                                            if (firstOrDefault != null)
+                                            {
+                                                var linkImg = firstOrDefault.OriginalFilepath;
+                                                var linkImgName = firstOrDefault.ConvertedFilename;
+                                               
+                                                <picture>
+                                                    <source media="(max-width: 768px)" srcset="@(ConfigurationManager.AppSettings["UrlImg"] + linkImg.Split('_')[0] + "/" + String.Format(linkImgName,1))">
+                                                    <source srcset="@(ConfigurationManager.AppSettings["UrlImg"] + linkImg.Split('_')[0] + "/" + String.Format(linkImgName, 3))">
+                                                    <img src="@(ConfigurationManager.AppSettings["UrlImg"] + linkImg.Split('_')[0] + "/" + String.Format(linkImgName,3))" alt="@item2.NameProducts_en">
+                                                </picture>
+                                            }
+                                        }
+                                    </a>
+                                </figure>
+
+                                <div class="item_content">
+
+                                    <ul class="tags inline">
+                                        <li class="tag-18 tag-list0" itemprop="keywords">
+                                            @{
+                                                var orDefault = db.tblMenus.FirstOrDefault(x => x.IdMenu == item2.IdCategoryProducts);
+                                            }
+                                            @if (orDefault != null)
+                                            {
+                                                <a href="@Url.Action("ListNews", "Default", new {id = orDefault.NameMenu.UrlFrendly()+"-"+item2.IdCategoryProducts})" class="label label-info clvi">@orDefault.NameMenu</a>
+                                                    <a href="@Url.Action("ListNews", "Default", new {id =orDefault.NameMenu_en.UrlFrendly()+"-"+ item2.IdCategoryProducts})" class="label label-info clen hidden">@orDefault.NameMenu_en</a>
+
+                                            }
+                                        </li>
+                                    </ul>
+
+                                    <!-- Item title -->
+                                    <h5 class="item_title"><a href="@Url.Action("Detail", "Default", new {id = item2.NameProducts.UrlFrendly() + "-" + item2.IdProducts})">
+                                        <span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first clvi">@(item2.NameProducts.Length >= 45 ? item2.NameProducts.Substring(0, 43) + "..." : item2.NameProducts)</span>
+                                        <span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first clen hidden">@(item2.NameProducts_en.Length >= 45 ? item2.NameProducts_en.Substring(0, 43) + "..." : item2.NameProducts_en)</span>
+                                       
+                                    </a></h5>
+                                    <time datetime="@item2.CreateDateProducts" class="item_published">
+                                        @item2.CreateDateProducts
+                                    </time>
+
+
+                                    <!-- Read More link -->
+                                </div>
+                                <div class="clearfix"></div>
+                            </article>
+                        </div>
+
+                        }
+                        
+
+                        <div class="clearfix"></div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="moduletable   col-sm-4">
+                <div class="module_container">
+                    <header class='page_header'><h4 class="moduleTitle "><span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first">Stay</span> <span class="item_title_part_1 item_title_part_even item_title_part_second_half item_title_part_last">connected</span></h4></header><noindex>
+                        <div class="jlslogin">
+
+                            <div id="slogin-buttons" class="slogin-buttons slogin-compact">
+                                <a rel="nofollow" title="Facebook" href=""><span class="facebookslogin">&nbsp;</span></a>
+                                <a rel="nofollow" title="Google" href=""><span class="googleslogin">&nbsp;</span></a>
+                                <a rel="nofollow" title="Twitter" href=""><span class="twitterslogin">&nbsp;</span></a>
+                                <a rel="nofollow" title="Instagram" href=""><span class="instagramslogin">&nbsp;</span></a>
+                            </div>
+
+                            <div class="slogin-clear"></div>
+
+
+                        </div>
+                    </noindex>
+                </div>
+            </div>
+            <div class="moduletable type1  col-sm-4">
+                <div class="module_container">
+                    <header class='page_header'>
+                        <h4 class="moduleTitle "><span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first">Crypto</span> 
+                            <span class="item_title_part_1 item_title_part_even item_title_part_second_half item_title_part_last">Currency</span></h4>
+                    </header>
+                    <div class="mod-newsflash-adv mod-newsflash-adv__type1 cols-1" id="module_226">
+                        <div class="row">
+                            <article class="col-sm-12 item item_num0 item__module  " id="item_149">
+
+
+                                <div class="item_content">
+                                  
+
+                                   
+                                <div id="block-block-1" class="block block-block even">
+
+
+                                        <div id="tv-miniwidget-2" style="display: inline-block">
+                                            <div id="tradingview_70213-wrapper" style="position: relative; box-sizing: content-box; width: 350px; height: 550px; margin: 0 auto !important; padding: 0 !important; font-family: Arial, sans-serif;">
+                                                <div style="width: 350px; height: 550px; background: #fff; padding: 0 !important;">
+                                                    <iframe id="tradingview_70213" src="https://s.tradingview.com/miniwidgetembed/" width="350" height="550" frameborder="0" allowtransparency="true" scrolling="no" style="margin: 0 !important; padding: 0 !important;"></iframe>
+                                                </div>
+                                        
+                                            </div>
+                                        </div> &nbsp; &nbsp;
+                                        <script type="text/javascript" src="https://s3.amazonaws.com/tradingview/tv.js"></script> &nbsp; &nbsp;
+                                    <script type="text/javascript">
+                                        new TradingView.MiniWidget({
+                                            container_id: 'tv-miniwidget-2',
+                                            tabs: ['USD', 'BTC'],
+                                            symbols: {
+                                                Equities: ['POLONIEX', 'BITTREX'],
+                                                USD: ['BTCUSD', 'ETHUSDT', 'XRPUSDT', 'BCHUSDT', 'ADAUSDT', 'LTCUSDT', 'XEMUSD', 'NEOUSDT', 'ETCUSDT', 'BTGUSDT', 'DASHUSDT'],
+                                                BTC: ['ETHBTC', 'XRPBTC', 'BCHBTC', 'ADABTC', 'LTCBTC', 'XEMBTC', 'NEOBTC', 'ETCUSDT', 'BTGBTC', 'DASHBTC']
+                                            }, // symbols_description: { 'BTCUSD': 'BTC', 'ETHUSDT': 'ETH', 'XRPUSDT': 'XRP', 'BCHUSDT': 'BCH', 'ADAUSDT': 'ADA', 'LTCUSDT': 'LTC', 'NEOUSDT': 'NEO', 'ETCUSDT': 'ETC', 'BTGUSDT': 'BTG', 'DASHUSDT': 'DASH' },
+                                            width: 350,
+                                            height: 550
+
+                                        });
+                                    </script>
+                                    @*<script type="text/javascript">
+      new TradingView.MiniWidget({
+          container_id: 'tv-miniwidget-2',
+          tabs: ['Commodities', 'Equities', 'Bonds', 'Forex'],
+          symbols: {
+              Equities: ['S&P500', 'NQ100', 'Dow30', 'Nikkei225', 'Apple', 'Google'],
+              Commodities: ['Emini', 'Euro', 'Gold', 'Oil', 'Gas', 'Corn'],
+              Bonds: ['US 2YR', 'US 10YR', 'US 30YR', 'Euro Bund', 'Euro BTP', 'Euro BOBL'],
+              Forex: ['FX:EURUSD', 'FX:GBPUSD', 'FX:USDJPY', 'FX:USDCHF', 'FX:AUDUSD', 'FX:USDCAD']
+          }, symbols_description:
+              { 'S&P500': ' SPX500', 'NQ100': ' NAS100', 'Dow30': 'DOWI', 'Nikkei225': 'JPN225', 'Apple': ' BATS:AAPL ', 'Google': 'BATS:GOOG', 'Emini': 'ES1!', 'Euro': 'E61!', 'Gold': 'GC1!', 'Oil': 'CL1!', 'Gas': 'NG1!', 'Corn': 'ZC1!', 'US 2YR': 'TUZ2013', 'US 10YR': 'TYZ2013', 'US 30YR': 'USZ2013', 'Euro Bund': 'FX:BUND', 'Euro BTP': 'EUREX:II1!', 'Euro BOBL': 'EUREX:HR1!' },
+          width: 300,
+          large_chart_url: 'http://www.futuresmag.com/page/interactive-charts'
+});    </script>*@
+ </div>
+
+                                 
+                                </div>
+                                <div class="clearfix"></div>
+                            </article>
+                        </div>
+                      
+                        <div class="clearfix"></div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="moduletable featured  col-sm-4">
+                @*<div class="module_container">
+                    <header class='page_header'><h4 class="moduleTitle "><span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first">Featured</span> <span class="item_title_part_1 item_title_part_even item_title_part_second_half item_title_part_last">post</span></h4></header>
+                    <div class="mod-newsflash-adv mod-newsflash-adv__featured cols-1" id="module_227">
+                        <div class="row">
+                            <article class="col-sm-12 item item_num0 item__module  lastItem" id="item_164">
+
+                                <!-- Intro Image -->
+                                <figure class="item_img img-intro img-intro__none">
+                                    <a href="/joomla_64017/index.php/70-home/featured-post/164-healthy-food-drinks-for-your-healthy-lifestyle">
+                                        <img src="~/Template/images/page1-img1.jpg" alt="">
+                                    </a>
+                                </figure>
+
+                                <div class="item_content">
+
+                                    <ul class="tags inline">
+                                        <li class="tag-19 tag-list0" itemprop="keywords">
+                                            <a href="/joomla_64017/index.php/component/tags/tag/19-food-health" class="label label-info">
+                                                Food &amp; health
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                    <!-- Item title -->
+                                    <h5 class="item_title"><a href="/joomla_64017/index.php/70-home/featured-post/164-healthy-food-drinks-for-your-healthy-lifestyle"><span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first">Healthy</span> <span class="item_title_part_1 item_title_part_even item_title_part_first_half">Food</span> <span class="item_title_part_2 item_title_part_odd item_title_part_first_half">&</span> <span class="item_title_part_3 item_title_part_even item_title_part_first_half">Drinks</span> <span class="item_title_part_4 item_title_part_odd item_title_part_second_half">for</span> <span class="item_title_part_5 item_title_part_even item_title_part_second_half">Your</span> <span class="item_title_part_6 item_title_part_odd item_title_part_second_half">Healthy</span> <span class="item_title_part_7 item_title_part_even item_title_part_second_half item_title_part_last">Lifestyle</span></a></h5>
+
+
+                                    <!-- Read More link -->
+                                </div>
+                                <div class="clearfix"></div>
+                            </article>
+                        </div>
+                        <div class="clearfix"></div>
+
+                    </div>
+                </div>*@
+            </div>
+        </div>
+    </div>
+</div>

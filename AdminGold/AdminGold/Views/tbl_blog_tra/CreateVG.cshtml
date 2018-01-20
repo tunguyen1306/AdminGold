@@ -98,7 +98,10 @@
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <label>Mô tả tóm tắt</label>
-                                <textarea class="form-control" name="short_des_blog_tra" id="txtShortDesBlog"></textarea>
+                        
+                                @Html.TextAreaFor(x => x.short_des_blog_tra, htmlAttributes: new { @id = "txtshort_des_blog_tra", @name = "short_des_blog_tra", @class = "form-control " })
+
+
 
 
                             </div>
@@ -110,7 +113,7 @@
                             <div class="form-group">
                                 <label>Mô tả </label>
                                 @*<textarea class="form-control" name="des_blog_tra" id="txtDesBlog"></textarea>*@
-                                @Html.TextAreaFor(x => x.des_blog_tra, htmlAttributes: new { @id = "txtDesBlog", @name = "des_blog_tra", @class = "form-control" })
+                                @Html.TextAreaFor(x => x.des_blog_tra, htmlAttributes: new { @id = "txtDesBlog", @name = "des_blog_tra", @class = "form-control fck" })
 
                             </div>
                         </div>
@@ -146,10 +149,8 @@
 
 <script>
     $(function () {
-        $('#txtDesBlog').ckeditor({
-            filebrowserImageUploadUrl: '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images'
-        });
-
+        $('.fck').ckeditor();
+      
     });
 
     function getLink() {

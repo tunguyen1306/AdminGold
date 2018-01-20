@@ -44,25 +44,8 @@ namespace AdminGold.Controllers
             }
             return View();
         }
-        public ActionResult CreateFirst(web_vangia_project tbl_project)
-        {
-            if (Session["user"] == null)
-            {
-                return RedirectToAction("Login", "Home");
-            }
-            if (ModelState.IsValid)
-            {
-                db.web_vangia_project.Add(tbl_project);
-                db.SaveChanges();
-
-
-            }
-            return View(tbl_project);
-
-        }
 
         [HttpPost]
-
         public void SaveImg(VanGiaPicture projectPicture)
         {
 
@@ -85,7 +68,7 @@ namespace AdminGold.Controllers
             if (projectPicture.idpicture == 0)
             {
                 var settings = new ResizeSettings();
-                settings.Scale = ScaleMode.DownscaleOnly;
+                settings.Scale = ScaleMode.UpscaleCanvas;
                 settings.Format = format;
 
                 //string uploadFolder = picture.DirectoryPhysical;
@@ -102,8 +85,8 @@ namespace AdminGold.Controllers
                 if (picture.GetFilePathPhysical(VanGiaPicture.PictureSize.Large) != null)
                 {
                     string dest = path + picture.FileName(VanGiaPicture.PictureSize.Large);
-                    settings.MaxWidth = 900;
-                    settings.MaxHeight = 900;
+                    settings.Width = 900;
+                    settings.Height = 900;
                     if (picture.WaterMarkLarge == VanGiaPicture.WatermarkType.None)
                         ImageBuilder.Current.Build(photoBytes, dest, settings, false, false);
                     // save biggest version as original
@@ -114,8 +97,8 @@ namespace AdminGold.Controllers
                 if (picture.GetFilePathPhysical(VanGiaPicture.PictureSize.Medium) != null)
                 {
                     string dest = path + picture.FileName(VanGiaPicture.PictureSize.Medium);
-                    settings.MaxWidth = 600;
-                    settings.MaxHeight = 600;
+                    settings.Width = 600;
+                    settings.Height = 600;
                     if (picture.WaterMarkLarge == VanGiaPicture.WatermarkType.None)
                         ImageBuilder.Current.Build(photoBytes, dest, settings, false, false);
                     // save biggest version as original
@@ -126,8 +109,8 @@ namespace AdminGold.Controllers
                 if (picture.GetFilePathPhysical(VanGiaPicture.PictureSize.Small) != null)
                 {
                     string dest = path + picture.FileName(VanGiaPicture.PictureSize.Small);
-                    settings.MaxWidth = 300;
-                    settings.MaxHeight = 300;
+                    settings.Width = 300;
+                    settings.Height = 300;
                     if (picture.WaterMarkLarge == VanGiaPicture.WatermarkType.None)
                         ImageBuilder.Current.Build(photoBytes, dest, settings, false, false);
                     // save biggest version as original
@@ -137,8 +120,8 @@ namespace AdminGold.Controllers
                 if (picture.GetFilePathPhysical(VanGiaPicture.PictureSize.Tiny) != null)
                 {
                     string dest = path + picture.FileName(VanGiaPicture.PictureSize.Tiny);
-                    settings.MaxWidth = 100;
-                    settings.MaxHeight = 100;
+                    settings.Width = 100;
+                    settings.Height = 100;
                     if (picture.WaterMarkLarge == VanGiaPicture.WatermarkType.None)
                         ImageBuilder.Current.Build(photoBytes, dest, settings, false, false);
                     // save biggest version as original
@@ -165,34 +148,6 @@ namespace AdminGold.Controllers
 
         }
 
-        [HttpPost]
-        public ActionResult CreateFirst(VanGiaPicture projectPicture)
-        {
-            web_vangia_project tblproduct = projectPicture.tblProject;
-            if (Request.Files.Count > 0)
-            {
-                var file1 = Request.Files[0];
-
-                if (file1 != null && file1.ContentLength > 0)
-                {
-                    var fileName = Path.GetFileName(DateTime.Now.Day.ToString() + DateTime.Now.Month.ToString() + "_" + projectPicture.CreateFilename() + "_" + file1.FileName);
-                    var path = Path.Combine(Server.MapPath("~/fileUpload/" + DateTime.Now.Day + DateTime.Now.Month + "/"), fileName);
-
-
-                    file1.SaveAs(path);
-                    tblproduct.vangia_vanban_project = fileName;
-                }
-
-            }
-
-
-            db.Entry(tblproduct).State = EntityState.Modified;
-            db.SaveChanges();
-            return RedirectToAction("Index", "WebDoGo");
-
-
-
-        }
         [HttpPost]
         public ActionResult DeleteImg(int idpicture)
         {
@@ -615,6 +570,113 @@ namespace AdminGold.Controllers
         {
             var dataCategory = db.web_vangia_category.Where(x=>x.Status==1 && x.IdCompany==4).OrderBy(x=>x.Order_tt).ToList();
             return Json(new {result= dataCategory });
+        }
+        ////////////Product
+        public ActionResult CreateProduct()
+        {
+            if (Session["user"] == null)
+            {
+                return RedirectToAction("Login", "Home");
+            }
+            var listCategory = db.web_vangia_category.ToList();
+            listCategory.Insert(0, new web_vangia_category { Id = 0, Name = "Chọn danh mục sản phẩm" });
+            var data = new VanGiaPicture
+            {
+                tblCategory = new web_vangia_category(),
+                tblProject = new web_vangia_project(),
+                ListCategory = listCategory
+            };
+            return View(data);
+        }
+        [HttpPost]
+        public ActionResult CreateProduct(VanGiaPicture model, HttpPostedFileBase[] files)
+        {
+            if (ModelState.IsValid)
+            {
+                var _tblProduct = new web_vangia_project();
+                _tblProduct = model.tblProject;
+                db.web_vangia_project.Add(_tblProduct);
+                db.SaveChanges();
+                if (files != null && files.Length > 0)
+                {
+                    for (int i = 0; i < files.Length; i++)
+                    {
+                        if (files[i] != null)
+                        {
+                            byte[] binaryData;
+                            binaryData = new Byte[files[i].InputStream.Length];
+                            long bytesRead = files[i].InputStream.Read(binaryData, 0, (int)files[i].InputStream.Length);
+                            files[i].InputStream.Close();
+                            string base64String = System.Convert.ToBase64String(binaryData, 0, binaryData.Length);
+                            SaveImg(new VanGiaPicture { nameImg = files[i].FileName, idProducts = model.tblProject.vangia_id_project, isactive = 1, index = i, cfile = base64String });
+                        }
+                    }
+                }
+                return RedirectToAction("Index");
+            }
+
+            return View(model.tblProject);
+        }
+        public ActionResult EditProduct(int id)
+        {
+            if (Session["user"] == null)
+            {
+                return RedirectToAction("Login", "Home");
+            }
+            var listCategory = db.web_vangia_category.ToList();
+            listCategory.Insert(0, new web_vangia_category { Id = 0, Name = "Chọn danh mục sản phẩm" });
+            var data = new VanGiaPicture
+            {
+                tblProject = db.web_vangia_project.FirstOrDefault(x => x.vangia_id_project==id),
+                ListCategory = listCategory,
+                tblListPicture = db.tblSysPictures.Where(x => x.advert_id == id).ToList(),
+            };
+            return View(data);
+        }
+        [HttpPost]
+        public ActionResult EditProduct(VanGiaPicture model, HttpPostedFileBase[] files, int[] imgId)
+        {
+            if (Session["user"] == null)
+            {
+                return RedirectToAction("Login", "Home");
+            }
+
+            var tblProject = db.web_vangia_project.Find(model.tblProject.vangia_id_project);
+            tblProject.company = model.tblProject.company;
+            tblProject.vangia_name_project = model.tblProject.vangia_name_project;
+            tblProject.vangia_img1_project = model.tblProject.vangia_img1_project;
+            tblProject.vangia_tomtat_project = model.tblProject.vangia_tomtat_project;
+            tblProject.vangia_typeid_project = model.tblProject.vangia_typeid_project;
+            tblProject.vangia_content_project = model.tblProject.vangia_content_project;
+            tblProject.vangia_status_project = model.tblProject.vangia_status_project;
+            db.Entry(tblProject).State = EntityState.Modified;
+            db.SaveChanges();
+            if (files != null && files.Length > 0)
+            {
+                if (imgId != null && imgId.Length > 0)
+                {
+                    var listPic = db.tblSysPictures.Where(T => T.advert_id == model.tblProject.vangia_id_project && imgId.Contains(T.picture_id)).ToList();
+                    foreach (var pic in listPic)
+                    {
+                        db.Entry(pic).State = EntityState.Deleted;
+                    }
+                }
+                for (int i = 0; i < files.Length; i++)
+                {
+                    if (files[i] != null)
+                    {
+                        byte[] binaryData;
+                        binaryData = new Byte[files[i].InputStream.Length];
+                        long bytesRead = files[i].InputStream.Read(binaryData, 0, (int)files[i].InputStream.Length);
+                        files[i].InputStream.Close();
+                        string base64String = System.Convert.ToBase64String(binaryData, 0, binaryData.Length);
+                        SaveImg(new VanGiaPicture { nameImg = files[i].FileName, idProducts = model.tblProject.vangia_id_project, isactive = 1, index = i, cfile = base64String });
+                    }
+                }
+            }
+
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }

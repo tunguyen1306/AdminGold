@@ -667,6 +667,16 @@ warning 6002: The table/view 'nhvanxol_dulichbautrang.dbo.sys_store_prod' does n
           <Property Name="link_spam_dulich" Type="ntext" />
           <Property Name="mo_spam_dulich" Type="ntext" />
         </EntityType>
+        <EntityType Name="tblCategory">
+          <Key>
+            <PropertyRef Name="IdCategory" />
+          </Key>
+          <Property Name="IdCategory" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameCategory" Type="nvarchar" MaxLength="250" />
+          <Property Name="StatusCategory" Type="int" />
+          <Property Name="NameCategory_en" Type="nvarchar" MaxLength="250" />
+          <Property Name="IdCompany" Type="int" />
+        </EntityType>
         <EntityType Name="tblDomain">
           <Key>
             <PropertyRef Name="id" />
@@ -684,6 +694,68 @@ warning 6002: The table/view 'nhvanxol_dulichbautrang.dbo.sys_store_prod' does n
           <Property Name="NameMath" Type="nvarchar" MaxLength="50" />
           <Property Name="ValueMath" Type="varchar" MaxLength="50" />
           <Property Name="TypeMath" Type="int" />
+        </EntityType>
+        <EntityType Name="tblMenu">
+          <Key>
+            <PropertyRef Name="IdMenu" />
+          </Key>
+          <Property Name="IdMenu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameMenu" Type="nvarchar" MaxLength="250" />
+          <Property Name="NameMenu_en" Type="nvarchar" MaxLength="250" />
+          <Property Name="IdParentMenu" Type="int" />
+          <Property Name="StatusMenu" Type="int" />
+          <Property Name="OrderMenu" Type="int" />
+          <Property Name="IsParent" Type="int" />
+          <Property Name="LinkMenu" Type="nvarchar" MaxLength="500" />
+          <Property Name="IsCategoryMenu" Type="int" />
+          <Property Name="ShowHomeMenu" Type="int" />
+          <Property Name="Description_en" Type="nvarchar" MaxLength="2000" />
+          <Property Name="Description_vi" Type="nvarchar" MaxLength="2000" />
+          <Property Name="IdCompany" Type="int" />
+        </EntityType>
+        <EntityType Name="tblPicture">
+          <Key>
+            <PropertyRef Name="PictureId" />
+          </Key>
+          <Property Name="PictureId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductsId" Type="int" />
+          <Property Name="OriginalFilepath" Type="varchar" MaxLength="255" />
+          <Property Name="Position" Type="tinyint" />
+          <Property Name="Converted" Type="datetime" />
+          <Property Name="ConvertedFilename" Type="varchar" MaxLength="50" />
+          <Property Name="ToCheck" Type="bit" />
+          <Property Name="Isvalidated" Type="bit" />
+          <Property Name="ConvertedFilename90" Type="varchar" MaxLength="50" />
+          <Property Name="ConvertedFilename180" Type="varchar" MaxLength="50" />
+          <Property Name="ConvertedFilename270" Type="varchar" MaxLength="50" />
+          <Property Name="AngleType" Type="tinyint" />
+          <Property Name="Type_id" Type="tinyint" />
+          <Property Name="Title" Type="nvarchar(max)" />
+          <Property Name="Description" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="tblProducts">
+          <Key>
+            <PropertyRef Name="IdProducts" />
+          </Key>
+          <Property Name="IdProducts" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameProducts" Type="nvarchar" MaxLength="250" />
+          <Property Name="CodeProducts" Type="varchar" MaxLength="50" />
+          <Property Name="IdCategoryProducts" Type="int" />
+          <Property Name="PriceProducts" Type="varchar" MaxLength="50" />
+          <Property Name="ShortDesProducts" Type="nvarchar(max)" />
+          <Property Name="DescriptionProducts" Type="nvarchar(max)" />
+          <Property Name="StatusProducts" Type="int" />
+          <Property Name="CreateDateProducts" Type="datetime" />
+          <Property Name="ModifiDateProducts" Type="datetime" />
+          <Property Name="CreateUserProducts" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifiUserProducts" Type="nvarchar" MaxLength="50" />
+          <Property Name="IdTypeProducts" Type="int" />
+          <Property Name="PriceNewProducts" Type="varchar" MaxLength="50" />
+          <Property Name="NameProducts_en" Type="nvarchar" MaxLength="250" />
+          <Property Name="ShortDesProducts_en" Type="nvarchar(max)" />
+          <Property Name="DescriptionProducts_en" Type="nvarchar(max)" />
+          <Property Name="IdCompany" Type="int" />
+          <Property Name="Images" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="tblSysCompany">
           <Key>
@@ -923,6 +995,15 @@ warning 6002: The table/view 'nhvanxol_dulichbautrang.dbo.tblSysUserRoleRecord' 
           <Property Name="user_img_h" Type="float" />
           <Property Name="user_img_type" Type="int" />
           <Property Name="admin_view" Type="int" />
+        </EntityType>
+        <EntityType Name="tblVocabulary">
+          <Key>
+            <PropertyRef Name="IdVocabulary" />
+          </Key>
+          <Property Name="IdVocabulary" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameVocabulary" Type="nvarchar" MaxLength="500" />
+          <Property Name="KeyVocabulary" Type="varchar" MaxLength="500" />
+          <Property Name="IdLangVocabulary" Type="int" />
         </EntityType>
         <EntityType Name="user_steel">
           <Key>
@@ -1516,8 +1597,12 @@ warning 6002: The table/view 'nhvanxol_dulichbautrang.dbo.web_tr_quangcao' does 
           <EntitySet Name="tbl_slide_dulich" EntityType="Self.tbl_slide_dulich" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_slide_tra" EntityType="Self.tbl_slide_tra" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_spam_dulich" EntityType="Self.tbl_spam_dulich" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblCategory" EntityType="Self.tblCategory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblDomain" EntityType="Self.tblDomain" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblMath_vangia" EntityType="Self.tblMath_vangia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblMenu" EntityType="Self.tblMenu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblPicture" EntityType="Self.tblPicture" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblProducts" EntityType="Self.tblProducts" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblSysCompany" EntityType="Self.tblSysCompany" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblSysGroupPage" EntityType="Self.tblSysGroupPage" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblSysGroupPageDetail" EntityType="Self.tblSysGroupPageDetail" Schema="dbo" store:Type="Tables" />
@@ -1532,6 +1617,7 @@ warning 6002: The table/view 'nhvanxol_dulichbautrang.dbo.web_tr_quangcao' does 
           <EntitySet Name="tblUserCloud" EntityType="Self.tblUserCloud" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblUserFriends" EntityType="Self.tblUserFriends" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblUserImg" EntityType="Self.tblUserImg" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblVocabulary" EntityType="Self.tblVocabulary" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="user_steel" EntityType="Self.user_steel" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="web_banner" EntityType="Self.web_banner" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="web_chater" EntityType="Self.web_chater" Schema="dbo" store:Type="Tables" />
@@ -1918,6 +2004,11 @@ warning 6002: The table/view 'nhvanxol_dulichbautrang.dbo.web_tr_quangcao' does 
           <EntitySet Name="web_tr_products" EntityType="AdminGoldModel.web_tr_products" />
           <EntitySet Name="web_tr_quangcao" EntityType="AdminGoldModel.web_tr_quangcao" />
           <EntitySet Name="web_vangia_category" EntityType="AdminGoldModel.web_vangia_category" />
+          <EntitySet Name="tblCategories" EntityType="AdminGoldModel.tblCategory" />
+          <EntitySet Name="tblMenus" EntityType="AdminGoldModel.tblMenu" />
+          <EntitySet Name="tblProducts" EntityType="AdminGoldModel.tblProduct" />
+          <EntitySet Name="tblVocabularies" EntityType="AdminGoldModel.tblVocabulary" />
+          <EntitySet Name="tblPictures" EntityType="AdminGoldModel.tblPicture" />
         </EntityContainer>
         <EntityType Name="tblSysPicture">
           <Key>
@@ -3309,6 +3400,87 @@ warning 6002: The table/view 'nhvanxol_dulichbautrang.dbo.web_tr_quangcao' does 
           <Property Name="Description" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
           <Property Name="IconClass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="IdCompany" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tblCategory">
+          <Key>
+            <PropertyRef Name="IdCategory" />
+          </Key>
+          <Property Name="IdCategory" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameCategory" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="StatusCategory" Type="Int32" />
+          <Property Name="NameCategory_en" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="IdCompany" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tblMenu">
+          <Key>
+            <PropertyRef Name="IdMenu" />
+          </Key>
+          <Property Name="IdMenu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameMenu" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="NameMenu_en" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="IdParentMenu" Type="Int32" />
+          <Property Name="StatusMenu" Type="Int32" />
+          <Property Name="OrderMenu" Type="Int32" />
+          <Property Name="IsParent" Type="Int32" />
+          <Property Name="LinkMenu" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="IsCategoryMenu" Type="Int32" />
+          <Property Name="ShowHomeMenu" Type="Int32" />
+          <Property Name="Description_en" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="Description_vi" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="IdCompany" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tblProduct">
+          <Key>
+            <PropertyRef Name="IdProducts" />
+          </Key>
+          <Property Name="IdProducts" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameProducts" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="CodeProducts" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IdCategoryProducts" Type="Int32" />
+          <Property Name="PriceProducts" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ShortDesProducts" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DescriptionProducts" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="StatusProducts" Type="Int32" />
+          <Property Name="CreateDateProducts" Type="DateTime" Precision="3" />
+          <Property Name="ModifiDateProducts" Type="DateTime" Precision="3" />
+          <Property Name="CreateUserProducts" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiUserProducts" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IdTypeProducts" Type="Int32" />
+          <Property Name="PriceNewProducts" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NameProducts_en" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="ShortDesProducts_en" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DescriptionProducts_en" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IdCompany" Type="Int32" />
+          <Property Name="Images" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblVocabulary">
+          <Key>
+            <PropertyRef Name="IdVocabulary" />
+          </Key>
+          <Property Name="IdVocabulary" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameVocabulary" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="KeyVocabulary" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="IdLangVocabulary" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tblPicture">
+          <Key>
+            <PropertyRef Name="PictureId" />
+          </Key>
+          <Property Name="PictureId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductsId" Type="Int32" />
+          <Property Name="OriginalFilepath" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Position" Type="Byte" />
+          <Property Name="Converted" Type="DateTime" Precision="3" />
+          <Property Name="ConvertedFilename" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ToCheck" Type="Boolean" />
+          <Property Name="Isvalidated" Type="Boolean" />
+          <Property Name="ConvertedFilename90" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ConvertedFilename180" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ConvertedFilename270" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AngleType" Type="Byte" />
+          <Property Name="Type_id" Type="Byte" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -4817,6 +4989,92 @@ warning 6002: The table/view 'nhvanxol_dulichbautrang.dbo.web_tr_quangcao' does 
                 <ScalarProperty Name="Link" ColumnName="Link" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCategories">
+            <EntityTypeMapping TypeName="AdminGoldModel.tblCategory">
+              <MappingFragment StoreEntitySet="tblCategory">
+                <ScalarProperty Name="IdCompany" ColumnName="IdCompany" />
+                <ScalarProperty Name="NameCategory_en" ColumnName="NameCategory_en" />
+                <ScalarProperty Name="StatusCategory" ColumnName="StatusCategory" />
+                <ScalarProperty Name="NameCategory" ColumnName="NameCategory" />
+                <ScalarProperty Name="IdCategory" ColumnName="IdCategory" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblMenus">
+            <EntityTypeMapping TypeName="AdminGoldModel.tblMenu">
+              <MappingFragment StoreEntitySet="tblMenu">
+                <ScalarProperty Name="IdCompany" ColumnName="IdCompany" />
+                <ScalarProperty Name="Description_vi" ColumnName="Description_vi" />
+                <ScalarProperty Name="Description_en" ColumnName="Description_en" />
+                <ScalarProperty Name="ShowHomeMenu" ColumnName="ShowHomeMenu" />
+                <ScalarProperty Name="IsCategoryMenu" ColumnName="IsCategoryMenu" />
+                <ScalarProperty Name="LinkMenu" ColumnName="LinkMenu" />
+                <ScalarProperty Name="IsParent" ColumnName="IsParent" />
+                <ScalarProperty Name="OrderMenu" ColumnName="OrderMenu" />
+                <ScalarProperty Name="StatusMenu" ColumnName="StatusMenu" />
+                <ScalarProperty Name="IdParentMenu" ColumnName="IdParentMenu" />
+                <ScalarProperty Name="NameMenu_en" ColumnName="NameMenu_en" />
+                <ScalarProperty Name="NameMenu" ColumnName="NameMenu" />
+                <ScalarProperty Name="IdMenu" ColumnName="IdMenu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblProducts">
+            <EntityTypeMapping TypeName="AdminGoldModel.tblProduct">
+              <MappingFragment StoreEntitySet="tblProducts">
+                <ScalarProperty Name="Images" ColumnName="Images" />
+                <ScalarProperty Name="IdCompany" ColumnName="IdCompany" />
+                <ScalarProperty Name="DescriptionProducts_en" ColumnName="DescriptionProducts_en" />
+                <ScalarProperty Name="ShortDesProducts_en" ColumnName="ShortDesProducts_en" />
+                <ScalarProperty Name="NameProducts_en" ColumnName="NameProducts_en" />
+                <ScalarProperty Name="PriceNewProducts" ColumnName="PriceNewProducts" />
+                <ScalarProperty Name="IdTypeProducts" ColumnName="IdTypeProducts" />
+                <ScalarProperty Name="ModifiUserProducts" ColumnName="ModifiUserProducts" />
+                <ScalarProperty Name="CreateUserProducts" ColumnName="CreateUserProducts" />
+                <ScalarProperty Name="ModifiDateProducts" ColumnName="ModifiDateProducts" />
+                <ScalarProperty Name="CreateDateProducts" ColumnName="CreateDateProducts" />
+                <ScalarProperty Name="StatusProducts" ColumnName="StatusProducts" />
+                <ScalarProperty Name="DescriptionProducts" ColumnName="DescriptionProducts" />
+                <ScalarProperty Name="ShortDesProducts" ColumnName="ShortDesProducts" />
+                <ScalarProperty Name="PriceProducts" ColumnName="PriceProducts" />
+                <ScalarProperty Name="IdCategoryProducts" ColumnName="IdCategoryProducts" />
+                <ScalarProperty Name="CodeProducts" ColumnName="CodeProducts" />
+                <ScalarProperty Name="NameProducts" ColumnName="NameProducts" />
+                <ScalarProperty Name="IdProducts" ColumnName="IdProducts" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblVocabularies">
+            <EntityTypeMapping TypeName="AdminGoldModel.tblVocabulary">
+              <MappingFragment StoreEntitySet="tblVocabulary">
+                <ScalarProperty Name="IdLangVocabulary" ColumnName="IdLangVocabulary" />
+                <ScalarProperty Name="KeyVocabulary" ColumnName="KeyVocabulary" />
+                <ScalarProperty Name="NameVocabulary" ColumnName="NameVocabulary" />
+                <ScalarProperty Name="IdVocabulary" ColumnName="IdVocabulary" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblPictures">
+            <EntityTypeMapping TypeName="AdminGoldModel.tblPicture">
+              <MappingFragment StoreEntitySet="tblPicture">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Type_id" ColumnName="Type_id" />
+                <ScalarProperty Name="AngleType" ColumnName="AngleType" />
+                <ScalarProperty Name="ConvertedFilename270" ColumnName="ConvertedFilename270" />
+                <ScalarProperty Name="ConvertedFilename180" ColumnName="ConvertedFilename180" />
+                <ScalarProperty Name="ConvertedFilename90" ColumnName="ConvertedFilename90" />
+                <ScalarProperty Name="Isvalidated" ColumnName="Isvalidated" />
+                <ScalarProperty Name="ToCheck" ColumnName="ToCheck" />
+                <ScalarProperty Name="ConvertedFilename" ColumnName="ConvertedFilename" />
+                <ScalarProperty Name="Converted" ColumnName="Converted" />
+                <ScalarProperty Name="Position" ColumnName="Position" />
+                <ScalarProperty Name="OriginalFilepath" ColumnName="OriginalFilepath" />
+                <ScalarProperty Name="ProductsId" ColumnName="ProductsId" />
+                <ScalarProperty Name="PictureId" ColumnName="PictureId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

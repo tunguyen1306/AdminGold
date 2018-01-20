@@ -86,10 +86,16 @@ namespace AdminGold.Controllers
                 return RedirectToAction("Index", "Travel"); ;
 
             }
-            else if (email == "nguyendiep@gmail.com" && password == "nguyendiep123")
+            else if (email == "nguyendiep@gmail.com" && password == "6593hyhh")
             {
                 Session["user"] = "nguyendiep@gmail.com";
                 return RedirectToAction("Index", "WebDoGo"); ;
+
+            }
+            else if (email == "coin@gmail.com" && password == "coin123")
+            {
+                Session["user"] = "coin@gmail.com";
+                return RedirectToAction("IndexProduct", "WebCoin"); ;
 
             }
             return RedirectToAction("Login", "Home"); ;

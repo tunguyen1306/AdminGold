@@ -6,6 +6,7 @@ using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Web.Helpers;
 using System.Web.Http;
 using System.Web.Http.Description;
 using ApiBusTicket.Models;
@@ -34,7 +35,25 @@ namespace ApiBusTicket.Controllers
 
             return Ok(trackingGP);
         }
+        // POST: api/DMTRAMs
+        [ResponseType(typeof(Json))]
+        public IHttpActionResult PostData(string text)
+        {
+            try
+            {
+                PostData data = new PostData { PostDate = DateTime.Now, PostText = text };
+                db.Entry(data).State = EntityState.Added;
+                db.SaveChanges();
+                return Json(new { result = text, status = true });
+            }
+            catch (Exception)
+            {
 
+               
+                return Json(new { result = text, status = false });
+            }
+           
+        }
         // PUT: api/TrackingGPs/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutTrackingGP(long id, TrackingGP trackingGP)
@@ -77,6 +96,7 @@ namespace ApiBusTicket.Controllers
             var selectDta = db.TrackingGPS.Where(x=>x.MaXe== trackingGP.MaXe && x.MaTuyen== trackingGP.MaTuyen);
             if (selectDta.Count()>0)
             {
+              
                 var select = db.TrackingGPS.Where(x => x.MaXe == trackingGP.MaXe && x.MaTuyen == trackingGP.MaTuyen).Select(x=>x.IdTracking).FirstOrDefault();
                 TrackingGP tblTracking = db.TrackingGPS.Find(select);
                
@@ -84,6 +104,7 @@ namespace ApiBusTicket.Controllers
                 tblTracking.lng = trackingGP.lng;
                 tblTracking.Time = trackingGP.Time;
                 tblTracking.DeviceId = trackingGP.DeviceId;
+                tblTracking.MaTram = trackingGP.MaTram;
                 db.Entry(tblTracking).State = EntityState.Modified;
                 db.SaveChanges();
                 TrackingGPSDetail trackingDetail = new TrackingGPSDetail();
@@ -91,6 +112,8 @@ namespace ApiBusTicket.Controllers
                 trackingDetail.Lat = trackingGP.Lat;
                 trackingDetail.Lng = trackingGP.lng;
                 trackingDetail.Time = trackingGP.Time;
+                trackingDetail.MaTram = trackingGP.MaTram;
+               
                 db.TrackingGPSDetails.Add(trackingDetail);
                 db.SaveChanges();
             }
@@ -105,6 +128,7 @@ namespace ApiBusTicket.Controllers
                 trackingDetail.Lat = trackingGP.Lat;
                 trackingDetail.Lng = trackingGP.lng;
                 trackingDetail.Time = trackingGP.Time;
+                trackingDetail.MaTram = trackingGP.MaTram;
                 db.TrackingGPSDetails.Add(trackingDetail);
                 db.SaveChanges();
             }

@@ -19,5 +19,6 @@ namespace AdminGold.Models
         public Nullable<decimal> Lat { get; set; }
         public Nullable<decimal> Lng { get; set; }
         public Nullable<System.DateTime> Time { get; set; }
+        public string MaTram { get; set; }
     }
 }

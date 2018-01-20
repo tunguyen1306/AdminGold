@@ -15,7 +15,7 @@
 </div>
 
 
-@using (Html.BeginForm("CreateBlog", "Travel"))
+@using (Html.BeginForm("CreateBlog", "WebDoGo"))
 {
     <input type="hidden" id="hdImgName" name="img_blog_tra" />
     <!-- /.row -->
@@ -111,7 +111,7 @@
                             <div class="form-group">
                                 <label>Mô tả </label>
                                 @*<textarea class="form-control" name="des_blog_tra" id="txtDesBlog"></textarea>*@
-                                @Html.TextAreaFor(x => x.des_blog_tra, htmlAttributes: new { @id = "txtDesBlog", @name = "des_blog_tra", @class = "form-control" })
+                                @Html.TextAreaFor(x => x.des_blog_tra, htmlAttributes: new { @id = "txtDesBlog", @name = "des_blog_tra", @class = "form-control fck" })
 
                             </div>
                         </div>
@@ -126,7 +126,7 @@
                             <div class="form-group">
                                 <div class="col-md-offset-2 col-md-10">
                                     <button type="submit" class="btn btn-default">Thêm</button>
-                                    <a href="@Url.Action("IndexBlog","Travel")" class="btn btn-primary">Hủy</a>
+                                    <a href="@Url.Action("IndexBlog","WebDoGo")" class="btn btn-primary">Hủy</a>
                                 </div>
                             </div>
                         </div>
@@ -146,12 +146,18 @@
 
 
 <script>
-    $(function () {
-        $('#txtDesBlog').ckeditor({
-            filebrowserImageUploadUrl: '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images'
-        });
+    setTimeout(function () {
 
-    });
+        CKEDITOR.replace('des_blog_tra');
+       
+
+    }, 200);
+    //$(function () {
+    //    $('#txtDesBlog').ckeditor({
+    //        filebrowserImageUploadUrl: '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images'
+    //    });
+
+    //});
 
     function getLink() {
         var dataimg = new FormData();

@@ -1,0 +1,102 @@
+﻿
+@model AdminGold.Models.AllModel
+<div class="row">
+    <div class="col-lg-6">
+        <div class="form-group">
+            <label>Tên Menu Vi</label>
+            @Html.EditorFor(model => model.TblMenu.NameMenu, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+        <div class="form-group">
+            <label>Tên Menu En</label>
+            @Html.EditorFor(model => model.TblMenu.NameMenu_en, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+        <div class="form-group">
+            <label>Thứ tự</label>
+
+            @Html.DropDownListFor(model => model.TblMenu.OrderMenu, new List<SelectListItem>
+                                {
+                                    new SelectListItem {Text = "thứ tự", Value = "9999999"},
+                                    new SelectListItem {Text = "1", Value = "1"},
+                                       new SelectListItem {Text = "2", Value = "2"},
+                                          new SelectListItem {Text = "3", Value = "3"},
+                                             new SelectListItem {Text = "4", Value = "4"},
+                                                new SelectListItem {Text = "5", Value = "5"},
+                                                   new SelectListItem {Text = "6", Value = "6"},
+                                                      new SelectListItem {Text = "7", Value = "7"},
+                                                         new SelectListItem {Text = "8", Value = "8"},
+                                                            new SelectListItem {Text = "9", Value = "9"},
+                                                               new SelectListItem {Text = "0", Value = "10"},
+
+                                }, new { @class = "form-control", @name = "tblMenu.OrderMenu" })
+
+        </div>
+        <div class="form-group">
+            <label>Link Menu</label>
+            @Html.EditorFor(model => model.TblMenu.LinkMenu, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="form-group">
+            <label>Loại</label>
+            @Html.DropDownListFor(M => M.TblMenu.IdParentMenu,  new SelectList(Model.ListMenu.ToList(), "IdMenu", "NameMenu"), htmlAttributes: new { @class = "form-control" })
+            @*<select class="form-control" name="TblMenu.IdParentMenu">
+                <option value="0">Chọn danh sách</option>
+                @foreach (var item in Model.ListMenu)
+                {
+                    <option value="@item.IdMenu">@item.NameMenu</option>
+                }
+            </select>*@
+
+
+        </div>
+
+        <div class="form-group">
+            <label>Trạng thái</label>
+
+            @Html.DropDownListFor(model => model.TblMenu.StatusMenu, new List<SelectListItem>
+                                {
+                                    new SelectListItem {Text = "Không hoạt động", Value = "0"},
+                                    new SelectListItem {Text = "Hoạt động", Value = "1"},
+
+                                }, new { @class = "form-control", @name = "TblMenu.StatusMenu" })
+
+        </div>
+        <div class="form-group">
+            <label>Quyên cha</label>
+
+            @Html.DropDownListFor(model => model.TblMenu.IsParent, new List<SelectListItem>
+                                {
+                                    new SelectListItem {Text = "Không", Value = "0"},
+                                    new SelectListItem {Text = "Có", Value = "1"},
+
+                                }, new { @class = "form-control", @name = "TblMenu.IsParent" })
+
+        </div>
+        <div class="form-group">
+            <label>Menu sản phẩm</label>
+
+            @Html.DropDownListFor(model => model.TblMenu.IsCategoryMenu, new List<SelectListItem>
+                                {
+                                    new SelectListItem {Text = "Menu sản phẩm", Value = "0"},
+                                    new SelectListItem {Text = "Menu trang web", Value = "1"},
+
+                                }, new { @class = "form-control" })
+
+        </div>
+        <div class="form-group">
+            <label>Hiển thị ở trang chủ</label>
+
+            @Html.DropDownListFor(model => model.TblMenu.ShowHomeMenu, new List<SelectListItem>
+                                {
+                                    new SelectListItem {Text = "Không", Value = "0"},
+                                    new SelectListItem {Text = "Có", Value = "1"},
+
+                                }, new { @class = "form-control" })
+
+        </div>
+       
+    </div>
+</div>
+
+@Html.HiddenFor(x => x.TblMenu.IdMenu)
+<input type="hidden" value="5" name="TblMenu.IdCompany" />

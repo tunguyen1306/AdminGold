@@ -139,5 +139,10 @@ namespace AdminGold.Models
         public virtual DbSet<web_tr_products> web_tr_products { get; set; }
         public virtual DbSet<web_tr_quangcao> web_tr_quangcao { get; set; }
         public virtual DbSet<web_vangia_category> web_vangia_category { get; set; }
+        public virtual DbSet<tblCategory> tblCategories { get; set; }
+        public virtual DbSet<tblMenu> tblMenus { get; set; }
+        public virtual DbSet<tblProduct> tblProducts { get; set; }
+        public virtual DbSet<tblVocabulary> tblVocabularies { get; set; }
+        public virtual DbSet<tblPicture> tblPictures { get; set; }
     }
 }

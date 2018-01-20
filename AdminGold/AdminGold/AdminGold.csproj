@@ -76,8 +76,8 @@
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.5.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -152,6 +152,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AdminGoldController.cs" />
     <Compile Include="Controllers\AdminSliderController.cs" />
     <Compile Include="Controllers\APISendGiftController.cs" />
@@ -164,6 +165,7 @@
     <Compile Include="Controllers\TravelController.cs" />
     <Compile Include="Controllers\UploadImgController.cs" />
     <Compile Include="Controllers\VanGiaController.cs" />
+    <Compile Include="Controllers\WebCoinController.cs" />
     <Compile Include="Controllers\WebDoGoController.cs" />
     <Compile Include="Domain\Data.cs" />
     <Compile Include="Global.asax.cs">
@@ -199,6 +201,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AdminGoldMain.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\AllModel.cs" />
     <Compile Include="Models\APISendGift.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -270,6 +273,7 @@
     <Compile Include="Models\pct_title.cs">
       <DependentUpon>AdminGold.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\PictureModel.cs" />
     <Compile Include="Models\ProductsPicture.cs" />
     <Compile Include="Models\project_steel.cs">
       <DependentUpon>AdminGold.tt</DependentUpon>
@@ -368,7 +372,7 @@
       <DependentUpon>APISendGift.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblCategory.cs">
-      <DependentUpon>AdminGoldMain.tt</DependentUpon>
+      <DependentUpon>AdminGold.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblCategoryGift.cs">
       <DependentUpon>APISendGift.tt</DependentUpon>
@@ -383,10 +387,13 @@
       <DependentUpon>AdminGold.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblMenu.cs">
-      <DependentUpon>AdminGoldMain.tt</DependentUpon>
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblPicture.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblProduct.cs">
-      <DependentUpon>AdminGoldMain.tt</DependentUpon>
+      <DependentUpon>AdminGold.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblSysCompany.cs">
       <DependentUpon>AdminGold.tt</DependentUpon>
@@ -440,6 +447,9 @@
       <DependentUpon>AdminGold.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblUserImg.cs">
+      <DependentUpon>AdminGold.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblVocabulary.cs">
       <DependentUpon>AdminGold.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tbl_blog_tra.cs">
@@ -2867,6 +2877,19 @@
     <Content Include="Views\WebDoGo\EditCategory.cshtml" />
     <Content Include="Views\WebDoGo\IndexCategory.cshtml" />
     <Content Include="Views\WebDoGo\_inputCategory.cshtml" />
+    <Content Include="Views\WebCoin\CreateProduct.cshtml" />
+    <Content Include="Views\WebCoin\DeleteProduct.cshtml" />
+    <Content Include="Views\WebCoin\EditProduct.cshtml" />
+    <Content Include="Views\WebCoin\IndexProduct.cshtml" />
+    <Content Include="Views\WebCoin\DetailsProduct.cshtml" />
+    <Content Include="Views\WebCoin\IndexCategory.cshtml" />
+    <Content Include="Views\WebCoin\CreateCategory.cshtml" />
+    <Content Include="Views\WebCoin\EditCategory.cshtml" />
+    <Content Include="Views\WebCoin\_pInputCategory.cshtml" />
+    <Content Include="Views\WebCoin\_pInputProduct.cshtml" />
+    <Content Include="Views\WebDoGo\_inputProduct.cshtml" />
+    <Content Include="Views\WebDoGo\CreateProduct.cshtml" />
+    <Content Include="Views\WebDoGo\EditProduct.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

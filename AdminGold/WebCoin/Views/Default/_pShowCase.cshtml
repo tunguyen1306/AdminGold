@@ -1,0 +1,249 @@
+﻿@using System.Configuration
+@using WebCoin.Models
+@{
+    DataCoinEntities db = new DataCoinEntities();
+    var itemshowcase = db.tblProducts.Where(x => x.IdCompany == 5 && x.StatusProducts == 1 && x.IdCategoryProducts != 1).OrderByDescending(x => x.IdProducts).ToList().Take(2);
+    var dataProductitemshowcase = itemshowcase.OrderBy(x => Guid.NewGuid());
+    var itemFeature = db.tblProducts.Where(x => x.IdCompany == 5 && x.StatusProducts == 1 && x.IdCategoryProducts != 1 || x.IdTypeProducts == 1).OrderByDescending(x => x.IdProducts).ToList().Take(4);
+    var dataProductitemFeature = itemFeature.OrderBy(x => Guid.NewGuid());
+}
+<div id="showcase" class="stuck_position">
+    <div class="container">
+        <div class="row">
+            <div class="moduletable   col-sm-9">
+                <div class="module_container">
+                    <div id="swiper-slider_208" class="swiper-container swiper-slider "
+                         data-min-height="420px"
+                         data-height="52.8735632183908%"
+                         data-autoplay="false"
+                         data-loop="true"
+                         data-slide-effect="slide">
+                        <div class="swiper-wrapper">
+                            @foreach (var item in db.tblProducts.Where(x => x.IdCompany == 5 && x.StatusProducts == 1 && x.IdCategoryProducts == 1).OrderByDescending(x => x.IdProducts).ToList())
+                            {
+                                var firstOrDefault = db.tblPictures.FirstOrDefault(x => x.ProductsId == item.IdProducts);
+                                if (firstOrDefault != null)
+                                {
+                                    var linkImg = firstOrDefault.OriginalFilepath;
+                                    var linkImgName = firstOrDefault.ConvertedFilename;
+                                    <div class="swiper-slide" data-slide-bg="@(ConfigurationManager.AppSettings["UrlImg"] + linkImg.Split('_')[0] + "/" + String.Format(linkImgName,1))">
+                                        <div class="swiper-slide-caption"
+                                             data-caption-animate="fadeIn"
+                                             data-caption-delay="200">
+                                            <div class="camera_caption ">
+
+
+                                                <h3 class="slide-title">
+                                                    <a href="@Url.Action("Detail","Default",new {id=item.NameProducts.UrlFrendly()+"-"+item.IdProducts})">
+                                                        <span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first clvi">@(item.NameProducts.Length>75 ? item.NameProducts.Substring(0,75)+"...": item.NameProducts)</span>
+                                                        <span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first clen hidden">@(item.NameProducts_en.Length >= 45 ? item.NameProducts_en.Substring(0, 43) + "..." : item.NameProducts_en)</span>
+
+                                                    </a>
+                                                </h3>
+
+
+
+
+                                                <time datetime="@item.CreateDateProducts" class="item_published">
+                                                    @item.CreateDateProducts
+                                                </time>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                }
+
+
+                                @*<div class="swiper-slide "
+                                         data-slide-bg="/Template/images/slide-2.jpg">
+                                        <div class="swiper-slide-caption"
+                                             data-caption-animate="fadeIn"
+                                             data-caption-delay="200">
+                                            <div class="camera_caption ">
+
+
+                                                <h3 class="slide-title">
+                                                    <a href="/joomla_64017/index.php/63-home/slider/139-ny-court-judge-denies-fbi-on-iphone-hack"><span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first">NY</span> <span class="item_title_part_1 item_title_part_even item_title_part_first_half">Court</span> <span class="item_title_part_2 item_title_part_odd item_title_part_first_half">Judge</span> <span class="item_title_part_3 item_title_part_even item_title_part_first_half">Denies</span> <span class="item_title_part_4 item_title_part_odd item_title_part_first_half">FBI</span> <span class="item_title_part_5 item_title_part_even item_title_part_second_half"></span> <span class="item_title_part_6 item_title_part_odd item_title_part_second_half">on</span> <span class="item_title_part_7 item_title_part_even item_title_part_second_half">iPhone</span> <span class="item_title_part_8 item_title_part_odd item_title_part_second_half item_title_part_last">Hack</span></a>
+                                                </h3>
+
+
+
+
+                                                <time datetime="2014-05-02 19:34" class="item_published">
+                                                    May 02, 2014
+                                                </time>
+
+
+
+
+                                            </div>
+                                        </div>
+                                    </div>*@
+                            }
+
+
+
+
+                        </div>
+                        <!-- Swiper Navigation -->
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="moduletable   col-sm-3">
+                <div class="module_container">
+                    <div class="mod-newsflash-adv news mod-newsflash-adv__ cols-1" id="module_236">
+                        @foreach (var item1 in dataProductitemshowcase)
+                        {
+                            <div class="row">
+                                <article class="col-sm-12 item item_num0 item__module  " id="item_181">
+
+                                    <!-- Intro Image -->
+                                    <figure class="item_img img-intro img-intro__none">
+                                        @{
+                                            var firstOrDefault = db.tblPictures.FirstOrDefault(x => x.ProductsId == item1.IdProducts);
+
+                                            if (firstOrDefault != null)
+                                            {
+                                                var linkImg = firstOrDefault.OriginalFilepath;
+                                                var linkImgName = firstOrDefault.ConvertedFilename;
+                                       
+                                                <picture>
+                                                    <source media="(max-width: 768px)" srcset="@(ConfigurationManager.AppSettings["UrlImg"] + linkImg.Split('_')[0] + "/" + String.Format(linkImgName,1))">
+                                                    <source srcset="@(ConfigurationManager.AppSettings["UrlImg"] + linkImg.Split('_')[0] + "/" + String.Format(linkImgName, 3))">
+                                                    <img src="@(ConfigurationManager.AppSettings["UrlImg"] + linkImg.Split('_')[0] + "/" + String.Format(linkImgName,3))" alt="@item1.NameProducts_en">
+                                                </picture>
+                                            }
+                                        }
+                                        <div class="image_content">
+
+                                            <ul class="tags inline">
+                                                <li class="tag-20 tag-list0" itemprop="keywords">
+                                                    @{
+                                                        var orDefault = db.tblMenus.FirstOrDefault(x => x.IdMenu == item1.IdCategoryProducts);
+                                                    }
+                                                    @if (orDefault != null)
+                                                    {
+                                                        <a href="@Url.Action("ListNews", "Default", new {id =orDefault.NameMenu.UrlFrendly()+"-"+ item1.IdCategoryProducts})" class="label label-info clvi">@orDefault.NameMenu</a>
+                                                        <a href="@Url.Action("ListNews", "Default", new {id =orDefault.NameMenu_en.UrlFrendly()+"-"+ item1.IdCategoryProducts})" class="label label-info clen hidden">@orDefault.NameMenu_en</a>
+
+                                                    }
+
+                                                </li>
+                                            </ul>
+
+                                            <!-- Item title -->
+                                            <h5 class="item_title item_title__">
+                                                <a href="@Url.Action("Detail","Default",new {id=item1.NameProducts.UrlFrendly()+"-"+item1.IdProducts})">
+                                                    <span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first clvi">@(item1.NameProducts.Length >= 45 ? item1.NameProducts.Substring(0, 43) + "..." : item1.NameProducts)</span>
+
+                                                </a>
+                                                <a href="@Url.Action("Detail","Default",new {id=item1.NameProducts.UrlFrendly()+"-"+item1.IdProducts})">
+                                                    <span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first clen">@(item1.NameProducts_en.Length >= 45 ? item1.NameProducts_en.Substring(0, 43) + "..." : item1.NameProducts_en)</span>
+
+                                                </a>
+                                            </h5>
+
+
+                                            <!-- Read More link -->
+                                        </div>
+
+                                    </figure>
+
+                                </article>
+                            </div>
+
+                                                        }
+
+                        <div class="clearfix"></div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="moduletable   col-sm-12">
+                <div class="module_container">
+                    <header class='page_header'>
+                        <h3 class="moduleTitle type1">
+                            <span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first clvi">Tin tức</span>
+                            <span class="item_title_part_1 item_title_part_even item_title_part_first_half clvi">đặc biệt</span>
+                            <span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first clen hidden">FEATURED</span>
+                            <span class="item_title_part_2 item_title_part_odd item_title_part_second_half item_title_part_last clen hidden">news</span>
+
+
+
+                        </h3>
+                    </header>
+                    <div class="mod-newsflash-adv news mod-newsflash-adv__ cols-4" id="module_222">
+                        <div class="row">
+                            @foreach (var item1 in dataProductitemFeature)
+                            {
+                                <article class="col-sm-3 item item_num0 item__module  " id="item_148">
+
+                                    <!-- Intro Image -->
+                                    <figure class="item_img img-intro img-intro__none">
+                                        @{
+                                            var firstOrDefault = db.tblPictures.FirstOrDefault(x => x.ProductsId == item1.IdProducts);
+
+                                            if (firstOrDefault != null)
+                                            {
+                                                var linkImg = firstOrDefault.OriginalFilepath;
+                                                var linkImgName = firstOrDefault.ConvertedFilename;
+                                               
+                                                <picture>
+                                                    <source media="(max-width: 768px)" srcset="@(ConfigurationManager.AppSettings["UrlImg"] + linkImg.Split('_')[0] + "/" + String.Format(linkImgName,1))">
+                                                    <source srcset="@(ConfigurationManager.AppSettings["UrlImg"] + linkImg.Split('_')[0] + "/" + String.Format(linkImgName, 3))">
+                                                    <img src="@(ConfigurationManager.AppSettings["UrlImg"] + linkImg.Split('_')[0] + "/" + String.Format(linkImgName,3))" alt="@item1.NameProducts_en">
+                                                </picture>
+
+                                            }
+                                        }
+
+
+                                        <div class="image_content">
+
+                                            <ul class="tags inline">
+                                                <li class="tag-18 tag-list0" itemprop="keywords">
+                                                    @{
+                                                        var orDefault = db.tblMenus.FirstOrDefault(x => x.IdMenu == item1.IdCategoryProducts);
+                                                    }
+                                                    @if (orDefault != null)
+                                                    {
+                                                        <a href="@Url.Action("ListNews", "Default", new {id =orDefault.NameMenu.UrlFrendly()+"-"+ item1.IdCategoryProducts})" class="label label-info clvi">@orDefault.NameMenu</a>
+                                                        <a href="@Url.Action("ListNews", "Default", new {id =orDefault.NameMenu_en.UrlFrendly()+"-"+ item1.IdCategoryProducts})" class="label label-info clen hidden">@orDefault.NameMenu_en</a>
+
+                                                    }
+                                                </li>
+                                            </ul>
+
+                                            <!-- Item title -->
+                                            <h5 class="item_title item_title__">
+                                                <a href="@Url.Action("Detail","Default",new {id=item1.NameProducts.UrlFrendly()+"-"+item1.IdProducts})">
+                                                    <span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first clvi">@(item1.NameProducts.Length >= 45 ? item1.NameProducts.Substring(0, 43) + "..." : item1.NameProducts)</span>
+
+                                                </a>
+                                                <a href="@Url.Action("Detail","Default",new {id=item1.NameProducts.UrlFrendly()+"-"+item1.IdProducts})">
+                                                    <span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first clen">@(item1.NameProducts_en.Length >= 45 ? item1.NameProducts_en.Substring(0, 43) + "..." : item1.NameProducts_en)</span>
+
+                                                </a>
+                                            </h5>
+
+
+                                            <!-- Read More link -->
+                                        </div>
+
+                                    </figure>
+
+                                </article>
+                                                        }
+
+
+                        </div>
+                        <div class="clearfix"></div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

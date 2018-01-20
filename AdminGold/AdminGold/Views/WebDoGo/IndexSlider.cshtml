@@ -16,7 +16,7 @@
     <div class="col-lg-12">
         <div class="panel panel-default">
             <div class="panel-heading">
-                @Html.ActionLink("Thêm Slider", "CreateSlider", "Travel", "", htmlAttributes: new { @class = "btn btn-primary" })
+                @Html.ActionLink("Thêm Slider", "CreateSlider", "WebDoGo", "", htmlAttributes: new { @class = "btn btn-primary" })
             </div>
             <!-- /.panel-heading -->
             <div class="panel-body">
@@ -64,8 +64,8 @@
 
 
                                     <td>
-                                        <a href="@Url.Action("EditSlider", "Travel", new { id = item.vangia_id_silde })" class="btn btn-default btn-xs">Sửa</a>
-                                        <a href="@Url.Action("DeleteSlider", "Travel", new { id = item.vangia_id_silde })" onclick="return confirm('Bạn có muốn xóa sản phẩm không?');" class="btn btn-default btn-xs">Xóa</a>
+                                        <a href="@Url.Action("EditSlider", "WebDoGo", new { id = item.vangia_id_silde })" class="btn btn-default btn-xs">Sửa</a>
+                                        <a href="@Url.Action("DeleteSlider", "WebDoGo", new { id = item.vangia_id_silde })" onclick="return confirm('Bạn có muốn xóa sản phẩm không?');" class="btn btn-default btn-xs">Xóa</a>
                                     </td>
                                 </tr>
                             }

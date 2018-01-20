@@ -50,8 +50,13 @@ namespace AdminGold.Domain
             menu.Add(new Navbar { Id = 15, nameOption = "Danh sách sản phẩm", controller = "WebDoGo", action = "Index", imageClass = "fa fa-dashboard fa-fw", status = true, isParent = false, parentId =14 });
             menu.Add(new Navbar { Id = 16, nameOption = "Danh sách blog", controller = "WebDoGo", action = "IndexBlog", imageClass = "fa fa-dashboard fa-fw", status = true, isParent = false, parentId = 14 });
             menu.Add(new Navbar { Id = 17, nameOption = "Danh sách slider", controller = "WebDoGo", action = "IndexSlider", imageClass = "fa fa-dashboard fa-fw", status = true, isParent = false, parentId = 14 });
-            menu.Add(new Navbar { Id = 17, nameOption = "Danh sách danh mục", controller = "WebDoGo", action = "IndexCategory", imageClass = "fa fa-dashboard fa-fw", status = true, isParent = false, parentId = 14 });
+            menu.Add(new Navbar { Id = 18, nameOption = "Danh sách danh mục", controller = "WebDoGo", action = "IndexCategory", imageClass = "fa fa-dashboard fa-fw", status = true, isParent = false, parentId = 14 });
 
+
+            menu.Add(new Navbar { Id = 19, nameOption = "Coin", imageClass = "fa fa-dashboard fa-fw", status = true, isParent = true, parentId = 0 });
+            menu.Add(new Navbar { Id = 20, nameOption = "Category News", controller = "WebCoin", action = "IndexProduct", imageClass = "fa fa-dashboard fa-fw", status = true, isParent = false, parentId = 19 });
+            menu.Add(new Navbar { Id = 21, nameOption = "Category List", controller = "WebCoin", action = "IndexCategory", imageClass = "fa fa-dashboard fa-fw", status = true, isParent = false, parentId = 19 });
+          
 
 
             return menu.ToList();

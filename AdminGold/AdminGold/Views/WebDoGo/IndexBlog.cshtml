@@ -19,7 +19,7 @@
     <div class="col-lg-12">
         <div class="panel panel-default">
             <div class="panel-heading">
-                @Html.ActionLink("Thêm Blog", "CreateBlog", "Travel", "", htmlAttributes: new { @class = "btn btn-primary" })
+                @Html.ActionLink("Thêm Blog", "CreateBlog", "WebDoGo", "", htmlAttributes: new { @class = "btn btn-primary" })
             </div>
             <!-- /.panel-heading -->
             <div class="panel-body">
@@ -67,8 +67,8 @@
 
 
                                     <td>
-                                        <a href="@Url.Action("EditBlog", "Travel", new { id = item.id_blog_tra })" class="btn btn-default btn-xs">Sửa</a>
-                                        <a href="@Url.Action("DeleteBlog", "Travel", new { id = item.id_blog_tra })" onclick="return confirm('Bạn có muốn xóa sản phẩm không?');" class="btn btn-default btn-xs">Xóa</a>
+                                        <a href="@Url.Action("EditBlog", "WebDoGo", new { id = item.id_blog_tra })" class="btn btn-default btn-xs">Sửa</a>
+                                        <a href="@Url.Action("DeleteBlog", "WebDoGo", new { id = item.id_blog_tra })" onclick="return confirm('Bạn có muốn xóa sản phẩm không?');" class="btn btn-default btn-xs">Xóa</a>
                                     </td>
                                 </tr>
                             }

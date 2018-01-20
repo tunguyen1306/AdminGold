@@ -163,6 +163,7 @@
           <Property Name="TENTRAM" Type="nvarchar" MaxLength="50" />
           <Property Name="LatLng" Type="ntext" />
           <Property Name="FileTram" Type="nvarchar" MaxLength="500" />
+          <Property Name="LatLngVe" Type="ntext" />
         </EntityType>
         <EntityType Name="DMTUYEN">
           <Key>
@@ -498,6 +499,7 @@ warning 6002: The table/view 'nhvanxol_bus.dbo.phuong' does not have a primary k
           <Property Name="DeviceId" Type="varchar" MaxLength="100" />
           <Property Name="lng" Type="decimal" Precision="9" Scale="5" />
           <Property Name="Lat" Type="decimal" Precision="9" Scale="5" />
+          <Property Name="MaTram" Type="varchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="TrackingGPSDetail">
           <Key>
@@ -508,6 +510,7 @@ warning 6002: The table/view 'nhvanxol_bus.dbo.phuong' does not have a primary k
           <Property Name="Lat" Type="decimal" Precision="9" Scale="5" />
           <Property Name="Lng" Type="decimal" Precision="9" Scale="5" />
           <Property Name="Time" Type="datetime" />
+          <Property Name="MaTram" Type="varchar" MaxLength="10" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'nhvanxol_bus.dbo.VNELocation' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -523,6 +526,14 @@ warning 6002: The table/view 'nhvanxol_bus.dbo.VNELocation' does not have a prim
           <Property Name="district_id" Type="int" />
           <Property Name="ward_id" Type="int" />
           <Property Name="rowguid" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PostData">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PostDate" Type="datetime" />
+          <Property Name="PostText" Type="varchar(max)" />
         </EntityType>
         <EntityContainer Name="BusTicketModelStoreContainer">
           <EntitySet Name="Counters" EntityType="Self.Counters" Schema="dbo" store:Type="Tables" />
@@ -554,6 +565,7 @@ warning 6002: The table/view 'nhvanxol_bus.dbo.VNELocation' does not have a prim
           <EntitySet Name="StateText" EntityType="Self.StateText" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TrackingGPS" EntityType="Self.TrackingGPS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TrackingGPSDetail" EntityType="Self.TrackingGPSDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PostData" EntityType="Self.PostData" Schema="nhvanxol_bus" store:Type="Tables" />
           <EntitySet Name="GeoIP2CityText" EntityType="Self.GeoIP2CityText" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [GeoIP2CityText].[geoname_id] AS [geoname_id], 
@@ -675,6 +687,7 @@ warning 6002: The table/view 'nhvanxol_bus.dbo.VNELocation' does not have a prim
           <EntitySet Name="Ip2City2" EntityType="BusTicketModel.Ip2City2" />
           <EntitySet Name="phuongs" EntityType="BusTicketModel.phuong" />
           <EntitySet Name="VNELocations" EntityType="BusTicketModel.VNELocation" />
+          <EntitySet Name="PostDatas" EntityType="BusTicketModel.PostData" />
         </EntityContainer>
         <EntityType Name="Counter">
           <Key>
@@ -834,6 +847,7 @@ warning 6002: The table/view 'nhvanxol_bus.dbo.VNELocation' does not have a prim
           <Property Name="TENTRAM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="LatLng" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="FileTram" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="LatLngVe" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="DMTUYEN">
           <Key>
@@ -1088,6 +1102,7 @@ warning 6002: The table/view 'nhvanxol_bus.dbo.VNELocation' does not have a prim
           <Property Name="DeviceId" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="lng" Type="Decimal" Precision="9" Scale="5" />
           <Property Name="Lat" Type="Decimal" Precision="9" Scale="5" />
+          <Property Name="MaTram" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="TrackingGPSDetail">
           <Key>
@@ -1098,6 +1113,7 @@ warning 6002: The table/view 'nhvanxol_bus.dbo.VNELocation' does not have a prim
           <Property Name="Lat" Type="Decimal" Precision="9" Scale="5" />
           <Property Name="Lng" Type="Decimal" Precision="9" Scale="5" />
           <Property Name="Time" Type="DateTime" Precision="3" />
+          <Property Name="MaTram" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="GeoIP2CityText">
           <Key>
@@ -1184,6 +1200,14 @@ warning 6002: The table/view 'nhvanxol_bus.dbo.VNELocation' does not have a prim
           <Property Name="district_id" Type="Int32" />
           <Property Name="ward_id" Type="Int32" />
           <Property Name="rowguid" Type="Guid" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PostData">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PostDate" Type="DateTime" Precision="3" />
+          <Property Name="PostText" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -1350,6 +1374,7 @@ warning 6002: The table/view 'nhvanxol_bus.dbo.VNELocation' does not have a prim
           <EntitySetMapping Name="DMTRAMs">
             <EntityTypeMapping TypeName="BusTicketModel.DMTRAM">
               <MappingFragment StoreEntitySet="DMTRAM">
+                <ScalarProperty Name="LatLngVe" ColumnName="LatLngVe" />
                 <ScalarProperty Name="FileTram" ColumnName="FileTram" />
                 <ScalarProperty Name="LatLng" ColumnName="LatLng" />
                 <ScalarProperty Name="TENTRAM" ColumnName="TENTRAM" />
@@ -1617,6 +1642,7 @@ warning 6002: The table/view 'nhvanxol_bus.dbo.VNELocation' does not have a prim
           <EntitySetMapping Name="TrackingGPS">
             <EntityTypeMapping TypeName="BusTicketModel.TrackingGP">
               <MappingFragment StoreEntitySet="TrackingGPS">
+                <ScalarProperty Name="MaTram" ColumnName="MaTram" />
                 <ScalarProperty Name="Lat" ColumnName="Lat" />
                 <ScalarProperty Name="lng" ColumnName="lng" />
                 <ScalarProperty Name="DeviceId" ColumnName="DeviceId" />
@@ -1630,6 +1656,7 @@ warning 6002: The table/view 'nhvanxol_bus.dbo.VNELocation' does not have a prim
           <EntitySetMapping Name="TrackingGPSDetails">
             <EntityTypeMapping TypeName="BusTicketModel.TrackingGPSDetail">
               <MappingFragment StoreEntitySet="TrackingGPSDetail">
+                <ScalarProperty Name="MaTram" ColumnName="MaTram" />
                 <ScalarProperty Name="Time" ColumnName="Time" />
                 <ScalarProperty Name="Lng" ColumnName="Lng" />
                 <ScalarProperty Name="Lat" ColumnName="Lat" />
@@ -1725,6 +1752,15 @@ warning 6002: The table/view 'nhvanxol_bus.dbo.VNELocation' does not have a prim
                 <ScalarProperty Name="Ward" ColumnName="Ward" />
                 <ScalarProperty Name="District" ColumnName="District" />
                 <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PostDatas">
+            <EntityTypeMapping TypeName="BusTicketModel.PostData">
+              <MappingFragment StoreEntitySet="PostData">
+                <ScalarProperty Name="PostText" ColumnName="PostText" />
+                <ScalarProperty Name="PostDate" ColumnName="PostDate" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

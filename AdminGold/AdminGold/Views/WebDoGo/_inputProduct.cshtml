@@ -1,0 +1,136 @@
+﻿
+@using System.Configuration
+@model AdminGold.Models.VanGiaPicture
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <input type="hidden" value="@ConfigurationManager.AppSettings["company"]" name="tblProject.company" />
+                        <div class="form-group">
+                            <label>Tên sản phẩm</label>
+                            @Html.EditorFor(model => model.tblProject.vangia_name_project, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+                        <div class="form-group">
+                            <label>Tóm tắt</label>
+                            @Html.EditorFor(model => model.tblProject.vangia_tomtat_project, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+                        <div class="form-group">
+                            <label>Nội dung</label>
+                            @Html.TextAreaFor(x => x.tblProject.vangia_content_project, htmlAttributes: new { @id = "vangia_content_project", @name = "tblProject.vangia_content_project", @class = "vangia_content_project form-control fck" })
+                        </div>
+                        <div class="form-group">
+
+                            <label>Upload Hình</label>
+
+                            <div>
+                                <style>
+                                    .thumb {
+                                        height: 75px;
+                                        border: 1px solid #000;
+                                        margin: 10px 5px 0 0;
+                                    }
+                                </style>
+
+                                <input type="file" class="form-control" id="files" name="files" multiple accept="image/*" />
+                                <script>
+                                    function handleFileSelect(evt) {
+                                        var files = evt.target.files; // FileList object
+
+                                        // Loop through the FileList and render image files as thumbnails.
+                                        for (var i = 0, f; f = files[i]; i++) {
+
+                                            // Only process image files.
+                                            if (!f.type.match('image.*')) {
+                                                continue;
+                                            }
+
+                                            var reader = new FileReader();
+
+                                            // Closure to capture the file information.
+                                            reader.onload = (function (theFile) {
+                                                return function (e) {
+                                                    // Render thumbnail.
+                                                    var span = document.createElement('span');
+                                                    span.innerHTML = ['<img class="thumb" src="', e.target.result,
+                                                        '" title="', escape(theFile.name), '"/>'].join('');
+                                                    document.getElementById('list').insertBefore(span, null);
+                                                };
+                                            })(f);
+
+                                            // Read in the image file as a data URL.
+                                            reader.readAsDataURL(f);
+                                        }
+                                    }
+
+                                    document.getElementById('files').addEventListener('change', handleFileSelect, false);
+                                </script>
+
+                            </div>
+                            <div>
+                                <output id="list"></output>
+                            </div>
+                            @{
+                                if (Model.tblListPicture != null && Model.tblListPicture.Count > 0)
+                                {
+                                    <div>
+                                        <output>
+                                            @{
+                                                foreach (var pic in Model.tblListPicture.Where(T => T.advert_id == Model.tblProject.vangia_id_project).ToList())
+                                                {
+                                                    <span style="position: relative">
+                                                        <input type="hidden" name="imgId" value="@(pic.picture_id)" />
+                                                        <i class="delete fa fa-times" style="position: absolute; right: -5px; top: -5px; cursor: pointer;"></i>
+                                                        <img class="thumb" src="@ConfigurationManager.AppSettings["domain"]@pic.originalFilepath.ToString().Split('_')[0]/@pic.originalFilepath" title="">
+                                                    </span>
+                                                }
+                                            }
+                                        </output>
+                                    </div>
+                                                }
+
+                            }
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label>Danh mục sản phẩm</label>
+                            @Html.DropDownListFor(M => M.tblProject.vangia_typeid_project, new SelectList(Model.ListCategory.ToList(), "Id", "Name"), htmlAttributes: new { @class = "form-control" })
+
+                        </div>
+                        <div class="form-group">
+                            <label>Giá sản phẩm</label>
+                            @Html.EditorFor(model => model.tblProject.vangia_img1_project, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+                        <div class="form-group">
+                            <label>Trạng thái</label>
+                            @Html.DropDownListFor(m => m.tblProject.vangia_status_project, new List<SelectListItem>{
+       new SelectListItem{ Text = "Không hoạt động",Value = "0",Selected = true},
+       new SelectListItem{Selected = false,Text = "Hoạt động",Value = "1"},
+
+   }, new { @class = "form-control" })
+
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+            </div>
+
+        </div>
+        <!-- /.panel-body -->
+    </div>
+    <!-- /.panel -->
+</div>
+@Html.HiddenFor(x => x.tblProject.vangia_id_project)
+<input type="hidden" value="4" name="IdCompany" />
+<script>
+    setTimeout(function () {
+
+        CKEDITOR.replace('vangia_content_project');
+    }, 200);
+</script>

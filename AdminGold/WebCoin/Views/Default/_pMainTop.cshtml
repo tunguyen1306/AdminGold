@@ -1,0 +1,87 @@
+﻿@using System.Configuration
+@using System.Runtime.CompilerServices
+@using WebCoin.Models
+@{
+    DataCoinEntities db = new DataCoinEntities();
+    var itemFeature = db.tblProducts.Where(x => x.IdCompany == 5 && x.StatusProducts == 1 && x.IdCategoryProducts != 1).OrderByDescending(x => x.IdProducts).ToList().Take(3);
+    var dataProductitemFeature = itemFeature.OrderBy(x => Guid.NewGuid());
+
+}
+<div id="maintop" class="stuck_position">
+    <div class="container">
+        <div class="row">
+            <div class="moduletable   col-sm-12">
+                <div class="module_container">
+                    <header class='page_header'><h4 class="moduleTitle "><span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first">Editor’s</span> <span class="item_title_part_1 item_title_part_even item_title_part_second_half item_title_part_last">picks</span></h4></header>
+                    <div class="mod-newsflash-adv news mod-newsflash-adv__ cols-3" id="module_228">
+                        <div class="row">
+                            @foreach (var item in dataProductitemFeature)
+                            {
+                                <article class="col-sm-4 item item_num0 item__module  " id="item_165">
+
+                                    <!-- Intro Image -->
+                                    <figure class="item_img img-intro img-intro__none">
+                                        @{
+                                            var firstOrDefault = db.tblPictures.FirstOrDefault(x => x.ProductsId == item.IdProducts);
+
+                                            if (firstOrDefault != null)
+                                            {
+                                                var linkImg = firstOrDefault.OriginalFilepath;
+                                                var linkImgName = firstOrDefault.ConvertedFilename;
+                                              
+                                                <picture>
+                                                    <source media="(max-width: 768px)" srcset="@(ConfigurationManager.AppSettings["UrlImg"] + linkImg.Split('_')[0] + "/" + String.Format(linkImgName,1))">
+                                                    <source srcset="@(ConfigurationManager.AppSettings["UrlImg"] + linkImg.Split('_')[0] + "/" + String.Format(linkImgName, 2))">
+                                                    <img src="@(ConfigurationManager.AppSettings["UrlImg"] + linkImg.Split('_')[0] + "/" + String.Format(linkImgName,2))" alt="@item.NameProducts_en">
+                                                </picture>
+                                            }
+                                        }
+
+                                        <div class="image_content">
+
+                                            <ul class="tags inline">
+                                                <li class="tag-20 tag-list0" itemprop="keywords">
+                                                    @{
+                                                        var orDefault = db.tblMenus.FirstOrDefault(x => x.IdMenu == item.IdCategoryProducts);
+                                                    }
+                                                    @if (orDefault != null)
+                                                    {
+                                                        <a href="@Url.Action("ListNews", "Default", new {id =orDefault.NameMenu.UrlFrendly()+"-"+ item.IdCategoryProducts})" class="label label-info clvi">@orDefault.NameMenu</a>
+                                                        <a href="@Url.Action("ListNews", "Default", new {id =orDefault.NameMenu_en.UrlFrendly()+"-"+ item.IdCategoryProducts})" class="label label-info clen hidden">@orDefault.NameMenu_en</a>
+
+                                                    }
+
+                                                </li>
+                                            </ul>
+
+                                            <!-- Item title -->
+                                            <h5 class="item_title item_title__">
+                                                <a href="@Url.Action("Detail","Default",new {id=item.NameProducts.UrlFrendly()+"-"+item.IdProducts})">
+                                                    <span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first clvi">@(item.NameProducts.Length >= 45 ? item.NameProducts.Substring(0, 43) + "..." : item.NameProducts)</span>
+
+                                                </a>
+                                                <a href="@Url.Action("Detail","Default",new {id=item.NameProducts.UrlFrendly()+"-"+item.IdProducts})">
+                                                    <span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first clen">@(item.NameProducts_en.Length >= 45 ? item.NameProducts_en.Substring(0, 43) + "..." : item.NameProducts_en)</span>
+
+                                                </a>
+                                            </h5>
+
+
+                                            <!-- Read More link -->
+                                        </div>
+
+                                    </figure>
+
+                                </article>
+
+                            }
+                            
+                        </div>
+                        <div class="clearfix"></div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

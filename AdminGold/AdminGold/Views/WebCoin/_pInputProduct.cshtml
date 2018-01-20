@@ -1,0 +1,159 @@
+﻿
+
+@using System.Configuration
+@model AdminGold.Models.AllModel
+
+<div class="row">
+
+    <div class="col-lg-6">
+        <div class="form-group">
+            <label>News vi</label>
+            @Html.EditorFor(model => model.TblProduct.NameProducts, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+        <div class="form-group">
+            <label>News en</label>
+            @Html.EditorFor(model => model.TblProduct.NameProducts_en, new {htmlAttributes = new {@class = "form-control"}})
+        </div>
+        <div class="form-group">
+            <label>Short Description vi</label>
+            @Html.TextAreaFor(x => x.TblProduct.ShortDesProducts, htmlAttributes: new { @class = "form-control" })
+
+
+        </div>
+        <div class="form-group">
+            <label>Short Description en</label>
+            @Html.TextAreaFor(model => model.TblProduct.ShortDesProducts_en, htmlAttributes: new { @class = "form-control" })
+        </div>
+        
+    </div>
+    <div class="col-lg-6">
+        <div class="form-group">
+            <label>Category</label>
+            @Html.DropDownListFor(M => M.TblProduct.IdCategoryProducts, new SelectList(Model.ListMenu.ToList(), "IdMenu", "NameMenu"), htmlAttributes: new { @class = "form-control" })
+       
+        </div>
+        <div class="form-group">
+            <label>Type</label>
+
+            @Html.DropDownListFor(model => model.TblProduct.IdTypeProducts, new List<SelectListItem>
+                                {
+                                    new SelectListItem {Text = "Select", Value = "0"},
+                                    new SelectListItem {Text = "1.Tin tức đặc biệt", Value = "1"},
+                                       new SelectListItem {Text = "2.Tin tức phổ biến", Value = "2"},
+                                          new SelectListItem {Text = "3.Các loại tiền ảo", Value = "3"},
+                                             new SelectListItem {Text = "4.Kiến thức tiền ảo", Value = "4"},
+                                                new SelectListItem {Text = "5.Đào bitcoin - tiền ảo", Value = "5"},
+                                                  
+                                                              
+
+                                }, new { @class = "form-control"})
+
+        </div>
+        <div class="form-group">
+            <label>Status</label>
+
+            @Html.DropDownListFor(model => model.TblProduct.StatusProducts, new List<SelectListItem>
+                                {
+                                   
+                                    new SelectListItem {Text = "Hoạt động", Value = "1"},
+                                       new SelectListItem {Text = "Không hoạt động", Value = "0"},
+                                        
+                                }, new { @class = "form-control" })
+
+        </div>
+        <div class="form-group">
+
+            <label>Upload Hình</label>
+
+            <div>
+                <style>
+                    .thumb {
+                        height: 75px;
+                        border: 1px solid #000;
+                        margin: 10px 5px 0 0;
+                    }
+                </style>
+
+                <input type="file" class="form-control" id="files" name="files" multiple accept="image/*" />
+                <script>
+                    function handleFileSelect(evt) {
+                        var files = evt.target.files; // FileList object
+
+                        // Loop through the FileList and render image files as thumbnails.
+                        for (var i = 0, f; f = files[i]; i++) {
+
+                            // Only process image files.
+                            if (!f.type.match('image.*')) {
+                                continue;
+                            }
+
+                            var reader = new FileReader();
+
+                            // Closure to capture the file information.
+                            reader.onload = (function (theFile) {
+                                return function (e) {
+                                    // Render thumbnail.
+                                    var span = document.createElement('span');
+                                    span.innerHTML = ['<img class="thumb" src="', e.target.result,
+                                        '" title="', escape(theFile.name), '"/>'].join('');
+                                    document.getElementById('list').insertBefore(span, null);
+                                };
+                            })(f);
+
+                            // Read in the image file as a data URL.
+                            reader.readAsDataURL(f);
+                        }
+                    }
+
+                    document.getElementById('files').addEventListener('change', handleFileSelect, false);
+                </script>
+
+            </div>
+            <div>
+                <output id="list"></output>
+            </div>
+            @{
+                if (Model.ListPicture != null && Model.ListPicture.Count > 0)
+                {
+                    <div>
+                        <output>
+                            @{
+                                foreach (var pic in Model.ListPicture.Where(T => T.ProductsId == Model.TblProduct.IdProducts).ToList())
+                                {
+                                    <span style="position: relative">
+                                        <input type="hidden" name="imgId" value="@(pic.PictureId)" />
+                                        <i class="delete fa fa-times" style="position: absolute; right: -5px; top: -5px; cursor: pointer;"></i>
+                                        <img class="thumb" src="@ConfigurationManager.AppSettings["domain"]@pic.OriginalFilepath.ToString().Split('_')[0]/@pic.OriginalFilepath" title="">
+                                    </span>
+                                }
+                            }
+                        </output>
+                    </div>
+                                }
+
+            }
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="form-group">
+            <label>Description vi</label>
+            @Html.TextAreaFor(model => model.TblProduct.DescriptionProducts, htmlAttributes: new { @id = "DescriptionProducts", @class = "form-control fck" })
+        </div>
+        <div class="form-group">
+            <label>Description en</label>
+            @Html.TextAreaFor(model => model.TblProduct.DescriptionProducts_en, htmlAttributes: new { @id = "DescriptionProducts_en", @class = "form-control fck" })
+        </div>
+    </div>
+</div>
+@Html.HiddenFor(x => x.TblProduct.IdProducts)
+<input type="hidden" value="5" name="TblProduct.IdCompany" />
+<script>
+    setTimeout(function () {
+
+        CKEDITOR.replace('DescriptionProducts');
+        CKEDITOR.replace('DescriptionProducts_en');
+
+    }, 200);
+</script>

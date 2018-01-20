@@ -69,7 +69,7 @@
 
                                 <tr class="odd gradeX">
                                     <td>
-                                        @Html.DisplayFor(modelItem => item.MATUYEN)
+                                        <a href="@Url.Action("LoTrinh","Home",new {id= item.IDTUYEN})">@Html.DisplayFor(modelItem => item.MATUYEN)</a>   
                                     </td>
                                     <td>
                                         @Html.DisplayFor(modelItem => item.TENTUYENENG)

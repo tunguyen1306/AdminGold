@@ -25,6 +25,7 @@
     <NuGetPackageImportStamp>27786652</NuGetPackageImportStamp>
     <TargetFrameworkProfile />
     <TypeScriptToolsVersion>1.8</TypeScriptToolsVersion>
+    <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -58,7 +59,9 @@
     <Compile Include="Controllers\DmXeController.cs" />
     <Compile Include="Controllers\GeoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoTrinhChoXeController.cs" />
     <Compile Include="Controllers\NavbarController.cs" />
+    <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Controllers\TrackingGPsController.cs" />
     <Compile Include="Domain\Data.cs" />
     <Compile Include="Global.asax.cs">
@@ -162,6 +165,9 @@
       <DependentUpon>DataBus.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\phuong.cs">
+      <DependentUpon>DataBus.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PostData.cs">
       <DependentUpon>DataBus.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Quarter.cs">
@@ -921,7 +927,14 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\ContentWebView\js\jquery-1.8.2.js" />
+    <Content Include="Content\ContentWebView\js\jquery.marquee.js" />
+    <Content Include="Content\ContentWebView\js\screenfull.js" />
+    <Content Include="Content\ContentWebView\normalize.css" />
+    <Content Include="Content\ContentWebView\style.css" />
+    <Content Include="Content\CusWebView.css" />
     <Content Include="Content\img\3d_logoDavisoft.gif" />
+    <Content Include="Content\img\LogoMain.jpg" />
     <Content Include="Content\no-image-available.jpg" />
     <Content Include="Content\sb-admin-2.css" />
     <Content Include="Content\timeline.css" />
@@ -1342,6 +1355,7 @@
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Views\Home\HtmlPage1.html" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -1424,6 +1438,17 @@
     <Content Include="Views\DmTram\_InputDmTram.cshtml" />
     <Content Include="Views\DmXe\_InputDmXe.cshtml" />
     <Content Include="Views\DmTuyen\_InputDmTuyen.cshtml" />
+    <Content Include="Views\Home\LoTrinh.cshtml" />
+    <Content Include="Views\Home\GetAllWorkshopDisplay.cshtml" />
+    <Content Include="Views\Home\LoTrinh1.cshtml" />
+    <Content Include="Views\LoTrinhChoXe\Create.cshtml" />
+    <Content Include="Views\LoTrinhChoXe\Delete.cshtml" />
+    <Content Include="Views\LoTrinhChoXe\Details.cshtml" />
+    <Content Include="Views\LoTrinhChoXe\Edit.cshtml" />
+    <Content Include="Views\LoTrinhChoXe\Index.cshtml" />
+    <Content Include="Views\LoTrinhChoXe\_InputLoTrinhXe.cshtml" />
+    <Content Include="Views\Report\BaoCaoTuyen.cshtml" />
+    <Content Include="Views\Report\BaoCaoHoaDon.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1438,6 +1463,10 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.4.1.9004, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
@@ -1454,8 +1483,8 @@
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.5.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -1510,6 +1539,10 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebGrease, Version=1.5.2.14234, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

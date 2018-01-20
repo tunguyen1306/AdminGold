@@ -1,0 +1,297 @@
+﻿@using System.Configuration
+@using System.Linq
+@using WebCoin.Models
+@model WebCoin.Models.tblProduct
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_layoutWeb.cshtml";
+    DataCoinEntities db = new DataCoinEntities();
+    var itemFeature = db.tblProducts.Where(x => x.IdCompany == 5 && x.StatusProducts == 1).ToList().Take(5);
+    var dataProductitemFeature = itemFeature.OrderBy(x => Guid.NewGuid());
+}
+<div id="content">
+    <div class="container">
+        <div class="row">
+            <div class="content-inner">
+                <!-- Left sidebar -->
+
+                <div id="component" class="col-sm-8">
+                    <main role="main">
+                        <div id="system-message-container"></div>
+
+                        <article class="page-item page-item__home">
+                            <ul class="tags inline">
+                                <li class="tag-20 tag-list0" itemprop="keywords">
+                                    @{
+                                        var orDefault = db.tblMenus.FirstOrDefault(x => x.IdMenu == Model.IdCategoryProducts);
+                                    }
+                                    @if (orDefault != null)
+                                    {
+                                        <a href="@Url.Action("ListNews", "Default", new {id =orDefault.NameMenu.UrlFrendly()+"-"+ Model.IdCategoryProducts})" class="label label-info clvi">@orDefault.NameMenu</a>
+                                        <a href="@Url.Action("ListNews", "Default", new {id =orDefault.NameMenu_en.UrlFrendly()+"-"+ Model.IdCategoryProducts})" class="label label-info clen hidden">@orDefault.NameMenu_en</a>
+
+                                    }
+                                </li>
+                            </ul>
+                            <header class="item_header">
+                                <h2 class="item_title">
+                                    <span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first clvi">@Model.NameProducts</span>
+                                    <span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first clen hidden">@Model.NameProducts_en</span>
+
+                                </h2>
+                            </header>
+                            <div class="item_info">
+                                <dl class="item_info_dl">
+                                    <dt class="article-info-term"></dt>
+
+                                    <dd>
+                                        <time datetime="@Model.CreateDateProducts" class="item_published">
+                                            @Model.CreateDateProducts
+                                        </time>
+                                    </dd>
+                                </dl>
+                            </div>
+                            <figure class="item_img img-intro img-intro__left">
+                                @{
+                                    var firstOrDefault = db.tblPictures.FirstOrDefault(x => x.ProductsId == Model.IdProducts);
+
+                                    if (firstOrDefault != null)
+                                    {
+                                        var linkImg = firstOrDefault.OriginalFilepath;
+                                        var linkImgName = firstOrDefault.ConvertedFilename;
+                                        <a href="@Url.Action("Detail", "Default", new {id = Model.NameProducts.UrlFrendly() + "-" + Model.IdProducts})">
+                                           
+                                            <picture>
+                                                <source media="(max-width: 768px)" srcset="@(ConfigurationManager.AppSettings["UrlImg"] + linkImg.Split('_')[0] + "/" + String.Format(linkImgName,1))">
+                                                <source srcset="@(ConfigurationManager.AppSettings["UrlImg"] + linkImg.Split('_')[0] + "/" + String.Format(linkImgName, 3))">
+                                                <img src="@(ConfigurationManager.AppSettings["UrlImg"] + linkImg.Split('_')[0] + "/" + String.Format(linkImgName,3))" alt="@Model.NameProducts_en">
+                                            </picture>
+                                        </a>
+
+                                    }
+                                }
+                            </figure>
+                            <div class="item_fulltext">
+                                <p>
+                                    <span class="clvi" style="white-space: pre-line;">@Model.ShortDesProducts</span>
+                                    <span class="clen hidden" style="white-space: pre-line;">@Model.ShortDesProducts_en</span>
+                                  
+                                </p>
+                               
+                                <br />
+                                
+                                    <span class="clvi">
+                                        @Html.Raw(Model.DescriptionProducts)
+                                    </span>
+                                    <span class="clen">
+                                        @Html.Raw(Model.DescriptionProducts_en)
+                                    </span>
+
+                              
+
+                            </div>
+
+
+                            <!-- Social Sharing -->
+                            <div class="addthis_sharing_toolbox"></div>
+                            <div class="addthis_inline_share_toolbox"></div>
+                            <script type="text/javascript">
+                                var addthis_config =
+                            {
+                                pubid: "ra-5497f2254123130b"
+                            }
+                            </script>
+                            <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+                            <!-- Pagination -->
+                        </article>
+                    </main>
+                </div>
+                <!-- aside-right -->
+                <div id="aside-right" class="col-sm-4">
+                    <div class="moduletable bg">
+                        <div class="module_container">
+                            <header class='page_header'><h2 class="moduleTitle "><span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first item_title_part_last">Newsletter</span></h2></header><div class="acymailing_modulebg" id="acymailing_module_formAcymailing82591">
+                                <div class="acymailing_fulldiv" id="acymailing_fulldiv_formAcymailing82591">
+                                    <form>
+                                        @using (Html.BeginForm("SendMail", "Default"))
+                                        {
+                                            <div class="acymailing_module_form">
+                                                <div class="acymailing_introtext">Get the latest world news delivered right to your inbox, daily.</div> <table class="acymailing_form">
+                                                    <tr>
+                                                        <td class="acyfield_email acy_requiredField">
+                                                            <input id="user_email" class="inputbox" type="text" style="width: 100%" name="email" placeholder="Your Email" title="Your Email" />
+                                                        </td>
+
+                                                        <td class="acysubbuttons">
+                                                            <input class="button subbutton btn btn-primary" type="submit" value="Go" name="Submit" />
+
+                                                        </td>
+                                                    </tr>
+                                                </table>
+
+                                            </div>
+                                        }
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div><div class="moduletable video">
+                        <div class="module_container">
+                            <header class='page_header'><h4 class="moduleTitle ">
+                                <span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first">CRYPTO</span> 
+                                <span class="item_title_part_1 item_title_part_even item_title_part_second_half item_title_part_last">CURRENCY</span>
+                                                             
+                            </h4></header>
+                            <div class="mod-newsflash-adv video mod-newsflash-adv__video cols-1" id="module_230">
+                                <div class="row">
+                                    <article class="col-sm-12 item item_num0 item__module  lastItem" id="item_174">
+
+
+                                        <div class="item_content">
+
+                                            <div id="block-block-1" class="block block-block even">
+
+
+                                                <div id="tv-miniwidget-2" style="display: inline-block">
+                                                    <div id="tradingview_70213-wrapper" style="position: relative; box-sizing: content-box; width: 350px; height: 550px; margin: 0 auto !important; padding: 0 !important; font-family: Arial, sans-serif;">
+                                                        <div style="width: 350px; height: 550px; background: #fff; padding: 0 !important;">
+                                                            <iframe id="tradingview_70213" src="https://s.tradingview.com/miniwidgetembed/" width="350" height="550" frameborder="0" allowtransparency="true" scrolling="no" style="margin: 0 !important; padding: 0 !important;"></iframe>
+                                                        </div>
+
+                                                    </div>
+                                                </div> &nbsp; &nbsp;
+                                                <script type="text/javascript" src="https://s3.amazonaws.com/tradingview/tv.js"></script> &nbsp; &nbsp;
+                                                <script type="text/javascript">
+                                            new TradingView.MiniWidget({
+                                                container_id: 'tv-miniwidget-2',
+                                                tabs: ['USD', 'BTC'],
+                                                symbols: {
+                                                    Equities: ['POLONIEX', 'BITTREX'],
+                                                    USD: ['BTCUSDT', 'ETHUSDT', 'XRPUSDT', 'BCHUSDT', 'ADAUSDT','LTCUSDT','XEMUSD','NEOUSDT','ETCUSDT','BTGUSDT','DASHUSDT'],
+                                                    BTC: ['ETHBTC', 'XRPBTC', 'BCHBTC', 'ADABTC', 'LTCBTC', 'XEMBTC', 'NEOBTC', 'ETCUSDT', 'BTGBTC', 'DASHBTC']
+                                                },
+                                                width: 350, height: 550
+
+                                            });
+                                                </script>
+                                            </div>
+
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </article>
+                                </div>
+                                <div class="clearfix"></div>
+
+                            </div>
+                        </div>
+                    </div><div class="moduletable popular">
+                        <div class="module_container">
+                            <header class='page_header'><h4 class="moduleTitle "><span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first">Popular</span> <span class="item_title_part_1 item_title_part_even item_title_part_second_half item_title_part_last">Articles</span></h4></header><div class="mod-newsflash-adv mod-newsflash-adv__popular cols-1" id="module_231">
+                                <div class="row">
+                                    @foreach (var item in dataProductitemFeature)
+                                    {
+                                        <article class="col-sm-12 item item_num0 item__module  " id="item_142">
+
+                                            <!-- Intro Image -->
+                                            <figure class="item_img img-intro img-intro__left">
+                                                @{
+                                                    var firstOrDefault1 = db.tblPictures.FirstOrDefault(x => x.ProductsId == item.IdProducts);
+
+                                                    if (firstOrDefault1 != null)
+                                                    {
+                                                        var linkImg = firstOrDefault1.OriginalFilepath;
+                                                        var linkImgName = firstOrDefault1.ConvertedFilename;
+                                                        <a href="@Url.Action("Detail","Default",new {id=item.NameProducts.UrlFrendly()+"-"+item.IdProducts})">
+                                                           
+                                                            <picture>
+                                                                <source media="(max-width: 768px)" srcset="@(ConfigurationManager.AppSettings["UrlImg"] + linkImg.Split('_')[0] + "/" + String.Format(linkImgName,1))">
+                                                                <source srcset="@(ConfigurationManager.AppSettings["UrlImg"] + linkImg.Split('_')[0] + "/" + String.Format(linkImgName, 4))">
+                                                                <img src="@(ConfigurationManager.AppSettings["UrlImg"] + linkImg.Split('_')[0] + "/" + String.Format(linkImgName,4))" alt="@item.NameProducts_en">
+                                                            </picture>
+                                                        </a>
+
+
+                                                    }
+                                                }
+
+                                            </figure>
+
+                                            <div class="item_content">
+
+                                                <ul class="tags inline">
+                                                    <li class="tag-18 tag-list0" itemprop="keywords">
+                                                        @{
+                                                            var orDefault1 = db.tblMenus.FirstOrDefault(x => x.IdMenu == item.IdCategoryProducts);
+                                                        }
+                                                        @if (orDefault1 != null)
+                                                        {
+                                                            <a href="@Url.Action("ListNews", "Default", new {id =orDefault1.NameMenu.UrlFrendly()+"-"+ item.IdCategoryProducts})" class="label label-info clvi">@orDefault1.NameMenu</a>
+                                                            <a href="@Url.Action("ListNews", "Default", new {id =orDefault1.NameMenu_en.UrlFrendly()+"-"+ item.IdCategoryProducts})" class="label label-info clen hidden">@orDefault1.NameMenu_en</a>
+
+                                                        }
+                                                    </li>
+                                                </ul>
+
+                                                <!-- Item title -->
+                                                <h5 class="item_title item_title__">
+                                                    <a href="@Url.Action("Detail","Default",new {id=item.NameProducts.UrlFrendly()+"-"+item.IdProducts})">
+                                                        <span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first clvi">@(item.NameProducts.Length >= 45 ? item.NameProducts.Substring(0, 43) + "..." : item.NameProducts)</span>
+
+                                                    </a>
+                                                    <a href="@Url.Action("Detail","Default",new {id=item.NameProducts.UrlFrendly()+"-"+item.IdProducts})">
+                                                        <span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first clen">@(item.NameProducts_en.Length >= 45 ? item.NameProducts_en.Substring(0, 43) + "..." : item.NameProducts_en)</span>
+
+                                                    </a>
+                                                </h5>
+                                                <time datetime="@item.CreateDateProducts" class="item_published">
+                                                    @item.CreateDateProducts
+                                                </time>
+
+
+                                                <!-- Read More link -->
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </article>
+                                    }
+                                 
+                                </div>
+                                <div class="clearfix"></div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section share_fb{
+
+    <meta property="og:title" content="@Model.NameProducts" />
+
+    <meta property="og:url" content='http://www.newstradecoin.com/bitcoin-news-trade-coin/news-trade-coin/@Model.NameProducts.UrlFrendly()-@Model.IdProducts' />
+    <meta name="description" content="@Model.ShortDesProducts">
+    <meta property="og:description" content="@Model.ShortDesProducts" />
+    <meta name="keywords" content="trade coin, btc, bitcoin,eth,lending,poloniex,bittrex" />
+
+    <meta property="og:image:width" content="600" />
+    <meta property="og:image:height" content="315" />
+    @{
+
+            var firstOrDefault11 = db.tblPictures.FirstOrDefault(x => x.ProductsId == Model.IdProducts);
+
+            if (firstOrDefault11 != null)
+            {
+                var linkImg = firstOrDefault11.OriginalFilepath;
+                var linkImgName = firstOrDefault11.ConvertedFilename;
+
+
+                <meta property="og:image" content="@(ConfigurationManager.AppSettings["UrlImg"] + linkImg.Split('_')[0] + "/" + String.Format(linkImgName, 4))"/>
+
+        }
+
+    }
+
+
+
+}

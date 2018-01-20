@@ -1,0 +1,383 @@
+﻿@using System.Configuration
+@using System.Runtime.CompilerServices
+@using WebCoin.Models
+@{
+    DataCoinEntities db = new DataCoinEntities();
+    var itemFeature = db.tblProducts.Where(x => x.IdCompany == 5 && x.StatusProducts == 1 && x.IdTypeProducts == 2).OrderByDescending(x => x.IdProducts).ToList().Take(3);
+    var dataProductitemFeature = itemFeature.OrderBy(x => Guid.NewGuid());
+    var itemMakeBitcoin = db.tblProducts.Where(x => x.IdCompany == 5 && x.StatusProducts == 1 && x.IdTypeProducts == 5).OrderByDescending(x => x.IdProducts).ToList().Take(3);
+    var dataitemMakeBitcoin = itemMakeBitcoin.OrderBy(x => Guid.NewGuid());
+    var itemKnowledgeBitcoin = db.tblProducts.Where(x => x.IdCompany == 5 && x.StatusProducts == 1 && x.IdTypeProducts == 4).OrderByDescending(x => x.IdProducts).ToList().Take(2);
+    var dataitemKnowledgeBitcoin = itemKnowledgeBitcoin.OrderBy(x => Guid.NewGuid());
+}
+<div id="content">
+    <div class="container">
+        <div class="row">
+            <div class="content-inner">
+                <!-- Left sidebar -->
+
+                <div id="component" class="col-sm-8">
+                    <main role="main">
+                        <!-- content-top -->
+                        <div id="content-top">
+                            <div class="row">
+                                <div class="moduletable popular  col-sm-12">
+                                    <div class="module_container">
+                                        <header class='page_header'>
+                                            <h2 class="moduleTitle ">
+                                                <span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first item_title_part_last clvi">Các loại tiền ảo</span>
+                                                <span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first item_title_part_last clen hidden">Crypto Type</span>
+                                            </h2>
+                                        </header>
+                                        <div class="mod-newsflash-adv mod-newsflash-adv__popular cols-2" id="module_229">
+                                            <div class="row">
+                                                @foreach (var item in dataProductitemFeature)
+                                                {
+
+                                                    <article class="col-sm-6 item item_num0 item__module  " id="item_168">
+
+                                                        <!-- Intro Image -->
+                                                        <figure class="item_img img-intro img-intro__left">
+                                                            @{
+                                                                var firstOrDefault = db.tblPictures.FirstOrDefault(x => x.ProductsId == item.IdProducts);
+
+                                                                if (firstOrDefault != null)
+                                                                {
+                                                                    var linkImg = firstOrDefault.OriginalFilepath;
+                                                                    var linkImgName = firstOrDefault.ConvertedFilename;
+                                                                    <a href="@Url.Action("Detail", "Default", new {id = item.NameProducts.UrlFrendly() + "-" + item.IdProducts})">
+                                                                       
+                                                                        <picture>
+                                                                            <source media="(max-width: 768px)" srcset="@(ConfigurationManager.AppSettings["UrlImg"] + linkImg.Split('_')[0] + "/" + String.Format(linkImgName,1))">
+                                                                            <source srcset="@(ConfigurationManager.AppSettings["UrlImg"] + linkImg.Split('_')[0] + "/" + String.Format(linkImgName, 3))">
+                                                                            <img src="@(ConfigurationManager.AppSettings["UrlImg"] + linkImg.Split('_')[0] + "/" + String.Format(linkImgName,3))" alt="@item.NameProducts_en">
+                                                                        </picture>
+
+                                                                    
+                                                                    </a>
+
+                                                                }
+                                                            }
+                                                        </figure>
+
+                                                        <div class="item_content">
+
+                                                            <ul class="tags inline">
+                                                                <li class="tag-18 tag-list0" itemprop="keywords">
+                                                                    @{
+                                                                        var orDefault = db.tblMenus.FirstOrDefault(x => x.IdMenu == item.IdCategoryProducts);
+                                                                    }
+                                                                    @if (orDefault != null)
+                                                                    {
+                                                                        <a href="@Url.Action("ListNews", "Default", new {id =orDefault.NameMenu.UrlFrendly()+"-"+ item.IdCategoryProducts})" class="label label-info clvi">@orDefault.NameMenu</a>
+                                                                        <a href="@Url.Action("ListNews", "Default", new {id =orDefault.NameMenu_en.UrlFrendly()+"-"+ item.IdCategoryProducts})" class="label label-info clen hidden">@orDefault.NameMenu_en</a>
+
+                                                                    }
+                                                                </li>
+                                                            </ul>
+
+                                                            <!-- Item title -->
+                                                            <h5 class="item_title">
+                                                                <a href="@Url.Action("Detail", "Default", new {id = item.NameProducts.UrlFrendly() + "-" + item.IdProducts})">
+                                                                    <span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first clvi">@(item.NameProducts.Length >= 45 ? item.NameProducts.Substring(0, 43) + "..." : item.NameProducts)</span>
+                                                                    <span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first clen hidden">@(item.NameProducts_en.Length >= 45 ? item.NameProducts_en.Substring(0, 43) + "..." : item.NameProducts_en)</span>
+
+                                                                </a>
+                                                            </h5>
+                                                            <time datetime="@item.CreateDateProducts" class="item_published">
+                                                                @item.CreateDateProducts
+                                                            </time>
+
+
+                                                            <!-- Read More link -->
+                                                        </div>
+                                                        <div class="clearfix"></div>
+                                                    </article>
+
+
+
+                                                                        }
+                                            </div>
+
+                                            <div class="clearfix"></div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="system-message-container"></div>
+
+                        <section class="page-blog page-blog__home" itemscope itemtype="https://schema.org/Blog">
+                            <header class="page_header">
+                                <h2>
+                                    <span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first clvi">Kiến thức - tiền ảo</span>
+                                    <span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first clen hidden">Knowledge - Crypto</span>
+
+                                </h2>
+
+                            </header>
+                            @foreach (var itemknBitcoin in dataitemKnowledgeBitcoin)
+                            {
+                                <div class="items-row cols-1 row">
+                                    <div class="col-sm-12">
+                                        <article class="item column-1" id="item-140">
+                                            <!-- Intro image -->
+                                            <figure class="item_img img-intro img-intro__left">
+                                                @{
+                                                    var firstOrDefault = db.tblPictures.FirstOrDefault(x => x.ProductsId == itemknBitcoin.IdProducts);
+
+                                                    if (firstOrDefault != null)
+                                                    {
+                                                        var linkImg = firstOrDefault.OriginalFilepath;
+                                                        var linkImgName = firstOrDefault.ConvertedFilename;
+                                                        <a href="@Url.Action("Detail", "Default", new {id = itemknBitcoin.NameProducts.UrlFrendly() + "-" + itemknBitcoin.IdProducts})">
+                                                          
+                                                            <picture>
+                                                                <source media="(max-width: 768px)" srcset="@(ConfigurationManager.AppSettings["UrlImg"] + linkImg.Split('_')[0] + "/" + String.Format(linkImgName,1))">
+                                                                <source srcset="@(ConfigurationManager.AppSettings["UrlImg"] + linkImg.Split('_')[0] + "/" + String.Format(linkImgName, 2))">
+                                                                <img src="@(ConfigurationManager.AppSettings["UrlImg"] + linkImg.Split('_')[0] + "/" + String.Format(linkImgName,2))" alt="@itemknBitcoin.NameProducts_en">
+                                                            </picture>
+                                                         </a>
+
+                                                    }
+                                                }
+                                            </figure>
+
+                                            <!-- Tags -->
+                                            <ul class="tags inline">
+                                                <li class="tag-18 tag-list0" itemprop="keywords">
+                                                    @{
+                                                        var orDefault = db.tblMenus.FirstOrDefault(x => x.IdMenu == itemknBitcoin.IdCategoryProducts);
+                                                    }
+                                                    @if (orDefault != null)
+                                                    {
+                                                        <a href="@Url.Action("ListNews", "Default", new {id =orDefault.NameMenu.UrlFrendly()+"-"+ itemknBitcoin.IdCategoryProducts})" class="label label-info clvi">@orDefault.NameMenu</a>
+                                                        <a href="@Url.Action("ListNews", "Default", new {id =orDefault.NameMenu_en.UrlFrendly()+"-"+ itemknBitcoin.IdCategoryProducts})" class="label label-info clen hidden">@orDefault.NameMenu_en</a>
+
+                                                    }
+                                                </li>
+                                            </ul>
+
+                                            <!-- title/author -->
+                                            <header class="item_header">
+                                                <h5 class="item_title">
+                                                    <a href="@Url.Action("Detail", "Default", new {id = itemknBitcoin.NameProducts.UrlFrendly() + "-" + itemknBitcoin.IdProducts})">
+                                                        <span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first clvi">@(itemknBitcoin.NameProducts.Length >= 45 ? itemknBitcoin.NameProducts.Substring(0, 43) + "..." : itemknBitcoin.NameProducts)</span>
+                                                        <span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first clen hidden">@(itemknBitcoin.NameProducts_en.Length >= 45 ? itemknBitcoin.NameProducts_en.Substring(0, 43) + "..." : itemknBitcoin.NameProducts_en)</span>
+
+                                                    </a>
+                                                </h5>
+                                            </header>
+                                            <!-- info TOP -->
+                                            <div class="item_info">
+                                                <dl class="item_info_dl">
+                                                    <dt class="article-info-term"></dt>
+
+                                                    <dd>
+                                                        <time datetime="@itemknBitcoin.CreateDateProducts" class="item_published">
+                                                            @itemknBitcoin.CreateDateProducts
+                                                        </time>
+                                                    </dd>
+                                                    <dd>
+                                                        <div class="komento"></div>
+                                                    </dd>
+                                                </dl>
+                                            </div>
+                                            <!-- Introtext -->
+                                            <div class="item_introtext">
+                                                <p class="clvi">
+                                                    @itemknBitcoin.ShortDesProducts
+                                                </p>
+                                                <p class="clen hidden">
+                                                    @itemknBitcoin.ShortDesProducts_en
+                                                </p>
+                                            </div>
+
+                                            <!-- info BOTTOM -->
+                                            <!-- More -->
+                                            <a class="btn btn-info" href="@Url.Action("Detail", "Default", new {id = itemknBitcoin.NameProducts.UrlFrendly() + "-" + itemknBitcoin.IdProducts})">
+                                                <span class="clvi">
+                                                    Chi tiết
+                                                </span>
+                                                <span class="clen hidden">
+                                                    Read more
+                                                </span>
+                                            </a>
+                                        </article><!-- end item -->
+                                    </div><!-- end spann -->
+
+                                </div><!-- end row -->
+                            }
+
+
+                        </section>
+                    </main>
+                </div>
+                <!-- aside-right -->
+                <div id="aside-right" class="col-sm-4">
+                    <div class="moduletable bg">
+                        <div class="module_container">
+                            <header class='page_header'>
+                                <h2 class="moduleTitle ">
+                                    <span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first item_title_part_last">Newsletter</span>
+                                </h2>
+                            </header>
+                            <div class="acymailing_modulebg" id="acymailing_module_formAcymailing46931">
+                                <div class="acymailing_fulldiv" id="acymailing_fulldiv_formAcymailing46931">
+                                    <form>
+                                        @using (Html.BeginForm("SendMail", "Default"))
+                                        {
+                                            <div class="acymailing_module_form">
+                                                <div class="acymailing_introtext">Get the latest world news delivered right to your inbox, daily.</div> <table class="acymailing_form">
+                                                    <tr>
+                                                        <td class="acyfield_email acy_requiredField">
+                                                            <input id="user_email" class="inputbox" type="text" style="width: 100%" name="email" placeholder="Your Email" title="Your Email"/>
+                                                        </td>
+
+                                                        <td class="acysubbuttons">
+                                                            <input class="button subbutton btn btn-primary" type="submit" value="Go" name="Submit"/>
+                                                           
+                                                        </td>
+                                                    </tr>
+                                                </table>
+
+                                            </div>
+                                        }
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="moduletable video">
+                        <div class="module_container">
+                            <header class='page_header'>
+                                <h4 class="moduleTitle ">
+                                    <span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first">Featured</span>
+                                    <span class="item_title_part_1 item_title_part_even item_title_part_second_half item_title_part_last">video</span>
+                                </h4>
+                            </header>
+                            <div class="mod-newsflash-adv video mod-newsflash-adv__video cols-1" id="module_230">
+                                <div class="row">
+                                    <article class="col-sm-12 item item_num0 item__module  lastItem" id="item_174">
+
+
+                                        <div class="item_content">
+
+                                            <!-- Introtext -->
+                                            <div class="item_introtext">
+                                                <div class="video_outer">
+                                                    <div class="video">
+                                                        <div class="video_inner">
+                                                            <iframe width="1170" height="758" src="https://www.youtube.com/embed/cKroNgIi7u8" frameborder="0" allowfullscreen></iframe>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <ul class="tags inline">
+                                                <li class="tag-19 tag-list0" itemprop="keywords">
+                                                    <a href="/joomla_64017/index.php/component/tags/tag/19-food-health" class="label label-info">
+                                                        Food &amp; health
+                                                    </a>
+                                                </li>
+                                            </ul>
+
+                                            <!-- Item title -->
+                                            <h5 class="item_title"><a href="/joomla_64017/index.php/73-home/featured-video/174-try-this-devilish-dessert-recipe"><span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first">Try</span> <span class="item_title_part_1 item_title_part_even item_title_part_first_half">This</span> <span class="item_title_part_2 item_title_part_odd item_title_part_first_half">Devilish</span> <span class="item_title_part_3 item_title_part_even item_title_part_second_half">Dessert</span> <span class="item_title_part_4 item_title_part_odd item_title_part_second_half item_title_part_last">Recipe</span></a></h5>
+
+
+                                            <!-- Read More link -->
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </article>
+                                </div>
+                                <div class="clearfix"></div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="moduletable popular">
+                        <div class="module_container">
+                            <header class='page_header'>
+                                <h4 class="moduleTitle ">
+                                    <span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first clvi">Đào Bitcoin-Tiền ảo</span>
+                                    <span class="item_title_part_1 item_title_part_even item_title_part_second_half item_title_part_last clen hidden">Make Bitcoin-Crypto</span>
+                                </h4>
+                            </header>
+                            <div class="mod-newsflash-adv mod-newsflash-adv__popular cols-1" id="module_231">
+                                @foreach (var itemMkeBitcoin in dataitemMakeBitcoin.Where(x=>x.IdTypeProducts==5))
+                                {
+                                    <div class="row">
+                                        <article class="col-sm-12 item item_num0 item__module  " id="item_142">
+
+                                            <!-- Intro Image -->
+                                            <figure class="item_img img-intro img-intro__left">
+                                                @{
+                                                    var firstOrDefault = db.tblPictures.FirstOrDefault(x => x.ProductsId == itemMkeBitcoin.IdProducts);
+
+                                                    if (firstOrDefault != null)
+                                                    {
+                                                        var linkImg = firstOrDefault.OriginalFilepath;
+                                                        var linkImgName = firstOrDefault.ConvertedFilename;
+                                                        <a href="@Url.Action("Detail", "Default", new {id = itemMkeBitcoin.NameProducts.UrlFrendly() + "-" + itemMkeBitcoin.IdProducts})">
+                                                           
+                                                            <picture>
+                                                                <source media="(max-width: 768px)" srcset="@(ConfigurationManager.AppSettings["UrlImg"] + linkImg.Split('_')[0] + "/" + String.Format(linkImgName,1))">
+                                                                <source srcset="@(ConfigurationManager.AppSettings["UrlImg"] + linkImg.Split('_')[0] + "/" + String.Format(linkImgName, 3))">
+                                                                <img src="@(ConfigurationManager.AppSettings["UrlImg"] + linkImg.Split('_')[0] + "/" + String.Format(linkImgName,3))" alt="@itemMkeBitcoin.NameProducts_en">
+                                                            </picture>
+                                                        </a>
+
+                                                    }
+                                                }
+
+                                            </figure>
+
+                                            <div class="item_content">
+
+                                                <ul class="tags inline">
+                                                    <li class="tag-18 tag-list0" itemprop="keywords">
+                                                        @{
+                                                            var orDefault = db.tblMenus.FirstOrDefault(x => x.IdMenu == itemMkeBitcoin.IdCategoryProducts);
+                                                        }
+                                                        @if (orDefault != null)
+                                                        {
+                                                            <a href="@Url.Action("ListNews", "Default", new {id =orDefault.NameMenu.UrlFrendly()+"-"+ itemMkeBitcoin.IdCategoryProducts})" class="label label-info clvi">@orDefault.NameMenu</a>
+                                                            <a href="@Url.Action("ListNews", "Default", new {id =orDefault.NameMenu.UrlFrendly()+"-"+ itemMkeBitcoin.IdCategoryProducts})" class="label label-info clen hidden">@orDefault.NameMenu_en</a>
+
+                                                        }
+                                                    </li>
+                                                </ul>
+
+                                                <!-- Item title -->
+                                                <h5 class="item_title">
+                                                    <a href="@Url.Action("Detail", "Default", new {id = itemMkeBitcoin.NameProducts.UrlFrendly() + "-" + itemMkeBitcoin.IdProducts})">
+                                                        <span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first clvi">@(itemMkeBitcoin.NameProducts_en.Length >= 45 ? itemMkeBitcoin.NameProducts.Substring(0, 43) + "..." : itemMkeBitcoin.NameProducts)</span>
+                                                        <span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first clen hidden">@(itemMkeBitcoin.NameProducts_en.Length >= 45 ? itemMkeBitcoin.NameProducts_en.Substring(0, 43) + "..." : itemMkeBitcoin.NameProducts_en)</span>
+
+                                                    </a>
+                                                </h5>
+                                                <time datetime="@itemMkeBitcoin.CreateDateProducts" class="item_published">
+                                                    @itemMkeBitcoin.CreateDateProducts
+                                                </time>
+
+
+                                                <!-- Read More link -->
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </article>
+                                    </div>
+                                                            }
+
+
+                                <div class="clearfix"></div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

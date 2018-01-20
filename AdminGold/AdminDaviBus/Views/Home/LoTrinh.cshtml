@@ -1,0 +1,242 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Subaru Workshop Display</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+    <link href="~/Content/ContentWebView/normalize.css" rel="stylesheet" />
+    <link href="~/Content/ContentWebView/style.css" rel="stylesheet" />
+    <script src="~/Content/ContentWebView/js/jquery-1.8.2.js"></script>
+    <script src="~/Content/ContentWebView/js/screenfull.js"></script>
+    <script src="~/Content/ContentWebView/js/jquery.marquee.js"></script>
+    <link href="~/Content/CusWebView.css" rel="stylesheet" />
+
+
+</head>
+<body>
+
+
+    <a href="#" id="btnToaPayoh" class="chooseBranch" style="margin-top: -34px;">Open Full Display</a>
+    <div class="container">
+        <style>
+            .container table tr td {
+                font-size: 35px;
+            }
+
+            .streamingcontent {
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+            }
+
+            .bxslider div, .bxslider div img {
+                width: 100%;
+            }
+
+            .divvideo div {
+                width: 100%;
+                height: 100%;
+            }
+
+            .carlist tr td:first-child {
+                color: #5d0600;
+            }
+
+            .carlist tr td:last-child {
+                color: #008000;
+            }
+        </style>
+        <div class="left">
+
+            <div>
+                <table cellspacing="0" cellpadding="0" border="0" width="325">
+                    <tr>
+                        <td>
+                            <table cellspacing="0" cellpadding="1" border="1" width="300">
+                                <tr style="color:white;background-color:grey">
+                                    <th class="leftcolumnname">Trạm</th>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div style="width:100%; height:600px; overflow:auto;">
+                                <table class="carlist">
+
+
+                                    <tbody class="clTbody"></tbody>
+                                </table>
+                               
+
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+
+            </div>
+        </div>
+        <div class="right">
+            <div class="divvideo" style="width: 100%; height: 100%;">
+
+                <iframe id="youtube-video" style="width: 100%; height: 100%;" src="https://www.youtube.com/embed/bpHQQVyxdCE&amp;index=1?list=PLtK7FwgYghC1aa9QOIqMXLRKPPSELm05F;autoplay=1&amp;loop=1;enablejsapi=1&amp;version=3" enablejsapi="1" frameborder="0" allowfullscreen=""></iframe>
+            </div>
+        </div>
+        <div class="bottom">
+            <div class="news" style="width: 15%; background: #000;font-size: 30px;height: 100%;">
+                <span style="margin-top: 20px;">Xe sắp đến trạm</span>
+            </div>
+            <div class="news" style="font-size: 52px;width: 80%;">
+                <div class="marquee" style="padding-top: 5px;">
+                    <div style="width: 100000px; margin-left: 1536px; animation: marqueeAnimation-2925983 121.823s linear 1s infinite;" class="js-marquee-wrapper">
+
+                        <div class="js-marquee ShowText" style="margin-right: 0px; float: left;">
+                            
+                        </div>
+                        <style></style>
+                    </div>
+                </div>
+            </div>
+            @*<div class="news" style="width: 10%;text-align: center;">
+
+                <img src="~/Content/img/LogoMain.jpg" style="height: 60px;padding-top: 12px;">
+            </div>*@
+        </div>
+
+        <style type="text/css">
+            .marquee,
+            .marquee-with-options,
+            .marquee-vert-before,
+            .marquee-vert {
+                width: 100%;
+                overflow: hidden;
+            }
+
+            tbody {
+                width: 200px;
+                height: 400px;
+                overflow: auto;
+            }
+        </style>
+
+
+    </div>
+    <audio id="notisound" controls style="display: none;" onended="setPlayerVolume(100);">
+        <source src="/Content/audio/merope.mp3" type="audio/mpeg">
+    </audio>
+    <style>
+
+    </style>
+    <script type="text/javascript">
+        var branch = "M";
+        function Schedule(ft, delay) {
+            setTimeout(function () {
+                ft();
+                Schedule(ft, delay);
+            }, delay);
+
+        }
+
+        var player;
+        function StartPlayer() {
+            if ('2' == '1') {
+                if (typeof (OO) != "undefined") {
+                    player = OO.Player.create('ooyalaplayer', 't0anIxcjoQcvDZ9VGdZ-Wpor3JLTcrwa', { autoplay: true });
+                } else {
+                    setTimeout(function () {
+                        StartPlayer();
+                    }, 500);
+                }
+            } else {
+                if (typeof (TY) != "undefined") {
+                    player = new YT.Player('youtube-video', {
+
+                    });
+                } else {
+                    setTimeout(function () {
+                        StartPlayer();
+                    }, 500);
+                }
+            }
+        }
+        function setPlayerVolume(value) {
+            if (player != undefined) {
+                player.setVolume(value);
+            }
+        }
+
+
+        $(document).on('click', "#btnToaPayoh", function (e) {
+            e.preventDefault();
+            fullscreen();
+
+
+        });
+
+        function fullscreen() {
+            screenfull.request($(".container")[0]);
+        }
+
+        $(document).ready(function () {
+            GetTram();
+
+        });
+        function GetTram() {
+            var url = window.location.href;
+            url = url.split('/')[5];
+            console.log(url);
+            var obj = {};
+            obj.Id = url;
+            $.ajax({
+                url: '@Url.Action("GetTram", "DmTram")',
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify(obj),
+                type: "POST",
+                cache: false,
+                success: function (data) {
+                    var resultShow = "";
+                    $.each(data.result.ListDMTRAM, function (i, o) {
+                        resultShow += '<tr><td class="leftcolumnname btnTram1 btnTram_' + o.MATRAM.trim() + '" rel="' + o.MATRAM.trim() + '" rel1="' + o.ID + '" >' + o.TENTRAM + '</td></tr>';
+                    });
+
+                    $('.clTbody').html(resultShow);
+                    setInterval(function() {
+                        GetTracking();
+                    }, 2000);
+                }
+            });
+        }
+        function GetTracking() {
+            var url = window.location.href;
+            url = url.split('/')[5];
+            console.log(url);
+            var obj = {};
+            obj.maTuyen = url;
+            $.ajax({
+                url: '@Url.Action("GetTracking", "Home")',
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify(obj),
+                type: "POST",
+                cache: false,
+                success: function (data) {
+                    console.log(data.result.dt2.MaTram);
+                    console.log(data.result.dt3.TENTRAM);
+                    $('.ShowText').html(data.result.dt3.TENTRAM);
+                    //    background-color: #00b8ff;
+                    $('.btnTram1').attr('style', '');
+                    $('.btnTram_' + data.result.dt2.MaTram).attr('style', 'background-color: #00b8ff;');
+                }
+            });
+        }
+    </script>
+
+
+
+</body>
+</html>

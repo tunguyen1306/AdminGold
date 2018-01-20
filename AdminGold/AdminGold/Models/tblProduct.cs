@@ -16,6 +16,7 @@ namespace AdminGold.Models
     {
         public int IdProducts { get; set; }
         public string NameProducts { get; set; }
+        public string CodeProducts { get; set; }
         public Nullable<int> IdCategoryProducts { get; set; }
         public string PriceProducts { get; set; }
         public string ShortDesProducts { get; set; }
@@ -25,9 +26,12 @@ namespace AdminGold.Models
         public Nullable<System.DateTime> ModifiDateProducts { get; set; }
         public string CreateUserProducts { get; set; }
         public string ModifiUserProducts { get; set; }
+        public Nullable<int> IdTypeProducts { get; set; }
+        public string PriceNewProducts { get; set; }
         public string NameProducts_en { get; set; }
         public string ShortDesProducts_en { get; set; }
         public string DescriptionProducts_en { get; set; }
-        public Nullable<int> IdTypeProducts { get; set; }
+        public Nullable<int> IdCompany { get; set; }
+        public string Images { get; set; }
     }
 }

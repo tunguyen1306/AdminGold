@@ -22,5 +22,10 @@ namespace AdminGold.Models
         public Nullable<int> OrderMenu { get; set; }
         public Nullable<int> IsParent { get; set; }
         public string LinkMenu { get; set; }
+        public Nullable<int> IsCategoryMenu { get; set; }
+        public Nullable<int> ShowHomeMenu { get; set; }
+        public string Description_en { get; set; }
+        public string Description_vi { get; set; }
+        public Nullable<int> IdCompany { get; set; }
     }
 }

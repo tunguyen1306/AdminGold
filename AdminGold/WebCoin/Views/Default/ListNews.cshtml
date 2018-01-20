@@ -1,0 +1,101 @@
+﻿@using System.Configuration
+@using WebCoin.Models
+@model  tblMenu
+@{
+    ViewBag.Title = "ListNews";
+    Layout = "~/Views/Shared/_layoutWeb.cshtml";
+    DataCoinEntities db = new DataCoinEntities();
+}
+<div id="content">
+    <div class="container">
+        <div class="row">
+            <div class="content-inner">
+                <!-- Left sidebar -->
+
+                <div id="component" class="col-sm-12">
+                    <main role="main">
+                        <div id="system-message-container">
+                        </div>
+
+                        <section class="tag-category">
+                            <div class="category-desc">
+                                <div class="clr"></div>
+                            </div>
+
+                            <div class="items-row">
+                                @foreach (var item in db.tblProducts.ToList().Where(x => x.IdCategoryProducts == Model.IdMenu && x.IdCompany == 5).OrderByDescending(x=>x.IdProducts))
+                                {
+                                    <article class="item">
+
+
+
+                                        <div class="item_img img-intro img-intro__left">
+                                          
+                                            @{
+                                                var firstOrDefault = db.tblPictures.FirstOrDefault(x => x.ProductsId == item.IdProducts);
+
+                                                if (firstOrDefault != null)
+                                                {
+                                                    var linkImg = firstOrDefault.OriginalFilepath;
+                                                    var linkImgName = firstOrDefault.ConvertedFilename;
+                                                    <a href="@Url.Action("Detail","Default",new {id=item.NameProducts.UrlFrendly()+"-"+item.IdProducts})">
+                                                        @*<img src="@(ConfigurationManager.AppSettings["UrlImg"] + linkImg.Split('_')[0] + "/" + String.Format(linkImgName,4))" alt="">*@
+
+                                                        <picture>
+                                                            <source media="(max-width: 768px)" srcset="@(ConfigurationManager.AppSettings["UrlImg"] + linkImg.Split('_')[0] + "/" + String.Format(linkImgName,1))">
+                                                            <source srcset="@(ConfigurationManager.AppSettings["UrlImg"] + linkImg.Split('_')[0] + "/" + String.Format(linkImgName, 3))">
+                                                            <img src="@(ConfigurationManager.AppSettings["UrlImg"] + linkImg.Split('_')[0] + "/" + String.Format(linkImgName, 3))" alt="@item.NameProducts_en">
+                                                        </picture>
+                                                    </a>
+                                                   
+
+                                                }
+                                            }
+                                        </div>
+
+                                        <h5 class="item_title">
+                                            <a class="clvi" href="@Url.Action("Detail", "Default", new {id = item.NameProducts.UrlFrendly() + "-" + item.IdProducts})">
+                                                <span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first ">@item.NameProducts</span>
+
+                                            </a>
+                                            <a class="clen hidden" href="@Url.Action("Detail", "Default", new {id = item.NameProducts_en.UrlFrendly() + "-" + item.IdProducts})">
+                                                <span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first ">@item.NameProducts_en</span>
+
+                                            </a>
+                                        </h5>
+                                        <div class="tag-body">
+                                            <p class="clvi">
+                                                @item.ShortDesProducts
+                                            </p>
+                                            <p class="clen hidden">
+                                                @item.ShortDesProducts_en
+                                            </p>
+                                        </div>
+                                        <!-- More -->
+                                       
+                                        <a class="btn btn-info clvi" href="@Url.Action("Detail", "Default", new {id = item.NameProducts.UrlFrendly() + "-" + item.IdProducts})">
+                                            <span>
+                                                Chi tiết
+                                            </span>
+                                        </a>
+                                        <a class="btn btn-info clen hidden" href="@Url.Action("Detail", "Default", new {id = item.NameProducts_en.UrlFrendly() + "-" + item.IdProducts})">
+                                            <span>
+                                                Read more
+                                            </span>
+                                        </a>
+                                        <div class="clearfix"></div>
+                                    </article>
+                                }
+                               
+
+                            </div>
+
+                        </section>
+                    </main>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

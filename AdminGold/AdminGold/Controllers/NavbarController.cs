@@ -17,7 +17,7 @@ namespace AdminGold.Controllers
             var listId = new List<int>();
             if (Session["user"]!=null)
             {
-                listId = Session["user"].ToString() == "anhthi@gmail.com" ? new List<int> { 9, 10, 11, 13 } : Session["user"].ToString() == "nguyendiep@gmail.com" ? new List<int> { 14, 15, 16, 17 } : new List<int> { 2, 4, 6, 7, 8 };
+                listId = Session["user"].ToString() == "anhthi@gmail.com" ? new List<int> { 9, 10, 11, 13 } : Session["user"].ToString() == "nguyendiep@gmail.com" ? new List<int> { 14, 15, 16, 17,18 } : Session["user"].ToString() == "coin@gmail.com" ? new List<int> { 19,20,21,22,23 }: new List<int> { 2, 4, 6, 7, 8 };
             }
             else
             {

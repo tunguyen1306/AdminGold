@@ -59,5 +59,6 @@ namespace AdminGold.Models
         public virtual DbSet<Ip2City2> Ip2City2 { get; set; }
         public virtual DbSet<phuong> phuongs { get; set; }
         public virtual DbSet<VNELocation> VNELocations { get; set; }
+        public virtual DbSet<PostData> PostDatas { get; set; }
     }
 }

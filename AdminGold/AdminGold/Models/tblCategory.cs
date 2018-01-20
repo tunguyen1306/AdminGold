@@ -17,5 +17,7 @@ namespace AdminGold.Models
         public int IdCategory { get; set; }
         public string NameCategory { get; set; }
         public Nullable<int> StatusCategory { get; set; }
+        public string NameCategory_en { get; set; }
+        public Nullable<int> IdCompany { get; set; }
     }
 }

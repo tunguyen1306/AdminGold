@@ -21,5 +21,6 @@ namespace AdminGold.Models
         public string DeviceId { get; set; }
         public Nullable<decimal> lng { get; set; }
         public Nullable<decimal> Lat { get; set; }
+        public string MaTram { get; set; }
     }
 }

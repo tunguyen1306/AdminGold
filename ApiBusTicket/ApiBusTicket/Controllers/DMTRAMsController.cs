@@ -21,7 +21,7 @@ namespace ApiBusTicket.Controllers
         {
             return db.DMTRAMs;
         }
-
+       
         // GET: api/DMTRAMs/5
         [ResponseType(typeof(DMTRAM))]
         public IHttpActionResult GetDMTRAM(int id)
@@ -85,6 +85,7 @@ namespace ApiBusTicket.Controllers
             return CreatedAtRoute("DefaultApi", new { id = dMTRAM.ID }, dMTRAM);
         }
 
+     
         // DELETE: api/DMTRAMs/5
         [ResponseType(typeof(DMTRAM))]
         public IHttpActionResult DeleteDMTRAM(int id)

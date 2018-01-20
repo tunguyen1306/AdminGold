@@ -19,7 +19,31 @@ namespace AdminGold.Controllers
         {
             return View(db.DMTRAMs.ToList());
         }
-
+        [HttpPost]
+        public ActionResult GetTram(string Id)
+        {
+            
+            var listTram = new List<DMTRAM>();
+           
+            var dataListTram = db.DMTUYENCHITIETTRAMs.Where(x => x.IDTUYEN == db.DMTUYENs.FirstOrDefault(y => y.IDTUYEN == Id).MATUYEN).ToList();
+            var tram = db.DMTRAMs.ToList();
+            foreach (var item in dataListTram)
+            {
+                var listT = new DMTRAM();
+                listT.MATRAM = item.MATRAM;
+                listT.TENTRAM = db.DMTRAMs.FirstOrDefault(x => x.MATRAM== item.MATRAM).TENTRAM;
+                listT.LatLng = db.DMTRAMs.FirstOrDefault(x => x.MATRAM== item.MATRAM).LatLng;
+                listTram.Add(listT);
+            }
+            
+            var dataAll = new AllModel
+            {
+                TblDMTUYEN = db.DMTUYENs.FirstOrDefault(x => x.IDTUYEN == Id),
+                ListDMTUYENCHITIETTRAM = db.DMTUYENCHITIETTRAMs.Where(x=>x.IDTUYEN== db.DMTUYENs.FirstOrDefault(y => y.IDTUYEN == Id).MATUYEN).ToList(),
+                ListDMTRAM = listTram
+            };
+            return Json(new {result= dataAll });
+        }
         // GET: DmTram/Details/5
         public ActionResult Details(int? id)
         {
@@ -48,14 +72,11 @@ namespace AdminGold.Controllers
        
         public ActionResult Create(DMTRAM dMTRAM)
         {
-            if (ModelState.IsValid)
-            {
+          
                 db.DMTRAMs.Add(dMTRAM);
                 db.SaveChanges();
                 return RedirectToAction("Index");
-            }
-
-            return View(dMTRAM);
+           
         }
 
         // GET: DmTram/Edit/5
